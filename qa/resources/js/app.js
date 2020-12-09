@@ -30,13 +30,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 import './bootstrap'
 import Vue from 'vue'
 import router from './router'
-// import store from './store'
+import store from './store'
 import App from './App.vue'
 
 new Vue({
 el: '#app',
 router,
-// store,
+store,
 components: {　App },
 template: '<App />'
 });
