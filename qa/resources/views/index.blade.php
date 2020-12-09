@@ -1,11 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QA掲示板</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ config('app.name') }}</title>
+
+<!-- Scripts -->
+<script src="{{ mix('js/app.js') }}" defer></script>
+
+<!-- Fonts -->
+
+<!-- Styles -->
+<link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+
 </head>
+
 <body>
-    <h1>Hello QA SITE</h1>
+<div id="app"></div>
 </body>
+
 </html>
