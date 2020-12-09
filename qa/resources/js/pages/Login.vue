@@ -17,7 +17,24 @@
 
         <div class="panel"
         v-show="tab === 1">
-        ログインフォーム
+
+            <div class="panel"
+            v-show="tab === 1">
+                <form class="form"
+                @submit.prevent="login">
+                    <label for="login-email">Email</label>
+                    <input class="form_item" id="login-email" type="text"
+                    v-model="loginForm.email"
+                    >
+                    <label for="login-password">Password</label>
+                    <input class="form_item" id="login-password" type="password"
+                    v-model="loginForm.password"
+                    >
+                    <div class="form_button">
+                        <button class="button" type="submit">ログイン</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <div class="panel"
@@ -33,6 +50,15 @@ export default {
     data() {
         return {
             tab: 1,
+            loginForm: {
+                email: '',
+                password: '',
+            },
+        }
+    },
+    methods: {
+        login() {
+            console.log(this.loginForm);
         }
     }
 }
