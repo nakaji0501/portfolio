@@ -15,7 +15,7 @@
             <button
             @click="logout">Logout</button>
             <router-link class="button"
-            to="/login"
+            to="/"
             >
             ログイン / 会員登録
             </router-link>
