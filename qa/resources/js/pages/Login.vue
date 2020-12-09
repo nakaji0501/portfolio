@@ -80,8 +80,10 @@ export default {
         }
     },
     methods: {
-        login() {
+        async login() {
             console.log(this.loginForm);
+            await this.$store.dispatch('auth/login', this.loginForm)
+            this.$router.push('/')
         },
         async register() {
             console.log(this.registerForm);
