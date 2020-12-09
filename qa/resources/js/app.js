@@ -27,6 +27,16 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
+import './bootstrap'
+import Vue from 'vue'
+import router from './router'
+import store from './store'
+import App from './App.vue'
+
+new Vue({
+el: '#app',
+router,
+store,
+components: {　App },
+template: '<App />'
 });
