@@ -83,8 +83,10 @@ export default {
         login() {
             console.log(this.loginForm);
         },
-        register() {
+        async register() {
             console.log(this.registerForm);
+            await this.$store.dispatch('auth/register', this.registerForm)
+            this.$router.push('/')
         }
     }
 }
