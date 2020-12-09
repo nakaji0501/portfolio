@@ -12,7 +12,8 @@
         </div>
 
         <div class="">
-            <button>Logout</button>
+            <button
+            @click="logout">Logout</button>
             <router-link class="button"
             to="/login"
             >
