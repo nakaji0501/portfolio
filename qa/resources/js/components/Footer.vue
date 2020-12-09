@@ -1,5 +1,5 @@
 <template>
-    <footer class="fotter">
+    <footer class="footer">
 
         <div class="f-navMenu">
             <ul class="f-navMenu_item"
@@ -35,3 +35,9 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.footer {
+    margin-top: 100px;
+}
+</style>
