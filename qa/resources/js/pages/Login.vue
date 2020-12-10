@@ -90,10 +90,6 @@ export default {
             await this.$store.dispatch('auth/register', this.registerForm)
             this.$router.push('/')
         },
-        async logout() {
-            await this.$store.dispatch('auth/logout')
-            this.$router.push('/')
-        },
     }
 }
 </script>

@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Login from './pages/Login.vue'
-import BoardList from './pages/BoardList.vue'
+import Login from './pages/Login'
+import BoardList from './pages/BoardList'
+import BoardDetail from './pages/BoardDetail'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,10 @@ const routes = [
         path: '/login',
         component: Login,
     },
+    {
+        path: '/detail',
+        component: BoardDetail,
+    }
 ]
 
 const router = new VueRouter({

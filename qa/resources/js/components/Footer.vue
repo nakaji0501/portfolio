@@ -15,7 +15,7 @@
             <button
             @click="logout">Logout</button>
             <router-link class="button"
-            to="/login"
+            to="/"
             >
             ログイン / 会員登録
             </router-link>
@@ -34,6 +34,12 @@ export default {
             ],
         }
     },
+    methods: {
+        async logout() {
+            await this.$store.dispatch('auth/logout')
+            this.$router.push('/')
+        },
+    }
 }
 </script>
 

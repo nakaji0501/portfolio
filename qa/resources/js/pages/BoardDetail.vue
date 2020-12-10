@@ -1,0 +1,35 @@
+<template>
+    <div class="container">
+        <div class="">
+
+            <div class="title">
+                <h3>タイトルが入ります</h3>
+            </div>
+
+            <div class="infomation">
+                <p>投稿者： username</p>
+                <p>投稿日： 2020／12／01 (水) 20:00</p>
+            </div>
+
+            <div class="text">
+                <p>ここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入ります</p>
+            </div>
+
+            <CommentForm />
+
+            <CommentList />
+        </div>
+    </div>
+</template>
+
+<script>
+import CommentForm from '../components/CommentForm'
+import CommentList from '../components/CommentList'
+
+export default {
+    components: {
+        CommentForm,
+        CommentList,
+    }
+}
+</script>
