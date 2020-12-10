@@ -3,7 +3,11 @@
     <h1>boardlist</h1>
     <Tag />
     <Sort />
+    <router-link
+    to="/detail"
+    >
     <Board />
+    </router-link>
 </div>
 </template>
 
