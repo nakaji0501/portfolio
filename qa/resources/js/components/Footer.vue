@@ -3,7 +3,7 @@
 
         <div class="f-navMenu">
             <ul class="f-navMenu_item"
-            v-for="item in category"
+            v-for="item in tags"
             :key="item.id">
                 <li>
                     {{ item.name }}
@@ -13,7 +13,10 @@
 
         <div class="">
             <button
-            @click="logout">Logout</button>
+            @click="logout"
+            v-show="isLogin"
+            >Logout
+            </button>
             <router-link class="button"
             to="/"
             >
@@ -27,7 +30,8 @@
 export default {
     data() {
         return {
-            category: [
+            isLogin: false,
+            tags: [
                 { id: 1, name: '夫婦' },
                 { id: 2, name: '家族' },
                 { id: 3, name: '育児' },

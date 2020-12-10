@@ -21,6 +21,9 @@
 </template>
 
 <script>
+import reset from '../css/reset.css'
+import common from '../css/common.css'
+
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 

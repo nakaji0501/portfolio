@@ -1,6 +1,5 @@
 <template>
 <div class="container">
-    <h1>boardlist</h1>
     <Tag />
     <Sort />
     <router-link
