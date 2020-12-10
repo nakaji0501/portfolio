@@ -14,6 +14,22 @@
             <div class="text">
                 <p>ここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入ります</p>
             </div>
+
+            <CommentForm />
+
+            <CommentList />
         </div>
     </div>
 </template>
+
+<script>
+import CommentForm from '../components/CommentForm'
+import CommentList from '../components/CommentList'
+
+export default {
+    components: {
+        CommentForm,
+        CommentList,
+    }
+}
+</script>
