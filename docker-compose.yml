@@ -23,8 +23,8 @@ services:
    environment:
      MYSQL_ROOT_PASSWORD: root
      MYSQL_DATABASE: vue_db
-     MYSQL_USER: vue_user
-     MYSQL_PASSWORD: vue_pass
+     MYSQL_USER: nakaji
+     MYSQL_PASSWORD: nakajinia
      TZ: 'Asia/Tokyo'
    # 起動時のコマンド
    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
