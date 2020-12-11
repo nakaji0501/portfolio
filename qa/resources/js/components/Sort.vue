@@ -5,8 +5,22 @@
     </div>
 </template>
 
-<style>
-.sort_container {
-    display: flex;
+<style lang="scss" scoped>
+@media screen and (max-width: 480px) {
+    .sort_container {
+        display: flex;
+
+        & p {
+            margin-right: 24px;
+        }
+    }
+}
+
+@media screen and (max-width: 896px) and (min-width: 481px) {
+
+}
+
+@media screen and (max-width: 1024px) and (min-width: 897px) {
+
 }
 </style>

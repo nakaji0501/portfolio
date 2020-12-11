@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="login_container">
         <ul class="tab">
             <li class="tab_item"
             @click="tab = 1"
@@ -94,8 +94,39 @@ export default {
 }
 </script>
 
-<style scoped>
-.tab_item-active {
-    color: red;
+<style lang="scss" scoped>
+@media screen and (max-width: 480px) {
+.login_container {
+    border: 1px solid #868686;
+    padding: 16px;
+}
+.tab {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 16px;
+    &_item-active {
+        background: #e86;
+    }
+}
+.form {
+    & label {
+        display: block;
+    }
+    & input {
+        display: block;
+        width: 80%;
+        margin-bottom: 16px;
+    }
+}
+.button {
+    cursor: pointer;
+}
+}
+@media screen and (max-width: 896px) and (min-width: 481px) {
+
+}
+
+@media screen and (max-width: 1024px) and (min-width: 897px) {
+
 }
 </style>

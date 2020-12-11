@@ -1,9 +1,9 @@
 <template>
     <footer class="footer">
 
-        <div class="f-navMenu">
-            <ul class="f-navMenu_item"
-            v-for="item in category"
+        <div class="navMenu">
+            <ul class="navMenu_item"
+            v-for="item in tags"
             :key="item.id">
                 <li>
                     {{ item.name }}
@@ -11,11 +11,15 @@
             </ul>
         </div>
 
-        <div class="">
+        <div class="button_wrapper">
             <button
-            @click="logout">Logout</button>
+            @click="logout"
+            v-show="isLogin"
+            >Logout
+            </button>
             <router-link class="button"
             to="/"
+            v-show="! isLogin"
             >
             ログイン / 会員登録
             </router-link>
@@ -24,10 +28,12 @@
 </template>
 
 <script>
+import Navbar from './Navbar'
+
 export default {
     data() {
         return {
-            category: [
+            tags: [
                 { id: 1, name: '夫婦' },
                 { id: 2, name: '家族' },
                 { id: 3, name: '育児' },
@@ -43,8 +49,33 @@ export default {
 }
 </script>
 
-<style scoped>
-.footer {
-    margin-top: 100px;
+<style lang="scss" scoped>
+@media screen and (max-width: 480px) {
+    .footer {
+        margin-top: 100px;
+        width: 90%;
+        margin: 100px auto;
+    }
+    .navMenu_item {
+        display: inline-block;
+
+        & li {
+            margin-right: 16px;
+        }
+    }
+
+    .button_wrapper {
+        margin-top: 24px;
+        text-align: cente;
+    }
 }
+
+@media screen and (max-width: 896px) and (min-width: 481px) {
+
+}
+
+@media screen and (max-width: 1024px) and (min-width: 897px) {
+
+}
+
 </style>
