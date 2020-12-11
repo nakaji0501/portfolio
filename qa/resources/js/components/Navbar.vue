@@ -49,19 +49,27 @@ export default {
 </script>
 
 
-<style lang="sass" scoped>
-@media screen and (max-width: 480px)
-    .navbar
-        display: flex
-        padding: 8px
-    .title
-        font-size: 2rem
-        color: #333
-    .subText p
-        font-size: 0.8rem
-        padding-left: 8px
+<style lang="scss" scoped>
+@media screen and (max-width: 480px) {
+    .navbar {
+        display: flex;
+        padding: 8px;
+    }
+    .title {
+        font-size: 2rem;
+        color: #333;
+    }
+    .subText p {
+        font-size: 0.8rem;
+        padding-left: 8px;
+    }
+}
 
+@media screen and (max-width: 896px) and (min-width: 481px) {
 
-@media screen and (max-width: 896px) and (min-width: 481px)
-@media screen and (max-width: 1024px) and (min-width: 897px)
+}
+
+@media screen and (max-width: 1024px) and (min-width: 897px) {
+
+}
 </style>

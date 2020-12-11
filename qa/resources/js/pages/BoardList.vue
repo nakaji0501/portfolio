@@ -1,12 +1,22 @@
 <template>
-<div class="container">
+<div class="boardList">
+
+    <div class="tag">
     <Tag />
+    </div>
+
+    <div class="sort">
     <Sort />
-    <router-link
-    to="/detail"
-    >
-    <Board />
-    </router-link>
+    </div>
+
+    <div class="linkContainer">
+        <router-link
+        to="/detail"
+        >
+        <Board />
+        </router-link>
+    </div>
+
 </div>
 </template>
 
@@ -23,3 +33,20 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+@media screen and (max-width: 480px) {
+    .linkContainer {
+        width: 90%;
+        margin: 24px auto;
+    }
+}
+
+@media screen and (max-width: 896px) and (min-width: 481px) {
+
+}
+
+@media screen and (max-width: 1024px) and (min-width: 897px) {
+
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <div class="wrapper">
+    <div class="commentList">
+        <div class="commentList_wrapper">
 
             <div class="infomation">
                 <p>コメント： username</p>
@@ -20,3 +20,17 @@
         </div>
     </div>
 </template>
+
+<style lang="scss" scoped>
+@media screen and (max-width: 480px) {
+
+}
+
+@media screen and (max-width: 896px) and (min-width: 481px) {
+
+}
+
+@media screen and (max-width: 1024px) and (min-width: 897px) {
+
+}
+</style>
