@@ -33,6 +33,7 @@ import Navbar from './Navbar'
 export default {
     data() {
         return {
+            isLogin: false,
             tags: [
                 { id: 1, name: '夫婦' },
                 { id: 2, name: '家族' },

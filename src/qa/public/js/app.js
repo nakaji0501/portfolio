@@ -16434,6 +16434,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      isLogin: false,
       tags: [{
         id: 1,
         name: '夫婦'
@@ -16726,7 +16727,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       registerForm: {
         name: '',
         email: '',
-        passwrod: '',
+        password: '',
         password_confirmation: ''
       }
     };

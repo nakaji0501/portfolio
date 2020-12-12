@@ -74,7 +74,7 @@ export default {
             registerForm: {
                 name: '',
                 email: '',
-                passwrod: '',
+                password: '',
                 password_confirmation: ''
             },
         }
