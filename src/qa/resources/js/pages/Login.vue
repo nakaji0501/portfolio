@@ -79,11 +79,19 @@ export default {
             },
         }
     },
+    computed: {
+        apiStatus() {
+            // ストアのauthモジュール内apiStatusを参照する
+            return this.$store.state.auth.apiStatus
+        },
+    },
     methods: {
         async login() {
             console.log(this.loginForm);
             await this.$store.dispatch('auth/login', this.loginForm)
-            this.$router.push('/')
+            if (this.apiStatus) {
+                this.$router.push('/')
+            }
         },
         async register() {
             console.log(this.registerForm);
