@@ -1,7 +1,9 @@
-import Axios from "axios"
+import axios from "axios"
+import { OK } from '../util'
 
 const state = {
-    user: null
+    user: null,
+    apiStatus: null
 }
 
 const getters = {
@@ -12,7 +14,10 @@ const getters = {
 const mutations = {
     setUser (state, user) {
         state.user = user
-    }
+    },
+    setApiStatus (state, status) {
+        state.apiStatus = status
+    },
 }
 
 const actions = {
