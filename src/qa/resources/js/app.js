@@ -19,4 +19,4 @@ router,
 store,
 components: {　App },
 template: '<App />'
-});
+})
