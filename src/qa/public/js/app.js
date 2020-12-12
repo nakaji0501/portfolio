@@ -37620,7 +37620,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var state = {
   user: null,
-  apiStatus: null
+  // 通信結果
+  apiStatus: null,
+  // バリデーションエラーメッセージを格納
+  loginErrorMessages: null
 };
 var getters = {
   check: function check(state) {
@@ -37636,6 +37639,9 @@ var mutations = {
   },
   setApiStatus: function setApiStatus(state, status) {
     state.apiStatus = status;
+  },
+  setLoginErrorMessages: function setLoginErrorMessages(state, messages) {
+    state.loginErrorMessages = message;
   }
 };
 var actions = {

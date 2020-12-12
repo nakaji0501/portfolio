@@ -3,7 +3,10 @@ import { OK, UNPROCESSABLE_ENTITY } from '../util'
 
 const state = {
     user: null,
-    apiStatus: null
+    // 通信結果
+    apiStatus: null,
+    // バリデーションエラーメッセージを格納
+    loginErrorMessages: null,
 }
 
 const getters = {
@@ -18,6 +21,9 @@ const mutations = {
     setApiStatus (state, status) {
         state.apiStatus = status
     },
+    setLoginErrorMessages (state, messages) {
+        state.loginErrorMessages = message
+    }
 }
 
 const actions = {
