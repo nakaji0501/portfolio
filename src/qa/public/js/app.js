@@ -16434,7 +16434,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      isLogin: false,
       tags: [{
         id: 1,
         name: '夫婦'
@@ -16446,6 +16445,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         name: '育児'
       }]
     };
+  },
+  computed: {
+    isLogin: function isLogin() {
+      return this.$store.getters['auth/check'];
+    }
   },
   methods: {
     logout: function logout() {
@@ -16526,12 +16530,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      isLogin: false
-    };
+  computed: {
+    isLogin: function isLogin() {
+      return this.$store.getters['auth/check'];
+    },
+    username: function username() {
+      return this.$store.getters['auth/username'];
+    }
   }
 });
 
@@ -19506,7 +19512,7 @@ var render = function() {
           },
           [
             _c("font-awesome-icon", { attrs: { icon: ["fas", "user"] } }),
-            _vm._v("\n            username\n        ")
+            _vm._v("\n            " + _vm._s(_vm.username) + "\n        ")
           ],
           1
         ),
@@ -19536,19 +19542,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        on: {
-          click: function($event) {
-            _vm.isLogin = !_vm.isLogin
-          }
-        }
-      },
-      [_vm._v("isLogin-change")]
-    )
+    _vm._m(0)
   ])
 }
 var staticRenderFns = [
@@ -37552,7 +37546,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var state = {
   user: null
 };
-var getters = {};
+var getters = {
+  check: function check(state) {
+    return !!state.user;
+  },
+  username: function username(state) {
+    return state.user ? state.user.name : '';
+  }
+};
 var mutations = {
   setUser: function setUser(state, user) {
     state.user = user;

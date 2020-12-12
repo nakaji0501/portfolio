@@ -33,13 +33,17 @@ import Navbar from './Navbar'
 export default {
     data() {
         return {
-            isLogin: false,
             tags: [
                 { id: 1, name: '夫婦' },
                 { id: 2, name: '家族' },
                 { id: 3, name: '育児' },
             ],
         }
+    },
+    computed: {
+        isLogin() {
+            return this.$store.getters['auth/check']
+        },
     },
     methods: {
         async logout() {

@@ -18,7 +18,7 @@
             <span class="navbar_item"
             v-show="isLogin">
                 <font-awesome-icon :icon="['fas', 'user']" />
-                username
+                {{ username }}
             </span>
 
             <div class="navbar_item">
@@ -37,16 +37,18 @@
             <p>夫婦・家族・育児にまつわる「教えて！」「聞いて！」のQ&A掲示板</p>
         </div>
 
-        <button @click="isLogin = !isLogin">isLogin-change</button>
     </nav>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            isLogin: false,
-        }
+    computed: {
+        isLogin() {
+            return this.$store.getters['auth/check']
+        },
+        username() {
+            return this.$store.getters['auth/username']
+        },
     },
 }
 </script>
