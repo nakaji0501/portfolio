@@ -16480,60 +16480,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Navbar.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      isLogin: false
-    };
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/takumi/qa/src/qa/resources/js/components/Navbar.vue: Unexpected token, expected \";\" (51:19)\n\n\u001b[0m \u001b[90m 49 | \u001b[39m        }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 50 | \u001b[39m        username() {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 51 | \u001b[39m            retrun \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39m$store\u001b[33m.\u001b[39mgetters[\u001b[32m'auth/username'\u001b[39m]\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 52 | \u001b[39m        }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 53 | \u001b[39m    }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 54 | \u001b[39m}\u001b[0m\n    at Parser._raise (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:748:17)\n    at Parser.raiseWithData (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:741:17)\n    at Parser.raise (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:735:17)\n    at Parser.unexpected (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9101:16)\n    at Parser.semicolon (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9083:40)\n    at Parser.parseExpressionStatement (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:12216:10)\n    at Parser.parseStatementContent (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11812:19)\n    at Parser.parseStatement (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11676:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:12258:25)\n    at Parser.parseBlockBody (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:12244:10)\n    at Parser.parseBlock (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:12228:10)\n    at Parser.parseFunctionBody (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11221:24)\n    at Parser.parseFunctionBodyAndFinish (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11205:10)\n    at Parser.parseMethod (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11155:10)\n    at Parser.parseObjectMethod (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11084:19)\n    at Parser.parseObjPropValue (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11117:23)\n    at Parser.parsePropertyDefinition (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11041:10)\n    at Parser.parseObjectLike (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10931:25)\n    at Parser.parseExprAtom (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10491:23)\n    at Parser.parseExprSubscripts (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10150:23)\n    at Parser.parseUpdate (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10130:21)\n    at Parser.parseMaybeUnary (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10119:17)\n    at Parser.parseExprOps (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9989:23)\n    at Parser.parseMaybeConditional (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9963:23)\n    at Parser.parseMaybeAssign (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9926:21)\n    at /Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9893:39\n    at Parser.allowInAnd (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11547:12)\n    at Parser.parseMaybeAssignAllowIn (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9893:17)\n    at Parser.parseObjectProperty (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11092:101)\n    at Parser.parseObjPropValue (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11117:100)\n    at Parser.parsePropertyDefinition (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11041:10)\n    at Parser.parseObjectLike (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10931:25)\n    at Parser.parseExprAtom (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10491:23)\n    at Parser.parseExprSubscripts (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10150:23)\n    at Parser.parseUpdate (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10130:21)\n    at Parser.parseMaybeUnary (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10119:17)");
 
 /***/ }),
 
@@ -37552,7 +37501,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var state = {
   user: null
 };
-var getters = {};
+var getters = {
+  check: function check(state) {
+    return !!state.user;
+  },
+  username: function username(state) {
+    return state.user ? state.user.name : '';
+  }
+};
 var mutations = {
   setUser: function setUser(state, user) {
     state.user = user;

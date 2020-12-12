@@ -43,10 +43,13 @@
 
 <script>
 export default {
-    data() {
-        return {
-            isLogin: false,
-        }
+    computed: {
+        isLogin() {
+            return this.$store.getters['auth/check']
+        },
+        username() {
+            retrun this.$store.getters['auth/username']
+        },
     },
 }
 </script>
