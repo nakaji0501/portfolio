@@ -22,7 +22,7 @@ const mutations = {
         state.apiStatus = status
     },
     setLoginErrorMessages (state, messages) {
-        state.loginErrorMessages = message
+        state.loginErrorMessages = messages
     }
 }
 
@@ -46,7 +46,7 @@ const actions = {
         // setApiStatusが失敗した時の分岐
         context.commit('setApiStatus', false)
         // バリデーションエラーの場合はsetCodeは呼ばずErrorMessagesを呼び出す
-        if (response.status === UNPROCESSABLE_ENTITYE) {
+        if (response.status === UNPROCESSABLE_ENTITY) {
             context.commit('setLoginErrorMessages', response.data.errors)
         } else {
             context.commit('error/setCode', response.status, {root: true})
