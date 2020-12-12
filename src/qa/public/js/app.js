@@ -16844,7 +16844,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee2);
       }))();
+    },
+    // バリデーションエラーを消す
+    clearError: function clearError() {
+      this.$store.commit('auth/setLoginErrorMessages', null);
     }
+  },
+
+  /*
+  バリデーションエラーの既表示対策
+  ログインページを表示する前にライフサイクルフックでエラーをクリア
+   */
+  create: function create() {
+    this.clearError();
   }
 });
 

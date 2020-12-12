@@ -132,6 +132,17 @@ export default {
             await this.$store.dispatch('auth/register', this.registerForm)
             this.$router.push('/')
         },
+        // バリデーションエラーを消す
+        clearError() {
+            this.$store.commit('auth/setLoginErrorMessages', null)
+        }
+    },
+    /*
+    バリデーションエラーの既表示対策
+    ログインページを表示する前にライフサイクルフックでエラーをクリア
+     */
+    create() {
+        this.clearError()
     }
 }
 </script>
