@@ -31,6 +31,17 @@
                         {{ msg }}
                         </li>
                     </ul>
+                </div>
+
+                <label for="login-email">Email</label>
+                <input class="form_item" id="login-email" type="text"
+                v-model="loginForm.email"
+                >
+
+                    <!-- バリデーションエラー -->
+                <div class="error"
+                v-if="loginErrors"
+                >
                     <ul v-if="loginErrors.password">
                         <li v-for="msg in loginErrors.password"
                         :key="msg"
@@ -40,10 +51,6 @@
                     </ul>
                 </div>
 
-                <label for="login-email">Email</label>
-                <input class="form_item" id="login-email" type="text"
-                v-model="loginForm.email"
-                >
                 <label for="login-password">Password</label>
                 <input class="form_item" id="login-password" type="password"
                 v-model="loginForm.password"

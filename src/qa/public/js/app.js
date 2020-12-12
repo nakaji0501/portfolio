@@ -16771,6 +16771,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -19894,22 +19901,6 @@ var render = function() {
                         }),
                         0
                       )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.loginErrors.password
-                    ? _c(
-                        "ul",
-                        _vm._l(_vm.loginErrors.password, function(msg) {
-                          return _c("li", { key: msg }, [
-                            _vm._v(
-                              "\n                    " +
-                                _vm._s(msg) +
-                                "\n                    "
-                            )
-                          ])
-                        }),
-                        0
-                      )
                     : _vm._e()
                 ])
               : _vm._e(),
@@ -19937,6 +19928,26 @@ var render = function() {
                 }
               }
             }),
+            _vm._v(" "),
+            _vm.loginErrors
+              ? _c("div", { staticClass: "error" }, [
+                  _vm.loginErrors.password
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.loginErrors.password, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(msg) +
+                                "\n                    "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("label", { attrs: { for: "login-password" } }, [
               _vm._v("Password")
