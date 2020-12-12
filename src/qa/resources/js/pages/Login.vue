@@ -63,6 +63,8 @@
 </template>
 
 <script>
+import { mapState } from './vuex'
+
 export default {
     data() {
         return {
@@ -80,10 +82,21 @@ export default {
         }
     },
     computed: {
+        // ...mapStateなしの記述
+        /*
         apiStatus() {
             // ストアのauthモジュール内apiStatusを参照する
             return this.$store.state.auth.apiStatus
         },
+        loginErrors() {
+            return this.$store.state.auth.loginErrorMessages
+        },
+        */
+        // ...mapStateありの記述
+        ...mapState({
+            apiStatus: state => state.auth.apiStatus,
+            loginErrors: state => state.auth.loginErrorMessages
+        })
     },
     methods: {
         async login() {
