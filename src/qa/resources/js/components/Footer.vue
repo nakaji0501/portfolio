@@ -18,7 +18,7 @@
             >Logout
             </button>
             <router-link class="button"
-            to="/"
+            to="/login"
             v-show="! isLogin"
             >
             ログイン / 会員登録
@@ -44,7 +44,7 @@ export default {
     methods: {
         async logout() {
             await this.$store.dispatch('auth/logout')
-            this.$router.push('/')
+            this.$router.push('/login')
         },
     }
 }

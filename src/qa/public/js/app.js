@@ -16460,7 +16460,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$store.dispatch('auth/logout');
 
               case 2:
-                _this.$router.push('/');
+                _this.$router.push('/login');
 
               case 3:
               case "end":
@@ -19432,7 +19432,7 @@ var render = function() {
               }
             ],
             staticClass: "button",
-            attrs: { to: "/" }
+            attrs: { to: "/login" }
           },
           [_vm._v("\n        ログイン / 会員登録\n        ")]
         )
@@ -37603,7 +37603,7 @@ var actions = {
       }, _callee2);
     }))();
   },
-  logout: function logout(contextE) {
+  logout: function logout(context) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
       var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
