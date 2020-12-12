@@ -18,7 +18,7 @@
             <span class="navbar_item"
             v-show="isLogin">
                 <font-awesome-icon :icon="['fas', 'user']" />
-                username
+                {{ username }}
             </span>
 
             <div class="navbar_item">
@@ -37,7 +37,6 @@
             <p>夫婦・家族・育児にまつわる「教えて！」「聞いて！」のQ&A掲示板</p>
         </div>
 
-        <button @click="isLogin = !isLogin">isLogin-change</button>
     </nav>
 </template>
 
@@ -48,7 +47,7 @@ export default {
             return this.$store.getters['auth/check']
         },
         username() {
-            retrun this.$store.getters['auth/username']
+            return this.$store.getters['auth/username']
         },
     },
 }
