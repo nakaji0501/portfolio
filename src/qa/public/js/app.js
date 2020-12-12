@@ -36667,7 +36667,7 @@ vue__WEBPACK_IMPORTED_MODULE_7___default.a.component('font-awesome-icon', _forta
 
 
 
-
+ // アプリ起動時、Vueインスタンス生成前にログインチェック
 
 var createApp = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
