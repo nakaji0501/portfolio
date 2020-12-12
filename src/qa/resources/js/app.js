@@ -13,6 +13,11 @@ import router from './router'
 import store from './store'
 import App from './App.vue'
 
+// アプリ起動時、Vueインスタンス生成前にログインチェック
+const createApp = async() => {
+    await store.dispatch('auth/currentUser')
+}
+
 new Vue({
 el: '#app',
 router,
