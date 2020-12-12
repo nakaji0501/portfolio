@@ -1,7 +1,12 @@
-import Axios from "axios"
+import axios from "axios"
+import { OK, UNPROCESSABLE_ENTITY } from '../util'
 
 const state = {
-    user: null
+    user: null,
+    // 通信結果
+    apiStatus: null,
+    // バリデーションエラーメッセージを格納
+    loginErrorMessages: null,
 }
 
 const getters = {
@@ -12,6 +17,12 @@ const getters = {
 const mutations = {
     setUser (state, user) {
         state.user = user
+    },
+    setApiStatus (state, status) {
+        state.apiStatus = status
+    },
+    setLoginErrorMessages (state, messages) {
+        state.loginErrorMessages = messages
     }
 }
 
@@ -21,8 +32,25 @@ const actions = {
         context.commit('setUser', response.data)
     },
     async login (context, data) {
+        // まずミューテーションのsetApiStatusに空をコミット
+        context.commit('setApiStatus', null)
         const response = await axios.post('/api/login', data)
-        context.commit('setUser', response.data)
+            .catch(err => err.response || err)
+
+        if (response.status === OK) {
+            context.commit('setApiStatus', true)
+            context.commit('setUser', response.data)
+            return false
+        }
+
+        // setApiStatusが失敗した時の分岐
+        context.commit('setApiStatus', false)
+        // バリデーションエラーの場合はsetCodeは呼ばずErrorMessagesを呼び出す
+        if (response.status === UNPROCESSABLE_ENTITY) {
+            context.commit('setLoginErrorMessages', response.data.errors)
+        } else {
+            context.commit('error/setCode', response.status, {root: true})
+        }
     },
     async logout (context) {
         const response = await axios.post('/api/logout')

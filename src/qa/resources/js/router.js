@@ -5,6 +5,7 @@ import store from './store'
 import Login from './pages/Login'
 import BoardList from './pages/BoardList'
 import BoardDetail from './pages/BoardDetail'
+import SystemError from './pages/errors/System'
 
 Vue.use(VueRouter)
 
@@ -28,7 +29,11 @@ const routes = [
     {
         path: '/detail',
         component: BoardDetail,
-    }
+    },
+    {
+        path: '/500',
+        component: SystemError
+    },
 ]
 
 const router = new VueRouter({

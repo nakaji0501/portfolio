@@ -19,10 +19,38 @@
         v-show="tab === 1">
             <form class="form"
             @submit.prevent="login">
+
+                <div class="error"
+                v-if="loginErrors"
+                >
+                    <!-- バリデーションエラー -->
+                    <ul v-if="loginErrors.email">
+                        <li v-for="msg in loginErrors.email"
+                        :key="msg"
+                        >
+                        {{ msg }}
+                        </li>
+                    </ul>
+                </div>
+
                 <label for="login-email">Email</label>
                 <input class="form_item" id="login-email" type="text"
                 v-model="loginForm.email"
                 >
+
+                    <!-- バリデーションエラー -->
+                <div class="error"
+                v-if="loginErrors"
+                >
+                    <ul v-if="loginErrors.password">
+                        <li v-for="msg in loginErrors.password"
+                        :key="msg"
+                        >
+                        {{ msg }}
+                        </li>
+                    </ul>
+                </div>
+
                 <label for="login-password">Password</label>
                 <input class="form_item" id="login-password" type="password"
                 v-model="loginForm.password"
@@ -63,6 +91,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     data() {
         return {
@@ -79,17 +109,47 @@ export default {
             },
         }
     },
+    computed: {
+        // ...mapStateなしの記述
+        /*
+        apiStatus() {
+            // ストアのauthモジュール内apiStatusを参照する
+            return this.$store.state.auth.apiStatus
+        },
+        loginErrors() {
+            return this.$store.state.auth.loginErrorMessages
+        },
+        */
+        // ...mapStateありの記述
+        ...mapState({
+            apiStatus: state => state.auth.apiStatus,
+            loginErrors: state => state.auth.loginErrorMessages
+        })
+    },
     methods: {
         async login() {
             console.log(this.loginForm);
             await this.$store.dispatch('auth/login', this.loginForm)
-            this.$router.push('/')
+            if (this.apiStatus) {
+                this.$router.push('/')
+            }
         },
         async register() {
             console.log(this.registerForm);
             await this.$store.dispatch('auth/register', this.registerForm)
             this.$router.push('/')
         },
+        // バリデーションエラーを消す
+        clearError() {
+            this.$store.commit('auth/setLoginErrorMessages', null)
+        }
+    },
+    /*
+    バリデーションエラーの既表示対策
+    ログインページを表示する前にライフサイクルフックでエラーをクリア
+     */
+    create() {
+        this.clearError()
     }
 }
 </script>
