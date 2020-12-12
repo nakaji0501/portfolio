@@ -28,7 +28,11 @@ const routes = [
     {
         path: '/detail',
         component: BoardDetail,
-    }
+    },
+    {
+        path: '/500',
+        component: SystemError
+    },
 ]
 
 const router = new VueRouter({
