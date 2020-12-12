@@ -37694,10 +37694,16 @@ var actions = {
               return _context2.abrupt("return", false);
 
             case 8:
-              context.commit('setApiStatus', false);
-              context.commit('error/setCode', response.status, {
-                root: true
-              });
+              // setApiStatusが失敗した時の分岐
+              context.commit('setApiStatus', false); // バリデーションエラーの場合はsetCodeは呼ばずErrorMessagesを呼び出す
+
+              if (response.status === UNPROCESSABLE_ENTITYE) {
+                context.commit('setLoginErrorMessages', response.data.errors);
+              } else {
+                context.commit('error/setCode', response.status, {
+                  root: true
+                });
+              }
 
             case 10:
             case "end":

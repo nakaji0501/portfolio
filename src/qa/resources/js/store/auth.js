@@ -43,8 +43,14 @@ const actions = {
             return false
         }
 
+        // setApiStatusが失敗した時の分岐
         context.commit('setApiStatus', false)
-        context.commit('error/setCode', response.status, {root: true})
+        // バリデーションエラーの場合はsetCodeは呼ばずErrorMessagesを呼び出す
+        if (response.status === UNPROCESSABLE_ENTITYE) {
+            context.commit('setLoginErrorMessages', response.data.errors)
+        } else {
+            context.commit('error/setCode', response.status, {root: true})
+        }
     },
     async logout (context) {
         const response = await axios.post('/api/logout')
