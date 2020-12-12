@@ -19,6 +19,27 @@
         v-show="tab === 1">
             <form class="form"
             @submit.prevent="login">
+
+                <div class="error"
+                v-if="loginErrors"
+                >
+                    <!-- バリデーションエラー -->
+                    <ul v-if="loginErrors.email">
+                        <li v-for="msg in loginErrors.email"
+                        :key="msg"
+                        >
+                        {{ msg }}
+                        </li>
+                    </ul>
+                    <ul v-if="loginErrors.password">
+                        <li v-for="msg in loginErrors.password"
+                        :key="msg"
+                        >
+                        {{ msg }}
+                        </li>
+                    </ul>
+                </div>
+
                 <label for="login-email">Email</label>
                 <input class="form_item" id="login-email" type="text"
                 v-model="loginForm.email"
@@ -63,7 +84,7 @@
 </template>
 
 <script>
-import { mapState } from './vuex'
+import { mapState } from 'vuex'
 
 export default {
     data() {
