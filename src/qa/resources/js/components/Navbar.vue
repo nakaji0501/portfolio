@@ -1,7 +1,8 @@
 <template>
     <nav class="navbar">
-
         <div class="navbar_wrapper">
+
+        <div class="navbar_inner">
             <router-link class="navbar__brand"
             to="/"
             >
@@ -12,7 +13,7 @@
             </router-link>
         </div>
 
-        <div class="navbar_wrapper">
+        <div class="navbar_inner">
 
             <span class="navbar_item"
             v-show="isLogin">
@@ -29,6 +30,8 @@
                 </router-link>
             </div>
         </div>
+
+        </div><!-- navbar_wrapper -->
 
         <div class="subText">
             <p>夫婦・家族・育児にまつわる「教えて！」「聞いて！」のQ&A掲示板</p>
@@ -52,8 +55,11 @@ export default {
 <style lang="scss" scoped>
 @media screen and (max-width: 480px) {
     .navbar {
-        display: flex;
-        padding: 8px;
+        &_wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+        }
     }
     .title {
         font-size: 2rem;
