@@ -49,8 +49,8 @@
                 <input class="form_item" id="password" type="password"
                 v-model="registerForm.password"
                 >
-                <label for="password-confirmatin">Passwrod(確認用)</label>
-                <input class="form_item" id="password-confirmaiton" type="password"
+                <label for="password-confirmation">Passwrod(確認用)</label>
+                <input class="form_item" id="password-confirmation" type="password"
                 v-model="registerForm.password_confirmation"
                 >
                 <div class="form_button">
@@ -74,7 +74,7 @@ export default {
             registerForm: {
                 name: '',
                 email: '',
-                passwrod: '',
+                password: '',
                 password_confirmation: ''
             },
         }

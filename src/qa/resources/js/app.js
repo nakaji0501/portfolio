@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import './bootstrap'
-=======
 // font-awsesomeの設定
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -22,5 +19,4 @@ router,
 store,
 components: {　App },
 template: '<App />'
-});
->>>>>>> f07ed35296987b50c4e246e1b3ddfc0439547af2
+})
