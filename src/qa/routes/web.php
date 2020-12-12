@@ -11,5 +11,5 @@
 |
 */
 Route::get('/{any}', function() {
-return view('app');
+return view('index');
 })->where('any', '.*');
