@@ -3,7 +3,15 @@
         <div class="contents_wrapper">
 
             <div class="title">
-                <h3>タイトルが入ります</h3>
+                <label for="title">ID</label>
+                <input type="text" readonly id='id'
+                :value=questionId>
+            </div>
+
+            <div class="title">
+                <label for="title">タイトルが入ります</label>
+                <input type="text" readonly id='id'
+                :value=title>
             </div>
 
             <div class="infomation">
@@ -32,6 +40,9 @@ import CommentForm from '../components/CommentForm'
 import CommentList from '../components/CommentList'
 
 export default {
+    props: {
+        questionId: String,
+    },
     components: {
         CommentForm,
         CommentList,

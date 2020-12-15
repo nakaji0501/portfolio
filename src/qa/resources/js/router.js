@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 import store from './store'
 
 import Login from './pages/Login'
-import BoardList from './pages/BoardList'
-import BoardDetail from './pages/BoardDetail'
+import QuestionList from './pages/QuestionList'
+import QuestionDetail from './pages/QuestionDetail'
 import SystemError from './pages/errors/System'
 
 Vue.use(VueRouter)
@@ -12,7 +12,7 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        component: BoardList,
+        component: QuestionList,
     },
     {
         path: '/login',
@@ -27,8 +27,9 @@ const routes = [
         },
     },
     {
-        path: '/detail',
-        component: BoardDetail,
+        path: '/detail/:questionId',
+        component: QuestionDetail,
+        props: true
     },
     {
         path: '/500',

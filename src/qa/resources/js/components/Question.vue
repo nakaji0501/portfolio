@@ -3,26 +3,26 @@
 
         <div class="content_wrapper">
 
-            <div class="infomation">
-                <p>usernameが</p>
-                <p>2020.12.01 12:00</p>
-                <p>に投稿しました</p>
-            </div>
+            <div class="card-body">
+                <div
+                v-if="questions.length"
+                >
+                    <div
+                    v-for="question in questions"
+                    :key="question.id"
+                    >
+                        <h3>{{ question.title }}</h3>
+                        <p>{{ question.text }}</p>
 
-            <div class="title">
-                <h3>タイトルが入ります</h3>
-            </div>
+                        <Tag />
+                    </div>
+                </div>
 
-            <div class="tag">
-                <div class="tag_item">
-                    <p>夫婦</p>
+                <div
+                v-else>
+                    <p>投稿がありません。</p>
                 </div>
-                <div class="tag_item">
-                    <p>家族</p>
-                </div>
-                <div class="tag_item">
-                    <p>育児</p>
-                </div>
+
             </div>
 
             <div class="icon_wrapper">
@@ -49,13 +49,34 @@
     </div>
 </template>
 
+<script>
+import Tag from '../components/Tag'
+
+export default {
+    data() {
+        return {
+            questions: [
+                { id: 1, title: 'HTML', text: 'html,html,html,html,html,', },
+                { id: 2, title: 'CSS', text: 'css,css,css,css,css,css,css,css,', },
+                { id: 3, title: 'JavaScript', text: 'javascript,javascript,javascript,javascript,javascript,', },
+                { id: 4, title: 'Vue', text: 'vue,vue,vue,vue,vue,vue,', },
+                { id: 5, title: 'React', text: 'react,react,react,react,react,react,react,react,react,', },
+            ],
+        }
+    },
+    components: {
+        Tag,
+    }
+}
+</script>
+
 <style lang="scss" scoped>
 @media screen and (max-width: 480px) {
     .boardContainer {
         color: #333;
         border-bottom: 1px dotted #333;
     }
-    .infomation {
+    .card-body {
         display: flex;
         margin-bottom: 8px;
     }

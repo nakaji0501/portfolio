@@ -1,5 +1,5 @@
 <template>
-<div class="boardList">
+<div class="QuestionList">
 
     <div class="tag">
     <Tag />
@@ -13,7 +13,7 @@
         <router-link
         to="/detail"
         >
-        <Board />
+        <Question />
         </router-link>
     </div>
 
@@ -23,13 +23,13 @@
 <script>
 import Tag from '../components/Tag'
 import Sort from '../components/sort'
-import Board from  '../components/Board'
+import Question from  '../components/Question'
 
 export default {
     components: {
         Tag,
         Sort,
-        Board,
+        Question,
     }
 }
 </script>
