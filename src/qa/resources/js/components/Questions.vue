@@ -8,7 +8,7 @@
                 v-if="questions.length"
                 >
                     <div
-                    v-for="question in questions"
+                    v-for="question in questionsMessage"
                     :key="question.id"
                     >
                         <h3>{{ question.title }}</h3>
@@ -53,15 +53,12 @@
 import Tag from '../components/Tag'
 
 export default {
+    props: {
+        questionsMessage: true
+    },
     data() {
         return {
-            questions: [
-                { id: 1, title: 'HTML', text: 'html,html,html,html,html,', },
-                { id: 2, title: 'CSS', text: 'css,css,css,css,css,css,css,css,', },
-                { id: 3, title: 'JavaScript', text: 'javascript,javascript,javascript,javascript,javascript,', },
-                { id: 4, title: 'Vue', text: 'vue,vue,vue,vue,vue,vue,', },
-                { id: 5, title: 'React', text: 'react,react,react,react,react,react,react,react,react,', },
-            ],
+            questions: [],
         }
     },
     components: {

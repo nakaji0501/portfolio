@@ -1,5 +1,13 @@
 <template>
-<div class="QuestionList">
+<main class="top">
+
+    <div class="postQuestion_button">
+        <router-link
+        to="/questionForm"
+        >
+        <PostButton />
+        </router-link>
+    </div>
 
     <div class="tag">
     <Tag />
@@ -13,23 +21,26 @@
         <router-link
         to="/detail"
         >
-        <Question />
+        <Questions />
         </router-link>
     </div>
 
-</div>
+</main>
 </template>
 
 <script>
 import Tag from '../components/Tag'
 import Sort from '../components/sort'
-import Question from  '../components/Question'
+import Questions from  '../components/Questions'
+
+import PostButton from '../components/PostButton'
 
 export default {
     components: {
         Tag,
         Sort,
-        Question,
+        Questions,
+        PostButton
     }
 }
 </script>
