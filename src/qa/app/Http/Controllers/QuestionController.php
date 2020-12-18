@@ -21,4 +21,10 @@ class QuestionController extends Controller
     {
         return Questons::create($request->all());
     }
+
+    public function update(Request $request, Question $Question)
+    {
+        $question->update($request->all());
+        return $question;
+    }
 }

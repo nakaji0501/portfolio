@@ -32,6 +32,11 @@ Route::get('/user', fn() => Auth::user())->name('user');
 // 質問投稿
 Route::get('/question', 'Auth/QuestionController@create')->name('question.create');
 
+// 質問詳細取得
 Route::get('/question/{question}', 'Auth/QuestionController@show');
 
+// 質問登録
 Route::post('/question', 'Auth/QuestionController@store');
+
+// 質問更新
+Route::put('/question/{question}', 'Auth/QuestionController@update');
