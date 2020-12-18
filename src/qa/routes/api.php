@@ -40,3 +40,6 @@ Route::post('/question', 'Auth/QuestionController@store');
 
 // 質問更新
 Route::put('/question/{question}', 'Auth/QuestionController@update');
+
+// 質問削除
+Route::delete('question/{question}', 'Auth/QuestionController@destroy');

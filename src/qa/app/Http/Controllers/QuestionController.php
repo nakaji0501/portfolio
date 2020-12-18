@@ -27,4 +27,10 @@ class QuestionController extends Controller
         $question->update($request->all());
         return $question;
     }
+
+    public function destroy(Question $question)
+    {
+        $question->delete();
+        return $question;
+    }
 }
