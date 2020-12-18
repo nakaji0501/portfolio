@@ -31,3 +31,5 @@ Route::get('/user', fn() => Auth::user())->name('user');
 
 // 質問投稿
 Route::get('/question', 'Auth/QuestionController@create')->name('question.create');
+
+Route::get('/question/{question}', 'QuestionController@show');

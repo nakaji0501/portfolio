@@ -10,4 +10,9 @@ class QuestionController extends Controller
     {
         return Questions::all();
     }
+
+    public function show(Question $question)
+    {
+        return $question;
+    }
 }
