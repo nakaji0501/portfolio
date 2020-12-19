@@ -29,17 +29,17 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 // ログインユーザー
 Route::get('/user', fn() => Auth::user())->name('user');
 
-// 質問投稿
-Route::get('/question', 'Auth/QuestionController@create')->name('question.create');
+// 質問一覧
+Route::get('/questions', 'QuestionController@index');
 
 // 質問詳細取得
-Route::get('/question/{question}', 'Auth/QuestionController@show');
+Route::get('/questions/{question}', 'QuestionController@show');
 
 // 質問登録
-Route::post('/question', 'Auth/QuestionController@store');
+Route::post('/questions', 'QuestionController@store');
 
 // 質問更新
-Route::put('/question/{question}', 'Auth/QuestionController@update');
+Route::put('/questions/{question}', 'QuestionController@update');
 
 // 質問削除
-Route::delete('question/{question}', 'Auth/QuestionController@destroy');
+Route::delete('/questions/{question}', 'QuestionController@destroy');
