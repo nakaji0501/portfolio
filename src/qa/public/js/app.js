@@ -16886,7 +16886,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _this2.$store.dispatch('auth/register', _this2.registerForm);
 
               case 3:
-                if (_this2.apiStatu) {
+                if (_this2.apiStatus) {
                   _this2.$router.push('/');
                 }
 
@@ -16901,7 +16901,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     // バリデーションエラーを消す
     clearError: function clearError() {
       this.$store.commit('auth/setLoginErrorMessages', null);
-      this.$store.commit('auth/setRegisterErrorMessagesf', null);
+      this.$store.commit('auth/setRegisterErrorMessages', null);
     }
   },
 
@@ -20340,7 +20340,7 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _vm.registerErrros
+            _vm.registerErrors
               ? _c("div", { staticClass: "errors" }, [
                   _vm.registerErrors.password
                     ? _c(
@@ -38484,16 +38484,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-
+// import axios from "axios"
 
 var state = {
   user: null,
@@ -38535,7 +38533,7 @@ var actions = {
             case 0:
               context.commit('setApiStatus', null);
               _context.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/register', data)["catch"](function (err) {
+              return axios.post('/api/register', data)["catch"](function (err) {
                 return err.response || err;
               });
 
@@ -38543,7 +38541,7 @@ var actions = {
               response = _context.sent;
               console.log(response);
 
-              if (!(response.status === CREATED)) {
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["CREATED"])) {
                 _context.next = 9;
                 break;
               }
@@ -38555,7 +38553,7 @@ var actions = {
             case 9:
               context.commit('setApiStatus', false);
 
-              if (response.status === _util__WEBPACK_IMPORTED_MODULE_2__["UNPROCESSABLE_ENTITY"]) {
+              if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"]) {
                 context.commit('setRegisterErrorMessages', response.data.errors);
               } else {
                 context.commit('error/setCode', response.status, {
@@ -38581,7 +38579,7 @@ var actions = {
               // まずミューテーションのsetApiStatusに空をコミット
               context.commit('setApiStatus', null);
               _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/login', data)["catch"](function (err) {
+              return axios.post('/api/login', data)["catch"](function (err) {
                 return err.response || err;
               });
 
@@ -38589,7 +38587,7 @@ var actions = {
               response = _context2.sent;
               console.log(response);
 
-              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
                 _context2.next = 9;
                 break;
               }
@@ -38602,7 +38600,7 @@ var actions = {
               // setApiStatusが失敗した時の分岐
               context.commit('setApiStatus', false); // バリデーションエラーの場合はsetCodeは呼ばずErrorMessagesを呼び出す
 
-              if (response.status === _util__WEBPACK_IMPORTED_MODULE_2__["UNPROCESSABLE_ENTITY"]) {
+              if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"]) {
                 context.commit('setLoginErrorMessages', response.data.errors);
               } else {
                 context.commit('error/setCode', response.status, {
@@ -38627,12 +38625,12 @@ var actions = {
             case 0:
               context.commit('setApiStatus', null);
               _context3.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/logout');
+              return axios.post('/api/logout');
 
             case 3:
               response = _context3.sent;
 
-              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
                 _context3.next = 8;
                 break;
               }
@@ -38664,24 +38662,24 @@ var actions = {
             case 0:
               context.commit('setApiStatus', null);
               _context4.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user');
+              return axios.get('/api/user');
 
             case 3:
               response = _context4.sent;
               user = response.data || null;
 
-              if (!(response.statsu === _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
                 _context4.next = 9;
                 break;
               }
 
-              context.commit('setApiStatu', true);
+              context.commit('setApiStatus', true);
               context.commit('setUser', user);
               return _context4.abrupt("return", false);
 
             case 9:
               context.commit('setApiStatus', false);
-              context.commit('error_setCode', response.status, {
+              context.commit('error/setCode', response.status, {
                 root: true
               });
 

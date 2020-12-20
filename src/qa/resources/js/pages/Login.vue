@@ -108,7 +108,7 @@
 
                 <!-- バリデーションエラー -->
                 <div class="errors"
-                v-if="registerErrros"
+                v-if="registerErrors"
                 >
                     <ul
                     v-if="registerErrors.password"
@@ -187,14 +187,14 @@ export default {
         async register() {
             console.log(this.registerForm);
             await this.$store.dispatch('auth/register', this.registerForm)
-            if (this.apiStatu) {
+            if (this.apiStatus) {
                 this.$router.push('/')
             }
         },
         // バリデーションエラーを消す
         clearError() {
             this.$store.commit('auth/setLoginErrorMessages', null)
-            this.$store.commit('auth/setRegisterErrorMessagesf', null)
+            this.$store.commit('auth/setRegisterErrorMessages', null)
         }
     },
     /*

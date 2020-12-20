@@ -1,5 +1,5 @@
-import axios from "axios"
-import { OK, UNPROCESSABLE_ENTITY } from '../util'
+// import axios from "axios"
+import { OK, CREATED, UNPROCESSABLE_ENTITY } from '../util'
 
 const state = {
     user: null,
@@ -90,14 +90,14 @@ const actions = {
         const response = await axios.get('/api/user')
         const user = response.data || null
 
-        if (response.statsu === OK) {
-            context.commit('setApiStatu', true)
+        if (response.status === OK) {
+            context.commit('setApiStatus', true)
             context.commit('setUser', user)
             return false
         }
 
         context.commit('setApiStatus', false)
-        context.commit('error_setCode', response.status, {root: true})
+        context.commit('error/setCode', response.status, {root: true})
     }
 }
 
