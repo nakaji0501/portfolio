@@ -37243,6 +37243,7 @@ new vue__WEBPACK_IMPORTED_MODULE_7___default.a({
   },
   template: '<App />'
 });
+createApp();
 
 /***/ }),
 
@@ -38401,14 +38402,37 @@ var actions = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/register', data);
+              context.commit('setApiStatus', null);
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/register', data)["catch"](function (err) {
+                return err.response || err;
+              });
 
-            case 2:
+            case 3:
               response = _context.sent;
-              context.commit('setUser', response.data);
+              console.log(response);
 
-            case 4:
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
+                _context.next = 9;
+                break;
+              }
+
+              context.commit('setApiStatus', true);
+              context.commit('setUser', response.data);
+              return _context.abrupt("return", false);
+
+            case 9:
+              context.commit('setApiStatus', false);
+
+              if (response.status === _util__WEBPACK_IMPORTED_MODULE_2__["UNPROCESSABLE_ENTITY"]) {
+                context.commit('setLoginErrorMessages', response.data.errors);
+              } else {
+                context.commit('error/setCode', response.status, {
+                  root: true
+                });
+              }
+
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -38432,9 +38456,10 @@ var actions = {
 
             case 3:
               response = _context2.sent;
+              console.log(response);
 
               if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
-                _context2.next = 8;
+                _context2.next = 9;
                 break;
               }
 
@@ -38442,7 +38467,7 @@ var actions = {
               context.commit('setUser', response.data);
               return _context2.abrupt("return", false);
 
-            case 8:
+            case 9:
               // setApiStatusが失敗した時の分岐
               context.commit('setApiStatus', false); // バリデーションエラーの場合はsetCodeは呼ばずErrorMessagesを呼び出す
 
@@ -38454,7 +38479,7 @@ var actions = {
                 });
               }
 
-            case 10:
+            case 11:
             case "end":
               return _context2.stop();
           }
@@ -38497,7 +38522,7 @@ var actions = {
             case 2:
               response = _context4.sent;
               user = response.data || null;
-              context.commit('setUer', user);
+              context.commit('setUser', user);
 
             case 5:
             case "end":

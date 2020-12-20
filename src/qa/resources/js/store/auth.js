@@ -28,14 +28,30 @@ const mutations = {
 
 const actions = {
     async register (context, data) {
+        context.commit('setApiStatus', null)
         const response = await axios.post('/api/register', data)
-        context.commit('setUser', response.data)
+            .catch(err => err.response || err)
+            console.log(response);
+
+            if (response.status === OK) {
+                context.commit('setApiStatus', true)
+                context.commit('setUser', response.data)
+                return false
+            }
+
+            context.commit('setApiStatus', false)
+            if (response.status === UNPROCESSABLE_ENTITY) {
+                context.commit('setLoginErrorMessages', response.data.errors)
+            } else {
+                context.commit('error/setCode', response.status, {root: true})
+        }
     },
     async login (context, data) {
         // まずミューテーションのsetApiStatusに空をコミット
         context.commit('setApiStatus', null)
         const response = await axios.post('/api/login', data)
-            .catch(err => err.response || err)
+        .catch(err => err.response || err)
+        console.log(response);
 
         if (response.status === OK) {
             context.commit('setApiStatus', true)
@@ -59,7 +75,7 @@ const actions = {
     async currentUser (context) {
         const response = await axios.get('/api/user')
         const user = response.data || null
-        context.commit('setUer', user)
+        context.commit('setUser', user)
     }
 }
 
