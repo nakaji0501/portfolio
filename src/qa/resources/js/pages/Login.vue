@@ -65,14 +65,63 @@
         v-show="tab === 2">
             <form class="form"
             @submit.prevent="register">
+
+                <!-- バリデーションエラー -->
+                <div class="errors"
+                v-if="registerErrors"
+                >
+                    <ul
+                    v-if="registerErrors.name"
+                    >
+                        <li
+                        v-for="msg in registerErrors.name"
+                        :key="msg">
+                        {{ msg }}
+                        </li>
+                    </ul>
+                </div>
+
                 <label for="username">Name</label>
                 <input class="form_item" id="username" type="text"
                 v-model="registerForm.name"
                 >
+
+                <!-- バリデーションエラー -->
+                <div class="errors"
+                v-if="registerErrors"
+                >
+                    <ul
+                    v-if="registerErrors.email"
+                    >
+                        <li
+                        v-for="msg in registerErrors.email"
+                        :key="msg">
+                        {{ msg }}
+                        </li>
+                    </ul>
+                </div>
+
                 <label for="email">Email</label>
                 <input class="form_item" id="email" type="text"
                 v-model="registerForm.email"
                 >
+
+                <!-- バリデーションエラー -->
+                <div class="errors"
+                v-if="registerErrros"
+                >
+                    <ul
+                    v-if="registerErrors.password"
+                    >
+                        <li
+                        v-for="msg in registerErrors.password"
+                        :key="msg"
+                        >
+                        {{ msg }}
+                        </li>
+                    </ul>
+                </div>
+
                 <label for="password">Password</label>
                 <input class="form_item" id="password" type="password"
                 v-model="registerForm.password"
@@ -123,7 +172,8 @@ export default {
         // ...mapStateありの記述
         ...mapState({
             apiStatus: state => state.auth.apiStatus,
-            loginErrors: state => state.auth.loginErrorMessages
+            loginErrors: state => state.auth.loginErrorMessages,
+            registerErrors: state => state.auth.registerErrorMessages,
         })
     },
     methods: {
@@ -137,11 +187,14 @@ export default {
         async register() {
             console.log(this.registerForm);
             await this.$store.dispatch('auth/register', this.registerForm)
-            this.$router.push('/')
+            if (this.apiStatu) {
+                this.$router.push('/')
+            }
         },
         // バリデーションエラーを消す
         clearError() {
             this.$store.commit('auth/setLoginErrorMessages', null)
+            this.$store.commit('auth/setRegisterErrorMessagesf', null)
         }
     },
     /*

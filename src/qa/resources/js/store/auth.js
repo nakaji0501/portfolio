@@ -7,6 +7,7 @@ const state = {
     apiStatus: null,
     // バリデーションエラーメッセージを格納
     loginErrorMessages: null,
+    registerErrorMessages: null,
 }
 
 const getters = {
@@ -23,6 +24,9 @@ const mutations = {
     },
     setLoginErrorMessages (state, messages) {
         state.loginErrorMessages = messages
+    },
+    setRegisterErrorMessages (state, messages) {
+        state.registerErrorMessages = messages
     }
 }
 
@@ -33,7 +37,7 @@ const actions = {
             .catch(err => err.response || err)
             console.log(response);
 
-            if (response.status === OK) {
+            if (response.status === CREATED) {
                 context.commit('setApiStatus', true)
                 context.commit('setUser', response.data)
                 return false
@@ -41,7 +45,7 @@ const actions = {
 
             context.commit('setApiStatus', false)
             if (response.status === UNPROCESSABLE_ENTITY) {
-                context.commit('setLoginErrorMessages', response.data.errors)
+                context.commit('setRegisterErrorMessages', response.data.errors)
             } else {
                 context.commit('error/setCode', response.status, {root: true})
         }
@@ -69,13 +73,31 @@ const actions = {
         }
     },
     async logout (context) {
+        context.commit('setApiStatus', null)
         const response = await axios.post('/api/logout')
-        context.commit('setUser', null)
+
+        if (response.status === OK) {
+            context.commit('setApiStatus', true)
+            context.commit('setUser', null)
+            return false
+        }
+
+        context.commit('setApiStatus', false)
+        context.commit('error/setCode', response.status, {root: true})
     },
     async currentUser (context) {
+        context.commit('setApiStatus', null)
         const response = await axios.get('/api/user')
         const user = response.data || null
-        context.commit('setUser', user)
+
+        if (response.statsu === OK) {
+            context.commit('setApiStatu', true)
+            context.commit('setUser', user)
+            return false
+        }
+
+        context.commit('setApiStatus', false)
+        context.commit('error_setCode', response.status, {root: true})
     }
 }
 

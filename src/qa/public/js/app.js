@@ -16758,6 +16758,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -16781,6 +16830,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     loginErrors: function loginErrors(state) {
       return state.auth.loginErrorMessages;
+    },
+    registerErrors: function registerErrors(state) {
+      return state.auth.registerErrorMessages;
     }
   })),
   methods: {
@@ -16822,7 +16874,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _this2.$store.dispatch('auth/register', _this2.registerForm);
 
               case 3:
-                _this2.$router.push('/');
+                if (_this2.apiStatu) {
+                  _this2.$router.push('/');
+                }
 
               case 4:
               case "end":
@@ -16835,6 +16889,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     // バリデーションエラーを消す
     clearError: function clearError() {
       this.$store.commit('auth/setLoginErrorMessages', null);
+      this.$store.commit('auth/setRegisterErrorMessagesf', null);
     }
   },
 
@@ -20185,6 +20240,26 @@ var render = function() {
             }
           },
           [
+            _vm.registerErrors
+              ? _c("div", { staticClass: "errors" }, [
+                  _vm.registerErrors.name
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.registerErrors.name, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(msg) +
+                                "\n                    "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _c("label", { attrs: { for: "username" } }, [_vm._v("Name")]),
             _vm._v(" "),
             _c("input", {
@@ -20209,6 +20284,26 @@ var render = function() {
               }
             }),
             _vm._v(" "),
+            _vm.registerErrors
+              ? _c("div", { staticClass: "errors" }, [
+                  _vm.registerErrors.email
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.registerErrors.email, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(msg) +
+                                "\n                    "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
             _vm._v(" "),
             _c("input", {
@@ -20232,6 +20327,26 @@ var render = function() {
                 }
               }
             }),
+            _vm._v(" "),
+            _vm.registerErrros
+              ? _c("div", { staticClass: "errors" }, [
+                  _vm.registerErrors.password
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.registerErrors.password, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(msg) +
+                                "\n                    "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
             _vm._v(" "),
@@ -38373,7 +38488,8 @@ var state = {
   // 通信結果
   apiStatus: null,
   // バリデーションエラーメッセージを格納
-  loginErrorMessages: null
+  loginErrorMessages: null,
+  registerErrorMessages: null
 };
 var getters = {
   check: function check(state) {
@@ -38392,6 +38508,9 @@ var mutations = {
   },
   setLoginErrorMessages: function setLoginErrorMessages(state, messages) {
     state.loginErrorMessages = messages;
+  },
+  setRegisterErrorMessages: function setRegisterErrorMessages(state, messages) {
+    state.registerErrorMessages = messages;
   }
 };
 var actions = {
@@ -38412,7 +38531,7 @@ var actions = {
               response = _context.sent;
               console.log(response);
 
-              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
+              if (!(response.status === CREATED)) {
                 _context.next = 9;
                 break;
               }
@@ -38425,7 +38544,7 @@ var actions = {
               context.commit('setApiStatus', false);
 
               if (response.status === _util__WEBPACK_IMPORTED_MODULE_2__["UNPROCESSABLE_ENTITY"]) {
-                context.commit('setLoginErrorMessages', response.data.errors);
+                context.commit('setRegisterErrorMessages', response.data.errors);
               } else {
                 context.commit('error/setCode', response.status, {
                   root: true
@@ -38494,14 +38613,29 @@ var actions = {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              _context3.next = 2;
+              context.commit('setApiStatus', null);
+              _context3.next = 3;
               return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/logout');
 
-            case 2:
+            case 3:
               response = _context3.sent;
-              context.commit('setUser', null);
 
-            case 4:
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
+                _context3.next = 8;
+                break;
+              }
+
+              context.commit('setApiStatus', true);
+              context.commit('setUser', null);
+              return _context3.abrupt("return", false);
+
+            case 8:
+              context.commit('setApiStatus', false);
+              context.commit('error/setCode', response.status, {
+                root: true
+              });
+
+            case 10:
             case "end":
               return _context3.stop();
           }
@@ -38516,15 +38650,30 @@ var actions = {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              _context4.next = 2;
+              context.commit('setApiStatus', null);
+              _context4.next = 3;
               return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user');
 
-            case 2:
+            case 3:
               response = _context4.sent;
               user = response.data || null;
-              context.commit('setUser', user);
 
-            case 5:
+              if (!(response.statsu === _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
+                _context4.next = 9;
+                break;
+              }
+
+              context.commit('setApiStatu', true);
+              context.commit('setUser', user);
+              return _context4.abrupt("return", false);
+
+            case 9:
+              context.commit('setApiStatus', false);
+              context.commit('error_setCode', response.status, {
+                root: true
+              });
+
+            case 11:
             case "end":
               return _context4.stop();
           }
