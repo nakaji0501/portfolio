@@ -8,7 +8,7 @@
                 v-if="questions.length"
                 >
                     <div
-                    v-for="question in questionsMessage"
+                    v-for="question in questions"
                     :key="question.id"
                     >
                         <h3>{{ question.title }}</h3>
@@ -53,9 +53,9 @@
 import Tag from '../components/Tag'
 
 export default {
-    props: {
-        questionsMessage: true
-    },
+    // props: {
+    //     questionsMessage: true
+    // },
     data() {
         return {
             questions: [],
@@ -63,6 +63,17 @@ export default {
     },
     components: {
         Tag,
+    },
+    methods: {
+        getQuestions() {
+            axios.get('/api/questions')
+                .then((res) => {
+                    this.questions = res.data
+                });
+        },
+    },
+    mounted() {
+        this.getQuestions();
     }
 }
 </script>

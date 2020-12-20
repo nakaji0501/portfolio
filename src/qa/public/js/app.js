@@ -16639,9 +16639,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    questionsMessage: true
-  },
+  // props: {
+  //     questionsMessage: true
+  // },
   data: function data() {
     return {
       questions: []
@@ -16649,6 +16649,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Tag: _components_Tag__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    getQuestions: function getQuestions() {
+      var _this = this;
+
+      axios.get('/api/questions').then(function (res) {
+        _this.questions = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getQuestions();
   }
 });
 
@@ -19913,7 +19925,7 @@ var render = function() {
         _vm.questions.length
           ? _c(
               "div",
-              _vm._l(_vm.questionsMessage, function(question) {
+              _vm._l(_vm.questions, function(question) {
                 return _c(
                   "div",
                   { key: question.id },
