@@ -16999,7 +16999,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_PostButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/PostButton */ "./resources/js/components/PostButton.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_PostButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/PostButton */ "./resources/js/components/PostButton.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -17025,23 +17033,43 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    PostButton: _components_PostButton__WEBPACK_IMPORTED_MODULE_0__["default"]
+    PostButton: _components_PostButton__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
-      title: '',
-      text: ''
+      question: {
+        titel: '',
+        text: ''
+      }
     };
   },
-  computed: {},
+  computed: {
+    questions: function questions() {
+      return this.$store.state.post.questions;
+    }
+  },
   methods: {
     postQuestion: function postQuestion() {
-      this.$store.dispatch('post/postQuestion', {
-        title: this.title,
-        text: this.text
-      });
-      console.log(this.title);
-      console.log(this.text);
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.$store.dispatch('post/questions', _this.question);
+
+              case 2:
+                _this.$router.push('/');
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
   }
 });
@@ -20579,19 +20607,19 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.title,
-                expression: "title"
+                value: _vm.question.title,
+                expression: "question.title"
               }
             ],
             staticClass: "form_item",
             attrs: { type: "text", id: "title" },
-            domProps: { value: _vm.title },
+            domProps: { value: _vm.question.title },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.title = $event.target.value
+                _vm.$set(_vm.question, "title", $event.target.value)
               }
             }
           }),
@@ -20603,19 +20631,19 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.text,
-                expression: "text"
+                value: _vm.question.text,
+                expression: "question.text"
               }
             ],
             staticClass: "form_item",
             attrs: { type: "text", id: "text", cols: "30", rows: "10" },
-            domProps: { value: _vm.text },
+            domProps: { value: _vm.question.text },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.text = $event.target.value
+                _vm.$set(_vm.question, "text", $event.target.value)
               }
             }
           }),
@@ -38780,26 +38808,20 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 var state = {
-  questionsMessage: [{
-    title: 'TITLE1',
-    text: 'TEXT1',
-    cards: [{
-      body: 'English'
-    }, {
-      body: 'Mathematics'
-    }]
-  }, {
-    title: 'TITLE2',
-    text: 'TEXT2',
-    cards: [{
-      body: 'Science'
-    }]
-  }]
+  questions: []
 };
 var mutations = {
   postQuestion: function postQuestion(state, payload) {
-    state.questionsMessage.push({
+    state.questions.push({
       title: payload.title,
       text: payload.text
     });
@@ -38807,7 +38829,27 @@ var mutations = {
 };
 var actions = {
   postQuestion: function postQuestion(context, payload) {
-    context.commit('postQuestion', payload);
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios.post('/api/questions', payload);
+
+            case 2:
+              response = _context.sent;
+              context.commit('postQuestion', response.payload);
+              console.log(response);
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
   }
 };
 var getters = {};

@@ -5,13 +5,13 @@
             @submit.prevent="postQuestion">
                 <label for="title">タイトル</label>
                 <input type="text" id="title" class="form_item"
-                v-model="title"
+                v-model="question.title"
                 >
 
                 <label for="text">投稿する内容</label>
                 <textarea type="text" id="text" class="form_item"
                 cols="30" rows="10"
-                v-model="text"
+                v-model="question.text"
                 ></textarea>
 
                 <PostButton />
@@ -29,18 +29,21 @@ export default {
     },
     data() {
         return {
-            title: '',
-            text: '',
+            question: {
+                titel: '',
+                text: '',
+            }
         }
     },
     computed: {
-
+        questions() {
+            return this.$store.state.post.questions
+        }
     },
     methods: {
-        postQuestion() {
-            this.$store.dispatch('post/postQuestion', { title: this.title, text: this.text })
-            console.log(this.title);
-            console.log(this.text);
+        async postQuestion() {
+            await this.$store.dispatch('post/questions', this.question)
+            this.$router.push('/')
         }
     }
 }

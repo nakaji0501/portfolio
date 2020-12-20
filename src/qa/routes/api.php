@@ -32,11 +32,11 @@ Route::get('/user', fn() => Auth::user())->name('user');
 // 質問一覧
 Route::get('/questions', 'QuestionController@index');
 
-// 質問詳細取得
-Route::get('/questions/{question}', 'QuestionController@show');
-
 // 質問登録
 Route::post('/questions', 'QuestionController@store');
+
+// 質問詳細取得
+Route::get('/questions/{question}', 'QuestionController@show');
 
 // 質問更新
 Route::put('/questions/{question}', 'QuestionController@update');
