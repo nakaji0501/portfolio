@@ -15,6 +15,13 @@
                         <p>{{ question.text }}</p>
 
                         <Tag />
+                        <div class="button">
+                            <button
+                            @click="deleteQuestion(question.id)"
+                            >
+                            削除
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -71,6 +78,12 @@ export default {
                     this.questions = res.data
                 });
         },
+        deleteQuestion(id) {
+            axios.delete('/api/questions/' + id)
+            .then((res) => {
+                this.getQuestions();
+            })
+        }
     },
     mounted() {
         this.getQuestions();

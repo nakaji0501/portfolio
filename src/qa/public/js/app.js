@@ -16637,6 +16637,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   // props: {
@@ -16656,6 +16663,13 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/questions').then(function (res) {
         _this.questions = res.data;
+      });
+    },
+    deleteQuestion: function deleteQuestion(id) {
+      var _this2 = this;
+
+      axios["delete"]('/api/questions/' + id).then(function (res) {
+        _this2.getQuestions();
       });
     }
   },
@@ -17089,10 +17103,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_sort__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/sort */ "./resources/js/components/sort.vue");
 /* harmony import */ var _components_Questions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Questions */ "./resources/js/components/Questions.vue");
 /* harmony import */ var _components_PostButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/PostButton */ "./resources/js/components/PostButton.vue");
-//
-//
-//
-//
 //
 //
 //
@@ -19962,7 +19972,25 @@ var render = function() {
                     _vm._v(" "),
                     _c("p", [_vm._v(_vm._s(question.text))]),
                     _vm._v(" "),
-                    _c("Tag")
+                    _c("Tag"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "button" }, [
+                      _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteQuestion(question.id)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        削除\n                        "
+                          )
+                        ]
+                      )
+                    ])
                   ],
                   1
                 )
@@ -20696,12 +20724,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "sort" }, [_c("Sort")], 1),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "linkContainer" },
-      [_c("router-link", { attrs: { to: "/detail" } }, [_c("Questions")], 1)],
-      1
-    )
+    _c("div", { staticClass: "questionList" }, [_c("Questions")], 1)
   ])
 }
 var staticRenderFns = []
