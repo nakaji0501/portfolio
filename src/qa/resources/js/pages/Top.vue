@@ -17,12 +17,8 @@
     <Sort />
     </div>
 
-    <div class="linkContainer">
-        <router-link
-        to="/detail"
-        >
+    <div class="questionList">
         <Questions />
-        </router-link>
     </div>
 
 </main>

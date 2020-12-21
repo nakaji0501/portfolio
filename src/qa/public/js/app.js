@@ -17008,10 +17008,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -20529,12 +20525,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "sort" }, [_c("Sort")], 1),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "linkContainer" },
-      [_c("router-link", { attrs: { to: "/detail" } }, [_c("Questions")], 1)],
-      1
-    )
+    _c("div", { staticClass: "questionList" }, [_c("Questions")], 1)
   ])
 }
 var staticRenderFns = []
