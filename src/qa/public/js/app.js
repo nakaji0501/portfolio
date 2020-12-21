@@ -16999,6 +16999,23 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     CommentForm: _components_CommentForm__WEBPACK_IMPORTED_MODULE_0__["default"],
     CommentList: _components_CommentList__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      question: {}
+    };
+  },
+  methods: {
+    getQuestionId: function getQuestionId() {
+      var _this = this;
+
+      axios.get('/api/questions' + this.questionId).then(function (res) {
+        _this.question = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getQuestionId();
   }
 });
 
