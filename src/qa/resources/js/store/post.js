@@ -3,15 +3,16 @@ const state = {
   }
 
 const mutations = {
-    postQuestion(state, payload) {
-        state.questions.push({ title: payload.title, text: payload.text })
+    setQusetion(state, payload) {
+        state.questions = payload
+        // state.questions.push({ title: this.payload.title, text: payload.text })
     },
 }
 
 const actions = {
     async postQuestion(context, payload) {
         const response = await axios.post('/api/questions', payload)
-        context.commit('postQuestion', response.payload)
+        context.commit('setQusetion', response.payload)
         console.log(response);
     },
 }

@@ -17038,7 +17038,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       question: {
-        titel: '',
+        title: '',
         text: ''
       }
     };
@@ -17058,7 +17058,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.$store.dispatch('post/questions', _this.question);
+                return _this.$store.dispatch('post/postQuestion', _this.question);
 
               case 2:
                 _this.$router.push('/');
@@ -38820,11 +38820,8 @@ var state = {
   questions: []
 };
 var mutations = {
-  postQuestion: function postQuestion(state, payload) {
-    state.questions.push({
-      title: payload.title,
-      text: payload.text
-    });
+  setQusetion: function setQusetion(state, payload) {
+    state.questions = payload; // state.questions.push({ title: this.payload.title, text: payload.text })
   }
 };
 var actions = {
@@ -38840,7 +38837,7 @@ var actions = {
 
             case 2:
               response = _context.sent;
-              context.commit('postQuestion', response.payload);
+              context.commit('setQusetion', response.payload);
               console.log(response);
 
             case 5:

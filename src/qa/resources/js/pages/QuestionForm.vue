@@ -30,7 +30,7 @@ export default {
     data() {
         return {
             question: {
-                titel: '',
+                title: '',
                 text: '',
             }
         }
@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         async postQuestion() {
-            await this.$store.dispatch('post/questions', this.question)
+            await this.$store.dispatch('post/postQuestion', this.question)
             this.$router.push('/')
         }
     }
