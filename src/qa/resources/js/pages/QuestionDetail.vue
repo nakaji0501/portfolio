@@ -46,7 +46,23 @@ export default {
     components: {
         CommentForm,
         CommentList,
-    }
+    },
+    data() {
+        return {
+            question: {}
+        }
+    },
+    methods: {
+        getQuestionId() {
+            axios.get('/api/questions' + this.questionId)
+                .then((res) => {
+                    this.question = res.data;
+                })
+        },
+    },
+    mounted() {
+        this.getQuestionId()
+    },
 }
 </script>
 

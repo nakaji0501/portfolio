@@ -1,32 +1,19 @@
 const state = {
-    questionsMessage: [
-      {
-        title: 'TITLE1',
-        text: 'TEXT1',
-        cards: [
-          { body: 'English' },
-          { body: 'Mathematics' },
-        ]
-      },
-      {
-        title: 'TITLE2',
-        text: 'TEXT2',
-        cards: [
-          { body: 'Science' }
-        ]
-      },
-    ],
+    questions: [],
   }
 
 const mutations = {
-    postQuestion(state, payload) {
-        state.questionsMessage.push({ title: payload.title, text: payload.text })
+    setQusetion(state, payload) {
+        state.questions = payload
+        // state.questions.push({ title: this.payload.title, text: payload.text })
     },
 }
 
 const actions = {
-    postQuestion(context, payload) {
-        context.commit('postQuestion', payload)
+    async postQuestion(context, payload) {
+        const response = await axios.post('/api/questions', payload)
+        context.commit('setQusetion', response.payload)
+        console.log(response);
     },
 }
 

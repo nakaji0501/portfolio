@@ -9,7 +9,7 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        return Questions::all();
+        return Question::all();
     }
 
     public function show(Question $question)
@@ -19,7 +19,7 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
-        return Questons::create($request->all());
+        return Question::create($request->all());
     }
 
     public function update(Request $request, Question $Question)

@@ -25,3 +25,5 @@ store,
 components: {　App },
 template: '<App />'
 })
+
+createApp()

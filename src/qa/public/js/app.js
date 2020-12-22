@@ -16416,12 +16416,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -16451,6 +16458,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -16467,11 +16475,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }]
     };
   },
-  computed: {
-    isLogin: function isLogin() {
-      return this.$store.getters['auth/check'];
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    apiStatus: function apiStatus(state) {
+      return state.auth.apiStatus;
     }
-  },
+  })), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+    isLogin: 'auth/check'
+  })),
   methods: {
     logout: function logout() {
       var _this = this;
@@ -16485,7 +16495,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$store.dispatch('auth/logout');
 
               case 2:
-                _this.$router.push('/login');
+                if (_this.apiStatus) {
+                  _this.$router.push('/login');
+                }
 
               case 3:
               case "end":
@@ -16625,11 +16637,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    questionsMessage: true
-  },
+  // props: {
+  //     questionsMessage: true
+  // },
   data: function data() {
     return {
       questions: []
@@ -16637,6 +16656,25 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Tag: _components_Tag__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    getQuestions: function getQuestions() {
+      var _this = this;
+
+      axios.get('/api/questions').then(function (res) {
+        _this.questions = res.data;
+      });
+    },
+    deleteQuestion: function deleteQuestion(id) {
+      var _this2 = this;
+
+      axios["delete"]('/api/questions/' + id).then(function (res) {
+        _this2.getQuestions();
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getQuestions();
   }
 });
 
@@ -16758,6 +16796,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -16781,6 +16868,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     loginErrors: function loginErrors(state) {
       return state.auth.loginErrorMessages;
+    },
+    registerErrors: function registerErrors(state) {
+      return state.auth.registerErrorMessages;
     }
   })),
   methods: {
@@ -16822,7 +16912,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _this2.$store.dispatch('auth/register', _this2.registerForm);
 
               case 3:
-                _this2.$router.push('/');
+                if (_this2.apiStatus) {
+                  _this2.$router.push('/');
+                }
 
               case 4:
               case "end":
@@ -16835,6 +16927,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     // バリデーションエラーを消す
     clearError: function clearError() {
       this.$store.commit('auth/setLoginErrorMessages', null);
+      this.$store.commit('auth/setRegisterErrorMessages', null);
     }
   },
 
@@ -16906,6 +16999,23 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     CommentForm: _components_CommentForm__WEBPACK_IMPORTED_MODULE_0__["default"],
     CommentList: _components_CommentList__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      question: {}
+    };
+  },
+  methods: {
+    getQuestionId: function getQuestionId() {
+      var _this = this;
+
+      axios.get('/api/questions' + this.questionId).then(function (res) {
+        _this.question = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getQuestionId();
   }
 });
 
@@ -16920,7 +17030,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_PostButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/PostButton */ "./resources/js/components/PostButton.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_PostButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/PostButton */ "./resources/js/components/PostButton.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -16946,23 +17064,43 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    PostButton: _components_PostButton__WEBPACK_IMPORTED_MODULE_0__["default"]
+    PostButton: _components_PostButton__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
-      title: '',
-      text: ''
+      question: {
+        title: '',
+        text: ''
+      }
     };
   },
-  computed: {},
+  computed: {
+    questions: function questions() {
+      return this.$store.state.post.questions;
+    }
+  },
   methods: {
     postQuestion: function postQuestion() {
-      this.$store.dispatch('post/postQuestion', {
-        title: this.title,
-        text: this.text
-      });
-      console.log(this.title);
-      console.log(this.text);
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.$store.dispatch('post/postQuestion', _this.question);
+
+              case 2:
+                _this.$router.push('/');
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
   }
 });
@@ -19842,7 +19980,7 @@ var render = function() {
         _vm.questions.length
           ? _c(
               "div",
-              _vm._l(_vm.questionsMessage, function(question) {
+              _vm._l(_vm.questions, function(question) {
                 return _c(
                   "div",
                   { key: question.id },
@@ -19851,7 +19989,25 @@ var render = function() {
                     _vm._v(" "),
                     _c("p", [_vm._v(_vm._s(question.text))]),
                     _vm._v(" "),
-                    _c("Tag")
+                    _c("Tag"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "button" }, [
+                      _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteQuestion(question.id)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        削除\n                        "
+                          )
+                        ]
+                      )
+                    ])
                   ],
                   1
                 )
@@ -20181,6 +20337,26 @@ var render = function() {
             }
           },
           [
+            _vm.registerErrors
+              ? _c("div", { staticClass: "errors" }, [
+                  _vm.registerErrors.name
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.registerErrors.name, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(msg) +
+                                "\n                    "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _c("label", { attrs: { for: "username" } }, [_vm._v("Name")]),
             _vm._v(" "),
             _c("input", {
@@ -20205,6 +20381,26 @@ var render = function() {
               }
             }),
             _vm._v(" "),
+            _vm.registerErrors
+              ? _c("div", { staticClass: "errors" }, [
+                  _vm.registerErrors.email
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.registerErrors.email, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(msg) +
+                                "\n                    "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
             _vm._v(" "),
             _c("input", {
@@ -20228,6 +20424,26 @@ var render = function() {
                 }
               }
             }),
+            _vm._v(" "),
+            _vm.registerErrors
+              ? _c("div", { staticClass: "errors" }, [
+                  _vm.registerErrors.password
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.registerErrors.password, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(msg) +
+                                "\n                    "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
             _vm._v(" "),
@@ -20436,19 +20652,19 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.title,
-                expression: "title"
+                value: _vm.question.title,
+                expression: "question.title"
               }
             ],
             staticClass: "form_item",
             attrs: { type: "text", id: "title" },
-            domProps: { value: _vm.title },
+            domProps: { value: _vm.question.title },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.title = $event.target.value
+                _vm.$set(_vm.question, "title", $event.target.value)
               }
             }
           }),
@@ -20460,19 +20676,19 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.text,
-                expression: "text"
+                value: _vm.question.text,
+                expression: "question.text"
               }
             ],
             staticClass: "form_item",
             attrs: { type: "text", id: "text", cols: "30", rows: "10" },
-            domProps: { value: _vm.text },
+            domProps: { value: _vm.question.text },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.text = $event.target.value
+                _vm.$set(_vm.question, "text", $event.target.value)
               }
             }
           }),
@@ -37234,6 +37450,7 @@ new vue__WEBPACK_IMPORTED_MODULE_7___default.a({
   },
   template: '<App />'
 });
+createApp();
 
 /***/ }),
 
@@ -38347,23 +38564,22 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-
+// import axios from "axios"
 
 var state = {
   user: null,
   // 通信結果
   apiStatus: null,
   // バリデーションエラーメッセージを格納
-  loginErrorMessages: null
+  loginErrorMessages: null,
+  registerErrorMessages: null
 };
 var getters = {
   check: function check(state) {
@@ -38382,6 +38598,9 @@ var mutations = {
   },
   setLoginErrorMessages: function setLoginErrorMessages(state, messages) {
     state.loginErrorMessages = messages;
+  },
+  setRegisterErrorMessages: function setRegisterErrorMessages(state, messages) {
+    state.registerErrorMessages = messages;
   }
 };
 var actions = {
@@ -38392,14 +38611,37 @@ var actions = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/register', data);
+              context.commit('setApiStatus', null);
+              _context.next = 3;
+              return axios.post('/api/register', data)["catch"](function (err) {
+                return err.response || err;
+              });
 
-            case 2:
+            case 3:
               response = _context.sent;
-              context.commit('setUser', response.data);
+              console.log(response);
 
-            case 4:
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["CREATED"])) {
+                _context.next = 9;
+                break;
+              }
+
+              context.commit('setApiStatus', true);
+              context.commit('setUser', response.data);
+              return _context.abrupt("return", false);
+
+            case 9:
+              context.commit('setApiStatus', false);
+
+              if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"]) {
+                context.commit('setRegisterErrorMessages', response.data.errors);
+              } else {
+                context.commit('error/setCode', response.status, {
+                  root: true
+                });
+              }
+
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -38417,15 +38659,16 @@ var actions = {
               // まずミューテーションのsetApiStatusに空をコミット
               context.commit('setApiStatus', null);
               _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/login', data)["catch"](function (err) {
+              return axios.post('/api/login', data)["catch"](function (err) {
                 return err.response || err;
               });
 
             case 3:
               response = _context2.sent;
+              console.log(response);
 
-              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_2__["OK"])) {
-                _context2.next = 8;
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
+                _context2.next = 9;
                 break;
               }
 
@@ -38433,11 +38676,11 @@ var actions = {
               context.commit('setUser', response.data);
               return _context2.abrupt("return", false);
 
-            case 8:
+            case 9:
               // setApiStatusが失敗した時の分岐
               context.commit('setApiStatus', false); // バリデーションエラーの場合はsetCodeは呼ばずErrorMessagesを呼び出す
 
-              if (response.status === _util__WEBPACK_IMPORTED_MODULE_2__["UNPROCESSABLE_ENTITY"]) {
+              if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"]) {
                 context.commit('setLoginErrorMessages', response.data.errors);
               } else {
                 context.commit('error/setCode', response.status, {
@@ -38445,7 +38688,7 @@ var actions = {
                 });
               }
 
-            case 10:
+            case 11:
             case "end":
               return _context2.stop();
           }
@@ -38460,14 +38703,29 @@ var actions = {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              _context3.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/logout');
+              context.commit('setApiStatus', null);
+              _context3.next = 3;
+              return axios.post('/api/logout');
 
-            case 2:
+            case 3:
               response = _context3.sent;
-              context.commit('setUser', null);
 
-            case 4:
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
+                _context3.next = 8;
+                break;
+              }
+
+              context.commit('setApiStatus', true);
+              context.commit('setUser', null);
+              return _context3.abrupt("return", false);
+
+            case 8:
+              context.commit('setApiStatus', false);
+              context.commit('error/setCode', response.status, {
+                root: true
+              });
+
+            case 10:
             case "end":
               return _context3.stop();
           }
@@ -38482,15 +38740,30 @@ var actions = {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              _context4.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user');
+              context.commit('setApiStatus', null);
+              _context4.next = 3;
+              return axios.get('/api/user');
 
-            case 2:
+            case 3:
               response = _context4.sent;
               user = response.data || null;
-              context.commit('setUer', user);
 
-            case 5:
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
+                _context4.next = 9;
+                break;
+              }
+
+              context.commit('setApiStatus', true);
+              context.commit('setUser', user);
+              return _context4.abrupt("return", false);
+
+            case 9:
+              context.commit('setApiStatus', false);
+              context.commit('error/setCode', response.status, {
+                root: true
+              });
+
+            case 11:
             case "end":
               return _context4.stop();
           }
@@ -38575,34 +38848,45 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 var state = {
-  questionsMessage: [{
-    title: 'TITLE1',
-    text: 'TEXT1',
-    cards: [{
-      body: 'English'
-    }, {
-      body: 'Mathematics'
-    }]
-  }, {
-    title: 'TITLE2',
-    text: 'TEXT2',
-    cards: [{
-      body: 'Science'
-    }]
-  }]
+  questions: []
 };
 var mutations = {
-  postQuestion: function postQuestion(state, payload) {
-    state.questionsMessage.push({
-      title: payload.title,
-      text: payload.text
-    });
+  setQusetion: function setQusetion(state, payload) {
+    state.questions = payload; // state.questions.push({ title: this.payload.title, text: payload.text })
   }
 };
 var actions = {
   postQuestion: function postQuestion(context, payload) {
-    context.commit('postQuestion', payload);
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios.post('/api/questions', payload);
+
+            case 2:
+              response = _context.sent;
+              context.commit('setQusetion', response.payload);
+              console.log(response);
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
   }
 };
 var getters = {};
