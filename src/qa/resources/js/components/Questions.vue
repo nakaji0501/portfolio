@@ -11,13 +11,18 @@
                     v-for="question in questions"
                     :key="question.id"
                     >
-                        <h3>{{ question.title }}</h3>
-                        <p>{{ question.text }}</p>
+                        <div class="question_content"
+                        @click.prevent="moveDetailPage(question.id)"
+                        >
+                            <p>{{ question.id }}</p>
+                            <h3>{{ question.title }}</h3>
+                            <p>{{ question.text }}</p>
+                        </div>
 
                         <Tag />
                         <div class="button">
                             <button
-                            @click="deleteQuestion(question.id)"
+                            @click.prevent="deleteQuestion(question.id)"
                             >
                             削除
                             </button>
@@ -72,18 +77,25 @@ export default {
         Tag,
     },
     methods: {
-        getQuestions() {
-            axios.get('/api/questions')
+        async getQuestions() {
+            await axios.get('/api/questions')
                 .then((res) => {
                     this.questions = res.data
                 });
         },
-        deleteQuestion(id) {
-            axios.delete('/api/questions/' + id)
+        async deleteQuestion(id) {
+            await axios.delete('/api/questions/' + id)
             .then((res) => {
                 this.getQuestions();
             })
-        }
+        },
+        async moveDetailPage(id) {
+            await axios.get('/api/questions/' + id)
+                .then((res) => {
+                    this.question = res.data
+                    this.$router.push({ name: 'questionDetailPage', params: {questionId: this.question.id} })
+                })
+        },
     },
     mounted() {
         this.getQuestions();

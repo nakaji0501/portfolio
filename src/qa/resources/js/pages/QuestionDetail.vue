@@ -1,17 +1,17 @@
 <template>
-    <div class="boardDetail">
+    <div class="QuestionDetail">
         <div class="contents_wrapper">
 
             <div class="title">
-                <label for="title">ID</label>
+                <label for="id">投稿No.</label>
                 <input type="text" readonly id='id'
-                :value=questionId>
+                v-model="question.id">
             </div>
 
             <div class="title">
-                <label for="title">タイトルが入ります</label>
-                <input type="text" readonly id='id'
-                :value=title>
+                <label for="title">タイトル</label>
+                <input type="text" readonly id='title'
+                v-model="question.title">
             </div>
 
             <div class="infomation">
@@ -20,7 +20,10 @@
             </div>
 
             <div class="text">
-                <p>ここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入ります</p>
+                <label for="text">本文</label>
+                <textarea readonly type="text" id="text" cols="30" rows="10"
+                v-model="question.text"
+                ></textarea>
             </div>
         </div>
 
@@ -41,7 +44,7 @@ import CommentList from '../components/CommentList'
 
 export default {
     props: {
-        questionId: String,
+        questionId: Number,
     },
     components: {
         CommentForm,
@@ -53,15 +56,16 @@ export default {
         }
     },
     methods: {
-        getQuestionId() {
-            axios.get('/api/questions' + this.questionId)
+        async getQuestionDetail() {
+            await axios.get('/api/questions/' + this.questionId)
                 .then((res) => {
                     this.question = res.data;
+                    console.log(this.question);
                 })
         },
     },
     mounted() {
-        this.getQuestionId()
+        this.getQuestionDetail()
     },
 }
 </script>

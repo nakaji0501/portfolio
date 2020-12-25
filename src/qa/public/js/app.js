@@ -16585,7 +16585,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_Tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Tag */ "./resources/js/components/Tag.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Tag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Tag */ "./resources/js/components/Tag.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
 //
 //
 //
@@ -16655,22 +16668,78 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    Tag: _components_Tag__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Tag: _components_Tag__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
     getQuestions: function getQuestions() {
       var _this = this;
 
-      axios.get('/api/questions').then(function (res) {
-        _this.questions = res.data;
-      });
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get('/api/questions').then(function (res) {
+                  _this.questions = res.data;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     },
     deleteQuestion: function deleteQuestion(id) {
       var _this2 = this;
 
-      axios["delete"]('/api/questions/' + id).then(function (res) {
-        _this2.getQuestions();
-      });
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios["delete"]('/api/questions/' + id).then(function (res) {
+                  _this2.getQuestions();
+                });
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    moveDetailPage: function moveDetailPage(id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios.get('/api/questions/' + id).then(function (res) {
+                  _this3.question = res.data;
+
+                  _this3.$router.push({
+                    name: 'questionDetailPage',
+                    params: {
+                      questionId: _this3.question.id
+                    }
+                  });
+                });
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
     }
   },
   mounted: function mounted() {
@@ -16882,16 +16951,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(_this.loginForm);
-                _context.next = 3;
+                _context.next = 2;
                 return _this.$store.dispatch('auth/login', _this.loginForm);
 
-              case 3:
+              case 2:
                 if (_this.apiStatus) {
                   _this.$router.push('/');
                 }
 
-              case 4:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -16907,16 +16975,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                console.log(_this2.registerForm);
-                _context2.next = 3;
+                _context2.next = 2;
                 return _this2.$store.dispatch('auth/register', _this2.registerForm);
 
-              case 3:
+              case 2:
                 if (_this2.apiStatus) {
                   _this2.$router.push('/');
                 }
 
-              case 4:
+              case 3:
               case "end":
                 return _context2.stop();
             }
@@ -16951,8 +17018,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_CommentForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/CommentForm */ "./resources/js/components/CommentForm.vue");
-/* harmony import */ var _components_CommentList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/CommentList */ "./resources/js/components/CommentList.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_CommentForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/CommentForm */ "./resources/js/components/CommentForm.vue");
+/* harmony import */ var _components_CommentList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/CommentList */ "./resources/js/components/CommentList.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
 //
 //
 //
@@ -16994,11 +17072,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    questionId: String
+    questionId: Number
   },
   components: {
-    CommentForm: _components_CommentForm__WEBPACK_IMPORTED_MODULE_0__["default"],
-    CommentList: _components_CommentList__WEBPACK_IMPORTED_MODULE_1__["default"]
+    CommentForm: _components_CommentForm__WEBPACK_IMPORTED_MODULE_1__["default"],
+    CommentList: _components_CommentList__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -17006,16 +17084,31 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    getQuestionId: function getQuestionId() {
+    getQuestionDetail: function getQuestionDetail() {
       var _this = this;
 
-      axios.get('/api/questions' + this.questionId).then(function (res) {
-        _this.question = res.data;
-      });
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get('/api/questions/' + _this.questionId).then(function (res) {
+                  _this.question = res.data;
+                  console.log(_this.question);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
   },
   mounted: function mounted() {
-    this.getQuestionId();
+    this.getQuestionDetail();
   }
 });
 
@@ -19985,9 +20078,25 @@ var render = function() {
                   "div",
                   { key: question.id },
                   [
-                    _c("h3", [_vm._v(_vm._s(question.title))]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(question.text))]),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "question_content",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.moveDetailPage(question.id)
+                          }
+                        }
+                      },
+                      [
+                        _c("p", [_vm._v(_vm._s(question.id))]),
+                        _vm._v(" "),
+                        _c("h3", [_vm._v(_vm._s(question.title))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(question.text))])
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("Tag"),
                     _vm._v(" "),
@@ -19997,6 +20106,7 @@ var render = function() {
                         {
                           on: {
                             click: function($event) {
+                              $event.preventDefault()
                               return _vm.deleteQuestion(question.id)
                             }
                           }
@@ -20549,31 +20659,90 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "boardDetail" }, [
+  return _c("div", { staticClass: "QuestionDetail" }, [
     _c("div", { staticClass: "contents_wrapper" }, [
       _c("div", { staticClass: "title" }, [
-        _c("label", { attrs: { for: "title" } }, [_vm._v("ID")]),
+        _c("label", { attrs: { for: "id" } }, [_vm._v("投稿No.")]),
         _vm._v(" "),
         _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.question.id,
+              expression: "question.id"
+            }
+          ],
           attrs: { type: "text", readonly: "", id: "id" },
-          domProps: { value: _vm.questionId }
+          domProps: { value: _vm.question.id },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.question, "id", $event.target.value)
+            }
+          }
         })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "title" }, [
-        _c("label", { attrs: { for: "title" } }, [
-          _vm._v("タイトルが入ります")
-        ]),
+        _c("label", { attrs: { for: "title" } }, [_vm._v("タイトル")]),
         _vm._v(" "),
         _c("input", {
-          attrs: { type: "text", readonly: "", id: "id" },
-          domProps: { value: _vm.title }
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.question.title,
+              expression: "question.title"
+            }
+          ],
+          attrs: { type: "text", readonly: "", id: "title" },
+          domProps: { value: _vm.question.title },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.question, "title", $event.target.value)
+            }
+          }
         })
       ]),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1)
+      _c("div", { staticClass: "text" }, [
+        _c("label", { attrs: { for: "text" } }, [_vm._v("本文")]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.question.text,
+              expression: "question.text"
+            }
+          ],
+          attrs: {
+            readonly: "",
+            type: "text",
+            id: "text",
+            cols: "30",
+            rows: "10"
+          },
+          domProps: { value: _vm.question.text },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.question, "text", $event.target.value)
+            }
+          }
+        })
+      ])
     ]),
     _vm._v(" "),
     _c(
@@ -20595,18 +20764,6 @@ var staticRenderFns = [
       _c("p", [_vm._v("投稿者： username")]),
       _vm._v(" "),
       _c("p", [_vm._v("投稿日： 2020／12／01 (水) 20:00")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text" }, [
-      _c("p", [
-        _vm._v(
-          "ここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入りますここに投稿された本文が入ります"
-        )
-      ])
     ])
   }
 ]
@@ -38540,6 +38697,7 @@ var routes = [{
 }, {
   path: '/detail/:questionId',
   component: _pages_QuestionDetail__WEBPACK_IMPORTED_MODULE_6__["default"],
+  name: 'questionDetailPage',
   props: true
 }, {
   path: '/500',
@@ -38665,10 +38823,9 @@ var actions = {
 
             case 3:
               response = _context2.sent;
-              console.log(response);
 
               if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
-                _context2.next = 9;
+                _context2.next = 8;
                 break;
               }
 
@@ -38676,7 +38833,7 @@ var actions = {
               context.commit('setUser', response.data);
               return _context2.abrupt("return", false);
 
-            case 9:
+            case 8:
               // setApiStatusが失敗した時の分岐
               context.commit('setApiStatus', false); // バリデーションエラーの場合はsetCodeは呼ばずErrorMessagesを呼び出す
 
@@ -38688,7 +38845,7 @@ var actions = {
                 });
               }
 
-            case 11:
+            case 10:
             case "end":
               return _context2.stop();
           }
@@ -38860,7 +39017,7 @@ var state = {
   questions: []
 };
 var mutations = {
-  setQusetion: function setQusetion(state, payload) {
+  setQuestion: function setQuestion(state, payload) {
     state.questions = payload; // state.questions.push({ title: this.payload.title, text: payload.text })
   }
 };
@@ -38877,7 +39034,7 @@ var actions = {
 
             case 2:
               response = _context.sent;
-              context.commit('setQusetion', response.payload);
+              context.commit('setQuestion', response.payload);
               console.log(response);
 
             case 5:

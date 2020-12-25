@@ -178,14 +178,12 @@ export default {
     },
     methods: {
         async login() {
-            console.log(this.loginForm);
             await this.$store.dispatch('auth/login', this.loginForm)
             if (this.apiStatus) {
                 this.$router.push('/')
             }
         },
         async register() {
-            console.log(this.registerForm);
             await this.$store.dispatch('auth/register', this.registerForm)
             if (this.apiStatus) {
                 this.$router.push('/')
