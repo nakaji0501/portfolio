@@ -43,3 +43,6 @@ Route::put('/questions/{question}', 'QuestionController@update');
 
 // 質問削除
 Route::delete('/questions/{question}', 'QuestionController@destroy');
+
+/// コメント
+Route::post('/questions/{question}/comments', 'QuestionController@addComment')->name('question.comment');

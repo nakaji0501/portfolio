@@ -17083,6 +17083,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       question: {}
     };
   },
+  computed: {
+    username: function username() {
+      return this.$store.getters['auth/username'];
+    }
+  },
   methods: {
     getQuestionDetail: function getQuestionDetail() {
       var _this = this;
@@ -20711,7 +20716,11 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "infomation" }, [
+        _c("p", [_vm._v("投稿者： " + _vm._s(_vm.username))]),
+        _vm._v(" "),
+        _c("p", [_vm._v("投稿日： 2020／12／01 (水) 20:00")])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "text" }, [
         _c("label", { attrs: { for: "text" } }, [_vm._v("本文")]),
@@ -20755,18 +20764,7 @@ var render = function() {
     _c("div", { staticClass: "commentList" }, [_c("CommentList")], 1)
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "infomation" }, [
-      _c("p", [_vm._v("投稿者： username")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("投稿日： 2020／12／01 (水) 20:00")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

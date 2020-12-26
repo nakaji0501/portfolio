@@ -15,7 +15,7 @@
             </div>
 
             <div class="infomation">
-                <p>投稿者： username</p>
+                <p>投稿者： {{ username }}</p>
                 <p>投稿日： 2020／12／01 (水) 20:00</p>
             </div>
 
@@ -54,6 +54,11 @@ export default {
         return {
             question: {}
         }
+    },
+    computed: {
+        username() {
+            return this.$store.getters['auth/username']
+        },
     },
     methods: {
         async getQuestionDetail() {
