@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreQuestion;
 use App\Question;
-use Illuminate\Http\Request;
 
-use App\Comment;
-use App\Http\Requests\StoreComment;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class QuestionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return Question::all();
@@ -35,24 +42,5 @@ class QuestionController extends Controller
     {
         $question->delete();
         return $question;
-    }
-
-    /**
-     * コメント投稿
-     * @param Question $question
-     * @param StoreComment $request
-     * @return \Illuminate\Http\Response
-     */
-    public function addComment(Question $question, StoreComment $request)
-    {
-        $comment = new Comment();
-        $comment->content = $request->get('content');
-        $comment->user_id = Auth::user()->id;
-        $photo->comments()->save($comment);
-
-        // authorリレーションをロードするためにコメントを取得しなおす
-        $new_comment = Comment::where('id', $comment->id)->with('author')->first();
-
-        return response($new_comment, 201);
     }
 }
