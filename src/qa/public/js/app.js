@@ -16732,9 +16732,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  // props: {
-  //     questionsMessage: true
-  // },
   data: function data() {
     return {
       questions: []
@@ -39136,7 +39133,7 @@ var state = {
 };
 var mutations = {
   setQuestion: function setQuestion(state, payload) {
-    state.questions = payload; // state.questions.push({ title: this.payload.title, text: payload.text })
+    state.questions = payload;
   }
 };
 var actions = {

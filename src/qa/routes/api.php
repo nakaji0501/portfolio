@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
+
+//////////ユーザー登録・認証など//////////
 // 会員登録
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
 
@@ -29,20 +31,24 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 // ログインユーザー
 Route::get('/user', fn() => Auth::user())->name('user');
 
+
+//////////QuestionController//////////
 // 質問一覧
-Route::get('/questions', 'QuestionController@index');
+Route::get('/questions', 'QuestionController@index')->name('questions.index');
 
 // 質問登録
-Route::post('/questions', 'QuestionController@store');
+Route::post('/questions', 'QuestionController@create')->name('question.create');
 
 // 質問詳細取得
-Route::get('/questions/{question}', 'QuestionController@show');
+Route::get('/questions/{question}', 'QuestionController@detaile')->name('question.detaile');
 
 // 質問更新
-Route::put('/questions/{question}', 'QuestionController@update');
+// Route::put('/questions/{question}', 'QuestionController@update');
 
 // 質問削除
-Route::delete('/questions/{question}', 'QuestionController@destroy');
+Route::delete('/questions/{question}', 'QuestionController@delete')->name('question.delete');
 
+
+//////////CommentController//////////
 /// コメント
 Route::post('/questions/{question}/comments', 'QuestionController@addComment')->name('question.comment');

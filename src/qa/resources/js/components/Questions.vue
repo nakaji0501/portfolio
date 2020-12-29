@@ -65,9 +65,6 @@
 import Tag from '../components/Tag'
 
 export default {
-    // props: {
-    //     questionsMessage: true
-    // },
     data() {
         return {
             questions: [],

@@ -33,4 +33,13 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
+
+    /**
+     * リレーションシップ - questionsテーブル
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questions()
+    {
+        return $this->hasMany('App\Questions');
+    }
 }

@@ -37,8 +37,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * リレーションシップ - questionsテーブル　投稿の投稿者を取得する
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function questions()
     {
-        return $this->hasMany('APP/Question');
+        return $this->hasMany('App\Question');
+        // ('対象のモデル', '子の外部キー', '親のモデルの主キー')
     }
+
 }

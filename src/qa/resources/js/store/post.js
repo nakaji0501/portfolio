@@ -5,7 +5,6 @@ const state = {
 const mutations = {
     setQuestion(state, payload) {
         state.questions = payload
-        // state.questions.push({ title: this.payload.title, text: payload.text })
     },
 }
 
