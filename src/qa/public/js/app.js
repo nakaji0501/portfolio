@@ -16984,8 +16984,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    isLogin: Boolean
+  },
   data: function data() {
     return {
       tab: 1,
@@ -17260,6 +17269,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -17274,6 +17284,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   computed: {
+    isLogin: function isLogin() {
+      return this.$store.getters['auth/check'];
+    },
     questions: function questions() {
       return this.$store.state.post.questions;
     },
@@ -17319,6 +17332,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   created: function created() {
     this.clearError();
+  },
+  mounted: function mounted() {
+    if (!this.isLogin) {
+      this.$router.push('/login');
+    }
   }
 });
 
@@ -20454,6 +20472,14 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
+    !_vm.isLogin
+      ? _c("div", { staticClass: "authCheckUnauthenticated" }, [
+          _c("p", [
+            _vm._v("ログインをすることで質問投稿やコメントが利用できます。")
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _c(
       "div",
       {
@@ -20937,108 +20963,126 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "questionForm" }, [
-    _c("div", { staticClass: "form_wrapper" }, [
-      _c(
-        "form",
-        {
-          staticClass: "form",
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.postQuestion($event)
-            }
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isLogin,
+            expression: "isLogin"
           }
-        },
-        [
-          _vm.postErrors
-            ? _c("div", { staticClass: "postErrors" }, [
-                _vm.postErrors.title
-                  ? _c(
-                      "ul",
-                      _vm._l(_vm.postErrors.title, function(msg) {
-                        return _c("li", { key: msg }, [
-                          _vm._v("\n            " + _vm._s(msg) + "\n        ")
-                        ])
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("div", { staticClass: "form_inner title" }, [
-            _c("label", { attrs: { for: "title" } }, [_vm._v("タイトル")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.question.title,
-                  expression: "question.title"
-                }
-              ],
-              staticClass: "form_item",
-              attrs: { type: "text", id: "title" },
-              domProps: { value: _vm.question.title },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.question, "title", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _vm.postErrors
-            ? _c("div", { staticClass: "postErrors" }, [
-                _vm.postErrors.message
-                  ? _c(
-                      "ul",
-                      _vm._l(_vm.postErrors.message, function(msg) {
-                        return _c("li", { key: msg }, [
-                          _vm._v("\n            " + _vm._s(msg) + "\n        ")
-                        ])
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("div", { staticClass: "form_inner message" }, [
-            _c("label", { attrs: { for: "text" } }, [_vm._v("投稿する内容")]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.question.message,
-                  expression: "question.message"
-                }
-              ],
-              staticClass: "form_item",
-              attrs: { type: "text", id: "message", cols: "30", rows: "10" },
-              domProps: { value: _vm.question.message },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.question, "message", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("PostButton")
         ],
-        1
-      )
-    ])
+        staticClass: "form_wrapper"
+      },
+      [
+        _c(
+          "form",
+          {
+            staticClass: "form",
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.postQuestion($event)
+              }
+            }
+          },
+          [
+            _vm.postErrors
+              ? _c("div", { staticClass: "postErrors" }, [
+                  _vm.postErrors.title
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.postErrors.title, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n            " + _vm._s(msg) + "\n        "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "form_inner title" }, [
+              _c("label", { attrs: { for: "title" } }, [_vm._v("タイトル")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.question.title,
+                    expression: "question.title"
+                  }
+                ],
+                staticClass: "form_item",
+                attrs: { type: "text", id: "title" },
+                domProps: { value: _vm.question.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.question, "title", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _vm.postErrors
+              ? _c("div", { staticClass: "postErrors" }, [
+                  _vm.postErrors.message
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.postErrors.message, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n            " + _vm._s(msg) + "\n        "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "form_inner message" }, [
+              _c("label", { attrs: { for: "text" } }, [_vm._v("投稿する内容")]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.question.message,
+                    expression: "question.message"
+                  }
+                ],
+                staticClass: "form_item",
+                attrs: { type: "text", id: "message", cols: "30", rows: "10" },
+                domProps: { value: _vm.question.message },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.question, "message", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("PostButton")
+          ],
+          1
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = []

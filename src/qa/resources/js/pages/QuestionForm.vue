@@ -1,6 +1,7 @@
 <template>
     <div class="questionForm">
-        <div class="form_wrapper">
+        <div class="form_wrapper"
+        v-show="isLogin">
             <form class="form"
             @submit.prevent="postQuestion">
 
@@ -67,6 +68,9 @@ export default {
         }
     },
     computed: {
+        isLogin() {
+            return this.$store.getters['auth/check']
+        },
         questions() {
             return this.$store.state.post.questions
         },
@@ -91,6 +95,11 @@ export default {
     },
     created() {
         this.clearError()
+    },
+    mounted() {
+        if (! this.isLogin) {
+            this.$router.push('/login')
+        }
     }
 }
 </script>

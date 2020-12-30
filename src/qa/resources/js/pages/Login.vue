@@ -1,5 +1,6 @@
 <template>
     <div class="login_container">
+
         <ul class="tab">
             <li class="tab_item"
             @click="tab = 1"
@@ -14,6 +15,11 @@
             会員登録
             </li>
         </ul>
+
+        <div class="authCheckUnauthenticated"
+        v-if="!isLogin">
+            <p>ログインをすることで質問投稿やコメントが利用できます。</p>
+        </div>
 
         <div class="panel"
         v-show="tab === 1">
@@ -143,6 +149,9 @@
 import { mapState } from 'vuex'
 
 export default {
+    props: {
+        isLogin: Boolean
+    },
     data() {
         return {
             tab: 1,
