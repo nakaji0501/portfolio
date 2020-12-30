@@ -16,7 +16,7 @@
                         >
                             <p>{{ question.id }}</p>
                             <h3>{{ question.title }}</h3>
-                            <p>{{ question.text }}</p>
+                            <p>{{ question.message }}</p>
                         </div>
 
                         <Tag />

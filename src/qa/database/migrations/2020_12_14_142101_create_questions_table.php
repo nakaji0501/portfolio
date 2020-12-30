@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('title', 250);
-            $table->string('text', 250);
+            $table->text('message');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

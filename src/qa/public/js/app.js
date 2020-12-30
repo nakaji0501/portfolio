@@ -17229,6 +17229,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -17238,13 +17269,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       question: {
         title: '',
-        text: ''
+        message: ''
       }
     };
   },
   computed: {
     questions: function questions() {
       return this.$store.state.post.questions;
+    },
+    setPostStatus: function setPostStatus() {
+      return this.$store.state.post.postStatus;
+    },
+    postErrors: function postErrors() {
+      return this.$store.state.post.postErrorMessages;
     }
   },
   methods: {
@@ -17252,6 +17289,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -17260,16 +17298,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$store.dispatch('post/postQuestion', _this.question);
 
               case 2:
-                _this.$router.push('/');
+                response = _context.sent;
+                console.log(_this.response);
 
-              case 3:
+                if (_this.setPostStatus) {
+                  _this.$router.push('/');
+                }
+
+              case 5:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    clearError: function clearError() {
+      this.$store.commit('post/setPostErrorMessages', null);
     }
+  },
+  created: function created() {
+    this.clearError();
   }
 });
 
@@ -17531,7 +17580,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form label[data-v-0c7e0ed3], input[data-v-0c7e0ed3] {\n  display: block;\n}", ""]);
+exports.push([module.i, ".form label[data-v-0c7e0ed3], input[data-v-0c7e0ed3] {\n  display: block;\n}\n.postErrors[data-v-0c7e0ed3] {\n  color: red;\n}", ""]);
 
 // exports
 
@@ -20200,7 +20249,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("h3", [_vm._v(_vm._s(question.title))]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(question.text))])
+                        _c("p", [_vm._v(_vm._s(question.message))])
                       ]
                     ),
                     _vm._v(" "),
@@ -20901,53 +20950,89 @@ var render = function() {
           }
         },
         [
-          _c("label", { attrs: { for: "title" } }, [_vm._v("タイトル")]),
+          _vm.postErrors
+            ? _c("div", { staticClass: "postErrors" }, [
+                _vm.postErrors.title
+                  ? _c(
+                      "ul",
+                      _vm._l(_vm.postErrors.title, function(msg) {
+                        return _c("li", { key: msg }, [
+                          _vm._v("\n            " + _vm._s(msg) + "\n        ")
+                        ])
+                      }),
+                      0
+                    )
+                  : _vm._e()
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.question.title,
-                expression: "question.title"
-              }
-            ],
-            staticClass: "form_item",
-            attrs: { type: "text", id: "title" },
-            domProps: { value: _vm.question.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+          _c("div", { staticClass: "form_inner title" }, [
+            _c("label", { attrs: { for: "title" } }, [_vm._v("タイトル")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.question.title,
+                  expression: "question.title"
                 }
-                _vm.$set(_vm.question, "title", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "text" } }, [_vm._v("投稿する内容")]),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.question.text,
-                expression: "question.text"
-              }
-            ],
-            staticClass: "form_item",
-            attrs: { type: "text", id: "text", cols: "30", rows: "10" },
-            domProps: { value: _vm.question.text },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+              ],
+              staticClass: "form_item",
+              attrs: { type: "text", id: "title" },
+              domProps: { value: _vm.question.title },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.question, "title", $event.target.value)
                 }
-                _vm.$set(_vm.question, "text", $event.target.value)
               }
-            }
-          }),
+            })
+          ]),
+          _vm._v(" "),
+          _vm.postErrors
+            ? _c("div", { staticClass: "postErrors" }, [
+                _vm.postErrors.message
+                  ? _c(
+                      "ul",
+                      _vm._l(_vm.postErrors.message, function(msg) {
+                        return _c("li", { key: msg }, [
+                          _vm._v("\n            " + _vm._s(msg) + "\n        ")
+                        ])
+                      }),
+                      0
+                    )
+                  : _vm._e()
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "form_inner message" }, [
+            _c("label", { attrs: { for: "text" } }, [_vm._v("投稿する内容")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.question.message,
+                  expression: "question.message"
+                }
+              ],
+              staticClass: "form_item",
+              attrs: { type: "text", id: "message", cols: "30", rows: "10" },
+              domProps: { value: _vm.question.message },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.question, "message", $event.target.value)
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
           _c("PostButton")
         ],
@@ -38938,9 +39023,10 @@ var actions = {
 
             case 3:
               response = _context2.sent;
+              console.log(response);
 
               if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
-                _context2.next = 8;
+                _context2.next = 9;
                 break;
               }
 
@@ -38948,7 +39034,7 @@ var actions = {
               context.commit('setUser', response.data);
               return _context2.abrupt("return", false);
 
-            case 8:
+            case 9:
               // setApiStatusが失敗した時の分岐
               context.commit('setApiStatus', false); // バリデーションエラーの場合はsetCodeは呼ばずErrorMessagesを呼び出す
 
@@ -38960,7 +39046,7 @@ var actions = {
                 });
               }
 
-            case 10:
+            case 11:
             case "end":
               return _context2.stop();
           }
@@ -39122,18 +39208,28 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+
 var state = {
-  questions: []
+  questions: null,
+  postStatus: null,
+  postErrorMessages: null
 };
 var mutations = {
   setQuestion: function setQuestion(state, payload) {
     state.questions = payload;
+  },
+  setPostStatus: function setPostStatus(state, status) {
+    state.postStatus = status;
+  },
+  setPostErrorMessages: function setPostErrorMessages(state, messages) {
+    state.postErrorMessages = messages;
   }
 };
 var actions = {
@@ -39144,15 +39240,38 @@ var actions = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return axios.post('/api/questions', payload);
+              context.commit('setPostStatus', null);
+              _context.next = 3;
+              return axios.post('/api/questions', payload)["catch"](function (err) {
+                return err.response || err;
+              });
 
-            case 2:
+            case 3:
               response = _context.sent;
-              context.commit('setQuestion', response.payload);
               console.log(response);
 
-            case 5:
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["CREATED"])) {
+                _context.next = 9;
+                break;
+              }
+
+              context.commit('setPostStatus', true);
+              context.commit('setQuestion', response.payload);
+              return _context.abrupt("return", false);
+
+            case 9:
+              context.commit('setPostStatus', false);
+              console.log(response); // バリデーションエラー
+
+              if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"]) {
+                context.commit('setPostErrorMessages', response.data.errors);
+              } else {
+                context.commit('error/setCode', response.status, {
+                  root: true
+                });
+              }
+
+            case 12:
             case "end":
               return _context.stop();
           }

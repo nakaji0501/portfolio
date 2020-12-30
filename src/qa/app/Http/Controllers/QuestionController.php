@@ -32,10 +32,10 @@ class QuestionController extends Controller
      * @param \App\Http\Requests\CreateQuestionRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(\App\Http\Requests\CreateQuestionRequest $request)
     {
         $question = new Question;
-        $question->text = $request->text;
+        $question->message = $request->message;
         $question->title = $request->title;
 
         Auth::user()->questions()->save($question);

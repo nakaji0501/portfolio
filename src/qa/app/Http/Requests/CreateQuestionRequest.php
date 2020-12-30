@@ -24,8 +24,21 @@ class CreateQuestionRequest extends FormRequest
     public function rules()
     {
         return [
+            'message' => 'required',
             'title' => 'required|max:250',
-            'text' => 'required',
+        ];
+    }
+
+    /**
+     * 定義済みバリデーションルールのエラーメッセージ取得
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'message.required' => 'メッセージを入力してください。',
+            'title.required'  => 'タイトルを入力してください。',
         ];
     }
 }
