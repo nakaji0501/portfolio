@@ -21,8 +21,8 @@
 
             <div class="text">
                 <label for="text">本文</label>
-                <textarea readonly type="text" id="text" cols="30" rows="10"
-                v-model="question.text"
+                <textarea readonly type="text" id="message" cols="30" rows="10"
+                v-model="question.message"
                 ></textarea>
             </div>
         </div>

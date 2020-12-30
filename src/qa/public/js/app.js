@@ -20906,24 +20906,24 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.question.text,
-              expression: "question.text"
+              value: _vm.question.message,
+              expression: "question.message"
             }
           ],
           attrs: {
             readonly: "",
             type: "text",
-            id: "text",
+            id: "message",
             cols: "30",
             rows: "10"
           },
-          domProps: { value: _vm.question.text },
+          domProps: { value: _vm.question.message },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.question, "text", $event.target.value)
+              _vm.$set(_vm.question, "message", $event.target.value)
             }
           }
         })
