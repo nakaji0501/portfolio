@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import store from './store'
 
 import Login from './pages/Login'
-import Top from './pages/Top'
+import QuestionList from './pages/QuestionList'
 import QuestionForm from './pages/QuestionForm'
 import QuestionDetail from './pages/QuestionDetail'
 import SystemError from './pages/errors/System'
@@ -13,7 +13,7 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        component: Top,
+        component: QuestionList,
     },
     {
         path: '/questionForm',
