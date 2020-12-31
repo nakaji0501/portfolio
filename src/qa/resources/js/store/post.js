@@ -7,8 +7,8 @@ const state = {
   }
 
 const mutations = {
-    setQuestion(state, payload) {
-        state.questions = payload
+    setQuestion(state, data) {
+        state.questions = data
     },
     setPostStatus (state, status) {
         state.postStatus = status
@@ -19,14 +19,14 @@ const mutations = {
 }
 
 const actions = {
-    async postQuestion(context, payload) {
+    async postQuestion(context, data) {
         context.commit('setPostStatus', null)
-        const response = await axios.post('/api/questions', payload)
+        const response = await axios.post('/api/questions', data)
             .catch(err => err.response || err)
         console.log(response);
         if (response.status === CREATED) {
             context.commit('setPostStatus', true)
-            context.commit('setQuestion', response.payload)
+            context.commit('setQuestion', response.data)
             return false
         }
 
