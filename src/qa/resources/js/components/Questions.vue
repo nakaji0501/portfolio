@@ -17,7 +17,7 @@
                             <h3>題名：{{ question.title }}</h3>
                             <p>本文：{{ question.message }}</p>
                             <p>投稿日：{{ question.created_at }}</p>
-                            <p>{{ question.user.name }}</p>
+                            <p>投稿者：{{ question.user.name }}</p>
                         </div>
 
                         <Tag />
@@ -63,6 +63,8 @@
 </template>
 
 <script>
+import { OK } from '../util'
+
 import Tag from '../components/Tag'
 
 export default {
@@ -75,12 +77,16 @@ export default {
         Tag,
     },
     methods: {
-        async getQuestions() {
-            await axios.get('/api/questions')
-                .then((res) => {
-                    this.questions = res.data
-                    console.log(this.questions);
-                });
+        async fetchQuestions() {
+            const response = await axios.get(`/api/questions?page=${this.page}`);
+
+            if (response.status !== OK) {
+                this.$store.commit('error/setCode', response.status)
+                return false
+            }
+
+            this.questions = response.data.data;
+            console.log(this.questions);
         },
         async deleteQuestion(id) {
             await axios.delete('/api/questions/' + id)
@@ -96,8 +102,16 @@ export default {
                 })
         },
     },
-    mounted() {
-        this.getQuestions();
+    // mounted() {
+    //     this.fetchQuestions();
+    // },
+    watch: {
+        $route: {
+            async handler() {
+                await this.fetchQuestions()
+            },
+            immediate: true
+        }
     }
 }
 </script>

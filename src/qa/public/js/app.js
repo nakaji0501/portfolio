@@ -16660,7 +16660,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Tag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Tag */ "./resources/js/components/Tag.vue");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _components_Tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Tag */ "./resources/js/components/Tag.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -16732,6 +16733,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -16739,24 +16741,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   components: {
-    Tag: _components_Tag__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Tag: _components_Tag__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   methods: {
-    getQuestions: function getQuestions() {
+    fetchQuestions: function fetchQuestions() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('/api/questions').then(function (res) {
-                  _this.questions = res.data;
-                  console.log(_this.questions);
-                });
+                return axios.get("/api/questions?page=".concat(_this.page));
 
               case 2:
+                response = _context.sent;
+
+                if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
+                  _context.next = 6;
+                  break;
+                }
+
+                _this.$store.commit('error/setCode', response.status);
+
+                return _context.abrupt("return", false);
+
+              case 6:
+                _this.questions = response.data.data;
+                console.log(_this.questions);
+
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -16814,8 +16830,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     }
   },
-  mounted: function mounted() {
-    this.getQuestions();
+  // mounted() {
+  //     this.fetchQuestions();
+  // },
+  watch: {
+    $route: {
+      handler: function handler() {
+        var _this4 = this;
+
+        return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+            while (1) {
+              switch (_context4.prev = _context4.next) {
+                case 0:
+                  _context4.next = 2;
+                  return _this4.fetchQuestions();
+
+                case 2:
+                case "end":
+                  return _context4.stop();
+              }
+            }
+          }, _callee4);
+        }))();
+      },
+      immediate: true
+    }
   }
 });
 
@@ -20273,7 +20313,9 @@ var render = function() {
                           _vm._v("投稿日：" + _vm._s(question.created_at))
                         ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(question.user.name))])
+                        _c("p", [
+                          _vm._v("投稿者：" + _vm._s(question.user.name))
+                        ])
                       ]
                     ),
                     _vm._v(" "),
