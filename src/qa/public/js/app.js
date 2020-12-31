@@ -16730,6 +16730,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -16752,6 +16753,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 2;
                 return axios.get('/api/questions').then(function (res) {
                   _this.questions = res.data;
+                  console.log(_this.questions);
                 });
 
               case 2:
@@ -20263,11 +20265,15 @@ var render = function() {
                         }
                       },
                       [
-                        _c("p", [_vm._v(_vm._s(question.id))]),
+                        _c("h3", [_vm._v("題名：" + _vm._s(question.title))]),
                         _vm._v(" "),
-                        _c("h3", [_vm._v(_vm._s(question.title))]),
+                        _c("p", [_vm._v("本文：" + _vm._s(question.message))]),
                         _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(question.message))])
+                        _c("p", [
+                          _vm._v("投稿日：" + _vm._s(question.created_at))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(question.user.name))])
                       ]
                     ),
                     _vm._v(" "),
@@ -21007,7 +21013,7 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "form_inner title" }, [
+            _c("div", { staticClass: "form_content title" }, [
               _c("label", { attrs: { for: "title" } }, [_vm._v("タイトル")]),
               _vm._v(" "),
               _c("input", {
@@ -21051,7 +21057,7 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "form_inner message" }, [
+            _c("div", { staticClass: "form_content message" }, [
               _c("label", { attrs: { for: "text" } }, [_vm._v("投稿する内容")]),
               _vm._v(" "),
               _c("textarea", {
@@ -39266,8 +39272,8 @@ var state = {
   postErrorMessages: null
 };
 var mutations = {
-  setQuestion: function setQuestion(state, payload) {
-    state.questions = payload;
+  setQuestion: function setQuestion(state, data) {
+    state.questions = data;
   },
   setPostStatus: function setPostStatus(state, status) {
     state.postStatus = status;
@@ -39277,7 +39283,7 @@ var mutations = {
   }
 };
 var actions = {
-  postQuestion: function postQuestion(context, payload) {
+  postQuestion: function postQuestion(context, data) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
       var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -39286,7 +39292,7 @@ var actions = {
             case 0:
               context.commit('setPostStatus', null);
               _context.next = 3;
-              return axios.post('/api/questions', payload)["catch"](function (err) {
+              return axios.post('/api/questions', data)["catch"](function (err) {
                 return err.response || err;
               });
 
@@ -39300,7 +39306,7 @@ var actions = {
               }
 
               context.commit('setPostStatus', true);
-              context.commit('setQuestion', response.payload);
+              context.commit('setQuestion', response.data);
               return _context.abrupt("return", false);
 
             case 9:

@@ -14,9 +14,10 @@
                         <div class="question_content"
                         @click.prevent="moveDetailPage(question.id)"
                         >
-                            <p>{{ question.id }}</p>
-                            <h3>{{ question.title }}</h3>
-                            <p>{{ question.message }}</p>
+                            <h3>題名：{{ question.title }}</h3>
+                            <p>本文：{{ question.message }}</p>
+                            <p>投稿日：{{ question.created_at }}</p>
+                            <p>{{ question.user.name }}</p>
                         </div>
 
                         <Tag />
@@ -78,6 +79,7 @@ export default {
             await axios.get('/api/questions')
                 .then((res) => {
                     this.questions = res.data
+                    console.log(this.questions);
                 });
         },
         async deleteQuestion(id) {

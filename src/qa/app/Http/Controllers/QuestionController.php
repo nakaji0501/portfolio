@@ -24,7 +24,11 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return Question::all();
+        $questions = Question::with(['user'])
+            // ->orderBy('CREATED_AT', 'desc')->paginate(5);
+            ->orderBy('CREATED_AT', 'desc')->get();
+
+        return $questions;
     }
 
     /**

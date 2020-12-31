@@ -18,7 +18,7 @@
             </ul>
             </div>
 
-            <div class="form_inner title">
+            <div class="form_content title">
                 <label for="title">タイトル</label>
                 <input type="text" id="title" class="form_item"
                 v-model="question.title"
@@ -38,7 +38,7 @@
             </ul>
             </div>
 
-            <div class="form_inner message">
+            <div class="form_content message">
                 <label for="text">投稿する内容</label>
                 <textarea type="text" id="message" class="form_item"
                 cols="30" rows="10"

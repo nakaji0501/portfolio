@@ -7,9 +7,14 @@ use Illuminate\Support\Arr;
 
 class Question extends Model
 {
+    // protected $visible = [
+    //     'title',
+    //     'message'
+    // ];
     protected $fillable = [
         'title',
-        'text',
+        'message',
+        'created_at'
     ];
 
     /**

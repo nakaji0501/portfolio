@@ -34,7 +34,7 @@ Route::get('/user', fn() => Auth::user())->name('user');
 
 //////////QuestionController//////////
 // 質問一覧
-Route::get('/questions', 'QuestionController@index')->name('questions.index');
+Route::get('/questions', 'QuestionController@index')->name('question.index');
 
 // 質問登録
 Route::post('/questions', 'QuestionController@create')->name('question.create');
