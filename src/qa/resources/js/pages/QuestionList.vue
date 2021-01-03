@@ -9,13 +9,6 @@
         </router-link>
     </div>
 
-    <div class="tag">
-    <Tag />
-    </div>
-
-    <div class="sort">
-    <Sort />
-    </div>
 
     <div class="questionList">
         <Questions />
@@ -25,16 +18,12 @@
 </template>
 
 <script>
-import Tag from '../components/Tag'
-import Sort from '../components/sort'
 import Questions from  '../components/Questions'
 
 import PostButton from '../components/PostButton'
 
 export default {
     components: {
-        Tag,
-        Sort,
         Questions,
         PostButton
     }

@@ -65,16 +65,11 @@
 <script>
 import { OK } from '../util'
 
-import Tag from '../components/Tag'
-
 export default {
     data() {
         return {
             questions: [],
         }
-    },
-    components: {
-        Tag,
     },
     methods: {
         async fetchQuestions() {
