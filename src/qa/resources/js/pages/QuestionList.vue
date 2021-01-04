@@ -92,7 +92,7 @@ export default {
         async deleteQuestion(id) {
             await axios.delete('/api/questions/' + id)
             .then((res) => {
-                this.getQuestions();
+                this.fetchQuestions();
             })
         },
         async moveDetailPage(id) {
