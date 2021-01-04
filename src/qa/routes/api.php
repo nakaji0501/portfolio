@@ -40,7 +40,7 @@ Route::get('/questions', 'QuestionController@index')->name('question.index');
 Route::post('/questions', 'QuestionController@create')->name('question.create');
 
 // 質問詳細取得
-Route::get('/questions/{question}', 'QuestionController@detaile')->name('question.detaile');
+Route::get('/questions/{id}', 'QuestionController@detaile')->name('question.detaile');
 
 // 質問更新
 // Route::put('/questions/{question}', 'QuestionController@update');

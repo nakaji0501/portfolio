@@ -15,8 +15,8 @@
             </div>
 
             <div class="infomation">
-                <p>投稿者： {{ username }}</p>
-                <p>投稿日： 2020／12／01 (水) 20:00</p>
+                <p>投稿日： {{ question.created_at }}</p>
+                <p>投稿者： {{ question.user.name }}</p>
             </div>
 
             <div class="text">
@@ -44,7 +44,10 @@ import CommentList from '../components/CommentList'
 
 export default {
     props: {
-        questionId: Number,
+        id: {
+            type: String,
+            required: true
+        }
     },
     components: {
         CommentForm,
@@ -62,16 +65,22 @@ export default {
     },
     methods: {
         async getQuestionDetail() {
-            await axios.get('/api/questions/' + this.questionId)
+            await axios.get(`/api/questions/${this.id}`)
                 .then((res) => {
                     this.question = res.data;
                     console.log(this.question);
                 })
         },
     },
-    mounted() {
-        this.getQuestionDetail()
-    },
+    watch: {
+        $route: {
+            async handler() {
+                console.log("フェッチ前だよ");
+                await this.getQuestionDetail()
+            },
+            immediate: true
+        }
+    }
 }
 </script>
 

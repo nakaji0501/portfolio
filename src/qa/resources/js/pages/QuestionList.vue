@@ -79,7 +79,6 @@ export default {
     methods: {
         async fetchQuestions() {
             const response = await axios.get(`/api/questions/?page=${this.page}`);
-            console.log(response);
 
             if (response.status !== OK) {
                 this.$store.commit('error/setCode', response.status)
@@ -89,9 +88,6 @@ export default {
             this.questions = response.data.data
             this.currentPage = response.data.current_page
             this.lastPage = response.data.last_page
-            console.log(this.questions)
-            console.log(this.currentPage)
-            console.log(this.lastPage);
         },
         async deleteQuestion(id) {
             await axios.delete('/api/questions/' + id)
@@ -103,14 +99,13 @@ export default {
             await axios.get('/api/questions/' + id)
                 .then((res) => {
                     this.question = res.data
-                    this.$router.push({ name: 'questionDetailPage', params: {questionId: this.question.id} })
+                    this.$router.push({ name: 'questionDetailPage', params: {id: this.question.id} })
                 })
         },
     },
     watch: {
         $route: {
             async handler() {
-                console.log("今からフェッチするよ");
                 await this.fetchQuestions()
             },
             immediate: true

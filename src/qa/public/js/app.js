@@ -17033,7 +17033,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    questionId: Number
+    id: {
+      type: String,
+      required: true
+    }
   },
   components: {
     CommentForm: _components_CommentForm__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -17059,7 +17062,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('/api/questions/' + _this.questionId).then(function (res) {
+                return axios.get("/api/questions/".concat(_this.id)).then(function (res) {
                   _this.question = res.data;
                   console.log(_this.question);
                 });
@@ -17073,8 +17076,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     }
   },
-  mounted: function mounted() {
-    this.getQuestionDetail();
+  watch: {
+    $route: {
+      handler: function handler() {
+        var _this2 = this;
+
+        return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  console.log("フェッチ前だよ");
+                  _context2.next = 3;
+                  return _this2.getQuestionDetail();
+
+                case 3:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2);
+        }))();
+      },
+      immediate: true
+    }
   }
 });
 
@@ -17334,10 +17359,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 response = _context.sent;
-                console.log(response);
 
                 if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
-                  _context.next = 7;
+                  _context.next = 6;
                   break;
                 }
 
@@ -17345,15 +17369,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 return _context.abrupt("return", false);
 
-              case 7:
+              case 6:
                 _this.questions = response.data.data;
                 _this.currentPage = response.data.current_page;
                 _this.lastPage = response.data.last_page;
-                console.log(_this.questions);
-                console.log(_this.currentPage);
-                console.log(_this.lastPage);
 
-              case 13:
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -17397,7 +17418,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this3.$router.push({
                     name: 'questionDetailPage',
                     params: {
-                      questionId: _this3.question.id
+                      id: _this3.question.id
                     }
                   });
                 });
@@ -17421,11 +17442,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             while (1) {
               switch (_context4.prev = _context4.next) {
                 case 0:
-                  console.log("今からフェッチするよ");
-                  _context4.next = 3;
+                  _context4.next = 2;
                   return _this4.fetchQuestions();
 
-                case 3:
+                case 2:
                 case "end":
                   return _context4.stop();
               }
@@ -20640,9 +20660,9 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "infomation" }, [
-        _c("p", [_vm._v("投稿者： " + _vm._s(_vm.username))]),
+        _c("p", [_vm._v("投稿日： " + _vm._s(_vm.question.created_at))]),
         _vm._v(" "),
-        _c("p", [_vm._v("投稿日： 2020／12／01 (水) 20:00")])
+        _c("p", [_vm._v("投稿者： " + _vm._s(_vm.question.user.name))])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "text" }, [
@@ -38590,7 +38610,7 @@ var routes = [{
     }
   }
 }, {
-  path: '/detail/:questionId',
+  path: '/detail/:id',
   component: _pages_QuestionDetail__WEBPACK_IMPORTED_MODULE_6__["default"],
   name: 'questionDetailPage',
   props: true

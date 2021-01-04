@@ -46,9 +46,14 @@ class QuestionController extends Controller
         return response($question, 201);
     }
 
-    public function detaile(Question $question)
+    /**
+     * 指定されたIDの投稿の詳細（投稿と返信）を取得します
+     * @return App\Question or 404エラー
+     */
+    public function detaile(string $id)
     {
-        return $question;
+        $question = Question::where('id', $id)->with(['user'])->first();
+        return $question ?? abort(404);
     }
 
     public function update(Request $request, Question $Question)

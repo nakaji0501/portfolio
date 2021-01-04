@@ -36,7 +36,7 @@ const routes = [
         },
     },
     {
-        path: '/detail/:questionId',
+        path: '/detail/:id',
         component: QuestionDetail,
         name: 'questionDetailPage',
         props: true
