@@ -7,14 +7,12 @@ use Illuminate\Support\Arr;
 
 class Question extends Model
 {
-    // protected $visible = [
-    //     'title',
-    //     'message'
-    // ];
-    protected $fillable = [
+    protected $visible = [
         'title',
         'message',
-        'created_at'
+        'id',
+        'created_at',
+        'user',
     ];
 
     /**
@@ -26,5 +24,4 @@ class Question extends Model
         return $this->belongsTo('App\User', 'user_id', 'id');
         // ('対象のモデル', '子の外部キー', '親のモデルの主キー')
     }
-
 }
