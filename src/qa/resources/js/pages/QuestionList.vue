@@ -43,34 +43,55 @@
 
     </div>
 
+        <Pagination
+        :current-page="currentPage"
+        :last-page="lastPage"
+        />
+
 </main>
 </template>
 
 <script>
 import { OK } from '../util'
 
+import Pagination from '../components/Pagination'
 import PostButton from '../components/PostButton'
 
 export default {
     components: {
-        PostButton
+        PostButton,
+        Pagination
+    },
+    props: {
+        page: {
+            type: Number,
+            required: false,
+            default: 1
+        }
     },
     data() {
         return {
             questions: [],
+            currentPage: 0,
+            lastPage: 0,
         }
     },
     methods: {
         async fetchQuestions() {
-            const response = await axios.get(`/api/questions?page=${this.page}`);
+            const response = await axios.get(`/api/questions/?page=${this.page}`);
+            console.log(response);
 
             if (response.status !== OK) {
                 this.$store.commit('error/setCode', response.status)
                 return false
             }
 
-            this.questions = response.data.data;
-            console.log(this.questions);
+            this.questions = response.data.data
+            this.currentPage = response.data.current_page
+            this.lastPage = response.data.last_page
+            console.log(this.questions)
+            console.log(this.currentPage)
+            console.log(this.lastPage);
         },
         async deleteQuestion(id) {
             await axios.delete('/api/questions/' + id)
@@ -89,6 +110,7 @@ export default {
     watch: {
         $route: {
             async handler() {
+                console.log("今からフェッチするよ");
                 await this.fetchQuestions()
             },
             immediate: true

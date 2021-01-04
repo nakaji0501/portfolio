@@ -5,14 +5,14 @@
         v-if="! isFirstPage"
         :to="`/?page=${currentPage - 1}`"
         >
-        &laquo; prev
+        &laquo; 前ページ
         </router-link>
 
         <router-link class="button"
         v-if="! isLastPage"
         :to="`/?page=${currentPage + 1}`"
         >
-        next &raquo;
+        次ページ &raquo;
         </router-link>
 
     </div>
@@ -23,7 +23,7 @@ export default {
     props: {
         currentPage: {
             type: Number,
-            required: true
+            required: true,
         },
         lastPage: {
             type: Number,
