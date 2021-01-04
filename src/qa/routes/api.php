@@ -50,5 +50,5 @@ Route::delete('/questions/{question}', 'QuestionController@delete')->name('quest
 
 
 //////////CommentController//////////
-/// コメント
-Route::post('/questions/{question}/comments', 'QuestionController@addComment')->name('question.comment');
+/// コメント投稿
+Route::post('/questions/{question}/comments', 'CommentController@addComment')->name('question.addComment');

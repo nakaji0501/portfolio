@@ -16440,6 +16440,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  // props: {
+  //     question: {
+  //         type: Object,
+  //         required: true
+  //     }
+  // },
   data: function data() {
     return {
       commentContent: ''
@@ -16455,16 +16461,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return axios.post("{/api/questions/".concat(_this.id, "/comments"), {
+                console.log(question);
+                _context.next = 3;
+                return axios.post("/api/questions/".concat(question.id, "/comments"), {
                   content: _this.commentContent
                 });
 
-              case 2:
+              case 3:
                 response = _context.sent;
+                console.log(content);
+                console.log(_this.commentContent);
+                console.log(response);
                 _this.commentContent = '';
 
-              case 4:
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -17392,7 +17402,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context2.next = 2;
                 return axios["delete"]('/api/questions/' + id).then(function (res) {
-                  _this2.getQuestions();
+                  _this2.fetchQuestions();
                 });
 
               case 2:
@@ -19815,7 +19825,7 @@ var render = function() {
       {
         staticClass: "commentForm",
         on: {
-          click: function($event) {
+          submit: function($event) {
             $event.preventDefault()
             return _vm.addComment($event)
           }
@@ -19858,7 +19868,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "button" }, [
-      _c("button", [_vm._v("送信")])
+      _c("button", { attrs: { type: "submit" } }, [_vm._v("送信")])
     ])
   }
 ]

@@ -47,12 +47,14 @@ class QuestionController extends Controller
     }
 
     /**
-     * 指定されたIDの投稿の詳細（投稿と返信）を取得します
+     * 写真詳細
+     * @param string $id
      * @return App\Question or 404エラー
      */
     public function detaile(string $id)
     {
-        $question = Question::where('id', $id)->with(['user'])->first();
+        $question = Question::where('id', $id)
+            ->with(['user', 'comments.author'])->first();
         return $question ?? abort(404);
     }
 
