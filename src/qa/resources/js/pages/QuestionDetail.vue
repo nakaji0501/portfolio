@@ -29,7 +29,8 @@
 
         <div class="commentForm">
         <p>コメントを送る</p>
-        <CommentForm />
+        <CommentForm 
+        :question="question" />
         </div>
 
         <div class="commentList">
@@ -55,7 +56,9 @@ export default {
     },
     data() {
         return {
-            question: {}
+            question: {
+                user: {},
+            },
         }
     },
     computed: {
