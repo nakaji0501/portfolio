@@ -28,13 +28,11 @@
         </div>
 
         <div class="commentList">
-            <p>質問に対するコメント欄</p>
         <CommentList
         :question="question" />
         </div>
 
         <div class="commentForm">
-            <p>コメントを書く</p>
         <CommentForm
         v-if="isLogin"
         :question="question" />

@@ -1,7 +1,7 @@
 <template>
     <div class="commentList">
         <div class="commentList_wrapper">
-
+            <p>コメント欄</p>
             <ul>
                 <li class="commentItem"
                 v-for="comment in question.comments"

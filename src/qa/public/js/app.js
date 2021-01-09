@@ -17086,8 +17086,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -19886,7 +19884,7 @@ var render = function() {
         }
       },
       [
-        _c("p", [_vm._v("内容を書いてください")]),
+        _c("p", [_vm._v("返信を書いてください")]),
         _vm._v(" "),
         _c("label", { attrs: { for: "comment" } }),
         _vm._v(" "),
@@ -19949,6 +19947,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "commentList" }, [
     _c("div", { staticClass: "commentList_wrapper" }, [
+      _c("p", [_vm._v("コメント欄")]),
+      _vm._v(" "),
       _c(
         "ul",
         _vm._l(_vm.question.comments, function(comment) {
@@ -20757,11 +20757,7 @@ var render = function() {
     _c(
       "div",
       { staticClass: "commentList" },
-      [
-        _c("p", [_vm._v("質問に対するコメント欄")]),
-        _vm._v(" "),
-        _c("CommentList", { attrs: { question: _vm.question } })
-      ],
+      [_c("CommentList", { attrs: { question: _vm.question } })],
       1
     ),
     _vm._v(" "),
@@ -20769,8 +20765,6 @@ var render = function() {
       "div",
       { staticClass: "commentForm" },
       [
-        _c("p", [_vm._v("コメントを書く")]),
-        _vm._v(" "),
         _vm.isLogin
           ? _c("CommentForm", { attrs: { question: _vm.question } })
           : _vm._e()

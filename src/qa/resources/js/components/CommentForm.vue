@@ -3,7 +3,7 @@
         <form class="commentForm"
         @submit.prevent="addComment"
         >
-            <p>内容を書いてください</p>
+            <p>返信を書いてください</p>
             <label for="comment"></label>
             <textarea name="comment" id="comment" cols="30" rows="10"
             v-model="commentMessage"
