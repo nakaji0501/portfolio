@@ -29,12 +29,13 @@
 
         <div class="commentForm">
         <p>コメントを送る</p>
-        <CommentForm 
+        <CommentForm
         :question="question" />
         </div>
 
         <div class="commentList">
-        <CommentList />
+        <CommentList
+        :question="question" />
         </div>
     </div>
 </template>

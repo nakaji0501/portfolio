@@ -2,24 +2,36 @@
     <div class="commentList">
         <div class="commentList_wrapper">
 
-            <div class="infomation">
-                <p>コメント： username</p>
-                <p>コメント日： 2020/12/2 (木) 8:00</p>
-            </div>
+            <ul>
+                <li class="commentItem"
+                v-for="comment in question.comments"
+                :key="comment.questin_id">
 
-            <div class="commentText">
-                <p>ここにコメントされた内容が入ります。ここにコメントされた内容が入ります。ここにコメントされた内容が入ります。ここにコメントされた内容が入ります。ここにコメントされた内容が入ります。</p>
-            </div>
+                <div class="comment_infomation">
+                    <p>返信者： {{ comment.author.name }}</p>
+                    <p>返信日： {{ comment.created_at }}</p>
+                </div>
 
-            <div class="like">
-                iine!
-            </div>
-            <div class="unlike">
-                noniine!
-            </div>
+                <div class="comment_text">
+                    <p>コメント： {{ comment.message }}</p>
+                </div>
+
+                </li>
+            </ul>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+        question: {
+            type: Object,
+            required: true,
+        }
+    },
+}
+</script>
 
 <style lang="scss" scoped>
 @media screen and (max-width: 480px) {

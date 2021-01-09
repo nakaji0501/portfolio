@@ -16487,6 +16487,50 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CommentList.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CommentList.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    question: {
+      type: Object,
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Footer.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Footer.vue?vue&type=script&lang=js& ***!
@@ -16999,6 +17043,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -19896,40 +19941,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "commentList" }, [
-      _c("div", { staticClass: "commentList_wrapper" }, [
-        _c("div", { staticClass: "infomation" }, [
-          _c("p", [_vm._v("コメント： username")]),
-          _vm._v(" "),
-          _c("p", [_vm._v("コメント日： 2020/12/2 (木) 8:00")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "commentText" }, [
-          _c("p", [
-            _vm._v(
-              "ここにコメントされた内容が入ります。ここにコメントされた内容が入ります。ここにコメントされた内容が入ります。ここにコメントされた内容が入ります。ここにコメントされた内容が入ります。"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "like" }, [
-          _vm._v("\n            iine!\n        ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "unlike" }, [
-          _vm._v("\n            noniine!\n        ")
-        ])
-      ])
+  return _c("div", { staticClass: "commentList" }, [
+    _c("div", { staticClass: "commentList_wrapper" }, [
+      _c(
+        "ul",
+        _vm._l(_vm.question.comments, function(comment) {
+          return _c(
+            "li",
+            { key: comment.questin_id, staticClass: "commentItem" },
+            [
+              _c("div", { staticClass: "comment_infomation" }, [
+                _c("p", [_vm._v("返信者： " + _vm._s(comment.author.name))]),
+                _vm._v(" "),
+                _c("p", [_vm._v("返信日： " + _vm._s(comment.created_at))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "comment_text" }, [
+                _c("p", [_vm._v("コメント： " + _vm._s(comment.message))])
+              ])
+            ]
+          )
+        }),
+        0
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -20721,7 +20759,12 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "commentList" }, [_c("CommentList")], 1)
+    _c(
+      "div",
+      { staticClass: "commentList" },
+      [_c("CommentList", { attrs: { question: _vm.question } })],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -37800,17 +37843,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CommentList_vue_vue_type_template_id_b2309ffc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CommentList.vue?vue&type=template&id=b2309ffc&scoped=true& */ "./resources/js/components/CommentList.vue?vue&type=template&id=b2309ffc&scoped=true&");
-/* harmony import */ var _CommentList_vue_vue_type_style_index_0_id_b2309ffc_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CommentList.vue?vue&type=style&index=0&id=b2309ffc&lang=scss&scoped=true& */ "./resources/js/components/CommentList.vue?vue&type=style&index=0&id=b2309ffc&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _CommentList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CommentList.vue?vue&type=script&lang=js& */ "./resources/js/components/CommentList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _CommentList_vue_vue_type_style_index_0_id_b2309ffc_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CommentList.vue?vue&type=style&index=0&id=b2309ffc&lang=scss&scoped=true& */ "./resources/js/components/CommentList.vue?vue&type=style&index=0&id=b2309ffc&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _CommentList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _CommentList_vue_vue_type_template_id_b2309ffc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _CommentList_vue_vue_type_template_id_b2309ffc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -37824,6 +37869,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/CommentList.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CommentList.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/CommentList.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CommentList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CommentList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CommentList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CommentList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
