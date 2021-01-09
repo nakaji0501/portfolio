@@ -40,6 +40,11 @@ export default {
             console.log(response);
 
             this.commentMessage = ''
+
+            this.question.comments = [
+                response.data,
+                ...this.question.comments
+            ]
         }
     },
 }
