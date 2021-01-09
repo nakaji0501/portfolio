@@ -17085,6 +17085,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -20750,19 +20752,23 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "commentForm" },
+      { staticClass: "commentList" },
       [
-        _c("p", [_vm._v("コメントを送る")]),
+        _c("p", [_vm._v("質問に対するコメント欄")]),
         _vm._v(" "),
-        _c("CommentForm", { attrs: { question: _vm.question } })
+        _c("CommentList", { attrs: { question: _vm.question } })
       ],
       1
     ),
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "commentList" },
-      [_c("CommentList", { attrs: { question: _vm.question } })],
+      { staticClass: "commentForm" },
+      [
+        _c("p", [_vm._v("コメントを書く")]),
+        _vm._v(" "),
+        _c("CommentForm", { attrs: { question: _vm.question } })
+      ],
       1
     )
   ])

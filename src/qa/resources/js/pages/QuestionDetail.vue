@@ -27,16 +27,18 @@
             </div>
         </div>
 
+        <div class="commentList">
+            <p>質問に対するコメント欄</p>
+        <CommentList
+        :question="question" />
+        </div>
+
         <div class="commentForm">
-        <p>コメントを送る</p>
+            <p>コメントを書く</p>
         <CommentForm
         :question="question" />
         </div>
 
-        <div class="commentList">
-        <CommentList
-        :question="question" />
-        </div>
     </div>
 </template>
 
