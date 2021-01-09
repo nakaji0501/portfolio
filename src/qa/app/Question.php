@@ -5,15 +5,17 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 
+use App\comment;
+
 class Question extends Model
 {
     /** JSONに含める属性 */
     protected $visible = [
-        'title',
-        'message',
         'id',
+        'title',
         'created_at',
         'user',
+        'message',
         'comments',
     ];
 
@@ -33,6 +35,6 @@ class Question extends Model
      */
     public function comments()
     {
-        return $this->hasMany('App\Comment', 'questions_id', 'id')->orderBy('id', 'desc');
+        return $this->hasMany('App\Comment', 'question_id', 'id')->orderBy('id', 'desc');
     }
 }

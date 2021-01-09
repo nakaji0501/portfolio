@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * リレーションシップ - questionsテーブル　投稿の投稿者を取得する
+     * リレーションシップ - questionsテーブル
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function questions()
@@ -47,4 +47,13 @@ class User extends Authenticatable
         // ('対象のモデル', '子の外部キー', '親のモデルの主キー')
     }
 
+    /**
+     * リレーションシップ - commentsテーブル　投稿の投稿者を取得する
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+        // ('対象のモデル', '子の外部キー', '親のモデルの主キー')
+    }
 }

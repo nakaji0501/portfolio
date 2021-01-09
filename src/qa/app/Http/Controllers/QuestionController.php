@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Question;
+use App\Comment;
 
 class QuestionController extends Controller
 {
@@ -56,12 +57,6 @@ class QuestionController extends Controller
         $question = Question::where('id', $id)
             ->with(['user', 'comments.author'])->first();
         return $question ?? abort(404);
-    }
-
-    public function update(Request $request, Question $Question)
-    {
-        $question->update($request->all());
-        return $question;
     }
 
     public function delete(Question $question)

@@ -1,16 +1,16 @@
 <template>
     <div class="commentForm_container">
         <form class="commentForm"
-        @click.prevent="addComment"
+        @submit.prevent="addComment"
         >
             <p>内容を書いてください</p>
             <label for="comment"></label>
             <textarea name="comment" id="comment" cols="30" rows="10"
-            v-model="commentContent"
+            v-model="commentMessage"
             >
             </textarea>
             <div class="button">
-                <button>送信</button>
+                <button type="submit">送信</button>
             </div>
         </form>
     </div>
@@ -18,19 +18,30 @@
 
 <script>
 export default {
+    props: {
+        question: {
+            id: {
+                type: String,
+                required: true
+            }
+        }
+    },
     data() {
         return {
-            commentContent: '',
+            commentMessage: '',
         }
     },
     methods: {
         async addComment() {
-            const response = await axios.post(`{/api/questions/${this.id}/comments`, {
-                content: this.commentContent
+            const response = await axios.post(`/api/questions/${this.$route.params.id}/comments`, {
+                message: this.commentMessage,
+                question_id: this.question.id,
             })
-            this.commentContent = ''
+            console.log(response);
+
+            this.commentMessage = ''
         }
-    }
+    },
 }
 </script>
 

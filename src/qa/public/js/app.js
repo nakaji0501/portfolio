@@ -16440,15 +16440,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  // props: {
-  //     question: {
-  //         type: Object,
-  //         required: true
-  //     }
-  // },
+  props: {
+    question: {
+      id: {
+        type: String,
+        required: true
+      }
+    }
+  },
   data: function data() {
     return {
-      commentContent: ''
+      commentMessage: ''
     };
   },
   methods: {
@@ -16461,20 +16463,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(question);
-                _context.next = 3;
-                return axios.post("/api/questions/".concat(question.id, "/comments"), {
-                  content: _this.commentContent
+                _context.next = 2;
+                return axios.post("/api/questions/".concat(_this.$route.params.id, "/comments"), {
+                  message: _this.commentMessage,
+                  question_id: _this.question.id
                 });
 
-              case 3:
+              case 2:
                 response = _context.sent;
-                console.log(content);
-                console.log(_this.commentContent);
                 console.log(response);
-                _this.commentContent = '';
+                _this.commentMessage = '';
 
-              case 8:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -17039,6 +17039,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17054,7 +17055,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      question: {}
+      question: {
+        user: {}
+      }
     };
   },
   computed: {
@@ -19841,18 +19844,18 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.commentContent,
-              expression: "commentContent"
+              value: _vm.commentMessage,
+              expression: "commentMessage"
             }
           ],
           attrs: { name: "comment", id: "comment", cols: "30", rows: "10" },
-          domProps: { value: _vm.commentContent },
+          domProps: { value: _vm.commentMessage },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.commentContent = $event.target.value
+              _vm.commentMessage = $event.target.value
             }
           }
         }),
@@ -20710,7 +20713,11 @@ var render = function() {
     _c(
       "div",
       { staticClass: "commentForm" },
-      [_c("p", [_vm._v("コメントを送る")]), _vm._v(" "), _c("CommentForm")],
+      [
+        _c("p", [_vm._v("コメントを送る")]),
+        _vm._v(" "),
+        _c("CommentForm", { attrs: { question: _vm.question } })
+      ],
       1
     ),
     _vm._v(" "),

@@ -24,7 +24,23 @@ class CreateCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required',
+            'message' => 'required',
+            'question_id' => 'required | exists:questions,id',
+        ];
+    }
+
+    /**
+     * 定義済みバリデーションルールのエラーメッセージ取得
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'message.required' => 'メッセージを入力してください。',
+            'question_id.required' => '不正な操作です。',
+            'question_id.exists' => '存在しない投稿への返信です。すでに削除済みの可能性があります。画面をリロードしてください。',
+
         ];
     }
 }

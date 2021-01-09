@@ -3,13 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Question;
 
 class Comment extends Model
 {
+
     /** JSONに含める属性 */
     protected $visible = [
+        'message',
+        'question_id',
+        'created_at',
         'author',
-        'content',
+        'question',
     ];
 
     /**
@@ -22,12 +27,12 @@ class Comment extends Model
     }
 
     /**
-     * リレーションシップ - questionsテーブル　返信元の投稿を取得する
+     * リレーションシップ - questionsテーブル
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo
      */
-    public function postQuestion()
+    public function question()
     {
-        return $this->belongsTo('App\Question', 'question_id', 'id');
+        return $this->belongsTo('App\Question', 'question_id', 'id', 'questions');
         // ('対象のモデル', '子の外部キー', '親のモデルの主キー')
     }
 }
