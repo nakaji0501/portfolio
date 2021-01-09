@@ -36,6 +36,7 @@
         <div class="commentForm">
             <p>コメントを書く</p>
         <CommentForm
+        v-if="isLogin"
         :question="question" />
         </div>
 
@@ -67,6 +68,9 @@ export default {
     computed: {
         username() {
             return this.$store.getters['auth/username']
+        },
+        isLogin() {
+            return this.$store.getters['auth/check']
         },
     },
     methods: {

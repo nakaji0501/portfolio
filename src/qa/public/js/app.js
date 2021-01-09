@@ -17087,6 +17087,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17110,6 +17111,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   computed: {
     username: function username() {
       return this.$store.getters['auth/username'];
+    },
+    isLogin: function isLogin() {
+      return this.$store.getters['auth/check'];
     }
   },
   methods: {
@@ -20767,7 +20771,9 @@ var render = function() {
       [
         _c("p", [_vm._v("コメントを書く")]),
         _vm._v(" "),
-        _c("CommentForm", { attrs: { question: _vm.question } })
+        _vm.isLogin
+          ? _c("CommentForm", { attrs: { question: _vm.question } })
+          : _vm._e()
       ],
       1
     )
