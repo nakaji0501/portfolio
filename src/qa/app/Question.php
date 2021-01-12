@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 
-use App\comment;
+use App\Comment;
 
 class Question extends Model
 {

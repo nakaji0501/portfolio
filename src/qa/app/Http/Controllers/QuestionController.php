@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\DeleteQuestionRequest;
 
 use App\Question;
 use App\Comment;
@@ -59,9 +60,16 @@ class QuestionController extends Controller
         return $question ?? abort(404);
     }
 
-    public function delete(Question $question)
+    /**
+     * 投稿と紐づく返信を削除
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
     {
+        $question = Question::findOrFail($id);
+        $question->comments()->delete();
         $question->delete();
-        return $question;
+
+        return response($question, 204);
     }
 }
