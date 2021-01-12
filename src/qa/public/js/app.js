@@ -17397,6 +17397,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -17418,6 +17420,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       currentPage: 0,
       lastPage: 0
     };
+  },
+  computed: {
+    isLogin: function isLogin() {
+      return this.$store.getters['auth/check'];
+    }
   },
   methods: {
     fetchQuestions: function fetchQuestions() {
@@ -21001,24 +21008,38 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "button" }, [
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.deleteQuestion(question.id)
-                          }
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.isLogin,
+                          expression: "isLogin"
                         }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    削除\n                    "
-                        )
-                      ]
-                    )
-                  ])
+                      ],
+                      staticClass: "button"
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.deleteQuestion(question.id)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    削除\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
                 ])
               }),
               0

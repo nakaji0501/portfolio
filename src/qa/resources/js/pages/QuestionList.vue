@@ -26,7 +26,9 @@
                     <p>投稿者：{{ question.user.name }}</p>
                 </div>
 
-                <div class="button">
+                <div class="button"
+                v-show="isLogin"
+                >
                     <button
                     @click.prevent="deleteQuestion(question.id)"
                     >
@@ -74,6 +76,11 @@ export default {
             questions: [],
             currentPage: 0,
             lastPage: 0,
+        }
+    },
+    computed: {
+        isLogin() {
+            return this.$store.getters['auth/check']
         }
     },
     methods: {
