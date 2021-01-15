@@ -35,4 +35,17 @@ class CommentController extends Controller
 
         return response($new_comment, 201);
     }
+
+    /**
+     * 返信削除
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+
+        // リソースの削除なので204(No Content)を返す
+        return response($comment, 204);
+    }
 }

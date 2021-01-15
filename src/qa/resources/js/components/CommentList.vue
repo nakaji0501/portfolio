@@ -16,6 +16,11 @@
                     <p>コメント： {{ comment.message }}</p>
                 </div>
 
+                <div class="delete_button"
+                @click.prevent="deleteComment(comment.id)">
+                    <button>削除</button>
+                </div>
+
                 </li>
             </ul>
         </div>
@@ -29,6 +34,15 @@ export default {
             type: Object,
             required: true,
         }
+    },
+    methods: {
+        async deleteComment(id) {
+            const response= await axios.delete('/api/questions/comments/' + id)
+            .then((response) => {
+                console.log(response);
+            })
+            this.$router.go({path: this.$router.currentRoute.path, force: true})
+        },
     },
 }
 </script>

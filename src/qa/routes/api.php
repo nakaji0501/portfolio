@@ -49,3 +49,5 @@ Route::delete('/questions/{id}', 'QuestionController@delete')->name('question.de
 //////////CommentController//////////
 /// コメント投稿
 Route::post('/questions/{id}/comments', 'CommentController@addComment')->name('comment.addComment');
+// コメント削除
+Route::delete('questions/comments/{id}', 'CommentController@delete')->name('comment.delete');

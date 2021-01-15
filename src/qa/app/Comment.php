@@ -10,6 +10,7 @@ class Comment extends Model
 
     /** JSONに含める属性 */
     protected $visible = [
+        'id',
         'message',
         'question_id',
         'created_at',
