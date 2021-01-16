@@ -16520,15 +16520,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("return", false);
 
               case 8:
-                // if (response.status !== CREATED) {
-                //     this.$store.commit('error/setCode', response.status)
-                //     return false
-                // }
+                if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["CREATED"])) {
+                  _context.next = 11;
+                  break;
+                }
+
+                _this.$store.commit('error/setCode', response.status);
+
+                return _context.abrupt("return", false);
+
+              case 11:
                 _this.commentMessage = '';
                 _this.commentErrors = null;
                 _this.question.comments = [response.data].concat(_toConsumableArray(_this.question.comments));
 
-              case 11:
+              case 14:
               case "end":
                 return _context.stop();
             }

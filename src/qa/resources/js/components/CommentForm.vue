@@ -70,10 +70,10 @@ export default {
                 return false
             }
 
-            // if (response.status !== CREATED) {
-            //     this.$store.commit('error/setCode', response.status)
-            //     return false
-            // }
+            if (response.status !== CREATED) {
+                this.$store.commit('error/setCode', response.status)
+                return false
+            }
 
             this.commentMessage = ''
             this.commentErrors = null
