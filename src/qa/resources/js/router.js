@@ -7,6 +7,7 @@ import QuestionList from './pages/QuestionList'
 import QuestionForm from './pages/QuestionForm'
 import QuestionDetail from './pages/QuestionDetail'
 import SystemError from './pages/errors/System'
+import NotFound from './pages/errors/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -44,6 +45,10 @@ const routes = [
     {
         path: '/500',
         component: SystemError
+    },
+    {
+        path: '*',
+        component: NotFound
     },
 ]
 
