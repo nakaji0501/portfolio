@@ -2,6 +2,7 @@
     <div class="commentForm_container">
         <form class="commentForm"
         @submit.prevent="addComment"
+        v-if="isLogin"
         >
             <div
             v-if="commentErrors"
@@ -83,6 +84,11 @@ export default {
             ]
         }
     },
+    computed: {
+        isLogin() {
+            return this.$store.getters['auth/check']
+        }
+    }
 }
 </script>
 

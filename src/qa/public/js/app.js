@@ -16471,6 +16471,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -16534,6 +16535,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    }
+  },
+  computed: {
+    isLogin: function isLogin() {
+      return this.$store.getters['auth/check'];
     }
   }
 });
@@ -19982,66 +19988,73 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "commentForm_container" }, [
-    _c(
-      "form",
-      {
-        staticClass: "commentForm",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.addComment($event)
-          }
-        }
-      },
-      [
-        _vm.commentErrors
-          ? _c("div", [
-              _vm.commentErrors.message
-                ? _c(
-                    "ul",
-                    _vm._l(_vm.commentErrors.message, function(msg) {
-                      return _c("li", { key: msg }, [
-                        _vm._v(
-                          "\n                " +
-                            _vm._s(msg) +
-                            "\n                "
-                        )
-                      ])
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ])
-          : _c("div", [_c("p", [_vm._v("返信を書いてください")])]),
-        _vm._v(" "),
-        _c("div", [
-          _c("label", { attrs: { for: "comment" } }),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.commentMessage,
-                expression: "commentMessage"
-              }
-            ],
-            attrs: { name: "comment", id: "comment", cols: "30", rows: "10" },
-            domProps: { value: _vm.commentMessage },
+    _vm.isLogin
+      ? _c(
+          "form",
+          {
+            staticClass: "commentForm",
             on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.commentMessage = $event.target.value
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.addComment($event)
               }
             }
-          }),
-          _vm._v(" "),
-          _vm._m(0)
-        ])
-      ]
-    )
+          },
+          [
+            _vm.commentErrors
+              ? _c("div", [
+                  _vm.commentErrors.message
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.commentErrors.message, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(msg) +
+                                "\n                "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _c("div", [_c("p", [_vm._v("返信を書いてください")])]),
+            _vm._v(" "),
+            _c("div", [
+              _c("label", { attrs: { for: "comment" } }),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.commentMessage,
+                    expression: "commentMessage"
+                  }
+                ],
+                attrs: {
+                  name: "comment",
+                  id: "comment",
+                  cols: "30",
+                  rows: "10"
+                },
+                domProps: { value: _vm.commentMessage },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.commentMessage = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
+          ]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
