@@ -2,20 +2,29 @@
     <div class="questionForm">
         <div class="form_wrapper"
         v-show="isLogin">
+
+            <div
+            v-show="posting"
+            >
+                <loader>投稿中です。しばらくお待ちください。</loader>
+            </div>
+
             <form class="form"
-            @submit.prevent="postQuestion">
+            @submit.prevent="postQuestion"
+            v-show="! loading"
+            >
 
             <div class="postErrors"
             v-if="postErrors">
-            <ul
-            v-if="postErrors.title"
-            >
-            <li v-for="msg in postErrors.title"
-            :key="msg"
-            >
-                {{ msg }}
-            </li>
-            </ul>
+                <ul
+                v-if="postErrors.title"
+                >
+                <li v-for="msg in postErrors.title"
+                :key="msg"
+                >
+                    {{ msg }}
+                </li>
+                </ul>
             </div>
 
             <div class="form_content title">
@@ -27,15 +36,15 @@
 
             <div class="postErrors"
             v-if="postErrors">
-            <ul
-            v-if="postErrors.message"
-            >
-            <li v-for="msg in postErrors.message"
-            :key="msg"
-            >
-                {{ msg }}
-            </li>
-            </ul>
+                <ul
+                v-if="postErrors.message"
+                >
+                <li v-for="msg in postErrors.message"
+                :key="msg"
+                >
+                    {{ msg }}
+                </li>
+                </ul>
             </div>
 
             <div class="form_content message">
@@ -54,10 +63,12 @@
 
 <script>
 import PostButton from '../components/PostButton'
+import Loader from '../components/Loader'
 
 export default {
     components: {
         PostButton,
+        Loader,
     },
     data() {
         return {
@@ -65,6 +76,7 @@ export default {
                 title: '',
                 message: '',
             },
+            posting: false,
         }
     },
     computed: {
@@ -83,11 +95,15 @@ export default {
     },
     methods: {
         async postQuestion() {
+            this.posting = true
+
             const response = await this.$store.dispatch('post/postQuestion', this.question)
             console.log(this.response);
             if (this.setPostStatus) {
                 this.$router.push('/')
             }
+
+            this.posting = false
         },
         clearError() {
             this.$store.commit('post/setPostErrorMessages', null)
