@@ -3,20 +3,41 @@
         <form class="commentForm"
         @submit.prevent="addComment"
         >
-            <p>返信を書いてください</p>
-            <label for="comment"></label>
-            <textarea name="comment" id="comment" cols="30" rows="10"
-            v-model="commentMessage"
+            <div
+            v-if="commentErrors"
             >
-            </textarea>
-            <div class="button">
-                <button type="submit">送信</button>
+                <ul v-if="commentErrors.message">
+                    <li
+                    v-for="msg in commentErrors.message"
+                    :key="msg">
+                    {{ msg }}
+                    </li>
+                </ul>
+            </div>
+
+            <div
+            v-else
+            >
+                <p>返信を書いてください</p>
+            </div>
+
+            <div>
+                <label for="comment"></label>
+                <textarea name="comment" id="comment" cols="30" rows="10"
+                v-model="commentMessage"
+                >
+                </textarea>
+                <div class="button">
+                    <button type="submit">送信</button>
+                </div>
             </div>
         </form>
     </div>
 </template>
 
 <script>
+import { OK, CREATED, UNPROCESSABLE_ENTITY } from '../util'
+
 export default {
     props: {
         question: {
@@ -29,6 +50,7 @@ export default {
     data() {
         return {
             commentMessage: '',
+            commentErrors: '',
         }
     },
     methods: {
@@ -37,9 +59,23 @@ export default {
                 message: this.commentMessage,
                 question_id: this.question.id,
             })
+            .catch(err => err.response || err);
+
             console.log(response);
 
+            if (response.status === UNPROCESSABLE_ENTITY) {
+                this.commentErrors = response.data.errors;
+                console.log(this.commentErrors);
+                return false
+            }
+
+            // if (response.status !== CREATED) {
+            //     this.$store.commit('error/setCode', response.status)
+            //     return false
+            // }
+
             this.commentMessage = ''
+            this.commentErrors = null
 
             this.question.comments = [
                 response.data,

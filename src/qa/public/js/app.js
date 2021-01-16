@@ -16415,6 +16415,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
 
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -16451,6 +16452,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     question: {
@@ -16462,7 +16483,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      commentMessage: ''
+      commentMessage: '',
+      commentErrors: ''
     };
   },
   methods: {
@@ -16479,15 +16501,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return axios.post("/api/questions/".concat(_this.$route.params.id, "/comments"), {
                   message: _this.commentMessage,
                   question_id: _this.question.id
+                })["catch"](function (err) {
+                  return err.response || err;
                 });
 
               case 2:
                 response = _context.sent;
                 console.log(response);
+
+                if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"])) {
+                  _context.next = 8;
+                  break;
+                }
+
+                _this.commentErrors = response.data.errors;
+                console.log(_this.commentErrors);
+                return _context.abrupt("return", false);
+
+              case 8:
+                // if (response.status !== CREATED) {
+                //     this.$store.commit('error/setCode', response.status)
+                //     return false
+                // }
                 _this.commentMessage = '';
+                _this.commentErrors = null;
                 _this.question.comments = [response.data].concat(_toConsumableArray(_this.question.comments));
 
-              case 6:
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -19954,32 +19994,52 @@ var render = function() {
         }
       },
       [
-        _c("p", [_vm._v("返信を書いてください")]),
+        _vm.commentErrors
+          ? _c("div", [
+              _vm.commentErrors.message
+                ? _c(
+                    "ul",
+                    _vm._l(_vm.commentErrors.message, function(msg) {
+                      return _c("li", { key: msg }, [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(msg) +
+                            "\n                "
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                : _vm._e()
+            ])
+          : _c("div", [_c("p", [_vm._v("返信を書いてください")])]),
         _vm._v(" "),
-        _c("label", { attrs: { for: "comment" } }),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.commentMessage,
-              expression: "commentMessage"
-            }
-          ],
-          attrs: { name: "comment", id: "comment", cols: "30", rows: "10" },
-          domProps: { value: _vm.commentMessage },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c("div", [
+          _c("label", { attrs: { for: "comment" } }),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.commentMessage,
+                expression: "commentMessage"
               }
-              _vm.commentMessage = $event.target.value
+            ],
+            attrs: { name: "comment", id: "comment", cols: "30", rows: "10" },
+            domProps: { value: _vm.commentMessage },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.commentMessage = $event.target.value
+              }
             }
-          }
-        }),
-        _vm._v(" "),
-        _vm._m(0)
+          }),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
       ]
     )
   ])
