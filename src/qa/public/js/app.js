@@ -16597,6 +16597,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     question: {
@@ -16634,6 +16636,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    }
+  },
+  computed: {
+    isLogin: function isLogin() {
+      return this.$store.getters['auth/check'];
     }
   }
 });
@@ -20112,19 +20119,21 @@ var render = function() {
                     _c("p", [_vm._v("コメント： " + _vm._s(comment.message))])
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "delete_button",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.deleteComment(comment.id)
-                        }
-                      }
-                    },
-                    [_c("button", [_vm._v("削除")])]
-                  )
+                  _vm.isLogin
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "delete_button",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.deleteComment(comment.id)
+                            }
+                          }
+                        },
+                        [_c("button", [_vm._v("削除")])]
+                      )
+                    : _vm._e()
                 ]
               )
             }),

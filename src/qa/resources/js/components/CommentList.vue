@@ -18,7 +18,9 @@
                 </div>
 
                 <div class="delete_button"
-                @click.prevent="deleteComment(comment.id)">
+                @click.prevent="deleteComment(comment.id)"
+                v-if="isLogin"
+                >
                     <button>削除</button>
                 </div>
 
@@ -49,6 +51,11 @@ export default {
             this.$router.go({path: this.$router.currentRoute.path, force: true})
         },
     },
+    computed: {
+        isLogin() {
+            return this.$store.getters['auth/check']
+        }
+    }
 }
 </script>
 
