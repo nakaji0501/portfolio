@@ -16546,6 +16546,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     question: {
@@ -20011,45 +20016,49 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "commentList" }, [
-    _c("div", { staticClass: "commentList_wrapper" }, [
-      _c("p", [_vm._v("コメント欄")]),
-      _vm._v(" "),
-      _c(
-        "ul",
-        _vm._l(_vm.question.comments, function(comment) {
-          return _c(
-            "li",
-            { key: comment.questin_id, staticClass: "commentItem" },
-            [
-              _c("div", { staticClass: "comment_infomation" }, [
-                _c("p", [_vm._v("返信者： " + _vm._s(comment.author.name))]),
-                _vm._v(" "),
-                _c("p", [_vm._v("返信日： " + _vm._s(comment.created_at))])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "comment_text" }, [
-                _c("p", [_vm._v("コメント： " + _vm._s(comment.message))])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "delete_button",
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.deleteComment(comment.id)
-                    }
-                  }
-                },
-                [_c("button", [_vm._v("削除")])]
+    _vm.question.comments > Array(0)
+      ? _c("div", { staticClass: "commentList_wrapper" }, [
+          _c("p", [_vm._v("コメント欄")]),
+          _vm._v(" "),
+          _c(
+            "ul",
+            _vm._l(_vm.question.comments, function(comment) {
+              return _c(
+                "li",
+                { key: comment.questin_id, staticClass: "commentItem" },
+                [
+                  _c("div", { staticClass: "comment_infomation" }, [
+                    _c("p", [
+                      _vm._v("返信者： " + _vm._s(comment.author.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("返信日： " + _vm._s(comment.created_at))])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "comment_text" }, [
+                    _c("p", [_vm._v("コメント： " + _vm._s(comment.message))])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "delete_button",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.deleteComment(comment.id)
+                        }
+                      }
+                    },
+                    [_c("button", [_vm._v("削除")])]
+                  )
+                ]
               )
-            ]
+            }),
+            0
           )
-        }),
-        0
-      )
-    ])
+        ])
+      : _c("div", [_c("p", [_vm._v("コメントはありません")])])
   ])
 }
 var staticRenderFns = []
@@ -37936,14 +37945,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************!*\
   !*** ./resources/js/components/CommentList.vue ***!
   \*************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CommentList_vue_vue_type_template_id_b2309ffc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CommentList.vue?vue&type=template&id=b2309ffc&scoped=true& */ "./resources/js/components/CommentList.vue?vue&type=template&id=b2309ffc&scoped=true&");
 /* harmony import */ var _CommentList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CommentList.vue?vue&type=script&lang=js& */ "./resources/js/components/CommentList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _CommentList_vue_vue_type_style_index_0_id_b2309ffc_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CommentList.vue?vue&type=style&index=0&id=b2309ffc&lang=scss&scoped=true& */ "./resources/js/components/CommentList.vue?vue&type=style&index=0&id=b2309ffc&lang=scss&scoped=true&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _CommentList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _CommentList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _CommentList_vue_vue_type_style_index_0_id_b2309ffc_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CommentList.vue?vue&type=style&index=0&id=b2309ffc&lang=scss&scoped=true& */ "./resources/js/components/CommentList.vue?vue&type=style&index=0&id=b2309ffc&lang=scss&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -37975,7 +37985,7 @@ component.options.__file = "resources/js/components/CommentList.vue"
 /*!**************************************************************************!*\
   !*** ./resources/js/components/CommentList.vue?vue&type=script&lang=js& ***!
   \**************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -1,6 +1,7 @@
 <template>
     <div class="commentList">
-        <div class="commentList_wrapper">
+        <div class="commentList_wrapper"
+        v-if="question.comments > Array(0)">
             <p>コメント欄</p>
             <ul>
                 <li class="commentItem"
@@ -23,6 +24,10 @@
 
                 </li>
             </ul>
+        </div>
+        <div
+        v-else>
+            <p>コメントはありません</p>
         </div>
     </div>
 </template>
