@@ -1,8 +1,20 @@
 <template>
     <div class="commentForm_container">
+
+        <div class="loader">
+            <Loader
+            v-show="posting"
+            >
+                <template slot="loadingText">
+                    コメントを投稿中です。しばらくお待ちください。
+                </template>
+            </Loader>
+        </div>
+
         <form class="commentForm"
         @submit.prevent="addComment"
         v-if="isLogin"
+        v-show="! posting"
         >
             <div
             v-if="commentErrors"
@@ -39,7 +51,12 @@
 <script>
 import { OK, CREATED, UNPROCESSABLE_ENTITY } from '../util'
 
+import Loader from '../components/Loader'
+
 export default {
+    components: {
+        Loader,
+    },
     props: {
         question: {
             id: {
@@ -52,15 +69,20 @@ export default {
         return {
             commentMessage: '',
             commentErrors: '',
+            posting: false,
         }
     },
     methods: {
         async addComment() {
+            this.posting = true
+
             const response = await axios.post(`/api/questions/${this.$route.params.id}/comments`, {
                 message: this.commentMessage,
                 question_id: this.question.id,
             })
             .catch(err => err.response || err);
+
+            this.posting = false
 
             console.log(response);
 

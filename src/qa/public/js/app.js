@@ -16467,6 +16467,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
 
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -16523,8 +16524,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   props: {
     question: {
       id: {
@@ -16536,7 +16553,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       commentMessage: '',
-      commentErrors: ''
+      commentErrors: '',
+      posting: false
     };
   },
   methods: {
@@ -16549,7 +16567,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                _this.posting = true;
+                _context.next = 3;
                 return axios.post("/api/questions/".concat(_this.$route.params.id, "/comments"), {
                   message: _this.commentMessage,
                   question_id: _this.question.id
@@ -16557,12 +16576,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return err.response || err;
                 });
 
-              case 2:
+              case 3:
                 response = _context.sent;
+                _this.posting = false;
                 console.log(response);
 
                 if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"])) {
-                  _context.next = 8;
+                  _context.next = 10;
                   break;
                 }
 
@@ -16570,9 +16590,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 console.log(_this.commentErrors);
                 return _context.abrupt("return", false);
 
-              case 8:
+              case 10:
                 if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["CREATED"])) {
-                  _context.next = 11;
+                  _context.next = 13;
                   break;
                 }
 
@@ -16580,12 +16600,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 return _context.abrupt("return", false);
 
-              case 11:
+              case 13:
                 _this.commentMessage = '';
                 _this.commentErrors = null;
                 _this.question.comments = [response.data].concat(_toConsumableArray(_this.question.comments));
 
-              case 14:
+              case 16:
               case "end":
                 return _context.stop();
             }
@@ -20068,10 +20088,47 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "commentForm_container" }, [
+    _c(
+      "div",
+      { staticClass: "loader" },
+      [
+        _c(
+          "Loader",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.posting,
+                expression: "posting"
+              }
+            ]
+          },
+          [
+            _c("template", { slot: "loadingText" }, [
+              _vm._v(
+                "\n                コメントを投稿中です。しばらくお待ちください。\n            "
+              )
+            ])
+          ],
+          2
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
     _vm.isLogin
       ? _c(
           "form",
           {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.posting,
+                expression: "! posting"
+              }
+            ],
             staticClass: "commentForm",
             on: {
               submit: function($event) {
@@ -20319,7 +20376,7 @@ var render = function() {
     _c(
       "p",
       { staticClass: "loading_text" },
-      [_vm._t("default", [_vm._v("Loading...")])],
+      [_vm._t("loadingText", [_vm._v("Loading...")])],
       2
     ),
     _vm._v(" "),
