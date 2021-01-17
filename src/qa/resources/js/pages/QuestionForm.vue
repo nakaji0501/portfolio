@@ -90,7 +90,7 @@ export default {
         questions() {
             return this.$store.state.post.questions
         },
-        setPostStatus() {
+        postStatus() {
             return this.$store.state.post.postStatus
         },
         postErrors() {
@@ -102,7 +102,7 @@ export default {
             this.posting = true
 
             const response = await this.$store.dispatch('post/postQuestion', this.question)
-            if (this.setPostStatusl) {
+            if (this.postStatus) {
                 this.$router.push('/')
             }
 

@@ -17469,7 +17469,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     questions: function questions() {
       return this.$store.state.post.questions;
     },
-    setPostStatus: function setPostStatus() {
+    postStatus: function postStatus() {
       return this.$store.state.post.postStatus;
     },
     postErrors: function postErrors() {
@@ -17493,7 +17493,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 response = _context.sent;
 
-                if (_this.setPostStatusl) {
+                if (_this.postStatus) {
                   _this.$router.push('/');
                 }
 
