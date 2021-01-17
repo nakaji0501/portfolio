@@ -17442,6 +17442,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17488,15 +17492,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 response = _context.sent;
-                console.log(_this.response);
 
-                if (_this.setPostStatus) {
+                if (_this.setPostStatusl) {
                   _this.$router.push('/');
                 }
 
                 _this.posting = false;
 
-              case 7:
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -21145,17 +21148,30 @@ var render = function() {
       [
         _c(
           "div",
-          {
-            directives: [
+          { staticClass: "loader" },
+          [
+            _c(
+              "Loader",
               {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.posting,
-                expression: "posting"
-              }
-            ]
-          },
-          [_c("loader", [_vm._v("投稿中です。しばらくお待ちください。")])],
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.posting,
+                    expression: "posting"
+                  }
+                ]
+              },
+              [
+                _c("template", { slot: "loadingText" }, [
+                  _vm._v(
+                    "\n                    質問を投稿中です。しばらくお待ちください。\n                "
+                  )
+                ])
+              ],
+              2
+            )
+          ],
           1
         ),
         _vm._v(" "),
@@ -21166,8 +21182,8 @@ var render = function() {
               {
                 name: "show",
                 rawName: "v-show",
-                value: !_vm.loading,
-                expression: "! loading"
+                value: !_vm.posting,
+                expression: "! posting"
               }
             ],
             staticClass: "form",

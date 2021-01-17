@@ -3,15 +3,19 @@
         <div class="form_wrapper"
         v-show="isLogin">
 
-            <div
-            v-show="posting"
-            >
-                <loader>投稿中です。しばらくお待ちください。</loader>
+            <div class="loader">
+                <Loader
+                v-show="posting"
+                >
+                    <template slot="loadingText">
+                        質問を投稿中です。しばらくお待ちください。
+                    </template>
+                </Loader>
             </div>
 
             <form class="form"
             @submit.prevent="postQuestion"
-            v-show="! loading"
+            v-show="! posting"
             >
 
             <div class="postErrors"
@@ -98,8 +102,7 @@ export default {
             this.posting = true
 
             const response = await this.$store.dispatch('post/postQuestion', this.question)
-            console.log(this.response);
-            if (this.setPostStatus) {
+            if (this.setPostStatusl) {
                 this.$router.push('/')
             }
 
