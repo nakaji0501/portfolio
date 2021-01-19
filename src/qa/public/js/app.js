@@ -17848,7 +17848,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".pagination[data-v-d7acf176] {\n  position: relative;\n  width: 90%;\n  margin: 0 auto;\n}\n.pagination_button-rev[data-v-d7acf176] {\n  position: absolute;\n  top: 24px;\n  left: 0;\n}\n.pagination_button-next[data-v-d7acf176] {\n  position: absolute;\n  top: 24px;\n  right: 0;\n}", ""]);
+exports.push([module.i, ".pagination[data-v-d7acf176] {\n  position: relative;\n  width: 90%;\n  margin: 0 auto;\n}\n.pagination_button-rev[data-v-d7acf176] {\n  position: absolute;\n  top: 24px;\n  left: 50%;\n  transform: translateX(-6rem);\n}\n.pagination_button-next[data-v-d7acf176] {\n  position: absolute;\n  top: 24px;\n  right: 50%;\n  transform: translateX(6rem);\n}", ""]);
 
 // exports
 

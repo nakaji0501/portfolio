@@ -50,12 +50,14 @@ export default {
         &-rev {
             position: absolute;
             top: 24px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-6rem);
         }
         &-next {
             position: absolute;
             top: 24px;
-            right: 0;
+            right: 50%;
+            transform: translateX(6rem);
         }
     }
 }
