@@ -65,9 +65,8 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-    margin-top: 100px;
     width: 90%;
-    margin: 100px auto;
+    margin: 0 auto;
 }
 // .tag_item {
 //     display: inline-block;
@@ -78,7 +77,6 @@ export default {
 // }
 
 .button {
-    margin-top: 24px;
     padding: 8px;
     text-align: center;
     cursor: pointer;

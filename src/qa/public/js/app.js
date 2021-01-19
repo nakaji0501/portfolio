@@ -17810,7 +17810,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".footer[data-v-61a7c374] {\n  margin-top: 100px;\n  width: 90%;\n  margin: 100px auto;\n}\n.button[data-v-61a7c374] {\n  margin-top: 24px;\n  padding: 8px;\n  text-align: center;\n  cursor: pointer;\n}\n.button-logout[data-v-61a7c374], .button-login[data-v-61a7c374] {\n  font-size: 1.2rem;\n}", ""]);
+exports.push([module.i, ".footer[data-v-61a7c374] {\n  width: 90%;\n  margin: 0 auto;\n}\n.button[data-v-61a7c374] {\n  padding: 8px;\n  text-align: center;\n  cursor: pointer;\n}\n.button-logout[data-v-61a7c374], .button-login[data-v-61a7c374] {\n  font-size: 1.2rem;\n}", ""]);
 
 // exports
 
