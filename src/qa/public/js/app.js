@@ -17121,6 +17121,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -17850,7 +17867,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@media screen and (max-width: 480px) {\n.login_container[data-v-3b6adb30] {\n    border: 1px solid #868686;\n    padding: 16px;\n}\n.tab[data-v-3b6adb30] {\n    display: flex;\n    justify-content: space-around;\n    margin-bottom: 16px;\n}\n.tab_item-active[data-v-3b6adb30] {\n    background: #e86;\n}\n.form label[data-v-3b6adb30] {\n    display: block;\n}\n.form input[data-v-3b6adb30] {\n    display: block;\n    width: 80%;\n    margin-bottom: 16px;\n}\n.button[data-v-3b6adb30] {\n    cursor: pointer;\n}\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n.login[data-v-3b6adb30] {\n  margin: 80px auto 0;\n  width: 90%;\n  border: 1px solid #868686;\n  padding: 16px;\n}\n.login_message[data-v-3b6adb30] {\n  margin: 24px 0;\n  font-weight: bold;\n}\n.tab[data-v-3b6adb30] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 16px;\n}\n.tab_item-active[data-v-3b6adb30] {\n  background: #e86;\n}\n.tab li[data-v-3b6adb30] {\n  font-size: 1.5rem;\n  cursor: pointer;\n}\nlabel[data-v-3b6adb30], input[data-v-3b6adb30] {\n  font-size: 1.2rem;\n}\n.button[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  text-decoration: none;\n  color: #FFF;\n  background: #03A9F4;\n  /*色*/\n  border: solid 1px #0f9ada;\n  /*線色*/\n  border-radius: 4px;\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n}\n.button[data-v-3b6adb30]:active {\n  border: solid 1px #03A9F4;\n  box-shadow: none;\n  text-shadow: none;\n}\n.mb-16[data-v-3b6adb30] {\n  margin-bottom: 8px;\n}", ""]);
 
 // exports
 
@@ -20592,7 +20609,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "login_container" }, [
+  return _c("div", { staticClass: "login" }, [
     _c("ul", { staticClass: "tab" }, [
       _c(
         "li",
@@ -20624,7 +20641,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     !_vm.isLogin
-      ? _c("div", { staticClass: "authCheckUnauthenticated" }, [
+      ? _c("div", { staticClass: "login_message" }, [
           _c("p", [
             _vm._v("ログインをすることで質問投稿やコメントが利用できます。")
           ])
@@ -20642,13 +20659,13 @@ var render = function() {
             expression: "tab === 1"
           }
         ],
-        staticClass: "panel"
+        staticClass: "loginForm"
       },
       [
         _c(
           "form",
           {
-            staticClass: "form",
+            staticClass: "loginForm-form",
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -20677,29 +20694,31 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("label", { attrs: { for: "login-email" } }, [_vm._v("Email")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.loginForm.email,
-                  expression: "loginForm.email"
-                }
-              ],
-              staticClass: "form_item",
-              attrs: { id: "login-email", type: "text" },
-              domProps: { value: _vm.loginForm.email },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c("div", { staticClass: "loginForm_email mb-16" }, [
+              _c("label", { attrs: { for: "login-email" } }, [_vm._v("Email")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.loginForm.email,
+                    expression: "loginForm.email"
                   }
-                  _vm.$set(_vm.loginForm, "email", $event.target.value)
+                ],
+                staticClass: "form_item",
+                attrs: { id: "login-email", type: "text" },
+                domProps: { value: _vm.loginForm.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.loginForm, "email", $event.target.value)
+                  }
                 }
-              }
-            }),
+              })
+            ]),
             _vm._v(" "),
             _vm.loginErrors
               ? _c("div", { staticClass: "error" }, [
@@ -20721,31 +20740,33 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("label", { attrs: { for: "login-password" } }, [
-              _vm._v("Password")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.loginForm.password,
-                  expression: "loginForm.password"
-                }
-              ],
-              staticClass: "form_item",
-              attrs: { id: "login-password", type: "password" },
-              domProps: { value: _vm.loginForm.password },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c("div", { staticClass: "loginForm_password mb-16" }, [
+              _c("label", { attrs: { for: "login-password" } }, [
+                _vm._v("Password")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.loginForm.password,
+                    expression: "loginForm.password"
                   }
-                  _vm.$set(_vm.loginForm, "password", $event.target.value)
+                ],
+                staticClass: "form_item",
+                attrs: { id: "login-password", type: "password" },
+                domProps: { value: _vm.loginForm.password },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.loginForm, "password", $event.target.value)
+                  }
                 }
-              }
-            }),
+              })
+            ]),
             _vm._v(" "),
             _vm._m(0)
           ]
@@ -20764,13 +20785,13 @@ var render = function() {
             expression: "tab === 2"
           }
         ],
-        staticClass: "panel"
+        staticClass: "register"
       },
       [
         _c(
           "form",
           {
-            staticClass: "form",
+            staticClass: "registerForm-register",
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -20799,29 +20820,31 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("label", { attrs: { for: "username" } }, [_vm._v("Name")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.registerForm.name,
-                  expression: "registerForm.name"
-                }
-              ],
-              staticClass: "form_item",
-              attrs: { id: "username", type: "text" },
-              domProps: { value: _vm.registerForm.name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c("div", { staticClass: "loginForm_username mb-16" }, [
+              _c("label", { attrs: { for: "username" } }, [_vm._v("Name")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.registerForm.name,
+                    expression: "registerForm.name"
                   }
-                  _vm.$set(_vm.registerForm, "name", $event.target.value)
+                ],
+                staticClass: "form_item",
+                attrs: { id: "username", type: "text" },
+                domProps: { value: _vm.registerForm.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.registerForm, "name", $event.target.value)
+                  }
                 }
-              }
-            }),
+              })
+            ]),
             _vm._v(" "),
             _vm.registerErrors
               ? _c("div", { staticClass: "errors" }, [
@@ -20843,29 +20866,31 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.registerForm.email,
-                  expression: "registerForm.email"
-                }
-              ],
-              staticClass: "form_item",
-              attrs: { id: "email", type: "text" },
-              domProps: { value: _vm.registerForm.email },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c("div", { staticClass: "regiserForm_email mb-16" }, [
+              _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.registerForm.email,
+                    expression: "registerForm.email"
                   }
-                  _vm.$set(_vm.registerForm, "email", $event.target.value)
+                ],
+                staticClass: "form_item",
+                attrs: { id: "email", type: "text" },
+                domProps: { value: _vm.registerForm.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.registerForm, "email", $event.target.value)
+                  }
                 }
-              }
-            }),
+              })
+            ]),
             _vm._v(" "),
             _vm.registerErrors
               ? _c("div", { staticClass: "errors" }, [
@@ -20887,59 +20912,67 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.registerForm.password,
-                  expression: "registerForm.password"
-                }
-              ],
-              staticClass: "form_item",
-              attrs: { id: "password", type: "password" },
-              domProps: { value: _vm.registerForm.password },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c("div", { staticClass: "registerForm_password mb-16" }, [
+              _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.registerForm.password,
+                    expression: "registerForm.password"
                   }
-                  _vm.$set(_vm.registerForm, "password", $event.target.value)
+                ],
+                staticClass: "form_item",
+                attrs: { id: "password", type: "password" },
+                domProps: { value: _vm.registerForm.password },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.registerForm, "password", $event.target.value)
+                  }
                 }
-              }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "password-confirmation" } }, [
-              _vm._v("Passwrod(確認用)")
+              })
             ]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.registerForm.password_confirmation,
-                  expression: "registerForm.password_confirmation"
-                }
-              ],
-              staticClass: "form_item",
-              attrs: { id: "password-confirmation", type: "password" },
-              domProps: { value: _vm.registerForm.password_confirmation },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c(
+              "div",
+              { staticClass: "registerForm_passworc-confirmation mb-16" },
+              [
+                _c("label", { attrs: { for: "password-confirmation" } }, [
+                  _vm._v("Passwrod(確認用)")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.registerForm.password_confirmation,
+                      expression: "registerForm.password_confirmation"
+                    }
+                  ],
+                  staticClass: "form_item",
+                  attrs: { id: "password-confirmation", type: "password" },
+                  domProps: { value: _vm.registerForm.password_confirmation },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.registerForm,
+                        "password_confirmation",
+                        $event.target.value
+                      )
+                    }
                   }
-                  _vm.$set(
-                    _vm.registerForm,
-                    "password_confirmation",
-                    $event.target.value
-                  )
-                }
-              }
-            }),
+                })
+              ]
+            ),
             _vm._v(" "),
             _vm._m(1)
           ]
@@ -20953,7 +20986,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form_button" }, [
+    return _c("div", { staticClass: "loginForm_button" }, [
       _c("button", { staticClass: "button", attrs: { type: "submit" } }, [
         _vm._v("ログイン")
       ])
@@ -20963,7 +20996,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form_button" }, [
+    return _c("div", { staticClass: "registerForm_button" }, [
       _c("button", { staticClass: "button", attrs: { type: "submit" } }, [
         _vm._v("会員登録")
       ])
