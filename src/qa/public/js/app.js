@@ -16882,7 +16882,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     isLogin: function isLogin() {
@@ -17810,7 +17809,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@media screen and (max-width: 480px) {\n.navbar_wrapper[data-v-6dde423b] {\n    display: flex;\n    justify-content: space-between;\n    padding: 8px;\n}\n.title[data-v-6dde423b] {\n    font-size: 2rem;\n    color: #333;\n}\n.subText p[data-v-6dde423b] {\n    font-size: 0.8rem;\n    padding-left: 8px;\n}\n}", ""]);
+exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px;\n  cursor: pointer;\n}\n.navbar_title *[data-v-6dde423b] {\n  font-size: 2rem;\n}\n.navbar_logo[data-v-6dde423b] {\n  padding-top: 2px;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #f78528;\n}\n.navbar_subText[data-v-6dde423b] {\n  padding-left: 8px;\n}", ""]);
 
 // exports
 
@@ -17924,7 +17923,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "h1,h2,h3 {\n    font-size: 20px;\n}\n\np,a {\n    font-size: 16px;\n    line-height: 1.8;\n}\n\nli {\n    list-style: none;\n}", ""]);
+exports.push([module.i, "* {\n    color: #333;\n}\n\nh1,h2,h3 {\n    font-size: 20px;\n}\n\np,a {\n    font-size: 16px;\n    line-height: 1.8;\n}\n\na {\n    text-decoration: none;\n}\n\nli {\n    list-style: none;\n}", ""]);
 
 // exports
 
@@ -20409,35 +20408,33 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "navbar" }, [
-    _c("div", { staticClass: "navbar_wrapper" }, [
-      _c(
-        "div",
-        { staticClass: "navbar_inner" },
-        [
-          _c(
-            "router-link",
-            { staticClass: "navbar__brand", attrs: { to: "/" } },
-            [
-              _c(
-                "div",
-                { staticClass: "title" },
-                [
-                  _c("font-awesome-icon", {
-                    attrs: { icon: ["far", "question-circle"], size: "2x" }
-                  }),
-                  _vm._v("\n            QA掲示板\n        ")
-                ],
-                1
-              )
-            ]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "navbar_inner" }, [
+    _c(
+      "div",
+      { staticClass: "navbar_wrapper" },
+      [
         _c(
-          "span",
+          "router-link",
+          { staticClass: "navbar_title content_flex", attrs: { to: "/" } },
+          [
+            _c(
+              "div",
+              { staticClass: "navbar_logo" },
+              [
+                _c("font-awesome-icon", {
+                  attrs: { icon: ["far", "question-circle"], size: "2x" }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "navbar_title-name" }, [
+              _c("h1", [_vm._v("QA掲示板")])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
           {
             directives: [
               {
@@ -20447,39 +20444,44 @@ var render = function() {
                 expression: "isLogin"
               }
             ],
-            staticClass: "navbar_item"
+            staticClass: "navbar_user-logged content_flex"
           },
           [
-            _c("font-awesome-icon", { attrs: { icon: ["fas", "user"] } }),
-            _vm._v("\n            " + _vm._s(_vm.username) + "\n        ")
-          ],
-          1
+            _c(
+              "p",
+              [_c("font-awesome-icon", { attrs: { icon: ["fas", "user"] } })],
+              1
+            ),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.username))])
+          ]
         ),
         _vm._v(" "),
         _c(
-          "div",
-          { staticClass: "navbar_item" },
-          [
-            _c(
-              "router-link",
+          "router-link",
+          {
+            directives: [
               {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.isLogin,
-                    expression: "! isLogin"
-                  }
-                ],
-                attrs: { to: "/login" }
-              },
-              [_vm._v("\n            ログイン / 会員登録\n            ")]
-            )
-          ],
-          1
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.isLogin,
+                expression: "! isLogin"
+              }
+            ],
+            staticClass: "navbar_user-login content_flex",
+            attrs: { to: "/login" }
+          },
+          [
+            _c("p", [_vm._v("ログイン")]),
+            _vm._v(" "),
+            _c("p", [_vm._v("/")]),
+            _vm._v(" "),
+            _c("p", [_vm._v("会員登録")])
+          ]
         )
-      ])
-    ]),
+      ],
+      1
+    ),
     _vm._v(" "),
     _vm._m(0)
   ])
@@ -20489,10 +20491,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "subText" }, [
-      _c("p", [
-        _vm._v("夫婦・家族・育児にまつわる「教えて！」「聞いて！」のQ&A掲示板")
-      ])
+    return _c("div", { staticClass: "navbar_subText" }, [
+      _c("p", [_vm._v("マイホームに関する「教えて！」Q&A掲示板")])
     ])
   }
 ]
@@ -38003,15 +38003,14 @@ if(false) {}
 /*!******************************!*\
   !*** ./resources/js/App.vue ***!
   \******************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue_vue_type_template_id_f348271a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=f348271a& */ "./resources/js/App.vue?vue&type=template&id=f348271a&");
 /* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/App.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -38041,7 +38040,7 @@ component.options.__file = "resources/js/App.vue"
 /*!*******************************************************!*\
   !*** ./resources/js/App.vue?vue&type=script&lang=js& ***!
   \*******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

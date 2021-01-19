@@ -2,40 +2,39 @@
     <nav class="navbar">
         <div class="navbar_wrapper">
 
-        <div class="navbar_inner">
-            <router-link class="navbar__brand"
-            to="/"
-            >
-            <div class="title">
+        <router-link class="navbar_title content_flex"
+        to="/"
+        >
+
+            <div class="navbar_logo">
                 <font-awesome-icon :icon="['far', 'question-circle']" size='2x' />
-                QA掲示板
             </div>
-            </router-link>
-        </div>
 
-        <div class="navbar_inner">
-
-            <span class="navbar_item"
-            v-show="isLogin">
-                <font-awesome-icon :icon="['fas', 'user']" />
-                {{ username }}
-            </span>
-
-            <div class="navbar_item">
-                <router-link
-                to="/login"
-                v-show="! isLogin"
-                >
-                ログイン / 会員登録
-                </router-link>
+            <div class="navbar_title-name">
+                <h1>QA掲示板</h1>
             </div>
-        </div>
+        </router-link><!-- /navbar_title -->
 
-        </div><!-- navbar_wrapper -->
+        <div class="navbar_user-logged content_flex"
+        v-show="isLogin">
+            <p><font-awesome-icon :icon="['fas', 'user']" /></p>
+            <p>{{ username }}</p>
+        </div><!-- /navbar_user-logged -->
 
-        <div class="subText">
-            <p>夫婦・家族・育児にまつわる「教えて！」「聞いて！」のQ&A掲示板</p>
-        </div>
+        <router-link class="navbar_user-login content_flex"
+        to="/login"
+        v-show="! isLogin"
+        >
+        <p>ログイン</p>
+        <p>/</p>
+        <p>会員登録</p>
+        </router-link><!-- /navbar_user-login -->
+
+        </div><!-- /navbar_wrapper -->
+
+        <div class="navbar_subText">
+            <p>マイホームに関する「教えて！」Q&A掲示板</p>
+        </div><!-- /navbar_subText -->
 
     </nav>
 </template>
@@ -55,22 +54,40 @@ export default {
 
 
 <style lang="scss" scoped>
-@media screen and (max-width: 480px) {
+    .content_flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     .navbar {
         &_wrapper {
             display: flex;
             justify-content: space-between;
             padding: 8px;
+            cursor: pointer;
+        }
+        &_title * {
+            font-size: 2rem;
+        }
+        &_logo {
+            padding-top: 2px;
+        }
+        &_user {
+            &-logged p {
+                font-size: 1.4rem;
+                margin-right: 8px;
+            }
+            &-login p {
+                color: #f78528;
+            }
+        }
+        &_subText {
+            padding-left: 8px;
         }
     }
-    .title {
-        font-size: 2rem;
-        color: #333;
-    }
-    .subText p {
-        font-size: 0.8rem;
-        padding-left: 8px;
-    }
+@media screen and (max-width: 480px) {
+
 }
 
 @media screen and (max-width: 896px) and (min-width: 481px) {
