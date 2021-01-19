@@ -1,21 +1,11 @@
 <template>
-<div>
+<div class="globalContainer">
 
-<header>
-<Navbar />
-</header>
+<Navbar class="navbar" />
 
-<main>
+<router-view class="mainContainer" />
 
-<div class="container">
-<router-view />
-</div>
-
-</main>
-
-<footer>
-<Footer />
-</footer>
+<Footer class="footer" />
 
 </div>
 </template>
@@ -62,3 +52,15 @@ export default {
 
 }
 </script>
+
+<style lang="scss" scoped>
+.globalContainer {
+    padding: 8px;
+}
+.navbar {
+    margin-bottom: 40px;
+}
+.footer {
+    margin-top: 100px;
+}
+</style>

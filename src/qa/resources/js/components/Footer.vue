@@ -79,9 +79,9 @@ export default {
 .button {
     padding: 8px;
     text-align: center;
-    cursor: pointer;
     &-logout,&-login {
         font-size: 1.2rem;
+        cursor: pointer;
     }
 }
 
