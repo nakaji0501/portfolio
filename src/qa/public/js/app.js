@@ -16778,6 +16778,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17790,7 +17793,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@media screen and (max-width: 480px) {\n.footer[data-v-61a7c374] {\n    margin-top: 100px;\n    width: 90%;\n    margin: 100px auto;\n}\n.navMenu_item[data-v-61a7c374] {\n    display: inline-block;\n}\n.navMenu_item li[data-v-61a7c374] {\n    margin-right: 16px;\n}\n.button_wrapper[data-v-61a7c374] {\n    margin-top: 24px;\n    text-align: cente;\n}\n}", ""]);
+exports.push([module.i, ".footer[data-v-61a7c374] {\n  margin-top: 100px;\n  width: 90%;\n  margin: 100px auto;\n}\n.button[data-v-61a7c374] {\n  margin-top: 24px;\n  padding: 8px;\n  text-align: center;\n  cursor: pointer;\n}\n.button-logout[data-v-61a7c374], .button-login[data-v-61a7c374] {\n  font-size: 1.2rem;\n}", ""]);
 
 // exports
 
@@ -20300,20 +20303,7 @@ var render = function() {
   return _c("footer", { staticClass: "footer" }, [
     _c(
       "div",
-      { staticClass: "navMenu" },
-      _vm._l(_vm.tags, function(item) {
-        return _c("ul", { key: item.id, staticClass: "navMenu_item" }, [
-          _c("li", [
-            _vm._v("\n                " + _vm._s(item.name) + "\n            ")
-          ])
-        ])
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "button_wrapper" },
+      { staticClass: "button" },
       [
         _c(
           "button",
@@ -20326,9 +20316,10 @@ var render = function() {
                 expression: "isLogin"
               }
             ],
+            staticClass: "button-logout",
             on: { click: _vm.logout }
           },
-          [_vm._v("Logout\n        ")]
+          [_vm._v("\n        Logout\n        ")]
         ),
         _vm._v(" "),
         _c(
@@ -20342,7 +20333,7 @@ var render = function() {
                 expression: "! isLogin"
               }
             ],
-            staticClass: "button",
+            staticClass: "button-login",
             attrs: { to: "/login" }
           },
           [_vm._v("\n        ログイン / 会員登録\n        ")]

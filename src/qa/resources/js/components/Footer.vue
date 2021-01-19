@@ -1,23 +1,26 @@
 <template>
     <footer class="footer">
 
-        <div class="navMenu">
-            <ul class="navMenu_item"
+        <!-- <div class="tag">
+            <ul class="tag_item"
             v-for="item in tags"
             :key="item.id">
                 <li>
                     {{ item.name }}
                 </li>
             </ul>
-        </div>
+        </div> -->
 
-        <div class="button_wrapper">
-            <button
+        <div class="button">
+
+            <button class="button-logout"
             @click="logout"
             v-show="isLogin"
-            >Logout
+            >
+            Logout
             </button>
-            <router-link class="button"
+
+            <router-link class="button-login"
             to="/login"
             v-show="! isLogin"
             >
@@ -61,24 +64,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.footer {
+    margin-top: 100px;
+    width: 90%;
+    margin: 100px auto;
+}
+// .tag_item {
+//     display: inline-block;
+
+//     & li {
+//         margin-right: 16px;
+//     }
+// }
+
+.button {
+    margin-top: 24px;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    &-logout,&-login {
+        font-size: 1.2rem;
+    }
+}
+
 @media screen and (max-width: 480px) {
-    .footer {
-        margin-top: 100px;
-        width: 90%;
-        margin: 100px auto;
-    }
-    .navMenu_item {
-        display: inline-block;
 
-        & li {
-            margin-right: 16px;
-        }
-    }
-
-    .button_wrapper {
-        margin-top: 24px;
-        text-align: cente;
-    }
 }
 
 @media screen and (max-width: 896px) and (min-width: 481px) {
