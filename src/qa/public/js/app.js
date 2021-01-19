@@ -17828,7 +17828,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".button[data-v-4019179d] {\n  display: inline-block;\n  padding: 0.3em 1em;\n  text-decoration: none;\n  color: #67c5ff;\n  border: solid 2px #67c5ff;\n  border-radius: 3px;\n  transition: 0.4s;\n}\n.button[data-v-4019179d]:hover {\n  background: #67c5ff;\n  color: white;\n}", ""]);
+exports.push([module.i, ".button[data-v-4019179d] {\n  font-size: 1.5rem;\n  display: inline-block;\n  padding: 0.3em 1em;\n  text-decoration: none;\n  color: #67c5ff;\n  border: solid 2px #67c5ff;\n  border-radius: 3px;\n  transition: 0.4s;\n  cursor: pointer;\n}\n.button[data-v-4019179d]:hover {\n  background: #67c5ff;\n  color: white;\n}", ""]);
 
 // exports
 
