@@ -58,6 +58,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        cursor: pointer;
     }
 
     .navbar {
@@ -65,7 +66,6 @@ export default {
             display: flex;
             justify-content: space-between;
             padding: 8px;
-            cursor: pointer;
         }
         &_title * {
             font-size: 2rem;

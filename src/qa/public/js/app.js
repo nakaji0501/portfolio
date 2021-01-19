@@ -17809,7 +17809,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px;\n  cursor: pointer;\n}\n.navbar_title *[data-v-6dde423b] {\n  font-size: 2rem;\n}\n.navbar_logo[data-v-6dde423b] {\n  padding-top: 2px;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #f78528;\n}\n.navbar_subText[data-v-6dde423b] {\n  padding-left: 8px;\n}", ""]);
+exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px;\n}\n.navbar_title *[data-v-6dde423b] {\n  font-size: 2rem;\n}\n.navbar_logo[data-v-6dde423b] {\n  padding-top: 2px;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #f78528;\n}\n.navbar_subText[data-v-6dde423b] {\n  padding-left: 8px;\n}", ""]);
 
 // exports
 
