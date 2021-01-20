@@ -1,35 +1,42 @@
 <template>
-<main class="question_list">
+<div class="questions">
 
-    <div class="postQuestion_button">
+    <div class="questions-postButton">
         <router-link
         to="/questionForm"
         >
         <PostButton />
         </router-link>
-    </div>
+    </div><!-- /questions-postButton -->
 
-    <div class="question_body">
-        <div
+    <div class="questions_contents">
+        <div class="questions_view-switch"
         v-if="questions.length"
         >
-            <div
+            <div class="questions_list"
             v-for="question in questions"
             :key="question.id"
             >
-                <div class="question_content"
-                @click.prevent="moveDetailPage(question.id)"
+                <div class="questions_item"
                 >
-                    <h3>題名：{{ question.title }}</h3>
-                    <p>本文：{{ question.message }}</p>
-                    <p>投稿日：{{ question.created_at }}</p>
-                    <p>投稿者：{{ question.user.name }}</p>
+                    <h3 class="title"
+                    @click.prevent="moveDetailPage(question.id)"
+                    >
+                    題名：<span>{{ question.title }}</span>
+                    </h3>
+                    <p class="mainText"
+                    @click.prevent="moveDetailPage(question.id)"
+                    >
+                    本文：<span>{{ question.message }}</span>
+                    </p>
+                    <p class="fs-08">投稿者：{{ question.user.name }}</p>
+                    <p class="fs-08">投稿日：{{ question.created_at }}</p>
                 </div>
 
-                <div class="button"
+                <div class="questions_button"
                 v-show="isLogin"
                 >
-                    <button
+                    <button class="button"
                     @click.prevent="deleteQuestion(question.id)"
                     >
                     削除
@@ -38,19 +45,19 @@
             </div>
         </div>
 
-        <div
+        <div class="questions_view-switch"
         v-else>
             <p>投稿がありません。</p>
         </div>
 
-    </div>
+    </div><!-- /questions_contents -->
 
-        <Pagination
-        :current-page="currentPage"
-        :last-page="lastPage"
-        />
+    <Pagination class="pagination"
+    :current-page="currentPage"
+    :last-page="lastPage"
+    />
 
-</main>
+</div><!-- /questions -->
 </template>
 
 <script>
@@ -122,22 +129,63 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width: 480px) {
-    .linkContainer {
+.fs-08 {
+    font-size: 0.8rem;
+}
+.questions {
+    &_contents {
         width: 90%;
-        margin: 24px auto;
+        margin: 0 auto;
+        margin-top: 40px;
     }
-    .question_body {
-        display: flex;
-        margin-bottom: 8px;
+    &_list {
+        border-bottom: 1px dotted lightgrey;
+        padding: 24px 8px;
+        position: relative;
+        & .title {
+            overflow-wrap: break-word;
+            margin-bottom: 8px;
+            & span {
+                color: dodgerblue;
+                cursor: pointer;
+            }
+        }
+        & .mainText {
+            height: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            & span {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
     }
+    &_button {
+        position: absolute;
+        bottom: 20px;
+        right: 16px;
+        & .button {
+            cursor: pointer;
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+
 }
 
 @media screen and (max-width: 896px) and (min-width: 481px) {
-
+.questions {
+    &_contents {
+        width: 80%;
+    }
+}
 }
 
-@media screen and (max-width: 1024px) and (min-width: 897px) {
-
+@media screen and (min-width: 897px) {
+.questions {
+    &_contents {
+        width: 70%;
+    }
+}
 }
 </style>
