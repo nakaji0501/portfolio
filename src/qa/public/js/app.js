@@ -16526,6 +16526,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -16543,6 +16547,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       commentMessage: '',
+      height: "240px",
       commentErrors: '',
       posting: false
     };
@@ -16602,12 +16607,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    resizeCommentMessage: function resizeCommentMessage() {
+      var _this2 = this;
+
+      this.height = this.$refs.area.scrollHeight + 'px';
+      this.height = 'auto';
+      this.$nextTick(function () {
+        _this2.height = _this2.$refs.area.scrollHeight + 'px';
+      });
     }
   },
   computed: {
     isLogin: function isLogin() {
       return this.$store.getters['auth/check'];
+    },
+    styles: function styles() {
+      return {
+        "height": this.height
+      };
     }
+  },
+  watch: {
+    commentMessage: function commentMessage() {
+      this.resizeCommentMessage();
+    }
+  },
+  mounted: function mounted() {
+    this.resizeCommentMessage();
   }
 });
 
@@ -17288,6 +17315,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17304,8 +17337,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       question: {
+        message: '',
         user: {}
-      }
+      },
+      height: ''
     };
   },
   computed: {
@@ -17314,6 +17349,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     isLogin: function isLogin() {
       return this.$store.getters['auth/check'];
+    },
+    styles: function styles() {
+      return {
+        "height": this.height
+      };
     }
   },
   methods: {
@@ -17338,12 +17378,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    resizeTextarea: function resizeTextarea() {
+      var _this2 = this;
+
+      this.height = "auto";
+      this.$nextTick(function () {
+        _this2.height = _this2.$refs.area.scrollHeight + 'px';
+      });
     }
   },
   watch: {
     $route: {
       handler: function handler() {
-        var _this2 = this;
+        var _this3 = this;
 
         return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
@@ -17352,7 +17400,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 case 0:
                   console.log("フェッチ前だよ");
                   _context2.next = 3;
-                  return _this2.getQuestionDetail();
+                  return _this3.getQuestionDetail();
 
                 case 3:
                 case "end":
@@ -17363,7 +17411,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }))();
       },
       immediate: true
+    },
+    'question.message': function questionMessage() {
+      this.resizeTextarea();
     }
+  },
+  mounted: function mounted() {
+    this.resizeTextarea();
   }
 });
 
@@ -17788,7 +17842,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n.textarea[data-v-72ee8928] {\n  line-height: 1.8;\n}\n.textarea_body[data-v-72ee8928] {\n  width: 100%;\n  border: 1px solid #b6c3c6;\n  border-radius: 16px;\n  font: inherit;\n}\n.textarea_body[data-v-72ee8928]:focus {\n  box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);\n  outline: 0;\n}\n.commentForm_button[data-v-72ee8928] {\n  margin-top: 24px;\n  text-align: center;\n}\n.button[data-v-72ee8928] {\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  font-size: 1.2rem;\n  text-decoration: none;\n  color: #FFF;\n  background: #fd9535;\n  /*色*/\n  border-radius: 4px;\n  /*角の丸み*/\n  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);\n  font-weight: bold;\n  border: solid 2px #d27d00;\n  /*線色*/\n  cursor: pointer;\n}\n.button[data-v-72ee8928]:active {\n  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);\n}\n.error *[data-v-72ee8928] {\n  font-size: 1.2rem;\n  font-weight: bold;\n  color: red;\n}", ""]);
 
 // exports
 
@@ -17921,7 +17975,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@media screen and (max-width: 480px) {\n.contents_wrapper[data-v-2a21ebc0] {\n    padding: 8px;\n    margin-bottom: 40px;\n}\n.title h3[data-v-2a21ebc0] {\n    font-size: 2rem;\n}\n.text[data-v-2a21ebc0] {\n    margin-top: 16px;\n}\n.commentForm[data-v-2a21ebc0] {\n    width: 80%;\n    margin: 0 auto 40px;\n}\n.commentList[data-v-2a21ebc0] {\n    padding: 8px;\n    margin: 0 auto;\n}\n}", ""]);
+exports.push([module.i, "input[data-v-2a21ebc0],\ntextarea[data-v-2a21ebc0] {\n  border: none;\n  background: transparent;\n}\n.textarea[data-v-2a21ebc0] {\n  margin: 2rem 0;\n  border-top: 10px solid whitesmoke;\n  border-bottom: 10px solid whitesmoke;\n  background: #fff;\n}\n.textarea_body[data-v-2a21ebc0] {\n  width: 100%;\n  font-size: 1.2rem;\n  line-height: 1.5rem;\n  margin: 0;\n  padding: 0;\n}\n.QuestionDetail[data-v-2a21ebc0] {\n  background: lightgrey;\n  padding: 32px 0;\n}\n.QuestionDetail_title[data-v-2a21ebc0] {\n  margin: 16px 0;\n}\n.QuestionDetail_title input[data-v-2a21ebc0] {\n  font-size: 1.5rem;\n  width: 100%;\n  color: dodgerblue;\n}\n.QuestionDetail_data[data-v-2a21ebc0] {\n  display: flex;\n  justify-content: space-between;\n  margin-right: 16px;\n}\n.QuestionDetail_text[data-v-2a21ebc0] {\n  margin-top: 16px;\n}\n.border[data-v-2a21ebc0] {\n  border-top: 1px dashed #8c8b8b;\n  border-bottom: 1px dashed #ffffff;\n  margin: 64px 0;\n}", ""]);
 
 // exports
 
@@ -20305,7 +20359,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "commentForm_container" }, [
+  return _c("div", { staticClass: "commentForm" }, [
     _c(
       "div",
       { staticClass: "loader" },
@@ -20323,11 +20377,15 @@ var render = function() {
             ]
           },
           [
-            _c("template", { slot: "loadingText" }, [
-              _vm._v(
-                "\n                コメントを投稿中です。しばらくお待ちください。\n            "
-              )
-            ])
+            _c(
+              "template",
+              { staticClass: "loader_text", slot: "loadingText" },
+              [
+                _vm._v(
+                  "\n                コメントを投稿中です。しばらくお待ちください。\n            "
+                )
+              ]
+            )
           ],
           2
         )
@@ -20347,7 +20405,7 @@ var render = function() {
                 expression: "! posting"
               }
             ],
-            staticClass: "commentForm",
+            staticClass: "commentForm_from",
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -20357,7 +20415,7 @@ var render = function() {
           },
           [
             _vm.commentErrors
-              ? _c("div", [
+              ? _c("div", { staticClass: "error" }, [
                   _vm.commentErrors.message
                     ? _c(
                         "ul",
@@ -20374,11 +20432,11 @@ var render = function() {
                       )
                     : _vm._e()
                 ])
-              : _c("div", [_c("p", [_vm._v("返信を書いてください")])]),
+              : _c("div", { staticClass: "commentForm_text" }, [
+                  _c("p", [_vm._v("返信を書いてください")])
+                ]),
             _vm._v(" "),
-            _c("div", [
-              _c("label", { attrs: { for: "comment" } }),
-              _vm._v(" "),
+            _c("div", { staticClass: "commentForm_message textarea" }, [
               _c("textarea", {
                 directives: [
                   {
@@ -20388,12 +20446,10 @@ var render = function() {
                     expression: "commentMessage"
                   }
                 ],
-                attrs: {
-                  name: "comment",
-                  id: "comment",
-                  cols: "30",
-                  rows: "10"
-                },
+                ref: "area",
+                staticClass: "textarea_body",
+                style: _vm.styles,
+                attrs: { name: "comment", id: "comment" },
                 domProps: { value: _vm.commentMessage },
                 on: {
                   input: function($event) {
@@ -20403,10 +20459,10 @@ var render = function() {
                     _vm.commentMessage = $event.target.value
                   }
                 }
-              }),
-              _vm._v(" "),
-              _vm._m(0)
-            ])
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
           ]
         )
       : _vm._e()
@@ -20417,8 +20473,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "button" }, [
-      _c("button", { attrs: { type: "submit" } }, [_vm._v("送信")])
+    return _c("div", { staticClass: "commentForm_button" }, [
+      _c("button", { staticClass: "button", attrs: { type: "submit" } }, [
+        _vm._v("送信")
+      ])
     ])
   }
 ]
@@ -21221,9 +21279,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "QuestionDetail" }, [
-    _c("div", { staticClass: "contents_wrapper" }, [
-      _c("div", { staticClass: "title" }, [
-        _c("label", { attrs: { for: "id" } }, [_vm._v("投稿No.")]),
+    _c("div", { staticClass: "QuestionDetail_wrapper" }, [
+      _c("div", { staticClass: "QuestionDetail_id" }, [
+        _c("label", { attrs: { for: "id" } }, [_vm._v("No.")]),
         _vm._v(" "),
         _c("input", {
           directives: [
@@ -21247,9 +21305,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "title" }, [
-        _c("label", { attrs: { for: "title" } }, [_vm._v("タイトル")]),
-        _vm._v(" "),
+      _c("div", { staticClass: "QuestionDetail_title" }, [
         _c("input", {
           directives: [
             {
@@ -21272,15 +21328,13 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "infomation" }, [
+      _c("div", { staticClass: "QuestionDetail_data" }, [
         _c("p", [_vm._v("投稿日： " + _vm._s(_vm.question.created_at))]),
         _vm._v(" "),
         _c("p", [_vm._v("投稿者： " + _vm._s(_vm.question.user.name))])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "text" }, [
-        _c("label", { attrs: { for: "text" } }, [_vm._v("本文")]),
-        _vm._v(" "),
+      _c("div", { staticClass: "QuestionDetail_text textarea" }, [
         _c("textarea", {
           directives: [
             {
@@ -21290,13 +21344,10 @@ var render = function() {
               expression: "question.message"
             }
           ],
-          attrs: {
-            readonly: "",
-            type: "text",
-            id: "message",
-            cols: "30",
-            rows: "10"
-          },
+          ref: "area",
+          staticClass: "textarea_body",
+          style: _vm.styles,
+          attrs: { type: "text", id: "message" },
           domProps: { value: _vm.question.message },
           on: {
             input: function($event) {
@@ -21310,12 +21361,16 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
+    _c("div", { staticClass: "border" }),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "commentList" },
       [_c("CommentList", { attrs: { question: _vm.question } })],
       1
     ),
+    _vm._v(" "),
+    _c("div", { staticClass: "border" }),
     _vm._v(" "),
     _c(
       "div",
