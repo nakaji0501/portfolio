@@ -17320,7 +17320,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17668,6 +17667,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -17823,7 +17824,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".globalContainer[data-v-f348271a] {\n  padding: 8px;\n}\n.navbar[data-v-f348271a] {\n  margin-bottom: 40px;\n}\n.footer[data-v-f348271a] {\n  margin-top: 100px;\n}", ""]);
+exports.push([module.i, ".globalContainer[data-v-f348271a] {\n  padding: 8px 0;\n}\n.navbar[data-v-f348271a] {\n  margin-bottom: 40px;\n}\n.footer[data-v-f348271a] {\n  margin-top: 100px;\n}", ""]);
 
 // exports
 
@@ -17975,7 +17976,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "input[data-v-2a21ebc0],\ntextarea[data-v-2a21ebc0] {\n  border: none;\n  background: transparent;\n}\n.textarea[data-v-2a21ebc0] {\n  margin: 2rem 0;\n  border-top: 10px solid whitesmoke;\n  border-bottom: 10px solid whitesmoke;\n  background: #fff;\n}\n.textarea_body[data-v-2a21ebc0] {\n  width: 100%;\n  font-size: 1.2rem;\n  line-height: 1.5rem;\n  margin: 0;\n  padding: 0;\n}\n.QuestionDetail[data-v-2a21ebc0] {\n  background: lightgrey;\n  padding: 32px 0;\n}\n.QuestionDetail_title[data-v-2a21ebc0] {\n  margin: 16px 0;\n}\n.QuestionDetail_title input[data-v-2a21ebc0] {\n  font-size: 1.5rem;\n  width: 100%;\n  color: dodgerblue;\n}\n.QuestionDetail_data[data-v-2a21ebc0] {\n  display: flex;\n  justify-content: space-between;\n  margin-right: 16px;\n}\n.QuestionDetail_text[data-v-2a21ebc0] {\n  margin-top: 16px;\n}\n.border[data-v-2a21ebc0] {\n  border-top: 1px dashed #8c8b8b;\n  border-bottom: 1px dashed #ffffff;\n  margin: 64px 0;\n}", ""]);
+exports.push([module.i, "input[data-v-2a21ebc0],\ntextarea[data-v-2a21ebc0] {\n  border: none;\n  background: transparent;\n}\ninput[data-v-2a21ebc0]:focus,\ntextarea[data-v-2a21ebc0]:focus {\n  outline: none;\n}\n.textarea[data-v-2a21ebc0] {\n  margin: 2rem auto;\n  border-top: 10px solid whitesmoke;\n  border-bottom: 10px solid whitesmoke;\n  background: #fff;\n  text-align: center;\n}\n.textarea_body[data-v-2a21ebc0] {\n  width: 90%;\n  font-size: 1.2rem;\n  line-height: 2rem;\n  margin: 0;\n  padding: 16px 0;\n}\n.QuestionDetail[data-v-2a21ebc0] {\n  background: lightgrey;\n  padding: 32px 0;\n}\n.QuestionDetail_title[data-v-2a21ebc0] {\n  margin: 16px 0;\n}\n.QuestionDetail_title input[data-v-2a21ebc0] {\n  font-size: 1.5rem;\n  width: 100%;\n  color: dodgerblue;\n}\n.QuestionDetail_data[data-v-2a21ebc0] {\n  display: flex;\n  justify-content: space-between;\n  margin-right: 16px;\n}\n.QuestionDetail_text[data-v-2a21ebc0] {\n  margin-top: 16px;\n}\n.commentList[data-v-2a21ebc0],\n.commentForm[data-v-2a21ebc0] {\n  margin: 0 8px;\n}\n.border[data-v-2a21ebc0] {\n  border-top: 1px dashed #8c8b8b;\n  border-bottom: 1px dashed #ffffff;\n  margin: 64px 0;\n}", ""]);
 
 // exports
 
@@ -18013,7 +18014,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fs-08[data-v-407735ad] {\n  font-size: 0.8rem;\n}\n.questions_contents[data-v-407735ad] {\n  width: 90%;\n  margin: 0 auto;\n  margin-top: 40px;\n}\n.questions_list[data-v-407735ad] {\n  border-bottom: 1px dotted lightgrey;\n  padding: 24px 8px;\n  position: relative;\n}\n.questions_list .title[data-v-407735ad] {\n  overflow-wrap: break-word;\n  margin-bottom: 8px;\n}\n.questions_list .title span[data-v-407735ad] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.questions_list .mainText[data-v-407735ad] {\n  height: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n}\n.questions_list .mainText span[data-v-407735ad] {\n  text-decoration: underline;\n  cursor: pointer;\n}\n.questions_button[data-v-407735ad] {\n  position: absolute;\n  bottom: 20px;\n  right: 16px;\n}\n.questions_button .button[data-v-407735ad] {\n  cursor: pointer;\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.questions_contents[data-v-407735ad] {\n    width: 80%;\n}\n}\n@media screen and (min-width: 897px) {\n.questions_contents[data-v-407735ad] {\n    width: 70%;\n}\n}", ""]);
+exports.push([module.i, ".fs-08[data-v-407735ad] {\n  font-size: 0.8rem;\n}\n.questions_contents[data-v-407735ad] {\n  width: 90%;\n  margin: 0 auto;\n  margin-top: 40px;\n}\n.questions_list[data-v-407735ad] {\n  border-bottom: 1px dotted lightgrey;\n  padding: 24px 8px;\n  position: relative;\n}\n.questions_list .title[data-v-407735ad] {\n  overflow-wrap: break-word;\n  margin-bottom: 8px;\n}\n.questions_list .title span[data-v-407735ad] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.questions_list .mainText[data-v-407735ad] {\n  height: 100%;\n  width: 95%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n.questions_list .mainText span[data-v-407735ad] {\n  text-decoration: underline;\n  cursor: pointer;\n}\n.questions_delete[data-v-407735ad] {\n  position: absolute;\n  bottom: 20px;\n  right: 16px;\n}\n.questions_delete .button[data-v-407735ad] {\n  cursor: pointer;\n}\n.pagination[data-v-407735ad] {\n  height: 140px;\n}\n.questionPostButton[data-v-407735ad] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  margin: 0 auto;\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.questions_contents[data-v-407735ad] {\n    width: 80%;\n}\n}\n@media screen and (min-width: 897px) {\n.questions_contents[data-v-407735ad] {\n    width: 70%;\n}\n}", ""]);
 
 // exports
 
@@ -21592,128 +21593,129 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "questions" },
-    [
-      _c(
-        "div",
-        { staticClass: "questions-postButton" },
-        [
-          _c(
-            "router-link",
-            { attrs: { to: "/questionForm" } },
-            [_c("PostButton")],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "questions_contents" }, [
-        _vm.questions.length
-          ? _c(
-              "div",
-              { staticClass: "questions_view-switch" },
-              _vm._l(_vm.questions, function(question) {
-                return _c(
-                  "div",
-                  { key: question.id, staticClass: "questions_list" },
-                  [
-                    _c("div", { staticClass: "questions_item" }, [
-                      _c(
-                        "h3",
-                        {
-                          staticClass: "title",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.moveDetailPage(question.id)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v("\n                    題名："),
-                          _c("span", [_vm._v(_vm._s(question.title))])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          staticClass: "mainText",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.moveDetailPage(question.id)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v("\n                    本文："),
-                          _c("span", [_vm._v(_vm._s(question.message))])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "fs-08" }, [
-                        _vm._v("投稿者：" + _vm._s(question.user.name))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "fs-08" }, [
-                        _vm._v("投稿日：" + _vm._s(question.created_at))
-                      ])
-                    ]),
-                    _vm._v(" "),
+  return _c("div", { staticClass: "questions" }, [
+    _c("div", { staticClass: "questions_contents" }, [
+      _vm.questions.length
+        ? _c(
+            "div",
+            { staticClass: "questions_view-switch" },
+            _vm._l(_vm.questions, function(question) {
+              return _c(
+                "div",
+                { key: question.id, staticClass: "questions_list" },
+                [
+                  _c("div", { staticClass: "questions_item" }, [
                     _c(
-                      "div",
+                      "h3",
                       {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.isLogin,
-                            expression: "isLogin"
+                        staticClass: "title",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.moveDetailPage(question.id)
                           }
-                        ],
-                        staticClass: "questions_button"
+                        }
                       },
                       [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button",
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.deleteQuestion(question.id)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                    削除\n                    "
-                            )
-                          ]
-                        )
+                        _vm._v("\n                    題名："),
+                        _c("span", [_vm._v(_vm._s(question.title))])
                       ]
-                    )
-                  ]
-                )
-              }),
-              0
-            )
-          : _c("div", { staticClass: "questions_view-switch" }, [
-              _c("p", [_vm._v("投稿がありません。")])
-            ])
-      ]),
-      _vm._v(" "),
-      _c("Pagination", {
-        staticClass: "pagination",
-        attrs: { "current-page": _vm.currentPage, "last-page": _vm.lastPage }
-      })
-    ],
-    1
-  )
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "mainText",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.moveDetailPage(question.id)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v("\n                    本文："),
+                        _c("span", [_vm._v(_vm._s(question.message))])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "fs-08" }, [
+                      _vm._v("投稿者：" + _vm._s(question.user.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "fs-08" }, [
+                      _vm._v("投稿日：" + _vm._s(question.created_at))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.isLogin,
+                          expression: "isLogin"
+                        }
+                      ],
+                      staticClass: "questions_delete"
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.deleteQuestion(question.id)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    削除\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            }),
+            0
+          )
+        : _c("div", { staticClass: "questions_view-switch" }, [
+            _c("p", [_vm._v("投稿がありません。")])
+          ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "pagination" },
+      [
+        _c("Pagination", {
+          attrs: { "current-page": _vm.currentPage, "last-page": _vm.lastPage }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "questionPostButton" },
+      [
+        _c(
+          "router-link",
+          { attrs: { to: "/questionForm" } },
+          [_c("PostButton")],
+          1
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

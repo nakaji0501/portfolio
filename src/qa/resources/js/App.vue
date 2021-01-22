@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .globalContainer {
-    padding: 8px;
+    padding: 8px 0;
 }
 .navbar {
     margin-bottom: 40px;

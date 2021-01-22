@@ -1,14 +1,6 @@
 <template>
 <div class="questions">
 
-    <div class="questions-postButton">
-        <router-link
-        to="/questionForm"
-        >
-        <PostButton />
-        </router-link>
-    </div><!-- /questions-postButton -->
-
     <div class="questions_contents">
         <div class="questions_view-switch"
         v-if="questions.length"
@@ -33,7 +25,7 @@
                     <p class="fs-08">投稿日：{{ question.created_at }}</p>
                 </div>
 
-                <div class="questions_button"
+                <div class="questions_delete"
                 v-show="isLogin"
                 >
                     <button class="button"
@@ -52,10 +44,20 @@
 
     </div><!-- /questions_contents -->
 
-    <Pagination class="pagination"
-    :current-page="currentPage"
-    :last-page="lastPage"
-    />
+    <div class="pagination">
+        <Pagination
+        :current-page="currentPage"
+        :last-page="lastPage"
+        />
+    </div><!-- /pagination -->
+
+    <div class="questionPostButton">
+        <router-link
+        to="/questionForm"
+        >
+        <PostButton />
+        </router-link>
+    </div><!-- /questions-postButton -->
 
 </div><!-- /questions -->
 </template>
@@ -152,6 +154,8 @@ export default {
         }
         & .mainText {
             height: 100%;
+            width: 95%;
+            text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
             & span {
@@ -160,7 +164,7 @@ export default {
             }
         }
     }
-    &_button {
+    &_delete {
         position: absolute;
         bottom: 20px;
         right: 16px;
@@ -168,6 +172,13 @@ export default {
             cursor: pointer;
         }
     }
+}
+.pagination {
+    height: 140px;
+}
+.questionPostButton {
+    width: max-content;
+    margin: 0 auto;
 }
 @media screen and (max-width: 480px) {
 

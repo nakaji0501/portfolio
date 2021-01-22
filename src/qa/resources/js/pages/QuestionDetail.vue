@@ -9,7 +9,6 @@
             </div>
 
             <div class="QuestionDetail_title">
-                <!-- <label for="title">題名</label> -->
                 <input type="text" readonly id='title'
                 v-model="question.title">
             </div>
@@ -123,18 +122,22 @@ input,
 textarea {
     border: none;
     background: transparent;
+    &:focus {
+        outline: none;
+    }
 }
 .textarea {
-    margin: 2rem 0;
+    margin: 2rem auto;
     border-top: 10px solid whitesmoke;
     border-bottom: 10px solid whitesmoke;
     background: #fff;
+    text-align: center;
     &_body {
-        width: 100%;
+        width: 90%;
         font-size: 1.2rem;
-        line-height: 1.5rem;
+        line-height: 2rem;
         margin: 0;
-        padding: 0;
+        padding: 16px 0;
     }
 }
 .QuestionDetail {
@@ -156,6 +159,10 @@ textarea {
     &_text {
         margin-top: 16px;
     }
+}
+.commentList,
+.commentForm {
+    margin: 0 8px;
 }
 .border {
     border-top: 1px dashed #8c8b8b;
