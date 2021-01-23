@@ -1,6 +1,6 @@
 <template>
     <div class="questionForm">
-        <div class="form_wrapper"
+        <div class="questionForm_wrapper"
         v-show="isLogin">
 
             <div class="loader">
@@ -13,7 +13,7 @@
                 </Loader>
             </div>
 
-            <form class="form"
+            <form class="questionForm_form"
             @submit.prevent="postQuestion"
             v-show="! posting"
             >
@@ -26,12 +26,12 @@
                 <li v-for="msg in postErrors.title"
                 :key="msg"
                 >
-                    {{ msg }}
+                    ※{{ msg }}
                 </li>
                 </ul>
             </div>
 
-            <div class="form_content title">
+            <div class="questionForm_form-title title">
                 <label for="title">タイトル</label>
                 <input type="text" id="title" class="form_item"
                 v-model="question.title"
@@ -46,12 +46,12 @@
                 <li v-for="msg in postErrors.message"
                 :key="msg"
                 >
-                    {{ msg }}
+                    ※{{ msg }}
                 </li>
                 </ul>
             </div>
 
-            <div class="form_content message">
+            <div class="questionForm_form-message message">
                 <label for="text">投稿する内容</label>
                 <textarea type="text" id="message" class="form_item"
                 cols="30" rows="10"
@@ -59,10 +59,12 @@
                 ></textarea>
             </div>
 
+            <div class="postButton">
                 <PostButton />
-            </form>
-        </div>
-    </div>
+            </div>
+            </form><!-- /questionForm_form -->
+        </div><!-- /questionForm_wrapper -->
+    </div><!-- /questionForm -->
 </template>
 
 <script>
@@ -124,10 +126,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form label,input {
+label,
+input,
+textarea {
     display: block;
 }
-.postErrors {
+.questionForm {
+    &_form {
+        padding: 0 24px;
+        &-title {
+            margin-bottom: 16px;
+            & input {
+                width: 100%;
+                height: 2rem;
+            }
+        }
+        &-message {
+            & textarea {
+                width: 100%;
+                line-height: 1.5rem;
+            }
+        }
+    }
+}
+.postButton {
+    margin-top: 36px;
+    text-align: center;
+}
+.postErrors * {
     color: red;
+    font-weight: bold;
+}
+.loader {
+    text-align: center;
 }
 </style>

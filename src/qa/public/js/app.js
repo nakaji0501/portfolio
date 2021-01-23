@@ -17508,6 +17508,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17995,7 +17997,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form label[data-v-0c7e0ed3], input[data-v-0c7e0ed3] {\n  display: block;\n}\n.postErrors[data-v-0c7e0ed3] {\n  color: red;\n}", ""]);
+exports.push([module.i, "label[data-v-0c7e0ed3],\ninput[data-v-0c7e0ed3],\ntextarea[data-v-0c7e0ed3] {\n  display: block;\n}\n.questionForm_form[data-v-0c7e0ed3] {\n  padding: 0 24px;\n}\n.questionForm_form-title[data-v-0c7e0ed3] {\n  margin-bottom: 16px;\n}\n.questionForm_form-title input[data-v-0c7e0ed3] {\n  width: 100%;\n  height: 2rem;\n}\n.questionForm_form-message textarea[data-v-0c7e0ed3] {\n  width: 100%;\n  line-height: 1.5rem;\n}\n.postButton[data-v-0c7e0ed3] {\n  margin-top: 36px;\n  text-align: center;\n}\n.postErrors *[data-v-0c7e0ed3] {\n  color: red;\n  font-weight: bold;\n}\n.loader[data-v-0c7e0ed3] {\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -21419,7 +21421,7 @@ var render = function() {
             expression: "isLogin"
           }
         ],
-        staticClass: "form_wrapper"
+        staticClass: "questionForm_wrapper"
       },
       [
         _c(
@@ -21462,7 +21464,7 @@ var render = function() {
                 expression: "! posting"
               }
             ],
-            staticClass: "form",
+            staticClass: "questionForm_form",
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -21479,7 +21481,7 @@ var render = function() {
                         _vm._l(_vm.postErrors.title, function(msg) {
                           return _c("li", { key: msg }, [
                             _vm._v(
-                              "\n                " +
+                              "\n                ※" +
                                 _vm._s(msg) +
                                 "\n            "
                             )
@@ -21491,7 +21493,7 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "form_content title" }, [
+            _c("div", { staticClass: "questionForm_form-title title" }, [
               _c("label", { attrs: { for: "title" } }, [_vm._v("タイトル")]),
               _vm._v(" "),
               _c("input", {
@@ -21525,7 +21527,7 @@ var render = function() {
                         _vm._l(_vm.postErrors.message, function(msg) {
                           return _c("li", { key: msg }, [
                             _vm._v(
-                              "\n                " +
+                              "\n                ※" +
                                 _vm._s(msg) +
                                 "\n            "
                             )
@@ -21537,7 +21539,7 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "form_content message" }, [
+            _c("div", { staticClass: "questionForm_form-message message" }, [
               _c("label", { attrs: { for: "text" } }, [_vm._v("投稿する内容")]),
               _vm._v(" "),
               _c("textarea", {
@@ -21563,9 +21565,8 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("PostButton")
-          ],
-          1
+            _c("div", { staticClass: "postButton" }, [_c("PostButton")], 1)
+          ]
         )
       ]
     )
