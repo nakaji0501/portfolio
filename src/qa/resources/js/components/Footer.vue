@@ -1,16 +1,6 @@
 <template>
     <footer class="footer">
 
-        <!-- <div class="tag">
-            <ul class="tag_item"
-            v-for="item in tags"
-            :key="item.id">
-                <li>
-                    {{ item.name }}
-                </li>
-            </ul>
-        </div> -->
-
         <div class="button">
 
             <button class="button-logout"
@@ -35,15 +25,6 @@ import Navbar from './Navbar'
 import { mapState, mapGetters } from 'vuex'
 
 export default {
-    data() {
-        return {
-            tags: [
-                { id: 1, name: '夫婦' },
-                { id: 2, name: '家族' },
-                { id: 3, name: '育児' },
-            ],
-        }
-    },
     computed: {
         ...mapState({
             apiStatus: state => state.auth.apiStatus
@@ -56,7 +37,7 @@ export default {
         async logout() {
             await this.$store.dispatch('auth/logout')
             if (this.apiStatus) {
-                this.$router.push('/login')
+                this.$router.push('/')
             }
         },
     }
@@ -68,14 +49,6 @@ export default {
     width: 90%;
     margin: 0 auto;
 }
-// .tag_item {
-//     display: inline-block;
-
-//     & li {
-//         margin-right: 16px;
-//     }
-// }
-
 .button {
     padding: 8px;
     text-align: center;
@@ -84,7 +57,6 @@ export default {
         cursor: pointer;
     }
 }
-
 @media screen and (max-width: 480px) {
 
 }

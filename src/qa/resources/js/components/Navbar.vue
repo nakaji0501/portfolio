@@ -33,7 +33,7 @@
         </div><!-- /navbar_wrapper -->
 
         <div class="navbar_subText">
-            <p>マイホームに関する「教えて！」Q&A掲示板</p>
+            <p>〇〇に関する「教えて！」Q&A掲示板</p>
         </div><!-- /navbar_subText -->
 
     </nav>

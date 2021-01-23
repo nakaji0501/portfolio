@@ -14,7 +14,7 @@
 
                     <div class="commentList_item-message">
                         <p>No.{{ comment.id }}</p>
-                        <p>{{ comment.message }}</p>
+                        <p>コメント：{{ comment.message }}</p>
                     </div>
 
                     <div class="commentList_item-data">

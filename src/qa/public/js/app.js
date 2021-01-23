@@ -16794,33 +16794,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      tags: [{
-        id: 1,
-        name: '夫婦'
-      }, {
-        id: 2,
-        name: '家族'
-      }, {
-        id: 3,
-        name: '育児'
-      }]
-    };
-  },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
     apiStatus: function apiStatus(state) {
       return state.auth.apiStatus;
@@ -16842,7 +16818,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 2:
                 if (_this.apiStatus) {
-                  _this.$router.push('/login');
+                  _this.$router.push('/');
                 }
 
               case 3:
@@ -20542,7 +20518,7 @@ var render = function() {
                   _c("div", { staticClass: "commentList_item-message" }, [
                     _c("p", [_vm._v("No." + _vm._s(comment.id))]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(comment.message))])
+                    _c("p", [_vm._v("コメント：" + _vm._s(comment.message))])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "commentList_item-data" }, [
@@ -20797,7 +20773,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "navbar_subText" }, [
-      _c("p", [_vm._v("マイホームに関する「教えて！」Q&A掲示板")])
+      _c("p", [_vm._v("〇〇に関する「教えて！」Q&A掲示板")])
     ])
   }
 ]
