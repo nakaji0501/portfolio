@@ -15,10 +15,13 @@
             </div>
         </router-link><!-- /navbar_title -->
 
-        <div class="navbar_user-logged content_flex"
+        <div class="navbar_user"
         v-show="isLogin">
-            <p><font-awesome-icon :icon="['fas', 'user']" /></p>
-            <p>{{ username }}</p>
+            <div class="navbar_user-logged content_flex">
+                <p><font-awesome-icon :icon="['fas', 'user']" /></p>
+                <p>{{ username }}</p>
+            </div>
+            <p class="postQuestionButton">投稿する</p>
         </div><!-- /navbar_user-logged -->
 
         <router-link class="navbar_user-login content_flex"
@@ -54,41 +57,67 @@ export default {
 
 
 <style lang="scss" scoped>
-    .content_flex {
+.content_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar {
+    &_wrapper {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
+        padding: 8px;
     }
-
-    .navbar {
-        &_wrapper {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px;
-        }
-        &_title * {
-            font-size: 2rem;
-        }
-        &_logo {
-            padding-top: 2px;
-        }
-        &_user {
-            &-logged {
-                cursor: default;
-                & p {
-                    font-size: 1.4rem;
-                    margin-right: 8px;
-                }
-            }
-            &-login p {
-                color: #f78528;
+    &_title * {
+        font-size: 2rem;
+    }
+    &_logo {
+        padding-top: 2px;
+    }
+    &_user {
+        &-logged {
+            cursor: default;
+            & p {
+                font-size: 1.4rem;
+                margin-right: 8px;
             }
         }
-        &_subText {
-            padding-left: 8px;
+        &-login p {
+            color: #f78528;
         }
     }
+    &_subText {
+        padding-left: 8px;
+    }
+}
+.postQuestionButton {
+    text-align: center;
+    font-size: 1rem !important;
+    position: relative;
+    font-weight: bold;
+    padding: 0.25em 0;
+    text-decoration: none;
+    color: #67c5ff;
+    cursor: pointer;
+    &:before {
+        position: absolute;
+        content: '';
+        width: 4rem;
+        height: 4px;
+        top: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 3px;
+        background:#67c5ff;
+        transition: .2s;
+    }
+    &:hover:before {
+        top: -webkit-calc(90% - 3px);
+        top: calc(90% - 3px);
+    }
+}
 @media screen and (max-width: 480px) {
 
 }

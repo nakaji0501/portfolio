@@ -16908,6 +16908,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     isLogin: function isLogin() {
@@ -17924,7 +17927,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px;\n}\n.navbar_title *[data-v-6dde423b] {\n  font-size: 2rem;\n}\n.navbar_logo[data-v-6dde423b] {\n  padding-top: 2px;\n}\n.navbar_user-logged[data-v-6dde423b] {\n  cursor: default;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #f78528;\n}\n.navbar_subText[data-v-6dde423b] {\n  padding-left: 8px;\n}", ""]);
+exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px;\n}\n.navbar_title *[data-v-6dde423b] {\n  font-size: 2rem;\n}\n.navbar_logo[data-v-6dde423b] {\n  padding-top: 2px;\n}\n.navbar_user-logged[data-v-6dde423b] {\n  cursor: default;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #f78528;\n}\n.navbar_subText[data-v-6dde423b] {\n  padding-left: 8px;\n}\n.postQuestionButton[data-v-6dde423b] {\n  text-align: center;\n  font-size: 1rem !important;\n  position: relative;\n  font-weight: bold;\n  padding: 0.25em 0;\n  text-decoration: none;\n  color: #67c5ff;\n  cursor: pointer;\n}\n.postQuestionButton[data-v-6dde423b]:before {\n  position: absolute;\n  content: \"\";\n  width: 4rem;\n  height: 4px;\n  top: 90%;\n  left: 50%;\n  transform: translateX(-50%);\n  border-radius: 3px;\n  background: #67c5ff;\n  transition: 0.2s;\n}\n.postQuestionButton[data-v-6dde423b]:hover:before {\n  top: calc(90% - 3px);\n}", ""]);
 
 // exports
 
@@ -20749,16 +20752,20 @@ var render = function() {
                 expression: "isLogin"
               }
             ],
-            staticClass: "navbar_user-logged content_flex"
+            staticClass: "navbar_user"
           },
           [
-            _c(
-              "p",
-              [_c("font-awesome-icon", { attrs: { icon: ["fas", "user"] } })],
-              1
-            ),
+            _c("div", { staticClass: "navbar_user-logged content_flex" }, [
+              _c(
+                "p",
+                [_c("font-awesome-icon", { attrs: { icon: ["fas", "user"] } })],
+                1
+              ),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.username))])
+            ]),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.username))])
+            _c("p", { staticClass: "postQuestionButton" }, [_vm._v("投稿する")])
           ]
         ),
         _vm._v(" "),
