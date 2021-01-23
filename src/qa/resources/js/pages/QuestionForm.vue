@@ -3,15 +3,13 @@
         <div class="questionForm_wrapper"
         v-show="isLogin">
 
-            <div class="loader">
-                <Loader
-                v-show="posting"
-                >
-                    <template slot="loadingText">
-                        質問を投稿中です。しばらくお待ちください。
-                    </template>
-                </Loader>
-            </div>
+            <Loader class="loader"
+            v-show="posting"
+            >
+                <template slot="loadingText">
+                    質問を投稿中です。しばらくお待ちください。
+                </template>
+            </Loader>
 
             <form class="questionForm_form"
             @submit.prevent="postQuestion"
