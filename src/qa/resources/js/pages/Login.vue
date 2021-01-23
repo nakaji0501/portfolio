@@ -28,14 +28,14 @@
             @submit.prevent="login">
 
                 <!-- バリデーションエラー -->
-                <div class="error"
+                <div class="errors"
                 v-if="loginErrors"
                 >
                     <ul v-if="loginErrors.email">
                         <li v-for="msg in loginErrors.email"
                         :key="msg"
                         >
-                        {{ msg }}
+                        ※{{ msg }}
                         </li>
                     </ul>
                 </div>
@@ -48,14 +48,14 @@
                 </div>
 
                 <!-- バリデーションエラー -->
-                <div class="error"
+                <div class="errors"
                 v-if="loginErrors"
                 >
                     <ul v-if="loginErrors.password">
                         <li v-for="msg in loginErrors.password"
                         :key="msg"
                         >
-                        {{ msg }}
+                        ※{{ msg }}
                         </li>
                     </ul>
                 </div>
@@ -88,7 +88,7 @@
                         <li
                         v-for="msg in registerErrors.name"
                         :key="msg">
-                        {{ msg }}
+                        ※{{ msg }}
                         </li>
                     </ul>
                 </div>
@@ -111,7 +111,7 @@
                         <li
                         v-for="msg in registerErrors.email"
                         :key="msg">
-                        {{ msg }}
+                        ※{{ msg }}
                         </li>
                     </ul>
                 </div>
@@ -134,7 +134,7 @@
                         v-for="msg in registerErrors.password"
                         :key="msg"
                         >
-                        {{ msg }}
+                        ※{{ msg }}
                         </li>
                     </ul>
                 </div>
@@ -144,6 +144,22 @@
                     <input class="form_item" id="password" type="password"
                     v-model="registerForm.password"
                     >
+                </div>
+
+                <!-- バリデーションエラー -->
+                <div class="errors"
+                v-if="registerErrors"
+                >
+                    <ul
+                    v-if="registerErrors.password"
+                    >
+                        <li
+                        v-for="msg in registerErrors.password"
+                        :key="msg"
+                        >
+                        ※{{ msg }}
+                        </li>
+                    </ul>
                 </div>
 
                 <div class="registerForm_passworc-confirmation mb-16">
@@ -242,6 +258,10 @@ export default {
         font-weight: bold;
     }
 }
+.loginForm_button,
+.registerForm_button {
+    margin-top: 36px;
+}
 .tab {
     display: flex;
     justify-content: space-around;
@@ -256,6 +276,8 @@ export default {
 }
 label, input {
     font-size: 1.2rem;
+    display: block;
+    width: 100%;
 }
 .button {
     font-size: 1.2rem;
@@ -278,6 +300,12 @@ label, input {
 }
 .mb-16 {
     margin-bottom: 8px;
+}
+.errors {
+    & li {
+        color: red;
+        font-weight: bold;
+    }
 }
 @media screen and (max-width: 480px) {
 

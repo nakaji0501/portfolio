@@ -25,6 +25,7 @@ time, mark, audio, video {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    box-sizing: border-box;
 }
 
 body {
@@ -91,7 +92,7 @@ table {
 hr {
     display:block;
     height:1px;
-    border:0;  
+    border:0;
     border-top:1px solid #cccccc;
     margin:1em 0;
     padding:0;
@@ -99,4 +100,8 @@ hr {
 
 input, select {
     vertical-align:middle;
+}
+
+input, textarea {
+    box-sizing: border-box;
 }

@@ -132,6 +132,7 @@ textarea {
     border-bottom: 10px solid whitesmoke;
     background: #fff;
     text-align: center;
+    resize: none;
     &_body {
         width: 90%;
         font-size: 1.2rem;
@@ -142,7 +143,7 @@ textarea {
 }
 .QuestionDetail {
     background: lightgrey;
-    padding: 32px 0;
+    padding: 32px 8px;
     &_title {
         margin: 16px 0;
         & input {

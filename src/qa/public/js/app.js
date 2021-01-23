@@ -17155,6 +17155,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -17845,7 +17861,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n.textarea[data-v-72ee8928] {\n  line-height: 1.8;\n}\n.textarea_body[data-v-72ee8928] {\n  width: 100%;\n  border: 1px solid #b6c3c6;\n  border-radius: 16px;\n  font: inherit;\n}\n.textarea_body[data-v-72ee8928]:focus {\n  box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);\n  outline: 0;\n}\n.commentForm_button[data-v-72ee8928] {\n  margin-top: 24px;\n  text-align: center;\n}\n.button[data-v-72ee8928] {\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  font-size: 1.2rem;\n  text-decoration: none;\n  color: #FFF;\n  background: #fd9535;\n  /*色*/\n  border-radius: 4px;\n  /*角の丸み*/\n  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);\n  font-weight: bold;\n  border: solid 2px #d27d00;\n  /*線色*/\n  cursor: pointer;\n}\n.button[data-v-72ee8928]:active {\n  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);\n}\n.error *[data-v-72ee8928] {\n  font-size: 1.2rem;\n  font-weight: bold;\n  color: red;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\ntextarea[data-v-72ee8928] {\n  resize: none;\n}\n.textarea[data-v-72ee8928] {\n  line-height: 1.8;\n}\n.textarea_body[data-v-72ee8928] {\n  width: 100%;\n  border: 1px solid #b6c3c6;\n  border-radius: 16px;\n  font: inherit;\n}\n.textarea_body[data-v-72ee8928]:focus {\n  box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);\n  outline: 0;\n}\n.commentForm_button[data-v-72ee8928] {\n  margin-top: 24px;\n  text-align: center;\n}\n.button[data-v-72ee8928] {\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  font-size: 1.2rem;\n  text-decoration: none;\n  color: #FFF;\n  background: #fd9535;\n  /*色*/\n  border-radius: 4px;\n  /*角の丸み*/\n  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);\n  font-weight: bold;\n  border: solid 2px #d27d00;\n  /*線色*/\n  cursor: pointer;\n}\n.button[data-v-72ee8928]:active {\n  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);\n}\n.error *[data-v-72ee8928] {\n  font-size: 1.2rem;\n  font-weight: bold;\n  color: red;\n}", ""]);
 
 // exports
 
@@ -17902,7 +17918,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px;\n}\n.navbar_title *[data-v-6dde423b] {\n  font-size: 2rem;\n}\n.navbar_logo[data-v-6dde423b] {\n  padding-top: 2px;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #f78528;\n}\n.navbar_subText[data-v-6dde423b] {\n  padding-left: 8px;\n}", ""]);
+exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px;\n}\n.navbar_title *[data-v-6dde423b] {\n  font-size: 2rem;\n}\n.navbar_logo[data-v-6dde423b] {\n  padding-top: 2px;\n}\n.navbar_user-logged[data-v-6dde423b] {\n  cursor: default;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #f78528;\n}\n.navbar_subText[data-v-6dde423b] {\n  padding-left: 8px;\n}", ""]);
 
 // exports
 
@@ -17959,7 +17975,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n.login[data-v-3b6adb30] {\n  margin: 80px auto 0;\n  width: 90%;\n  border: 1px solid #868686;\n  padding: 16px;\n}\n.login_message[data-v-3b6adb30] {\n  margin: 24px 0;\n  font-weight: bold;\n}\n.tab[data-v-3b6adb30] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 16px;\n}\n.tab_item-active[data-v-3b6adb30] {\n  background: #e86;\n}\n.tab li[data-v-3b6adb30] {\n  font-size: 1.5rem;\n  cursor: pointer;\n}\nlabel[data-v-3b6adb30], input[data-v-3b6adb30] {\n  font-size: 1.2rem;\n}\n.button[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  text-decoration: none;\n  color: #FFF;\n  background: #03A9F4;\n  /*色*/\n  border: solid 1px #0f9ada;\n  /*線色*/\n  border-radius: 4px;\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n}\n.button[data-v-3b6adb30]:active {\n  border: solid 1px #03A9F4;\n  box-shadow: none;\n  text-shadow: none;\n}\n.mb-16[data-v-3b6adb30] {\n  margin-bottom: 8px;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n.login[data-v-3b6adb30] {\n  margin: 80px auto 0;\n  width: 90%;\n  border: 1px solid #868686;\n  padding: 16px;\n}\n.login_message[data-v-3b6adb30] {\n  margin: 24px 0;\n  font-weight: bold;\n}\n.loginForm_button[data-v-3b6adb30],\n.registerForm_button[data-v-3b6adb30] {\n  margin-top: 36px;\n}\n.tab[data-v-3b6adb30] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 16px;\n}\n.tab_item-active[data-v-3b6adb30] {\n  background: #e86;\n}\n.tab li[data-v-3b6adb30] {\n  font-size: 1.5rem;\n  cursor: pointer;\n}\nlabel[data-v-3b6adb30], input[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  display: block;\n  width: 100%;\n}\n.button[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  text-decoration: none;\n  color: #FFF;\n  background: #03A9F4;\n  /*色*/\n  border: solid 1px #0f9ada;\n  /*線色*/\n  border-radius: 4px;\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n}\n.button[data-v-3b6adb30]:active {\n  border: solid 1px #03A9F4;\n  box-shadow: none;\n  text-shadow: none;\n}\n.mb-16[data-v-3b6adb30] {\n  margin-bottom: 8px;\n}\n.errors li[data-v-3b6adb30] {\n  color: red;\n  font-weight: bold;\n}", ""]);
 
 // exports
 
@@ -17978,7 +17994,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "input[data-v-2a21ebc0],\ntextarea[data-v-2a21ebc0] {\n  border: none;\n  background: transparent;\n}\ninput[data-v-2a21ebc0]:focus,\ntextarea[data-v-2a21ebc0]:focus {\n  outline: none;\n}\n.textarea[data-v-2a21ebc0] {\n  margin: 2rem auto;\n  border-top: 10px solid whitesmoke;\n  border-bottom: 10px solid whitesmoke;\n  background: #fff;\n  text-align: center;\n}\n.textarea_body[data-v-2a21ebc0] {\n  width: 90%;\n  font-size: 1.2rem;\n  line-height: 2rem;\n  margin: 0;\n  padding: 16px 0;\n}\n.QuestionDetail[data-v-2a21ebc0] {\n  background: lightgrey;\n  padding: 32px 0;\n}\n.QuestionDetail_title[data-v-2a21ebc0] {\n  margin: 16px 0;\n}\n.QuestionDetail_title input[data-v-2a21ebc0] {\n  font-size: 1.5rem;\n  width: 100%;\n  color: dodgerblue;\n}\n.QuestionDetail_data[data-v-2a21ebc0] {\n  display: flex;\n  justify-content: space-between;\n  margin-right: 16px;\n}\n.QuestionDetail_text[data-v-2a21ebc0] {\n  margin-top: 16px;\n}\n.commentList[data-v-2a21ebc0],\n.commentForm[data-v-2a21ebc0] {\n  margin: 0 8px;\n}\n.border[data-v-2a21ebc0] {\n  border-top: 1px dashed #8c8b8b;\n  border-bottom: 1px dashed #ffffff;\n  margin: 64px 0;\n}", ""]);
+exports.push([module.i, "input[data-v-2a21ebc0],\ntextarea[data-v-2a21ebc0] {\n  border: none;\n  background: transparent;\n}\ninput[data-v-2a21ebc0]:focus,\ntextarea[data-v-2a21ebc0]:focus {\n  outline: none;\n}\n.textarea[data-v-2a21ebc0] {\n  margin: 2rem auto;\n  border-top: 10px solid whitesmoke;\n  border-bottom: 10px solid whitesmoke;\n  background: #fff;\n  text-align: center;\n  resize: none;\n}\n.textarea_body[data-v-2a21ebc0] {\n  width: 90%;\n  font-size: 1.2rem;\n  line-height: 2rem;\n  margin: 0;\n  padding: 16px 0;\n}\n.QuestionDetail[data-v-2a21ebc0] {\n  background: lightgrey;\n  padding: 32px 8px;\n}\n.QuestionDetail_title[data-v-2a21ebc0] {\n  margin: 16px 0;\n}\n.QuestionDetail_title input[data-v-2a21ebc0] {\n  font-size: 1.5rem;\n  width: 100%;\n  color: dodgerblue;\n}\n.QuestionDetail_data[data-v-2a21ebc0] {\n  display: flex;\n  justify-content: space-between;\n  margin-right: 16px;\n}\n.QuestionDetail_text[data-v-2a21ebc0] {\n  margin-top: 16px;\n}\n.commentList[data-v-2a21ebc0],\n.commentForm[data-v-2a21ebc0] {\n  margin: 0 8px;\n}\n.border[data-v-2a21ebc0] {\n  border-top: 1px dashed #8c8b8b;\n  border-bottom: 1px dashed #ffffff;\n  margin: 64px 0;\n}", ""]);
 
 // exports
 
@@ -18092,7 +18108,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "/*\nhtml5doctor.com Reset Stylesheet\nv1.6.1\nLast Updated: 2010-09-17\nAuthor: Richard Clark - http://richclarkdesign.com\nTwitter: @rich_clark\n*/\n\nhtml, body, div, span, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\nabbr, address, cite, code,\ndel, dfn, em, img, ins, kbd, q, samp,\nsmall, strong, sub, sup, var,\nb, i,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section, summary,\ntime, mark, audio, video {\n    margin:0;\n    padding:0;\n    border:0;\n    outline:0;\n    font-size:100%;\n    vertical-align:baseline;\n    background:transparent;\n}\n\nbody {\n    line-height:1;\n}\n\narticle,aside,details,figcaption,figure,\nfooter,header,hgroup,menu,nav,section {\n    display:block;\n}\n\nnav ul {\n    list-style:none;\n}\n\nblockquote, q {\n    quotes:none;\n}\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n    content:'';\n    content:none;\n}\n\na {\n    margin:0;\n    padding:0;\n    font-size:100%;\n    vertical-align:baseline;\n    background:transparent;\n}\n\n/* change colours to suit your needs */\nins {\n    background-color:#ff9;\n    color:#000;\n    text-decoration:none;\n}\n\n/* change colours to suit your needs */\nmark {\n    background-color:#ff9;\n    color:#000;\n    font-style:italic;\n    font-weight:bold;\n}\n\ndel {\n    text-decoration: line-through;\n}\n\nabbr[title], dfn[title] {\n    border-bottom:1px dotted;\n    cursor:help;\n}\n\ntable {\n    border-collapse:collapse;\n    border-spacing:0;\n}\n\n/* change border colour to suit your needs */\nhr {\n    display:block;\n    height:1px;\n    border:0;  \n    border-top:1px solid #cccccc;\n    margin:1em 0;\n    padding:0;\n}\n\ninput, select {\n    vertical-align:middle;\n}\n", ""]);
+exports.push([module.i, "/*\nhtml5doctor.com Reset Stylesheet\nv1.6.1\nLast Updated: 2010-09-17\nAuthor: Richard Clark - http://richclarkdesign.com\nTwitter: @rich_clark\n*/\n\nhtml, body, div, span, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\nabbr, address, cite, code,\ndel, dfn, em, img, ins, kbd, q, samp,\nsmall, strong, sub, sup, var,\nb, i,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section, summary,\ntime, mark, audio, video {\n    margin:0;\n    padding:0;\n    border:0;\n    outline:0;\n    font-size:100%;\n    vertical-align:baseline;\n    background:transparent;\n    box-sizing: border-box;\n}\n\nbody {\n    line-height:1;\n}\n\narticle,aside,details,figcaption,figure,\nfooter,header,hgroup,menu,nav,section {\n    display:block;\n}\n\nnav ul {\n    list-style:none;\n}\n\nblockquote, q {\n    quotes:none;\n}\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n    content:'';\n    content:none;\n}\n\na {\n    margin:0;\n    padding:0;\n    font-size:100%;\n    vertical-align:baseline;\n    background:transparent;\n}\n\n/* change colours to suit your needs */\nins {\n    background-color:#ff9;\n    color:#000;\n    text-decoration:none;\n}\n\n/* change colours to suit your needs */\nmark {\n    background-color:#ff9;\n    color:#000;\n    font-style:italic;\n    font-weight:bold;\n}\n\ndel {\n    text-decoration: line-through;\n}\n\nabbr[title], dfn[title] {\n    border-bottom:1px dotted;\n    cursor:help;\n}\n\ntable {\n    border-collapse:collapse;\n    border-spacing:0;\n}\n\n/* change border colour to suit your needs */\nhr {\n    display:block;\n    height:1px;\n    border:0;\n    border-top:1px solid #cccccc;\n    margin:1em 0;\n    padding:0;\n}\n\ninput, select {\n    vertical-align:middle;\n}\n\ninput, textarea {\n    box-sizing: border-box;\n}", ""]);
 
 // exports
 
@@ -20932,14 +20948,14 @@ var render = function() {
           },
           [
             _vm.loginErrors
-              ? _c("div", { staticClass: "error" }, [
+              ? _c("div", { staticClass: "errors" }, [
                   _vm.loginErrors.email
                     ? _c(
                         "ul",
                         _vm._l(_vm.loginErrors.email, function(msg) {
                           return _c("li", { key: msg }, [
                             _vm._v(
-                              "\n                    " +
+                              "\n                    ※" +
                                 _vm._s(msg) +
                                 "\n                    "
                             )
@@ -20978,14 +20994,14 @@ var render = function() {
             ]),
             _vm._v(" "),
             _vm.loginErrors
-              ? _c("div", { staticClass: "error" }, [
+              ? _c("div", { staticClass: "errors" }, [
                   _vm.loginErrors.password
                     ? _c(
                         "ul",
                         _vm._l(_vm.loginErrors.password, function(msg) {
                           return _c("li", { key: msg }, [
                             _vm._v(
-                              "\n                    " +
+                              "\n                    ※" +
                                 _vm._s(msg) +
                                 "\n                    "
                             )
@@ -21065,7 +21081,7 @@ var render = function() {
                         _vm._l(_vm.registerErrors.name, function(msg) {
                           return _c("li", { key: msg }, [
                             _vm._v(
-                              "\n                    " +
+                              "\n                    ※" +
                                 _vm._s(msg) +
                                 "\n                    "
                             )
@@ -21111,7 +21127,7 @@ var render = function() {
                         _vm._l(_vm.registerErrors.email, function(msg) {
                           return _c("li", { key: msg }, [
                             _vm._v(
-                              "\n                    " +
+                              "\n                    ※" +
                                 _vm._s(msg) +
                                 "\n                    "
                             )
@@ -21157,7 +21173,7 @@ var render = function() {
                         _vm._l(_vm.registerErrors.password, function(msg) {
                           return _c("li", { key: msg }, [
                             _vm._v(
-                              "\n                    " +
+                              "\n                    ※" +
                                 _vm._s(msg) +
                                 "\n                    "
                             )
@@ -21194,6 +21210,26 @@ var render = function() {
                 }
               })
             ]),
+            _vm._v(" "),
+            _vm.registerErrors
+              ? _c("div", { staticClass: "errors" }, [
+                  _vm.registerErrors.password
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.registerErrors.password, function(msg) {
+                          return _c("li", { key: msg }, [
+                            _vm._v(
+                              "\n                    ※" +
+                                _vm._s(msg) +
+                                "\n                    "
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "div",

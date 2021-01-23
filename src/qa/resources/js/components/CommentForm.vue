@@ -140,6 +140,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+textarea {
+    resize: none;
+}
 .textarea {
     line-height: 1.8;
     &_body {

@@ -74,9 +74,12 @@ export default {
             padding-top: 2px;
         }
         &_user {
-            &-logged p {
-                font-size: 1.4rem;
-                margin-right: 8px;
+            &-logged {
+                cursor: default;
+                & p {
+                    font-size: 1.4rem;
+                    margin-right: 8px;
+                }
             }
             &-login p {
                 color: #f78528;
