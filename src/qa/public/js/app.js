@@ -16693,6 +16693,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     question: {
@@ -17880,7 +17886,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".commentList_text[data-v-b2309ffc] {\n  margin-bottom: 24px;\n  border-bottom: 2px solid orange;\n}\n.commentList_item[data-v-b2309ffc] {\n  margin: 16px 0;\n  border-bottom: 1px dotted #000;\n}\n.commentList_item-message[data-v-b2309ffc] {\n  margin-bottom: 4px;\n}\n.commentList_item-message p[data-v-b2309ffc] {\n  white-space: pre-wrap;\n}\n.commentList_item[data-v-b2309ffc]:last-child {\n  border: none;\n}\n.commentList_delete[data-v-b2309ffc] {\n  margin: 24px;\n  height: 2rem;\n  position: relative;\n}\n.commentList_delete .button[data-v-b2309ffc] {\n  position: absolute;\n  top: 0;\n  right: 16px;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -20523,16 +20529,23 @@ var render = function() {
   return _c("div", { staticClass: "commentList" }, [
     _vm.question.comments > Array(0)
       ? _c("div", { staticClass: "commentList_wrapper" }, [
-          _c("p", [_vm._v("コメント欄")]),
+          _vm._m(0),
           _vm._v(" "),
           _c(
             "ul",
+            { staticClass: "commentList_contents" },
             _vm._l(_vm.question.comments, function(comment) {
               return _c(
                 "li",
-                { key: comment.questin_id, staticClass: "commentItem" },
+                { key: comment.questin_id, staticClass: "commentList_item" },
                 [
-                  _c("div", { staticClass: "comment_infomation" }, [
+                  _c("div", { staticClass: "commentList_item-message" }, [
+                    _c("p", [_vm._v("No." + _vm._s(comment.id))]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(comment.message))])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "commentList_item-data" }, [
                     _c("p", [
                       _vm._v("返信者： " + _vm._s(comment.author.name))
                     ]),
@@ -20540,15 +20553,11 @@ var render = function() {
                     _c("p", [_vm._v("返信日： " + _vm._s(comment.created_at))])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "comment_text" }, [
-                    _c("p", [_vm._v("コメント： " + _vm._s(comment.message))])
-                  ]),
-                  _vm._v(" "),
                   _vm.isLogin
                     ? _c(
                         "div",
                         {
-                          staticClass: "delete_button",
+                          staticClass: "commentList_delete",
                           on: {
                             click: function($event) {
                               $event.preventDefault()
@@ -20556,7 +20565,11 @@ var render = function() {
                             }
                           }
                         },
-                        [_c("button", [_vm._v("削除")])]
+                        [
+                          _c("button", { staticClass: "button" }, [
+                            _vm._v("削除")
+                          ])
+                        ]
                       )
                     : _vm._e()
                 ]
@@ -20565,10 +20578,21 @@ var render = function() {
             0
           )
         ])
-      : _c("div", [_c("p", [_vm._v("コメントはありません")])])
+      : _c("div", { staticClass: "commentList_wrapper-switch" }, [
+          _c("p", [_vm._v("コメントはありません")])
+        ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "commentList_text" }, [
+      _c("h3", [_vm._v("コメント欄")])
+    ])
+  }
+]
 render._withStripped = true
 
 
