@@ -17667,6 +17667,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -17692,6 +17693,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   computed: {
     isLogin: function isLogin() {
       return this.$store.getters['auth/check'];
+    },
+    userId: function userId() {
+      return this.$store.getters['auth/userId'];
     }
   },
   methods: {
@@ -21741,23 +21745,25 @@ var render = function() {
                       staticClass: "questions_delete"
                     },
                     [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "button",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.deleteQuestion(question.id)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                    削除\n                    "
+                      question.user.id == _vm.userId
+                        ? _c(
+                            "button",
+                            {
+                              staticClass: "button",
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.deleteQuestion(question.id)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                    削除\n                    "
+                              )
+                            ]
                           )
-                        ]
-                      )
+                        : _vm._e()
                     ]
                   )
                 ]
@@ -39753,6 +39759,9 @@ var getters = {
   },
   username: function username(state) {
     return state.user ? state.user.name : '';
+  },
+  userId: function userId(state) {
+    return state.user ? state.user.id : '';
   }
 };
 var mutations = {

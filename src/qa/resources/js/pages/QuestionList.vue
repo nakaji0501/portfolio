@@ -29,6 +29,7 @@
                 v-show="isLogin"
                 >
                     <button class="button"
+                    v-if="question.user.id == userId"
                     @click.prevent="deleteQuestion(question.id)"
                     >
                     削除
@@ -90,7 +91,10 @@ export default {
     computed: {
         isLogin() {
             return this.$store.getters['auth/check']
-        }
+        },
+        userId() {
+            return this.$store.getters['auth/userId']
+        },
     },
     methods: {
         async fetchQuestions() {
@@ -100,7 +104,6 @@ export default {
                 this.$store.commit('error/setCode', response.status)
                 return false
             }
-
             this.questions = response.data.data
             this.currentPage = response.data.current_page
             this.lastPage = response.data.last_page
