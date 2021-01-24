@@ -16699,6 +16699,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     question: {
@@ -16741,6 +16745,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   computed: {
     isLogin: function isLogin() {
       return this.$store.getters['auth/check'];
+    },
+    userId: function userId() {
+      return this.$store.getters['auth/userId'];
     }
   }
 });
@@ -20581,23 +20588,27 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm.isLogin
-                    ? _c(
-                        "div",
-                        {
-                          staticClass: "commentList_delete",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.deleteComment(comment.id)
-                            }
-                          }
-                        },
-                        [
-                          _c("button", { staticClass: "button" }, [
-                            _vm._v("削除")
-                          ])
-                        ]
-                      )
+                    ? _c("div", { staticClass: "commentList_delete" }, [
+                        comment.author.id === _vm.userId
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "button",
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.deleteComment(comment.id)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    削除\n                "
+                                )
+                              ]
+                            )
+                          : _vm._e()
+                      ])
                     : _vm._e()
                 ]
               )

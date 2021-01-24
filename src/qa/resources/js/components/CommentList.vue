@@ -23,10 +23,14 @@
                     </div>
 
                     <div class="commentList_delete"
-                    @click.prevent="deleteComment(comment.id)"
                     v-if="isLogin"
                     >
-                    <button class="button">削除</button>
+                    <button class="button"
+                    v-if="comment.author.id === userId"
+                    @click.prevent="deleteComment(comment.id)"
+                    >
+                        削除
+                    </button>
                     </div>
                 </li>
             </ul>
@@ -60,7 +64,10 @@ export default {
     computed: {
         isLogin() {
             return this.$store.getters['auth/check']
-        }
+        },
+        userId() {
+            return this.$store.getters['auth/userId']
+        },
     }
 }
 </script>
