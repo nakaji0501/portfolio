@@ -17345,6 +17345,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -18003,7 +18008,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "input[data-v-2a21ebc0],\ntextarea[data-v-2a21ebc0] {\n  border: none;\n  background: transparent;\n}\ninput[data-v-2a21ebc0]:focus,\ntextarea[data-v-2a21ebc0]:focus {\n  outline: none;\n}\n.textarea[data-v-2a21ebc0] {\n  margin: 2rem auto;\n  border-top: 10px solid whitesmoke;\n  border-bottom: 10px solid whitesmoke;\n  background: #fff;\n  text-align: center;\n  resize: none;\n}\n.textarea_body[data-v-2a21ebc0] {\n  width: 90%;\n  font-size: 1.2rem;\n  line-height: 2rem;\n  margin: 0;\n  padding: 16px 0;\n}\n.QuestionDetail[data-v-2a21ebc0] {\n  background: lightgrey;\n  padding: 32px 8px;\n}\n.QuestionDetail_title[data-v-2a21ebc0] {\n  margin: 16px 0;\n}\n.QuestionDetail_title input[data-v-2a21ebc0] {\n  font-size: 1.5rem;\n  width: 100%;\n  color: dodgerblue;\n}\n.QuestionDetail_data[data-v-2a21ebc0] {\n  display: flex;\n  justify-content: space-between;\n  margin-right: 16px;\n}\n.QuestionDetail_text[data-v-2a21ebc0] {\n  margin-top: 16px;\n}\n.commentList[data-v-2a21ebc0],\n.commentForm[data-v-2a21ebc0] {\n  margin: 0 8px;\n}\n.border[data-v-2a21ebc0] {\n  border-top: 1px dashed #8c8b8b;\n  border-bottom: 1px dashed #ffffff;\n  margin: 64px 0;\n}", ""]);
+exports.push([module.i, "input[data-v-2a21ebc0],\ntextarea[data-v-2a21ebc0] {\n  border: none;\n  background: transparent;\n}\ninput[data-v-2a21ebc0]:focus,\ntextarea[data-v-2a21ebc0]:focus {\n  outline: none;\n}\n.textarea[data-v-2a21ebc0] {\n  margin: 2rem auto;\n  border-top: 10px solid whitesmoke;\n  border-bottom: 10px solid whitesmoke;\n  background: #fff;\n  text-align: center;\n  resize: none;\n}\n.textarea_body[data-v-2a21ebc0] {\n  width: 90%;\n  font-size: 1.2rem;\n  line-height: 2rem;\n  margin: 0;\n  padding: 16px 0;\n}\n.QuestionDetail[data-v-2a21ebc0] {\n  background: lightgrey;\n  padding: 32px 8px;\n}\n.QuestionDetail_title[data-v-2a21ebc0] {\n  margin: 16px 0;\n}\n.QuestionDetail_title input[data-v-2a21ebc0] {\n  font-size: 1.5rem;\n  width: 100%;\n  color: dodgerblue;\n}\n.QuestionDetail_data[data-v-2a21ebc0] {\n  display: flex;\n  justify-content: space-between;\n  margin-right: 16px;\n}\n.QuestionDetail_text[data-v-2a21ebc0] {\n  margin-top: 16px;\n}\n.commentList[data-v-2a21ebc0],\n.commentForm[data-v-2a21ebc0] {\n  margin: 0 8px;\n}\n.commentForm-switch[data-v-2a21ebc0] {\n  text-align: center;\n}\n.border[data-v-2a21ebc0] {\n  border-top: 1px dashed #8c8b8b;\n  border-bottom: 1px dashed #ffffff;\n  margin: 64px 0;\n}", ""]);
 
 // exports
 
@@ -20545,7 +20550,7 @@ var render = function() {
                   _c("div", { staticClass: "commentList_item-message" }, [
                     _c("p", [_vm._v("No." + _vm._s(comment.id))]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(comment.message))])
+                    _c("p", [_vm._v("コメント：" + _vm._s(comment.message))])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "commentList_item-data" }, [
@@ -21442,16 +21447,16 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "border" }),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "commentForm" },
-      [
-        _vm.isLogin
-          ? _c("CommentForm", { attrs: { question: _vm.question } })
-          : _vm._e()
-      ],
-      1
-    )
+    _vm.isLogin
+      ? _c(
+          "div",
+          { staticClass: "commentForm" },
+          [_c("CommentForm", { attrs: { question: _vm.question } })],
+          1
+        )
+      : _c("div", { staticClass: "commentForm-switch" }, [
+          _c("p", [_vm._v("コメントを送信するにはログインが必要です。")])
+        ])
   ])
 }
 var staticRenderFns = []
