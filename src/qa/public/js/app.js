@@ -17180,6 +17180,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -17989,7 +17991,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n.login[data-v-3b6adb30] {\n  margin: 80px auto 0;\n  width: 90%;\n  border: 1px solid #868686;\n  padding: 16px;\n}\n.login_message[data-v-3b6adb30] {\n  margin: 24px 0;\n  font-weight: bold;\n}\n.loginForm_button[data-v-3b6adb30],\n.registerForm_button[data-v-3b6adb30] {\n  margin-top: 36px;\n}\n.tab[data-v-3b6adb30] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 16px;\n}\n.tab_item-active[data-v-3b6adb30] {\n  background: #e86;\n}\n.tab li[data-v-3b6adb30] {\n  font-size: 1.5rem;\n  cursor: pointer;\n}\nlabel[data-v-3b6adb30], input[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  display: block;\n  width: 100%;\n}\n.button[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  text-decoration: none;\n  color: #FFF;\n  background: #03A9F4;\n  /*色*/\n  border: solid 1px #0f9ada;\n  /*線色*/\n  border-radius: 4px;\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n}\n.button[data-v-3b6adb30]:active {\n  border: solid 1px #03A9F4;\n  box-shadow: none;\n  text-shadow: none;\n}\n.mb-16[data-v-3b6adb30] {\n  margin-bottom: 8px;\n}\n.errors li[data-v-3b6adb30] {\n  color: red;\n  font-weight: bold;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n.login[data-v-3b6adb30] {\n  margin: 80px auto 0;\n  width: 90%;\n  border: 1px solid #868686;\n  padding: 8px;\n}\n.login_message[data-v-3b6adb30] {\n  margin: 8px 0 24px;\n}\n.loginForm_button[data-v-3b6adb30],\n.registerForm_button[data-v-3b6adb30] {\n  margin-top: 36px;\n}\n.tab[data-v-3b6adb30] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 8px;\n}\n.tab_item[data-v-3b6adb30] {\n  display: flex;\n  justify-content: center;\n  font-size: 1.5rem;\n  cursor: pointer;\n  align-items: center;\n  border-bottom: 1px dotted #000;\n}\n.tab_item-active[data-v-3b6adb30] {\n  font-weight: bold;\n}\n.icon[data-v-3b6adb30] {\n  color: orange;\n}\nlabel[data-v-3b6adb30], input[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  display: block;\n  width: 100%;\n}\n.button[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  text-decoration: none;\n  color: #FFF;\n  background: #f78528;\n  /*色*/\n  border: solid 1px #dd6b0d;\n  /*線色*/\n  border-radius: 4px;\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n}\n.button[data-v-3b6adb30]:hover {\n  border: solid 1px #f78528;\n  box-shadow: none;\n  text-shadow: none;\n}\n.mb-8[data-v-3b6adb30] {\n  margin-bottom: 8px;\n}\n.errors li[data-v-3b6adb30] {\n  color: red;\n  font-weight: bold;\n}", ""]);
 
 // exports
 
@@ -18103,7 +18105,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "* {\n    color: #333;\n}\n\nh1,h2,h3 {\n    font-size: 20px;\n}\n\np,a {\n    font-size: 16px;\n    line-height: 1.8;\n}\n\na {\n    text-decoration: none;\n}\n\nli {\n    list-style: none;\n}", ""]);
+exports.push([module.i, "h1,h2,h3 {\n    font-size: 20px;\n}\n\np,a {\n    font-size: 16px;\n    line-height: 1.8;\n}\n\na {\n    text-decoration: none;\n}\n\nli {\n    list-style: none;\n}", ""]);
 
 // exports
 
@@ -20931,7 +20933,22 @@ var render = function() {
             }
           }
         },
-        [_vm._v("\n        ログイン\n        ")]
+        [
+          _c("font-awesome-icon", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.tab === 1,
+                expression: "tab === 1"
+              }
+            ],
+            staticClass: "icon",
+            attrs: { icon: ["fa", "caret-right"], size: "2x" }
+          }),
+          _vm._v("\n        ログイン\n        ")
+        ],
+        1
       ),
       _vm._v(" "),
       _c(
@@ -20945,7 +20962,22 @@ var render = function() {
             }
           }
         },
-        [_vm._v("\n        会員登録\n        ")]
+        [
+          _c("font-awesome-icon", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.tab === 2,
+                expression: "tab === 2"
+              }
+            ],
+            staticClass: "icon",
+            attrs: { icon: ["fa", "caret-right"], size: "2x" }
+          }),
+          _vm._v("\n        会員登録\n        ")
+        ],
+        1
       )
     ]),
     _vm._v(" "),
@@ -21003,7 +21035,7 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "loginForm_email mb-16" }, [
+            _c("div", { staticClass: "loginForm_email mb-8" }, [
               _c("label", { attrs: { for: "login-email" } }, [_vm._v("Email")]),
               _vm._v(" "),
               _c("input", {
@@ -21049,7 +21081,7 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "loginForm_password mb-16" }, [
+            _c("div", { staticClass: "loginForm_password mb-8" }, [
               _c("label", { attrs: { for: "login-password" } }, [
                 _vm._v("Password")
               ]),
@@ -21129,7 +21161,7 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "loginForm_username mb-16" }, [
+            _c("div", { staticClass: "loginForm_username mb-8" }, [
               _c("label", { attrs: { for: "username" } }, [_vm._v("Name")]),
               _vm._v(" "),
               _c("input", {
@@ -21175,7 +21207,7 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "regiserForm_email mb-16" }, [
+            _c("div", { staticClass: "regiserForm_email mb-8" }, [
               _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
               _vm._v(" "),
               _c("input", {
@@ -21221,7 +21253,7 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "registerForm_password mb-16" }, [
+            _c("div", { staticClass: "registerForm_password mb-8" }, [
               _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
               _vm._v(" "),
               _c("input", {
@@ -21269,7 +21301,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "registerForm_passworc-confirmation mb-16" },
+              { staticClass: "registerForm_passworc-confirmation mb-8" },
               [
                 _c("label", { attrs: { for: "password-confirmation" } }, [
                   _vm._v("Passwrod(確認用)")
