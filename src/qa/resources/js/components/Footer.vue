@@ -53,6 +53,7 @@ export default {
     padding: 8px;
     text-align: center;
     &-logout,&-login {
+        color: #333;
         font-size: 1.2rem;
         cursor: pointer;
     }

@@ -6,6 +6,7 @@
             @click="tab = 1"
             :class="{'tab_item-active': tab === 1}"
             >
+            <font-awesome-icon :icon="['fa', 'caret-right']" size="2x" class="icon" v-show="tab === 1" />
             ログイン
             </li>
 
@@ -13,6 +14,7 @@
             @click="tab = 2"
             :class="{'tab_item-active': tab === 2}"
             >
+            <font-awesome-icon :icon="['fa', 'caret-right']" size="2x" class="icon" v-show="tab === 2" />
             会員登録
             </li>
         </ul><!-- /tab -->
@@ -40,7 +42,7 @@
                     </ul>
                 </div>
 
-                <div class="loginForm_email mb-16">
+                <div class="loginForm_email mb-8">
                     <label for="login-email">Email</label>
                     <input class="form_item" id="login-email" type="text"
                     v-model="loginForm.email"
@@ -60,7 +62,7 @@
                     </ul>
                 </div>
 
-                <div class="loginForm_password mb-16">
+                <div class="loginForm_password mb-8">
                     <label for="login-password">Password</label>
                     <input class="form_item" id="login-password" type="password"
                     v-model="loginForm.password"
@@ -93,7 +95,7 @@
                     </ul>
                 </div>
 
-                <div class="loginForm_username mb-16">
+                <div class="loginForm_username mb-8">
                     <label for="username">Name</label>
                     <input class="form_item" id="username" type="text"
                     v-model="registerForm.name"
@@ -116,7 +118,7 @@
                     </ul>
                 </div>
 
-                <div class="regiserForm_email mb-16">
+                <div class="regiserForm_email mb-8">
                     <label for="email">Email</label>
                     <input class="form_item" id="email" type="text"
                     v-model="registerForm.email"
@@ -139,7 +141,7 @@
                     </ul>
                 </div>
 
-                <div class="registerForm_password mb-16">
+                <div class="registerForm_password mb-8">
                     <label for="password">Password</label>
                     <input class="form_item" id="password" type="password"
                     v-model="registerForm.password"
@@ -162,7 +164,7 @@
                     </ul>
                 </div>
 
-                <div class="registerForm_passworc-confirmation mb-16">
+                <div class="registerForm_passworc-confirmation mb-8">
                     <label for="password-confirmation">Passwrod(確認用)</label>
                     <input class="form_item" id="password-confirmation" type="password"
                     v-model="registerForm.password_confirmation"
@@ -252,10 +254,9 @@ export default {
     margin: 80px auto 0;
     width: 90%;
     border: 1px solid #868686;
-    padding: 16px;
+    padding: 8px;
     &_message {
-        margin: 24px 0;
-        font-weight: bold;
+        margin: 8px 0 24px;
     }
 }
 .loginForm_button,
@@ -265,14 +266,21 @@ export default {
 .tab {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 16px;
-    &_item-active {
-        background: #e86;
-    }
-    & li {
+    margin-bottom: 8px;
+    &_item {
+        display: flex;
+        justify-content: center;
         font-size: 1.5rem;
         cursor: pointer;
+        align-items: center;
+        border-bottom: 1px dotted #000;
     }
+    &_item-active {
+        font-weight: bold;
+    }
+}
+.icon {
+    color: orange;
 }
 label, input {
     font-size: 1.2rem;
@@ -286,19 +294,19 @@ label, input {
     padding: 0.25em 0.5em;
     text-decoration: none;
     color: #FFF;
-    background: #03A9F4;/*色*/
-    border: solid 1px #0f9ada;/*線色*/
+    background: #f78528;/*色*/
+    border: solid 1px #dd6b0d;/*線色*/
     border-radius: 4px;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
     text-shadow: 0 1px 0 rgba(0,0,0,0.2);
     cursor: pointer;
-    &:active {
-        border: solid 1px #03A9F4;
+    &:hover {
+        border: solid 1px #f78528;
         box-shadow: none;
         text-shadow: none;
     }
 }
-.mb-16 {
+.mb-8 {
     margin-bottom: 8px;
 }
 .errors {

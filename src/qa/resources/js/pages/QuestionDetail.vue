@@ -37,10 +37,15 @@
 
         <div class="border"></div>
 
-        <div class="commentForm">
+        <div class="commentForm"
+        v-if="isLogin">
         <CommentForm
-        v-if="isLogin"
         :question="question" />
+        </div>
+
+        <div class="commentForm-switch"
+        v-else>
+            <p>コメントを送信するにはログインが必要です。</p>
         </div>
 
     </div>
@@ -164,6 +169,9 @@ textarea {
 .commentList,
 .commentForm {
     margin: 0 8px;
+}
+.commentForm-switch {
+    text-align: center;
 }
 .border {
     border-top: 1px dashed #8c8b8b;
