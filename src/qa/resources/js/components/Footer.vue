@@ -68,18 +68,12 @@ export default {
     width: 90%;
     margin: 0 auto;
 }
-// .tag_item {
-//     display: inline-block;
-
-//     & li {
-//         margin-right: 16px;
-//     }
-// }
 
 .button {
     padding: 8px;
     text-align: center;
     &-logout,&-login {
+        color: #333;
         font-size: 1.2rem;
         cursor: pointer;
     }

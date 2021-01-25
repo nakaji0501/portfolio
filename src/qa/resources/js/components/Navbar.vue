@@ -72,6 +72,7 @@ export default {
     }
     &_title * {
         font-size: 2rem;
+        color: #333;
     }
     &_logo {
         padding-top: 2px;
