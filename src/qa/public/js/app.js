@@ -16651,6 +16651,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -16703,7 +16705,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {
+      showModal: false,
+      deleteTargetID: null
+    };
+  },
   props: {
     question: {
       type: Object,
@@ -16711,7 +16738,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
-    deleteComment: function deleteComment(id) {
+    deleteComment: function deleteComment(targetID) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -16721,25 +16748,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios["delete"]('/api/questions/comments/' + id).then(function (response) {
-                  console.log(response);
+                return axios["delete"]('/api/questions/comments/' + targetID)["catch"](function (err) {
+                  return err.response || err;
                 });
 
               case 2:
                 response = _context.sent;
+                console.log(response);
+
+                if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["NOT_FOUND"]) {
+                  _this.$router.push("/404");
+                } else if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["INTERNAL_SERVER_ERROR"]) {
+                  _this.$router.push("/500");
+                }
+
+                _this.closeModal();
 
                 _this.$router.go({
                   path: _this.$router.currentRoute.path,
                   force: true
                 });
 
-              case 4:
+              case 7:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    deleteConfirm: function deleteConfirm(targetID) {
+      this.showModal = true;
+      this.deleteTargetID = targetID;
+    },
+    closeModal: function closeModal() {
+      this.showModal = false;
+      this.targetID = null;
     }
   },
   computed: {
@@ -20617,66 +20661,114 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "commentList" }, [
-    _vm.question.comments > Array(0)
-      ? _c("div", { staticClass: "commentList_wrapper" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "ul",
-            { staticClass: "commentList_contents" },
-            _vm._l(_vm.question.comments, function(comment) {
-              return _c(
-                "li",
-                { key: comment.questin_id, staticClass: "commentList_item" },
-                [
-                  _c("div", { staticClass: "commentList_item-message" }, [
-                    _c("p", [_vm._v("No." + _vm._s(comment.id))]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("コメント：" + _vm._s(comment.message))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "commentList_item-data" }, [
-                    _c("p", [
-                      _vm._v("返信者： " + _vm._s(comment.author.name))
+  return _c(
+    "div",
+    { staticClass: "commentList" },
+    [
+      _vm.question.comments > Array(0)
+        ? _c("div", { staticClass: "commentList_wrapper" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "ul",
+              { staticClass: "commentList_contents" },
+              _vm._l(_vm.question.comments, function(comment) {
+                return _c(
+                  "li",
+                  { key: comment.questin_id, staticClass: "commentList_item" },
+                  [
+                    _c("div", { staticClass: "commentList_item-message" }, [
+                      _c("p", [_vm._v("No." + _vm._s(comment.id))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("コメント：" + _vm._s(comment.message))])
                     ]),
                     _vm._v(" "),
-                    _c("p", [_vm._v("返信日： " + _vm._s(comment.created_at))])
-                  ]),
-                  _vm._v(" "),
-                  _vm.isLogin
-                    ? _c("div", { staticClass: "commentList_delete" }, [
-                        comment.author.id === _vm.userId
-                          ? _c(
-                              "button",
-                              {
-                                staticClass: "button",
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.deleteComment(comment.id)
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                    削除\n                "
-                                )
-                              ]
-                            )
-                          : _vm._e()
+                    _c("div", { staticClass: "commentList_item-data" }, [
+                      _c("p", [
+                        _vm._v("返信者： " + _vm._s(comment.author.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v("返信日： " + _vm._s(comment.created_at))
                       ])
-                    : _vm._e()
-                ]
-              )
-            }),
-            0
+                    ]),
+                    _vm._v(" "),
+                    _vm.isLogin
+                      ? _c("div", { staticClass: "commentList_delete" }, [
+                          comment.author.id === _vm.userId
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "button",
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.deleteConfirm(comment.id)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    削除\n                "
+                                  )
+                                ]
+                              )
+                            : _vm._e()
+                        ])
+                      : _vm._e()
+                  ]
+                )
+              }),
+              0
+            )
+          ])
+        : _c("div", { staticClass: "commentList_wrapper-switch" }, [
+            _c("p", [_vm._v("コメントはありません")])
+          ]),
+      _vm._v(" "),
+      _vm.showModal
+        ? _c(
+            "Loader",
+            { staticClass: "loader" },
+            [
+              _c("template", { slot: "loadingText" }, [
+                _c("p", [_vm._v("本当に削除しますか？")])
+              ]),
+              _vm._v(" "),
+              _c("template", { slot: "checkDelete" }, [
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.closeModal()
+                      }
+                    }
+                  },
+                  [_vm._v("キャンセル")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("template", { slot: "checkDelete" }, [
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteComment(_vm.deleteTargetID)
+                      }
+                    }
+                  },
+                  [_vm._v("削除する")]
+                )
+              ])
+            ],
+            2
           )
-        ])
-      : _c("div", { staticClass: "commentList_wrapper-switch" }, [
-          _c("p", [_vm._v("コメントはありません")])
-        ])
-  ])
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

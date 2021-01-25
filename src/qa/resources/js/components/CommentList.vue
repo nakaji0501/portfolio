@@ -27,7 +27,7 @@
                     >
                     <button class="button"
                     v-if="comment.author.id === userId"
-                    @click.prevent="deleteComment(comment.id)"
+                    @click.prevent="deleteConfirm(comment.id)"
                     >
                         削除
                     </button>
@@ -41,11 +41,38 @@
             <p>コメントはありません</p>
         </div>
 
+        <Loader class="loader"
+        v-if="showModal"
+        >
+            <template slot="loadingText">
+                <p>本当に削除しますか？</p>
+            </template>
+            <template slot="checkDelete">
+                <button @click="closeModal()">キャンセル</button>
+            </template>
+            <template slot="checkDelete">
+                <button @click="deleteComment(deleteTargetID)">削除する</button>
+            </template>
+        </Loader>
+
     </div><!-- /commentList -->
 </template>
 
 <script>
+import { INTERNAL_SERVER_ERROR, NOT_FOUND } from '../util'
+
+import Loader from '../components/Loader'
+
 export default {
+    components: {
+        Loader,
+    },
+    data() {
+        return {
+            showModal: false,
+            deleteTargetID: null,
+        }
+    },
     props: {
         question: {
             type: Object,
@@ -53,12 +80,30 @@ export default {
         }
     },
     methods: {
-        async deleteComment(id) {
-            const response= await axios.delete('/api/questions/comments/' + id)
-            .then((response) => {
-                console.log(response);
-            })
+        async deleteComment(targetID) {
+            const response= await axios.delete('/api/questions/comments/' + targetID)
+            .catch(function(err) {
+                return err.response || err;
+            });
+            console.log(response);
+
+            if (response.status === NOT_FOUND) {
+                this.$router.push("/404");
+            } else if (response.status === INTERNAL_SERVER_ERROR) {
+                this.$router.push("/500");
+            }
+
+            this.closeModal();
+
             this.$router.go({path: this.$router.currentRoute.path, force: true})
+        },
+        deleteConfirm(targetID) {
+            this.showModal = true;
+            this.deleteTargetID = targetID;
+        },
+        closeModal() {
+            this.showModal = false;
+            this.targetID = null;
         },
     },
     computed: {
