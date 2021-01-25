@@ -16894,6 +16894,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     isLogin: function isLogin() {
@@ -20810,8 +20815,15 @@ var render = function() {
               _c("p", [_vm._v(_vm._s(_vm.username))])
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "postQuestionButton" }, [_vm._v("投稿する")])
-          ]
+            this.$route.path !== "/questionForm"
+              ? _c("router-link", { attrs: { to: "/questionForm" } }, [
+                  _c("p", { staticClass: "postQuestionButton" }, [
+                    _vm._v("投稿する")
+                  ])
+                ])
+              : _vm._e()
+          ],
+          1
         ),
         _vm._v(" "),
         _c(

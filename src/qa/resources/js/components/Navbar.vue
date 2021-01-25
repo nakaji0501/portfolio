@@ -21,7 +21,12 @@
                 <p><font-awesome-icon :icon="['fas', 'user']" /></p>
                 <p>{{ username }}</p>
             </div>
+            <router-link
+            to="/questionForm"
+            v-if="this.$route.path !== '/questionForm'"
+            >
             <p class="postQuestionButton">投稿する</p>
+            </router-link>
         </div><!-- /navbar_user-logged -->
 
         <router-link class="navbar_user-login content_flex"
