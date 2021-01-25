@@ -30,7 +30,7 @@
                 >
                     <button class="button"
                     v-if="question.user.id == userId"
-                    @click.prevent="deleteQuestion(question.id)"
+                    @click.prevent="deleteConfirm(question.id)"
                     >
                     削除
                     </button>
@@ -60,19 +60,35 @@
         </router-link>
     </div><!-- /questions-postButton -->
 
+    <Loader class="loader"
+    v-if="showModal"
+    >
+        <template slot="loadingText">
+            <p>本当に削除しますか？</p>
+        </template>
+        <template slot="checkDelete">
+            <button @click="closeModal()">キャンセル</button>
+        </template>
+        <template slot="checkDelete">
+            <button @click="deleteQuestion(deleteTargetID)">削除する</button>
+        </template>
+    </Loader>
+
 </div><!-- /questions -->
 </template>
 
 <script>
-import { OK } from '../util'
+import { INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from '../util'
 
 import Pagination from '../components/Pagination'
 import PostButton from '../components/PostButton'
+import Loader from '../components/Loader'
 
 export default {
     components: {
         PostButton,
-        Pagination
+        Pagination,
+        Loader,
     },
     props: {
         page: {
@@ -86,6 +102,8 @@ export default {
             questions: [],
             currentPage: 0,
             lastPage: 0,
+            showModal: false,
+            deleteTargetID: null,
         }
     },
     computed: {
@@ -108,11 +126,21 @@ export default {
             this.currentPage = response.data.current_page
             this.lastPage = response.data.last_page
         },
-        async deleteQuestion(id) {
-            await axios.delete('/api/questions/' + id)
-            .then((res) => {
-                this.fetchQuestions();
-            })
+        async deleteQuestion(targetID) {
+            const response = await axios.delete('/api/questions/' + targetID)
+            .catch(function(err) {
+                return err.response || err;
+            });
+            console.log(response);
+
+            if (response.status === NOT_FOUND) {
+                this.$router.push("/404");
+            } else if (response.status === INTERNAL_SERVER_ERROR) {
+                this.$router.push("/500");
+            }
+
+            this.closeModal();
+            this.fetchQuestions();
         },
         async moveDetailPage(id) {
             await axios.get('/api/questions/' + id)
@@ -120,6 +148,14 @@ export default {
                     this.question = res.data
                     this.$router.push({ name: 'questionDetailPage', params: {id: this.question.id} })
                 })
+        },
+        deleteConfirm(targetID) {
+            this.showModal = true;
+            this.deleteTargetID = targetID;
+        },
+        closeModal() {
+            this.showModal = false;
+            this.targetID = null;
         },
     },
     watch: {

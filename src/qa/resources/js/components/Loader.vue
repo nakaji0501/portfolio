@@ -4,6 +4,9 @@
             <div class="loading_text modal-window">
                 <slot class="modal-text" name="loadingText">Loading...</slot>
             </div>
+            <div class="modal modal-window">
+                <slot class="modal-text" name="checkDelete"></slot>
+            </div>
         </div>
     </transition>
 </template>
@@ -12,6 +15,7 @@
 .modal {
     &-overlay {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: fixed;

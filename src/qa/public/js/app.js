@@ -17619,6 +17619,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
 /* harmony import */ var _components_Pagination__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Pagination */ "./resources/js/components/Pagination.vue");
 /* harmony import */ var _components_PostButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/PostButton */ "./resources/js/components/PostButton.vue");
+/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -17690,13 +17691,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     PostButton: _components_PostButton__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Pagination: _components_Pagination__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Pagination: _components_Pagination__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
     page: {
@@ -17709,7 +17726,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       questions: [],
       currentPage: 0,
-      lastPage: 0
+      lastPage: 0,
+      showModal: false,
+      deleteTargetID: null
     };
   },
   computed: {
@@ -17758,20 +17777,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    deleteQuestion: function deleteQuestion(id) {
+    deleteQuestion: function deleteQuestion(targetID) {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios["delete"]('/api/questions/' + id).then(function (res) {
-                  _this2.fetchQuestions();
+                return axios["delete"]('/api/questions/' + targetID)["catch"](function (err) {
+                  return err.response || err;
                 });
 
               case 2:
+                response = _context2.sent;
+                console.log(response);
+
+                if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["NOT_FOUND"]) {
+                  _this2.$router.push("/404");
+                } else if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["INTERNAL_SERVER_ERROR"]) {
+                  _this2.$router.push("/500");
+                }
+
+                _this2.closeModal();
+
+                _this2.fetchQuestions();
+
+              case 7:
               case "end":
                 return _context2.stop();
             }
@@ -17806,6 +17840,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee3);
       }))();
+    },
+    deleteConfirm: function deleteConfirm(targetID) {
+      this.showModal = true;
+      this.deleteTargetID = targetID;
+    },
+    closeModal: function closeModal() {
+      this.showModal = false;
+      this.targetID = null;
     }
   },
   watch: {
@@ -17924,7 +17966,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".modal-overlay[data-v-e79ec684] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: fixed;\n  z-index: 30;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n}\n.modal-window[data-v-e79ec684] {\n  background: #fff;\n  border-radius: 4px;\n  overflow: hidden;\n  padding: 16px 24px;\n}\n.modal-enter-active[data-v-e79ec684],\n.modal-leave-active[data-v-e79ec684] {\n  transition: opacity 0.4s;\n}\n.modal-enter-active .modal-window[data-v-e79ec684],\n.modal-leave-active .modal-window[data-v-e79ec684] {\n  transition: opacity 0.4s, transform 0.4s;\n}\n.modal-leave-active[data-v-e79ec684] {\n  transition: opacity 0.6s ease 0.4s;\n}\n.modal-enter[data-v-e79ec684],\n.modal-leave-to[data-v-e79ec684] {\n  opacity: 0;\n}\n.modal-enter .modal-window[data-v-e79ec684],\n.modal-leave-to .modal-window[data-v-e79ec684] {\n  opacity: 0;\n  transform: translateY(-20px);\n}", ""]);
+exports.push([module.i, ".modal-overlay[data-v-e79ec684] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  position: fixed;\n  z-index: 30;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n}\n.modal-window[data-v-e79ec684] {\n  background: #fff;\n  border-radius: 4px;\n  overflow: hidden;\n  padding: 16px 24px;\n}\n.modal-enter-active[data-v-e79ec684],\n.modal-leave-active[data-v-e79ec684] {\n  transition: opacity 0.4s;\n}\n.modal-enter-active .modal-window[data-v-e79ec684],\n.modal-leave-active .modal-window[data-v-e79ec684] {\n  transition: opacity 0.4s, transform 0.4s;\n}\n.modal-leave-active[data-v-e79ec684] {\n  transition: opacity 0.6s ease 0.4s;\n}\n.modal-enter[data-v-e79ec684],\n.modal-leave-to[data-v-e79ec684] {\n  opacity: 0;\n}\n.modal-enter .modal-window[data-v-e79ec684],\n.modal-leave-to .modal-window[data-v-e79ec684] {\n  opacity: 0;\n  transform: translateY(-20px);\n}", ""]);
 
 // exports
 
@@ -20739,6 +20781,13 @@ var render = function() {
         { staticClass: "loading_text modal-window" },
         [_vm._t("loadingText", [_vm._v("Loading...")])],
         2
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "modal modal-window" },
+        [_vm._t("checkDelete")],
+        2
       )
     ])
   ])
@@ -21743,131 +21792,180 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "questions" }, [
-    _c("div", { staticClass: "questions_contents" }, [
-      _vm.questions.length
-        ? _c(
-            "div",
-            { staticClass: "questions_view-switch" },
-            _vm._l(_vm.questions, function(question) {
-              return _c(
-                "div",
-                { key: question.id, staticClass: "questions_list" },
-                [
-                  _c("div", { staticClass: "questions_item" }, [
-                    _c(
-                      "h3",
-                      {
-                        staticClass: "title",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.moveDetailPage(question.id)
+  return _c(
+    "div",
+    { staticClass: "questions" },
+    [
+      _c("div", { staticClass: "questions_contents" }, [
+        _vm.questions.length
+          ? _c(
+              "div",
+              { staticClass: "questions_view-switch" },
+              _vm._l(_vm.questions, function(question) {
+                return _c(
+                  "div",
+                  { key: question.id, staticClass: "questions_list" },
+                  [
+                    _c("div", { staticClass: "questions_item" }, [
+                      _c(
+                        "h3",
+                        {
+                          staticClass: "title",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.moveDetailPage(question.id)
+                            }
                           }
-                        }
-                      },
-                      [
-                        _vm._v("\n                    題名："),
-                        _c("span", [_vm._v(_vm._s(question.title))])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass: "mainText",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.moveDetailPage(question.id)
+                        },
+                        [
+                          _vm._v("\n                    題名："),
+                          _c("span", [_vm._v(_vm._s(question.title))])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "mainText",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.moveDetailPage(question.id)
+                            }
                           }
-                        }
-                      },
-                      [
-                        _vm._v("\n                    本文："),
-                        _c("span", [_vm._v(_vm._s(question.message))])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "fs-08" }, [
-                      _vm._v("投稿者：" + _vm._s(question.user.name))
+                        },
+                        [
+                          _vm._v("\n                    本文："),
+                          _c("span", [_vm._v(_vm._s(question.message))])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "fs-08" }, [
+                        _vm._v("投稿者：" + _vm._s(question.user.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "fs-08" }, [
+                        _vm._v("投稿日：" + _vm._s(question.created_at))
+                      ])
                     ]),
                     _vm._v(" "),
-                    _c("p", { staticClass: "fs-08" }, [
-                      _vm._v("投稿日：" + _vm._s(question.created_at))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.isLogin,
-                          expression: "isLogin"
-                        }
-                      ],
-                      staticClass: "questions_delete"
-                    },
-                    [
-                      question.user.id == _vm.userId
-                        ? _c(
-                            "button",
-                            {
-                              staticClass: "button",
-                              on: {
-                                click: function($event) {
-                                  $event.preventDefault()
-                                  return _vm.deleteQuestion(question.id)
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.isLogin,
+                            expression: "isLogin"
+                          }
+                        ],
+                        staticClass: "questions_delete"
+                      },
+                      [
+                        question.user.id == _vm.userId
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "button",
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.deleteConfirm(question.id)
+                                  }
                                 }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                    削除\n                    "
-                              )
-                            ]
-                          )
-                        : _vm._e()
-                    ]
-                  )
-                ]
-              )
-            }),
-            0
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    削除\n                    "
+                                )
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    )
+                  ]
+                )
+              }),
+              0
+            )
+          : _c("div", { staticClass: "questions_view-switch" }, [
+              _c("p", [_vm._v("投稿がありません。")])
+            ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "pagination" },
+        [
+          _c("Pagination", {
+            attrs: {
+              "current-page": _vm.currentPage,
+              "last-page": _vm.lastPage
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "questionPostButton" },
+        [
+          _c(
+            "router-link",
+            { attrs: { to: "/questionForm" } },
+            [_c("PostButton")],
+            1
           )
-        : _c("div", { staticClass: "questions_view-switch" }, [
-            _c("p", [_vm._v("投稿がありません。")])
-          ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "pagination" },
-      [
-        _c("Pagination", {
-          attrs: { "current-page": _vm.currentPage, "last-page": _vm.lastPage }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "questionPostButton" },
-      [
-        _c(
-          "router-link",
-          { attrs: { to: "/questionForm" } },
-          [_c("PostButton")],
-          1
-        )
-      ],
-      1
-    )
-  ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.showModal
+        ? _c(
+            "Loader",
+            { staticClass: "loader" },
+            [
+              _c("template", { slot: "loadingText" }, [
+                _c("p", [_vm._v("本当に削除しますか？")])
+              ]),
+              _vm._v(" "),
+              _c("template", { slot: "checkDelete" }, [
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.closeModal()
+                      }
+                    }
+                  },
+                  [_vm._v("キャンセル")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("template", { slot: "checkDelete" }, [
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteQuestion(_vm.deleteTargetID)
+                      }
+                    }
+                  },
+                  [_vm._v("削除する")]
+                )
+              ])
+            ],
+            2
+          )
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
