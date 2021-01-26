@@ -60,19 +60,19 @@
         </router-link>
     </div><!-- /questions-postButton -->
 
-    <Loader class="loader"
+    <ConfirmModal class="confirmModal"
     v-if="showModal"
     >
-        <template slot="loadingText">
+        <template slot="confirmText">
             <p>本当に削除しますか？</p>
         </template>
-        <template slot="checkDelete">
+        <template slot="selectAction">
             <button @click="closeModal()">キャンセル</button>
         </template>
-        <template slot="checkDelete">
+        <template slot="selectAction">
             <button @click="deleteQuestion(deleteTargetID)">削除する</button>
         </template>
-    </Loader>
+    </ConfirmModal>
 
 </div><!-- /questions -->
 </template>
@@ -82,13 +82,13 @@ import { INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from '../util'
 
 import Pagination from '../components/Pagination'
 import PostButton from '../components/PostButton'
-import Loader from '../components/Loader'
+import ConfirmModal from '../components/ConfirmModal'
 
 export default {
     components: {
         PostButton,
         Pagination,
-        Loader,
+        ConfirmModal,
     },
     props: {
         page: {

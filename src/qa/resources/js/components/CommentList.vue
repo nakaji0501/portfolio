@@ -41,19 +41,19 @@
             <p>コメントはありません</p>
         </div>
 
-        <Loader class="loader"
+        <ConfirmModal class="ConfirmModal"
         v-if="showModal"
         >
-            <template slot="loadingText">
+            <template slot="confirmText">
                 <p>本当に削除しますか？</p>
             </template>
-            <template slot="checkDelete">
+            <template slot="selectAction">
                 <button @click="closeModal()">キャンセル</button>
             </template>
-            <template slot="checkDelete">
+            <template slot="selectAction">
                 <button @click="deleteComment(deleteTargetID)">削除する</button>
             </template>
-        </Loader>
+        </ConfirmModal>
 
     </div><!-- /commentList -->
 </template>
@@ -61,11 +61,11 @@
 <script>
 import { INTERNAL_SERVER_ERROR, NOT_FOUND } from '../util'
 
-import Loader from '../components/Loader'
+import ConfirmModal from '../components/ConfirmModal'
 
 export default {
     components: {
-        Loader,
+        ConfirmModal,
     },
     data() {
         return {

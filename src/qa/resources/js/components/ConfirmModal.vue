@@ -1,8 +1,11 @@
 <template>
-    <transition name="modal" appear>
-        <div class="loader modal-overlay">
-            <div class="loading_text modal-window">
-                <slot class="loading-text" name="loadingText">Loading...</slot>
+    <transition name="confirmModal" appear>
+        <div class="confirmModal modal-overlay">
+            <div class="confirmModal_text modal-window">
+                <slot class="confirmModal-text" name="confirmText">Do Action ?</slot>
+            </div>
+            <div class="confirmModal_button modal-window">
+                <slot class="confirmModal-button" name="selectAction"></slot>
             </div>
         </div>
     </transition>

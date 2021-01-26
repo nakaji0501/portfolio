@@ -16652,7 +16652,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
-/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
+/* harmony import */ var _components_ConfirmModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ConfirmModal */ "./resources/js/components/ConfirmModal.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -16723,7 +16723,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ConfirmModal: _components_ConfirmModal__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -17663,7 +17663,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
 /* harmony import */ var _components_Pagination__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Pagination */ "./resources/js/components/Pagination.vue");
 /* harmony import */ var _components_PostButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/PostButton */ "./resources/js/components/PostButton.vue");
-/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
+/* harmony import */ var _components_ConfirmModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ConfirmModal */ "./resources/js/components/ConfirmModal.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -17757,7 +17757,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   components: {
     PostButton: _components_PostButton__WEBPACK_IMPORTED_MODULE_3__["default"],
     Pagination: _components_Pagination__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_4__["default"]
+    ConfirmModal: _components_ConfirmModal__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
     page: {
@@ -17973,6 +17973,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, ".commentList_text[data-v-b2309ffc] {\n  margin-bottom: 24px;\n  border-bottom: 2px solid orange;\n}\n.commentList_item[data-v-b2309ffc] {\n  margin: 16px 0;\n  border-bottom: 1px dotted #000;\n}\n.commentList_item-message[data-v-b2309ffc] {\n  margin-bottom: 4px;\n}\n.commentList_item-message p[data-v-b2309ffc] {\n  white-space: pre-wrap;\n}\n.commentList_item[data-v-b2309ffc]:last-child {\n  border: none;\n}\n.commentList_delete[data-v-b2309ffc] {\n  margin: 24px;\n  height: 2rem;\n  position: relative;\n}\n.commentList_delete .button[data-v-b2309ffc] {\n  position: absolute;\n  top: 0;\n  right: 16px;\n  cursor: pointer;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".modal-overlay[data-v-23992138] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  position: fixed;\n  z-index: 30;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n}\n.modal-window[data-v-23992138] {\n  background: #fff;\n  border-radius: 4px;\n  overflow: hidden;\n  padding: 16px 24px;\n}\n.modal-enter-active[data-v-23992138],\n.modal-leave-active[data-v-23992138] {\n  transition: opacity 0.4s;\n}\n.modal-enter-active .modal-window[data-v-23992138],\n.modal-leave-active .modal-window[data-v-23992138] {\n  transition: opacity 0.4s, transform 0.4s;\n}\n.modal-leave-active[data-v-23992138] {\n  transition: opacity 0.6s ease 0.4s;\n}\n.modal-enter[data-v-23992138],\n.modal-leave-to[data-v-23992138] {\n  opacity: 0;\n}\n.modal-enter .modal-window[data-v-23992138],\n.modal-leave-to .modal-window[data-v-23992138] {\n  opacity: 0;\n  transform: translateY(-20px);\n}", ""]);
 
 // exports
 
@@ -19555,6 +19574,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Footer.vue?vue&type=style&index=0&id=61a7c374&lang=scss&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Footer.vue?vue&type=style&index=0&id=61a7c374&lang=scss&scoped=true& ***!
@@ -20728,14 +20777,14 @@ var render = function() {
       _vm._v(" "),
       _vm.showModal
         ? _c(
-            "Loader",
-            { staticClass: "loader" },
+            "ConfirmModal",
+            { staticClass: "ConfirmModal" },
             [
-              _c("template", { slot: "loadingText" }, [
+              _c("template", { slot: "confirmText" }, [
                 _c("p", [_vm._v("本当に削除しますか？")])
               ]),
               _vm._v(" "),
-              _c("template", { slot: "checkDelete" }, [
+              _c("template", { slot: "selectAction" }, [
                 _c(
                   "button",
                   {
@@ -20749,7 +20798,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("template", { slot: "checkDelete" }, [
+              _c("template", { slot: "selectAction" }, [
                 _c(
                   "button",
                   {
@@ -20780,6 +20829,46 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmModal.vue?vue&type=template&id=23992138&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ConfirmModal.vue?vue&type=template&id=23992138&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("transition", { attrs: { name: "confirmModal", appear: "" } }, [
+    _c("div", { staticClass: "confirmModal modal-overlay" }, [
+      _c(
+        "div",
+        { staticClass: "confirmModal_text modal-window" },
+        [_vm._t("confirmText", [_vm._v("Do Action ?")])],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "confirmModal_button modal-window" },
+        [_vm._t("selectAction")],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -20872,13 +20961,6 @@ var render = function() {
         "div",
         { staticClass: "loading_text modal-window" },
         [_vm._t("loadingText", [_vm._v("Loading...")])],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "modal modal-window" },
-        [_vm._t("checkDelete")],
         2
       )
     ])
@@ -22017,14 +22099,14 @@ var render = function() {
       _vm._v(" "),
       _vm.showModal
         ? _c(
-            "Loader",
-            { staticClass: "loader" },
+            "ConfirmModal",
+            { staticClass: "confirmModal" },
             [
-              _c("template", { slot: "loadingText" }, [
+              _c("template", { slot: "confirmText" }, [
                 _c("p", [_vm._v("本当に削除しますか？")])
               ]),
               _vm._v(" "),
-              _c("template", { slot: "checkDelete" }, [
+              _c("template", { slot: "selectAction" }, [
                 _c(
                   "button",
                   {
@@ -22038,7 +22120,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("template", { slot: "checkDelete" }, [
+              _c("template", { slot: "selectAction" }, [
                 _c(
                   "button",
                   {
@@ -39006,6 +39088,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CommentList_vue_vue_type_template_id_b2309ffc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CommentList_vue_vue_type_template_id_b2309ffc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfirmModal.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/ConfirmModal.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConfirmModal_vue_vue_type_template_id_23992138_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConfirmModal.vue?vue&type=template&id=23992138&scoped=true& */ "./resources/js/components/ConfirmModal.vue?vue&type=template&id=23992138&scoped=true&");
+/* harmony import */ var _ConfirmModal_vue_vue_type_style_index_0_id_23992138_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true& */ "./resources/js/components/ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  script,
+  _ConfirmModal_vue_vue_type_template_id_23992138_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ConfirmModal_vue_vue_type_template_id_23992138_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "23992138",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ConfirmModal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true& ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmModal_vue_vue_type_style_index_0_id_23992138_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmModal.vue?vue&type=style&index=0&id=23992138&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmModal_vue_vue_type_style_index_0_id_23992138_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmModal_vue_vue_type_style_index_0_id_23992138_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmModal_vue_vue_type_style_index_0_id_23992138_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmModal_vue_vue_type_style_index_0_id_23992138_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfirmModal.vue?vue&type=template&id=23992138&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/ConfirmModal.vue?vue&type=template&id=23992138&scoped=true& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmModal_vue_vue_type_template_id_23992138_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ConfirmModal.vue?vue&type=template&id=23992138&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmModal.vue?vue&type=template&id=23992138&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmModal_vue_vue_type_template_id_23992138_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmModal_vue_vue_type_template_id_23992138_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
