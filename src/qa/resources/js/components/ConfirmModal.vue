@@ -1,9 +1,12 @@
 <template>
     <transition name="confirmModal" appear>
+
         <div class="confirmModal modal-overlay">
+
             <div class="confirmModal_text modal-window">
                 <slot class="confirmModal-text" name="confirmText">Do Action ?</slot>
             </div>
+
             <div class="confirmModal_button modal-window">
                 <slot class="confirmModal-button" name="selectAction"></slot>
             </div>
@@ -27,10 +30,11 @@
     background: rgba(0, 0, 0, 0.5);
     }
     &-window {
+    width: 240px;
     background: #fff;
-    border-radius: 4px;
     overflow: hidden;
     padding: 16px 24px;
+    text-align: center;
     }
 }
 // trantision

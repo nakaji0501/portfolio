@@ -24,12 +24,30 @@
     background: rgba(0, 0, 0, 0.5);
     }
     &-window {
+    width: 90%;
     background: #fff;
     border-radius: 4px;
     overflow: hidden;
     padding: 16px 24px;
     }
 }
+
+@media screen and (max-width: 896px) and (min-width: 481px) {
+.modal {
+    &-window {
+        font-size: 1.5rem;
+    }
+}
+}
+
+@media screen and (min-width: 897px) {
+.modal {
+    &-window {
+        font-size: 2rem;
+    }
+}
+}
+
 // trantision
 .modal-enter-active,
 .modal-leave-active {

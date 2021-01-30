@@ -49,18 +49,5 @@ export default {
             this.$store.commit('error/setCode', null)
         },
     },
-
 }
 </script>
-
-<style lang="scss" scoped>
-.globalContainer {
-    padding: 8px 0;
-}
-.navbar {
-    margin-bottom: 40px;
-}
-.footer {
-    margin-top: 100px;
-}
-</style>

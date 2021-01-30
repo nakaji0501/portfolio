@@ -16,8 +16,8 @@
             >
             ログイン / 会員登録
             </router-link>
-        </div>
-    </footer>
+        </div><!-- /button -->
+    </footer><!-- /footer -->
 </template>
 
 <script>
@@ -46,13 +46,23 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-    width: 90%;
     margin: 0 auto;
+    background: #738e99;
 }
 .button {
-    padding: 8px;
+    width: 50%;
+    height: 80px;
+    margin: 0 auto;
     text-align: center;
-    &-logout,&-login {
+    position: relative;
+    &-logout,
+    &-login {
+        position: absolute;
+        width: 12rem;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: transparent;
         color: #333;
         font-size: 1.2rem;
         cursor: pointer;

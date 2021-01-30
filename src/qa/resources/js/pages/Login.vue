@@ -251,10 +251,10 @@ export default {
 
 <style lang="scss" scoped>
 .login {
-    margin: 80px auto 0;
+    margin: 40px auto 40px !important;
     width: 90%;
     border: 1px solid #868686;
-    padding: 8px;
+    padding: 40px 8px;
     &_message {
         margin: 8px 0 24px;
     }
@@ -273,14 +273,13 @@ export default {
         font-size: 1.5rem;
         cursor: pointer;
         align-items: center;
-        border-bottom: 1px dotted #000;
     }
     &_item-active {
         font-weight: bold;
     }
 }
 .icon {
-    color: orange;
+    color: #f78528;
 }
 label, input {
     font-size: 1.2rem;
@@ -315,14 +314,19 @@ label, input {
         font-weight: bold;
     }
 }
-@media screen and (max-width: 480px) {
 
-}
 @media screen and (max-width: 896px) and (min-width: 481px) {
-
+.login {
+    width: 70%;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
 }
 
-@media screen and (max-width: 1024px) and (min-width: 897px) {
-
+@media screen and (min-width: 897px) {
+.login {
+    width: 50%;
+    padding: 40px 40px;
+}
 }
 </style>

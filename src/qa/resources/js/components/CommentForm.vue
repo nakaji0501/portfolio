@@ -72,7 +72,7 @@ export default {
     data() {
         return {
             commentMessage: '',
-            height: "240px",
+            height: "200px",
             commentErrors: '',
             posting: false,
         }

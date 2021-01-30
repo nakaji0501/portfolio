@@ -12,8 +12,11 @@
                 v-for="comment in question.comments"
                 :key="comment.questin_id">
 
-                    <div class="commentList_item-message">
+                    <div class="commentList_item-id">
                         <p>No.{{ comment.id }}</p>
+                    </div>
+
+                    <div class="commentList_item-message">
                         <p>コメント：{{ comment.message }}</p>
                     </div>
 
@@ -48,10 +51,10 @@
                 <p>本当に削除しますか？</p>
             </template>
             <template slot="selectAction">
-                <button @click="closeModal()">キャンセル</button>
+                <button class="confirmButton" @click="closeModal()">キャンセル</button>
             </template>
             <template slot="selectAction">
-                <button @click="deleteComment(deleteTargetID)">削除する</button>
+                <button class="confirmButton" @click="deleteComment(deleteTargetID)">削除する</button>
             </template>
         </ConfirmModal>
 
@@ -126,10 +129,16 @@ export default {
     &_item {
         margin: 16px 0;
         border-bottom: 1px dotted #000;
+        &-id {
+            margin-bottom: 4px;
+        }
         &-message {
             margin-bottom: 4px;
             & p {
                 white-space: pre-wrap;
+                background: #fff;
+                padding: 4px;
+                border-radius: 4px;
             }
         }
         &:last-child {
@@ -148,15 +157,10 @@ export default {
         }
     }
 }
-@media screen and (max-width: 480px) {
-
-}
-
-@media screen and (max-width: 896px) and (min-width: 481px) {
-
-}
-
-@media screen and (max-width: 1024px) and (min-width: 897px) {
-
+.confirmButton {
+    margin-right: 8px;
+    &:last-child {
+        margin-right: 0;
+    }
 }
 </style>
