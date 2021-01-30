@@ -41,7 +41,7 @@
         </div><!-- /navbar_wrapper -->
 
         <div class="navbar_subText">
-            <p>〇〇に関する「教えて！」Q&A掲示板</p>
+            <p>子育ての悩みをみんなに相談してみませんか</p>
         </div><!-- /navbar_subText -->
 
     </nav>

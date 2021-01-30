@@ -21088,7 +21088,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "navbar_subText" }, [
-      _c("p", [_vm._v("〇〇に関する「教えて！」Q&A掲示板")])
+      _c("p", [_vm._v("子育ての悩みをみんなに相談してみませんか")])
     ])
   }
 ]
