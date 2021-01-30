@@ -19,7 +19,7 @@
             </div>
 
             <div class="QuestionDetail_text textarea">
-                <textarea class="textarea_body" type="text" id="message"
+                <textarea class="textarea_body" type="text" id="message" readonly
                 v-model="question.message"
                 :style="styles"
                 ref="area"

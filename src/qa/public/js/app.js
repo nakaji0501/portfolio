@@ -21729,7 +21729,7 @@ var render = function() {
           ref: "area",
           staticClass: "textarea_body",
           style: _vm.styles,
-          attrs: { type: "text", id: "message" },
+          attrs: { type: "text", id: "message", readonly: "" },
           domProps: { value: _vm.question.message },
           on: {
             input: function($event) {
