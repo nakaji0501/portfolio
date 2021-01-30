@@ -17572,6 +17572,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -21160,18 +21164,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "postButton" }, [
+    _c(
+      "button",
+      { staticClass: "button" },
+      [_vm._t("postQuestionButton", [_vm._v("\n        投稿する\n      ")])],
+      2
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "postButton" }, [
-      _c("button", { staticClass: "button" }, [_vm._v("投稿する")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -21936,7 +21938,22 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "postButton" }, [_c("PostButton")], 1)
+            _c(
+              "div",
+              { staticClass: "postButton" },
+              [
+                _c(
+                  "PostButton",
+                  [
+                    _c("template", { slot: "postQuestionButton" }, [
+                      _vm._v("\n                    送信する\n                ")
+                    ])
+                  ],
+                  2
+                )
+              ],
+              1
+            )
           ]
         )
       ],

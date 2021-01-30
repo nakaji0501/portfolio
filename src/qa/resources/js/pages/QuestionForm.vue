@@ -58,7 +58,11 @@
             </div>
 
             <div class="postButton">
-                <PostButton />
+                <PostButton>
+                    <template slot="postQuestionButton">
+                        送信する
+                    </template>
+                </PostButton>
             </div>
             </form><!-- /questionForm_form -->
         </div><!-- /questionForm_wrapper -->

@@ -1,6 +1,10 @@
 <template>
     <div class="postButton">
-        <button class="button">投稿する</button>
+        <button class="button">
+          <slot name="postQuestionButton">
+            投稿する
+          </slot>
+        </button>
     </div>
 </template>
 
