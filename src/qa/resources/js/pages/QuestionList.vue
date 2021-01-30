@@ -174,10 +174,10 @@ export default {
     font-size: 0.8rem;
 }
 .questions {
+    margin: 40px 0;
     &_contents {
         width: 90%;
         margin: 0 auto;
-        margin-top: 40px;
     }
     &_list {
         border-bottom: 1px dotted lightgrey;
@@ -219,8 +219,16 @@ export default {
     width: max-content;
     margin: 0 auto;
 }
-@media screen and (max-width: 480px) {
-
+.confirmModal {
+    & p,button {
+        font-size: 1.5rem;
+    }
+    & button {
+        margin-right: 8px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
 }
 
 @media screen and (max-width: 896px) and (min-width: 481px) {

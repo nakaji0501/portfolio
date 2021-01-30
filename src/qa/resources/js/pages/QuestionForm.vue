@@ -13,7 +13,6 @@
 
             <form class="questionForm_form"
             @submit.prevent="postQuestion"
-            v-show="! posting"
             >
 
             <div class="postErrors"
@@ -134,6 +133,7 @@ textarea {
     display: block;
 }
 .questionForm {
+    margin: 24px 0;
     &_form {
         padding: 0 24px;
         &-title {
@@ -161,5 +161,24 @@ textarea {
 }
 .loader {
     text-align: center;
+}
+
+@media screen and (max-width: 896px) and (min-width: 481px) {
+.questionForm {
+    &_form {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0;
+    }
+}
+}
+
+@media screen and (min-width: 897px) {
+.questionForm {
+    &_form {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
 }
 </style>

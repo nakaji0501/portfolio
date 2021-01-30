@@ -2,41 +2,43 @@
     <nav class="navbar">
         <div class="navbar_wrapper">
 
-        <router-link class="navbar_title content_flex"
-        to="/"
-        >
-
-            <div class="navbar_logo">
-                <font-awesome-icon :icon="['far', 'question-circle']" size='2x' />
-            </div>
-
-            <div class="navbar_title-name">
-                <h1>QA掲示板</h1>
-            </div>
-        </router-link><!-- /navbar_title -->
-
-        <div class="navbar_user"
-        v-show="isLogin">
-            <div class="navbar_user-logged content_flex">
-                <p><font-awesome-icon :icon="['fas', 'user']" /></p>
-                <p>{{ username }}</p>
-            </div>
-            <router-link
-            to="/questionForm"
-            v-if="this.$route.path !== '/questionForm'"
+            <router-link class="navbar_title content_flex"
+            to="/"
             >
-            <p class="postQuestionButton">投稿する</p>
-            </router-link>
-        </div><!-- /navbar_user-logged -->
 
-        <router-link class="navbar_user-login content_flex"
-        to="/login"
-        v-show="! isLogin"
-        >
-        <p>ログイン</p>
-        <p>/</p>
-        <p>会員登録</p>
-        </router-link><!-- /navbar_user-login -->
+                <div class="navbar_logo">
+                    <font-awesome-icon :icon="['far', 'question-circle']" size='3x' />
+                </div>
+
+                <div class="navbar_title-name">
+                    <h1>QA掲示板</h1>
+                </div>
+            </router-link>
+
+            <div class="navbar_user"
+            v-show="isLogin">
+
+                <div class="navbar_user-logged content_flex">
+                    <p><font-awesome-icon :icon="['fas', 'user']" /></p>
+                    <p>{{ username }}</p>
+                </div>
+
+                <router-link
+                to="/questionForm"
+                v-if="this.$route.path !== '/questionForm'"
+                >
+                <p class="postQuestionButton">投稿する</p>
+                </router-link>
+            </div>
+
+            <router-link class="navbar_user-login content_flex"
+            to="/login"
+            v-show="! isLogin"
+            >
+            <p>ログイン</p>
+            <p>/</p>
+            <p>会員登録</p>
+            </router-link>
 
         </div><!-- /navbar_wrapper -->
 
@@ -44,7 +46,7 @@
             <p>子育ての悩みをみんなに相談してみませんか</p>
         </div><!-- /navbar_subText -->
 
-    </nav>
+    </nav><!-- /navbar -->
 </template>
 
 <script>
@@ -70,6 +72,8 @@ export default {
 }
 
 .navbar {
+    background: #738e99;
+    padding-bottom: 16px;
     &_wrapper {
         display: flex;
         justify-content: space-between;
@@ -90,8 +94,11 @@ export default {
                 margin-right: 8px;
             }
         }
-        &-login p {
-            color: #f78528;
+        &-login {
+            text-decoration: underline;
+            & p {
+                color: #333;
+            }
         }
     }
     &_subText {
@@ -105,7 +112,7 @@ export default {
     font-weight: bold;
     padding: 0.25em 0;
     text-decoration: none;
-    color: #67c5ff;
+    color: #fff;
     cursor: pointer;
     &:before {
         position: absolute;
@@ -116,7 +123,7 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         border-radius: 3px;
-        background:#67c5ff;
+        background:#fff;
         transition: .2s;
     }
     &:hover:before {
@@ -129,10 +136,55 @@ export default {
 }
 
 @media screen and (max-width: 896px) and (min-width: 481px) {
-
+.navbar {
+    &_wrapper {
+        padding: 24px;
+    }
+    &_title * {
+        font-size: 2.5rem;
+        letter-spacing: 0.5rem;
+    }
+    &_user {
+        &-logged,
+        &-login {
+            & p {
+                font-size: 1.2rem;
+            }
+        }
+    }
+    &_subText {
+        & p {
+            padding-left: 16px;
+            font-size: 1.2rem;
+        }
+    }
+}
 }
 
-@media screen and (max-width: 1024px) and (min-width: 897px) {
-
+@media screen and (min-width: 897px) {
+.navbar {
+    padding: 0 80px 16px;
+    &_wrapper {
+        padding: 23px;
+    }
+    &_title * {
+        font-size: 3rem;
+        letter-spacing: 0.5rem;
+    }
+    &_user {
+        &-logged,
+        &-login {
+            & p {
+                font-size: 1.5rem;
+            }
+        }
+    }
+    &_subText {
+        &  p {
+            padding-left: 20px;
+            font-size: 1.8rem;
+        }
+    }
+}
 }
 </style>
