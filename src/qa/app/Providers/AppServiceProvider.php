@@ -26,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
         if (config('app.force_ssl')) {
             ¥URL::forceScheme('https');
         }
+        Schema::defaultStringLength(191);
     }
 }
