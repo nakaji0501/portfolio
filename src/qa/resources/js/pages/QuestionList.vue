@@ -116,7 +116,7 @@ export default {
     },
     methods: {
         async fetchQuestions() {
-            const response = await axios.get(`/api/questions/?page=${this.page}`);
+            const response = await axios.get(`/api/questions?page=${this.page}`);
 
             if (response.status !== OK) {
                 this.$store.commit('error/setCode', response.status)
