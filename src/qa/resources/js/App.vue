@@ -24,7 +24,6 @@ export default {
         Navbar,
         Footer,
     },
-    // errroモジュールのcodeステートを算出プロバティで参照してwatchで監視する
     computed: {
         errorCode() {
             return this.$store.state.error.code

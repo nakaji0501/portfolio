@@ -1,3 +1,9 @@
+import './bootstrap'
+import Vue from 'vue'
+import router from './router'
+import store from './store'
+import App from './App.vue'
+
 // font-awsesomeの設定
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -7,13 +13,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 library.add(fas, far, fab);
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-import './bootstrap'
-import Vue from 'vue'
-import router from './router'
-import store from './store'
-import App from './App.vue'
-
-// アプリ起動時、Vueインスタンス生成前にログインチェック
 const createApp = async() => {
     await store.dispatch('auth/currentUser')
 }

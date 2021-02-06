@@ -6,12 +6,8 @@
             to="/"
             >
 
-                <div class="navbar_logo">
-                    <font-awesome-icon :icon="['far', 'question-circle']" size='3x' />
-                </div>
-
                 <div class="navbar_title-name">
-                    <h1>QA掲示板</h1>
+                    <h1>子育て掲示板</h1>
                 </div>
             </router-link>
 
@@ -43,7 +39,7 @@
         </div><!-- /navbar_wrapper -->
 
         <div class="navbar_subText">
-            <p>子育ての悩みをみんなに相談してみませんか</p>
+            <p>子育てに悩んだら皆に質問してみよう</p>
         </div><!-- /navbar_subText -->
 
     </nav><!-- /navbar -->
@@ -70,7 +66,6 @@ export default {
     align-items: center;
     cursor: pointer;
 }
-
 .navbar {
     background: #738e99;
     padding-bottom: 16px;
@@ -80,11 +75,8 @@ export default {
         padding: 8px;
     }
     &_title * {
-        font-size: 2rem;
+        font-size: 1.8rem;
         color: #333;
-    }
-    &_logo {
-        padding-top: 2px;
     }
     &_user {
         &-logged {

@@ -58,7 +58,6 @@ import CommentList from '../components/CommentList'
 export default {
     props: {
         id: {
-            // type: String,
             required: true
         }
     },

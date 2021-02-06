@@ -16379,7 +16379,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     Navbar: _components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"],
     Footer: _components_Footer__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
-  // errroモジュールのcodeステートを算出プロバティで参照してwatchで監視する
   computed: {
     errorCode: function errorCode() {
       return this.$store.state.error.code;
@@ -16944,10 +16943,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     isLogin: function isLogin() {
@@ -17219,6 +17214,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -17299,17 +17300,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee2);
       }))();
     },
-    // バリデーションエラーを消す
     clearError: function clearError() {
       this.$store.commit('auth/setLoginErrorMessages', null);
       this.$store.commit('auth/setRegisterErrorMessages', null);
     }
   },
-
-  /*
-  バリデーションエラーの既表示対策
-  ログインページを表示する前にライフサイクルフックでエラーをクリア
-   */
   create: function create() {
     this.clearError();
   }
@@ -17394,7 +17389,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     id: {
-      // type: String,
       required: true
     }
   },
@@ -17942,7 +17936,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\ntextarea[data-v-72ee8928] {\n  resize: none;\n}\n.textarea[data-v-72ee8928] {\n  line-height: 1.8;\n}\n.textarea_body[data-v-72ee8928] {\n  width: 100%;\n  border: 1px solid #b6c3c6;\n  border-radius: 16px;\n  font: inherit;\n}\n.textarea_body[data-v-72ee8928]:focus {\n  box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);\n  outline: 0;\n}\n.commentForm_button[data-v-72ee8928] {\n  margin-top: 24px;\n  text-align: center;\n}\n.button[data-v-72ee8928] {\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  font-size: 1.2rem;\n  text-decoration: none;\n  color: #FFF;\n  background: #fd9535;\n  /*色*/\n  border-radius: 4px;\n  /*角の丸み*/\n  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);\n  font-weight: bold;\n  border: solid 2px #d27d00;\n  /*線色*/\n  cursor: pointer;\n}\n.button[data-v-72ee8928]:active {\n  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);\n}\n.error *[data-v-72ee8928] {\n  font-size: 1.2rem;\n  font-weight: bold;\n  color: red;\n}", ""]);
+exports.push([module.i, "textarea[data-v-72ee8928] {\n  resize: none;\n}\n.textarea[data-v-72ee8928] {\n  line-height: 1.8;\n}\n.textarea_body[data-v-72ee8928] {\n  width: 100%;\n  border: 1px solid #b6c3c6;\n  border-radius: 16px;\n  font: inherit;\n}\n.textarea_body[data-v-72ee8928]:focus {\n  box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);\n  outline: 0;\n}\n.commentForm_button[data-v-72ee8928] {\n  margin-top: 24px;\n  text-align: center;\n}\n.button[data-v-72ee8928] {\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  font-size: 1.2rem;\n  text-decoration: none;\n  color: #FFF;\n  background: #fd9535;\n  border-radius: 4px;\n  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);\n  font-weight: bold;\n  border: solid 2px #d27d00;\n  cursor: pointer;\n}\n.button[data-v-72ee8928]:active {\n  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);\n}\n.error *[data-v-72ee8928] {\n  font-size: 1.2rem;\n  font-weight: bold;\n  color: red;\n}", ""]);
 
 // exports
 
@@ -18037,7 +18031,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar[data-v-6dde423b] {\n  background: #738e99;\n  padding-bottom: 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px;\n}\n.navbar_title *[data-v-6dde423b] {\n  font-size: 2rem;\n  color: #333;\n}\n.navbar_logo[data-v-6dde423b] {\n  padding-top: 2px;\n}\n.navbar_user-logged[data-v-6dde423b] {\n  cursor: default;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login[data-v-6dde423b] {\n  text-decoration: underline;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #333;\n}\n.navbar_subText[data-v-6dde423b] {\n  padding-left: 8px;\n}\n.postQuestionButton[data-v-6dde423b] {\n  text-align: center;\n  font-size: 1rem !important;\n  position: relative;\n  font-weight: bold;\n  padding: 0.25em 0;\n  text-decoration: none;\n  color: #fff;\n  cursor: pointer;\n}\n.postQuestionButton[data-v-6dde423b]:before {\n  position: absolute;\n  content: \"\";\n  width: 4rem;\n  height: 4px;\n  top: 90%;\n  left: 50%;\n  transform: translateX(-50%);\n  border-radius: 3px;\n  background: #fff;\n  transition: 0.2s;\n}\n.postQuestionButton[data-v-6dde423b]:hover:before {\n  top: calc(90% - 3px);\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 24px;\n}\n.navbar_title *[data-v-6dde423b] {\n    font-size: 2.5rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.2rem;\n}\n.navbar_subText p[data-v-6dde423b] {\n    padding-left: 16px;\n    font-size: 1.2rem;\n}\n}\n@media screen and (min-width: 897px) {\n.navbar[data-v-6dde423b] {\n    padding: 0 80px 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 23px;\n}\n.navbar_title *[data-v-6dde423b] {\n    font-size: 3rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.5rem;\n}\n.navbar_subText p[data-v-6dde423b] {\n    padding-left: 20px;\n    font-size: 1.8rem;\n}\n}", ""]);
+exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar[data-v-6dde423b] {\n  background: #738e99;\n  padding-bottom: 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px;\n}\n.navbar_title *[data-v-6dde423b] {\n  font-size: 1.8rem;\n  color: #333;\n}\n.navbar_user-logged[data-v-6dde423b] {\n  cursor: default;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login[data-v-6dde423b] {\n  text-decoration: underline;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #333;\n}\n.navbar_subText[data-v-6dde423b] {\n  padding-left: 8px;\n}\n.postQuestionButton[data-v-6dde423b] {\n  text-align: center;\n  font-size: 1rem !important;\n  position: relative;\n  font-weight: bold;\n  padding: 0.25em 0;\n  text-decoration: none;\n  color: #fff;\n  cursor: pointer;\n}\n.postQuestionButton[data-v-6dde423b]:before {\n  position: absolute;\n  content: \"\";\n  width: 4rem;\n  height: 4px;\n  top: 90%;\n  left: 50%;\n  transform: translateX(-50%);\n  border-radius: 3px;\n  background: #fff;\n  transition: 0.2s;\n}\n.postQuestionButton[data-v-6dde423b]:hover:before {\n  top: calc(90% - 3px);\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 24px;\n}\n.navbar_title *[data-v-6dde423b] {\n    font-size: 2.5rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.2rem;\n}\n.navbar_subText p[data-v-6dde423b] {\n    padding-left: 16px;\n    font-size: 1.2rem;\n}\n}\n@media screen and (min-width: 897px) {\n.navbar[data-v-6dde423b] {\n    padding: 0 80px 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 23px;\n}\n.navbar_title *[data-v-6dde423b] {\n    font-size: 3rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.5rem;\n}\n.navbar_subText p[data-v-6dde423b] {\n    padding-left: 20px;\n    font-size: 1.8rem;\n}\n}", ""]);
 
 // exports
 
@@ -18094,7 +18088,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n.login[data-v-3b6adb30] {\n  margin: 40px auto 40px !important;\n  width: 90%;\n  border: 1px solid #868686;\n  padding: 40px 8px;\n}\n.login_message[data-v-3b6adb30] {\n  margin: 8px 0 24px;\n}\n.loginForm_button[data-v-3b6adb30],\n.registerForm_button[data-v-3b6adb30] {\n  margin-top: 36px;\n}\n.tab[data-v-3b6adb30] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 8px;\n}\n.tab_item[data-v-3b6adb30] {\n  display: flex;\n  justify-content: center;\n  font-size: 1.5rem;\n  cursor: pointer;\n  align-items: center;\n}\n.tab_item-active[data-v-3b6adb30] {\n  font-weight: bold;\n}\n.icon[data-v-3b6adb30] {\n  color: #f78528;\n}\nlabel[data-v-3b6adb30], input[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  display: block;\n  width: 100%;\n}\n.button[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  text-decoration: none;\n  color: #FFF;\n  background: #f78528;\n  /*色*/\n  border: solid 1px #dd6b0d;\n  /*線色*/\n  border-radius: 4px;\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n}\n.button[data-v-3b6adb30]:hover {\n  border: solid 1px #f78528;\n  box-shadow: none;\n  text-shadow: none;\n}\n.mb-8[data-v-3b6adb30] {\n  margin-bottom: 8px;\n}\n.errors li[data-v-3b6adb30] {\n  color: red;\n  font-weight: bold;\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.login[data-v-3b6adb30] {\n    width: 70%;\n    margin: 0 auto;\n    padding: 40px 20px;\n}\n}\n@media screen and (min-width: 897px) {\n.login[data-v-3b6adb30] {\n    width: 50%;\n    padding: 40px 40px;\n}\n}", ""]);
+exports.push([module.i, ".login[data-v-3b6adb30] {\n  margin: 40px auto 40px !important;\n  width: 90%;\n  border: 1px solid #868686;\n  padding: 40px 8px;\n}\n.login_message[data-v-3b6adb30] {\n  margin: 8px 0 24px;\n}\n.loginForm_button[data-v-3b6adb30],\n.registerForm_button[data-v-3b6adb30] {\n  margin-top: 36px;\n}\n.tab[data-v-3b6adb30] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 8px;\n}\n.tab_item[data-v-3b6adb30] {\n  display: flex;\n  justify-content: center;\n  font-size: 1.5rem;\n  cursor: pointer;\n  align-items: center;\n}\n.tab_item-active[data-v-3b6adb30] {\n  font-weight: bold;\n}\n.icon[data-v-3b6adb30] {\n  color: #f78528;\n}\nlabel[data-v-3b6adb30], input[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  display: block;\n  width: 100%;\n}\n.button[data-v-3b6adb30] {\n  font-size: 1.2rem;\n  position: relative;\n  display: inline-block;\n  padding: 0.25em 0.5em;\n  text-decoration: none;\n  color: #FFF;\n  background: #f78528;\n  border: solid 1px #dd6b0d;\n  border-radius: 4px;\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n}\n.button[data-v-3b6adb30]:hover {\n  border: solid 1px #f78528;\n  box-shadow: none;\n  text-shadow: none;\n}\n.mb-8[data-v-3b6adb30] {\n  margin-bottom: 8px;\n}\n.errors li[data-v-3b6adb30] {\n  color: red;\n  font-weight: bold;\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.login[data-v-3b6adb30] {\n    width: 70%;\n    margin: 0 auto;\n    padding: 40px 20px;\n}\n}\n@media screen and (min-width: 897px) {\n.login[data-v-3b6adb30] {\n    width: 50%;\n    padding: 40px 40px;\n}\n}", ""]);
 
 // exports
 
@@ -20960,19 +20954,8 @@ var render = function() {
           "router-link",
           { staticClass: "navbar_title content_flex", attrs: { to: "/" } },
           [
-            _c(
-              "div",
-              { staticClass: "navbar_logo" },
-              [
-                _c("font-awesome-icon", {
-                  attrs: { icon: ["far", "question-circle"], size: "3x" }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
             _c("div", { staticClass: "navbar_title-name" }, [
-              _c("h1", [_vm._v("QA掲示板")])
+              _c("h1", [_vm._v("子育て掲示板")])
             ])
           ]
         ),
@@ -21047,7 +21030,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "navbar_subText" }, [
-      _c("p", [_vm._v("子育ての悩みをみんなに相談してみませんか")])
+      _c("p", [_vm._v("子育てに悩んだら皆に質問してみよう")])
     ])
   }
 ]
@@ -38781,36 +38764,36 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "../../../node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "../../../node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "../../../node_modules/@fortawesome/free-regular-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "../../../node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "../../../node_modules/@fortawesome/vue-fontawesome/index.es.js");
-/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
-/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
+/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "../../../node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "../../../node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "../../../node_modules/@fortawesome/free-regular-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "../../../node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "../../../node_modules/@fortawesome/vue-fontawesome/index.es.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-// font-awsesomeの設定
+
+
+
+
+ // font-awsesomeの設定
 
 
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["fas"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_3__["far"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_4__["fab"]);
-vue__WEBPACK_IMPORTED_MODULE_7___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeIcon"]);
 
-
-
-
- // アプリ起動時、Vueインスタンス生成前にログインチェック
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_6__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["fas"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_8__["far"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["fab"]);
+vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_10__["FontAwesomeIcon"]);
 
 var createApp = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -38819,7 +38802,7 @@ var createApp = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _store__WEBPACK_IMPORTED_MODULE_9__["default"].dispatch('auth/currentUser');
+            return _store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch('auth/currentUser');
 
           case 2:
           case "end":
@@ -38834,12 +38817,12 @@ var createApp = /*#__PURE__*/function () {
   };
 }();
 
-new vue__WEBPACK_IMPORTED_MODULE_7___default.a({
+new vue__WEBPACK_IMPORTED_MODULE_2___default.a({
   el: '#app',
-  router: _router__WEBPACK_IMPORTED_MODULE_8__["default"],
-  store: _store__WEBPACK_IMPORTED_MODULE_9__["default"],
+  router: _router__WEBPACK_IMPORTED_MODULE_3__["default"],
+  store: _store__WEBPACK_IMPORTED_MODULE_4__["default"],
   components: {
-    App: _App_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+    App: _App_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   template: '<App />'
 });
@@ -40051,7 +40034,6 @@ var routes = [{
 }, {
   path: '/login',
   component: _pages_Login__WEBPACK_IMPORTED_MODULE_3__["default"],
-  // ナビゲーションガード
   beforeEnter: function beforeEnter(to, from, next) {
     if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
       next('/');

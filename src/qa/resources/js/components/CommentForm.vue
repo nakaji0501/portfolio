@@ -169,11 +169,11 @@ textarea {
     font-size: 1.2rem;
     text-decoration: none;
     color: #FFF;
-    background: #fd9535;/*色*/
-    border-radius: 4px;/*角の丸み*/
+    background: #fd9535;
+    border-radius: 4px;
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
     font-weight: bold;
-    border: solid 2px #d27d00;/*線色*/
+    border: solid 2px #d27d00;
     cursor: pointer;
     &:active {
         box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);

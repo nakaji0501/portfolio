@@ -22,7 +22,7 @@
         <div class="login_message"
         v-if="!isLogin">
             <p>ログインをすることで質問投稿やコメントが利用できます。</p>
-        </div><!-- /loginForm_message -->
+        </div>
 
         <div class="loginForm"
         v-show="tab === 1">
@@ -42,6 +42,7 @@
                     </ul>
                 </div>
 
+                <!-- ログインメールフォーム -->
                 <div class="loginForm_email mb-8">
                     <label for="login-email">Email</label>
                     <input class="form_item" id="login-email" type="text"
@@ -62,6 +63,7 @@
                     </ul>
                 </div>
 
+                <!-- ログインパスワードフォーム -->
                 <div class="loginForm_password mb-8">
                     <label for="login-password">Password</label>
                     <input class="form_item" id="login-password" type="password"
@@ -95,6 +97,7 @@
                     </ul>
                 </div>
 
+                <!-- 名前登録フォーム -->
                 <div class="loginForm_username mb-8">
                     <label for="username">Name</label>
                     <input class="form_item" id="username" type="text"
@@ -118,6 +121,7 @@
                     </ul>
                 </div>
 
+                <!-- メールアドレス登録フォーム -->
                 <div class="regiserForm_email mb-8">
                     <label for="email">Email</label>
                     <input class="form_item" id="email" type="text"
@@ -141,6 +145,7 @@
                     </ul>
                 </div>
 
+                <!-- パスワード登録フォーム -->
                 <div class="registerForm_password mb-8">
                     <label for="password">Password</label>
                     <input class="form_item" id="password" type="password"
@@ -164,6 +169,7 @@
                     </ul>
                 </div>
 
+                <!-- パスワード確認用登録フォーム -->
                 <div class="registerForm_passworc-confirmation mb-8">
                     <label for="password-confirmation">Passwrod(確認用)</label>
                     <input class="form_item" id="password-confirmation" type="password"
@@ -203,17 +209,6 @@ export default {
         }
     },
     computed: {
-        // ...mapStateなしの記述
-        /*
-        apiStatus() {
-            // ストアのauthモジュール内apiStatusを参照する
-            return this.$store.state.auth.apiStatus
-        },
-        loginErrors() {
-            return this.$store.state.auth.loginErrorMessages
-        },
-        */
-        // ...mapStateありの記述
         ...mapState({
             apiStatus: state => state.auth.apiStatus,
             loginErrors: state => state.auth.loginErrorMessages,
@@ -233,16 +228,11 @@ export default {
                 this.$router.push('/')
             }
         },
-        // バリデーションエラーを消す
         clearError() {
             this.$store.commit('auth/setLoginErrorMessages', null)
             this.$store.commit('auth/setRegisterErrorMessages', null)
         }
     },
-    /*
-    バリデーションエラーの既表示対策
-    ログインページを表示する前にライフサイクルフックでエラーをクリア
-     */
     create() {
         this.clearError()
     }
@@ -293,8 +283,8 @@ label, input {
     padding: 0.25em 0.5em;
     text-decoration: none;
     color: #FFF;
-    background: #f78528;/*色*/
-    border: solid 1px #dd6b0d;/*線色*/
+    background: #f78528;
+    border: solid 1px #dd6b0d;
     border-radius: 4px;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
     text-shadow: 0 1px 0 rgba(0,0,0,0.2);

@@ -27,7 +27,6 @@ const routes = [
     {
         path: '/login',
         component: Login,
-        // ナビゲーションガード
         beforeEnter(to, from, next) {
             if (store.getters['auth/check']) {
                 next('/')
