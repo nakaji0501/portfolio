@@ -46,7 +46,7 @@ Route::get('/questions', 'QuestionController@index')->name('question.index');
 Route::post('/questions', 'QuestionController@create')->name('question.create');
 
 // 質問詳細取得
-Route::get('/questions{id}', 'QuestionController@detaile')->name('question.detaile');
+Route::get('/questions/{id}', 'QuestionController@detaile')->name('question.detaile');
 
 // 質問削除
 Route::delete('/questions/{id}', 'QuestionController@delete')->name('question.delete');
