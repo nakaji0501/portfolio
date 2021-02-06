@@ -3,14 +3,14 @@
 
         <router-link class="pagination_button-rev"
         v-if="! isFirstPage"
-        :to="`/?page=${currentPage - 1}`"
+        :to="`?page=${currentPage - 1}`"
         >
         &laquo; 前ページ
         </router-link>
 
         <router-link class="pagination_button-next"
         v-if="! isLastPage"
-        :to="`/?page=${currentPage + 1}`"
+        :to="`?page=${currentPage + 1}`"
         >
         次ページ &raquo;
         </router-link>

@@ -21081,7 +21081,7 @@ var render = function() {
             "router-link",
             {
               staticClass: "pagination_button-rev",
-              attrs: { to: "/?page=" + (_vm.currentPage - 1) }
+              attrs: { to: "?page=" + (_vm.currentPage - 1) }
             },
             [_vm._v("\n    « 前ページ\n    ")]
           )
@@ -21092,7 +21092,7 @@ var render = function() {
             "router-link",
             {
               staticClass: "pagination_button-next",
-              attrs: { to: "/?page=" + (_vm.currentPage + 1) }
+              attrs: { to: "?page=" + (_vm.currentPage + 1) }
             },
             [_vm._v("\n    次ページ »\n    ")]
           )
