@@ -17796,7 +17796,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get("/api/questions?page=".concat(_this.page));
+                return axios.get("/api/questions/?page=".concat(_this.page));
 
               case 2:
                 response = _context.sent;
@@ -17955,7 +17955,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".commentList_text[data-v-b2309ffc] {\n  margin-bottom: 24px;\n  border-bottom: 2px solid orange;\n}\n.commentList_item[data-v-b2309ffc] {\n  margin: 16px 0;\n  border-bottom: 1px dotted #000;\n}\n.commentList_item-id[data-v-b2309ffc] {\n  margin-bottom: 4px;\n}\n.commentList_item-message[data-v-b2309ffc] {\n  margin-bottom: 4px;\n}\n.commentList_item-message p[data-v-b2309ffc] {\n  white-space: pre-wrap;\n  background: #fff;\n  padding: 4px;\n  border-radius: 4px;\n}\n.commentList_item[data-v-b2309ffc]:last-child {\n  border: none;\n}\n.commentList_delete[data-v-b2309ffc] {\n  margin: 24px;\n  height: 2rem;\n  position: relative;\n}\n.commentList_delete .button[data-v-b2309ffc] {\n  position: absolute;\n  top: 0;\n  right: 16px;\n  cursor: pointer;\n}\n.confirmButton[data-v-b2309ffc] {\n  margin-right: 8px;\n}\n.confirmButton[data-v-b2309ffc]:last-child {\n  margin-right: 0;\n}", ""]);
+exports.push([module.i, ".commentList_text[data-v-b2309ffc] {\n  margin-bottom: 24px;\n  border-bottom: 2px solid orange;\n}\n.commentList_item[data-v-b2309ffc] {\n  margin: 16px 0;\n  border-bottom: 1px dotted #000;\n}\n.commentList_item-id[data-v-b2309ffc] {\n  margin-bottom: 4px;\n}\n.commentList_item-message[data-v-b2309ffc] {\n  margin-bottom: 4px;\n}\n.commentList_item-message p[data-v-b2309ffc] {\n  white-space: pre-wrap;\n  background: #fff;\n  padding: 4px;\n  border-radius: 4px;\n}\n.commentList_item[data-v-b2309ffc]:last-child {\n  border: none;\n}\n.commentList_delete[data-v-b2309ffc] {\n  margin: 24px;\n  height: 2rem;\n  position: relative;\n}\n.commentList_delete .button[data-v-b2309ffc] {\n  position: absolute;\n  top: 0;\n  right: 16px;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -17974,7 +17974,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".modal-overlay[data-v-23992138] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  position: fixed;\n  z-index: 30;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n}\n.modal-window[data-v-23992138] {\n  width: 240px;\n  background: #fff;\n  overflow: hidden;\n  padding: 16px 24px;\n  text-align: center;\n}\n.modal-enter-active[data-v-23992138],\n.modal-leave-active[data-v-23992138] {\n  transition: opacity 0.4s;\n}\n.modal-enter-active .modal-window[data-v-23992138],\n.modal-leave-active .modal-window[data-v-23992138] {\n  transition: opacity 0.4s, transform 0.4s;\n}\n.modal-leave-active[data-v-23992138] {\n  transition: opacity 0.6s ease 0.4s;\n}\n.modal-enter[data-v-23992138],\n.modal-leave-to[data-v-23992138] {\n  opacity: 0;\n}\n.modal-enter .modal-window[data-v-23992138],\n.modal-leave-to .modal-window[data-v-23992138] {\n  opacity: 0;\n  transform: translateY(-20px);\n}", ""]);
+exports.push([module.i, ".modal-overlay[data-v-23992138] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  position: fixed;\n  z-index: 30;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n}\n.modal-window[data-v-23992138] {\n  width: 300px;\n  background: #fff;\n  overflow: hidden;\n  padding: 16px 24px;\n  text-align: center;\n}\n.confirmModal_button[data-v-23992138] {\n  display: flex;\n  justify-content: space-around;\n}\n.modal-enter-active[data-v-23992138],\n.modal-leave-active[data-v-23992138] {\n  transition: opacity 0.4s;\n}\n.modal-enter-active .modal-window[data-v-23992138],\n.modal-leave-active .modal-window[data-v-23992138] {\n  transition: opacity 0.4s, transform 0.4s;\n}\n.modal-leave-active[data-v-23992138] {\n  transition: opacity 0.6s ease 0.4s;\n}\n.modal-enter[data-v-23992138],\n.modal-leave-to[data-v-23992138] {\n  opacity: 0;\n}\n.modal-enter .modal-window[data-v-23992138],\n.modal-leave-to .modal-window[data-v-23992138] {\n  opacity: 0;\n  transform: translateY(-20px);\n}", ""]);
 
 // exports
 
@@ -18145,7 +18145,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fs-08[data-v-407735ad] {\n  font-size: 0.8rem;\n}\n.questions[data-v-407735ad] {\n  margin: 40px 0;\n}\n.questions_contents[data-v-407735ad] {\n  width: 90%;\n  margin: 0 auto;\n}\n.questions_list[data-v-407735ad] {\n  border-bottom: 1px dotted lightgrey;\n  padding: 24px 8px;\n  position: relative;\n}\n.questions_list .title[data-v-407735ad] {\n  overflow-wrap: break-word;\n  margin-bottom: 8px;\n}\n.questions_list .title span[data-v-407735ad] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.questions_list .mainText[data-v-407735ad] {\n  height: 100%;\n  width: 95%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n.questions_list .mainText span[data-v-407735ad] {\n  text-decoration: underline;\n  cursor: pointer;\n}\n.questions_delete[data-v-407735ad] {\n  position: absolute;\n  bottom: 20px;\n  right: 16px;\n}\n.questions_delete .button[data-v-407735ad] {\n  cursor: pointer;\n}\n.pagination[data-v-407735ad] {\n  height: 140px;\n}\n.questionPostButton[data-v-407735ad] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  margin: 0 auto;\n}\n.confirmModal p[data-v-407735ad], .confirmModal button[data-v-407735ad] {\n  font-size: 1.5rem;\n}\n.confirmModal button[data-v-407735ad] {\n  margin-right: 8px;\n}\n.confirmModal button[data-v-407735ad]:last-child {\n  margin-right: 0;\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.questions_contents[data-v-407735ad] {\n    width: 80%;\n}\n}\n@media screen and (min-width: 897px) {\n.questions_contents[data-v-407735ad] {\n    width: 70%;\n}\n}", ""]);
+exports.push([module.i, ".fs-08[data-v-407735ad] {\n  font-size: 0.8rem;\n}\n.questions[data-v-407735ad] {\n  margin: 40px 0;\n}\n.questions_contents[data-v-407735ad] {\n  width: 90%;\n  margin: 0 auto;\n}\n.questions_list[data-v-407735ad] {\n  border-bottom: 1px dotted lightgrey;\n  padding: 24px 8px;\n  position: relative;\n}\n.questions_list .title[data-v-407735ad] {\n  overflow-wrap: break-word;\n  margin-bottom: 8px;\n}\n.questions_list .title span[data-v-407735ad] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.questions_list .mainText[data-v-407735ad] {\n  height: 100%;\n  width: 95%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n.questions_list .mainText span[data-v-407735ad] {\n  text-decoration: underline;\n  cursor: pointer;\n}\n.questions_delete[data-v-407735ad] {\n  position: absolute;\n  bottom: 20px;\n  right: 16px;\n}\n.questions_delete .button[data-v-407735ad] {\n  cursor: pointer;\n}\n.pagination[data-v-407735ad] {\n  height: 140px;\n}\n.questionPostButton[data-v-407735ad] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  margin: 0 auto;\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.questions_contents[data-v-407735ad] {\n    width: 80%;\n}\n}\n@media screen and (min-width: 897px) {\n.questions_contents[data-v-407735ad] {\n    width: 70%;\n}\n}", ""]);
 
 // exports
 
@@ -20743,7 +20743,6 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "confirmButton",
                     on: {
                       click: function($event) {
                         return _vm.closeModal()
@@ -20758,7 +20757,6 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "confirmButton",
                     on: {
                       click: function($event) {
                         return _vm.deleteComment(_vm.deleteTargetID)

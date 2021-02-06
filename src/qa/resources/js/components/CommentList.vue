@@ -51,10 +51,10 @@
                 <p>本当に削除しますか？</p>
             </template>
             <template slot="selectAction">
-                <button class="confirmButton" @click="closeModal()">キャンセル</button>
+                <button @click="closeModal()">キャンセル</button>
             </template>
             <template slot="selectAction">
-                <button class="confirmButton" @click="deleteComment(deleteTargetID)">削除する</button>
+                <button @click="deleteComment(deleteTargetID)">削除する</button>
             </template>
         </ConfirmModal>
 
@@ -155,12 +155,6 @@ export default {
             right: 16px;
             cursor: pointer;
         }
-    }
-}
-.confirmButton {
-    margin-right: 8px;
-    &:last-child {
-        margin-right: 0;
     }
 }
 </style>
