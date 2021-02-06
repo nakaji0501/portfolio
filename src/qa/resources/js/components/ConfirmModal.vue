@@ -30,11 +30,17 @@
     background: rgba(0, 0, 0, 0.5);
     }
     &-window {
-    width: 240px;
+    width: 300px;
     background: #fff;
     overflow: hidden;
     padding: 16px 24px;
     text-align: center;
+    }
+}
+.confirmModal {
+    &_button {
+        display: flex;
+        justify-content: space-around;
     }
 }
 // trantision

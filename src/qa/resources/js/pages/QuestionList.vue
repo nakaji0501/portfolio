@@ -116,7 +116,7 @@ export default {
     },
     methods: {
         async fetchQuestions() {
-            const response = await axios.get(`/api/questions?page=${this.page}`);
+            const response = await axios.get(`/api/questions/?page=${this.page}`);
 
             if (response.status !== OK) {
                 this.$store.commit('error/setCode', response.status)
@@ -219,18 +219,6 @@ export default {
     width: max-content;
     margin: 0 auto;
 }
-.confirmModal {
-    & p,button {
-        font-size: 1.5rem;
-    }
-    & button {
-        margin-right: 8px;
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-}
-
 @media screen and (max-width: 896px) and (min-width: 481px) {
 .questions {
     &_contents {
