@@ -8,7 +8,7 @@
 アプリへ移動  
 [https://portfolio-vue-laravel.herokuapp.com/](https://portfolio-vue-laravel.herokuapp.com/)
 
-[GitHub : nakaji0501/portfolio](nakaji0501/portfolio)
+[GitHub : nakaji0501/portfolio](https://github.com/nakaji0501/portfolio)
 
 # アプリ説明
 
