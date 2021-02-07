@@ -2,8 +2,8 @@
 
 アプリ名 : **「教えて！」 子育てのアレコレ**
 
-![アプリイメージGIF](![gif](https://github.com/portfolio/src/qa/resources//image/preview.gif)
-)
+アプリイメージGIF  
+![preview](https://user-images.githubusercontent.com/64804227/107152528-c88dea80-69ab-11eb-864d-02da4200383c.gif)
 
 アプリへ移動  
 [https://portfolio-vue-laravel.herokuapp.com/](https://portfolio-vue-laravel.herokuapp.com/)
