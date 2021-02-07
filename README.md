@@ -2,9 +2,11 @@
 
 アプリ名 : **「教えて！」 子育てのアレコレ**
 
-![落ち着いた雰囲気のアプリ](画像URL)
+![アプリイメージGIF](![gif](https://github.com/portfolio/src/qa/resources//image/preview.gif)
+)
 
-[アプリへ移動する](URL)
+アプリへ移動  
+[https://portfolio-vue-laravel.herokuapp.com/](https://portfolio-vue-laravel.herokuapp.com/)
 
 [GitHub : nakaji0501/portfolio](nakaji0501/portfolio)
 
@@ -53,7 +55,7 @@ https://www.hypertextcandy.com/vue-laravel-tutorial-introduction/
 
 https://github.com/natsukoshi/Laravel_Vue_Board
 
-# アプリ内機能
+# 実装した機能
 - ユーザー認証
 - ログイン・ログアウト
 - 質問・返信投稿
@@ -80,14 +82,14 @@ https://github.com/natsukoshi/Laravel_Vue_Board
 
 私の自己紹介として下記のサイトもご覧いただけますと嬉しいです。  
 
-> [自己紹介サイトへ飛ぶ](https://vuefolio0501.web.app/)
+> [自己紹介サイト : https://vuefolio0501.web.app/](https://vuefolio0501.web.app/)
 
-> [Twitter : nakaji_junk](@nakaji_junk)
+> [Twitter : @nakaji_junk](https://twitter.com/@nakaji_junk)
 
-> [GitHub : nakaji0501/portfolio](nakaji0501/portfolio)
+> [GitHub : nakaji0501/portfolio](https://github.com/nakaji0501/portfolio)
 
 最後に、お忙しい中ここまで見てくださりありがとうございました。
 
 # Licence
 
-[MIT](https://...)
+[MIT : https://portfolio-vue-laravel.herokuapp.com/](https://portfolio-vue-laravel.herokuapp.com/)
