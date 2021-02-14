@@ -56,4 +56,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');
         // ('対象のモデル', '子の外部キー', '親のモデルの主キー')
     }
+
+    /**
+     * リレーションシップ - photosテーブル
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function photos()
+    {
+        return $this->hasMany('App\Photo');
+    }
+
 }
