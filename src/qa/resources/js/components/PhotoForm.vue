@@ -58,11 +58,13 @@ export default {
 
         async submit() {
             const formData = new FormData()
+            console.log(formData);
             formData.append('photo', this.photo)
             const response = await axios.post('/api/photos', formData)
-
+            console.log(response)
             this.reset()
             this.$emit('input', false)
+            this.$router.push(`/photos/${response.data.id}`)
         }
     }
 }

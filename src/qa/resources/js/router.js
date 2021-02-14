@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import QuestionList from './pages/QuestionList'
 import QuestionForm from './pages/QuestionForm'
 import QuestionDetail from './pages/QuestionDetail'
+import PhotoDetail from './pages/PhotoDetail.vue'
 import SystemError from './pages/errors/System'
 import NotFound from './pages/errors/NotFound.vue'
 
@@ -39,6 +40,11 @@ const routes = [
         path: '/detail/:id',
         component: QuestionDetail,
         name: 'questionDetailPage',
+        props: true
+    },
+    {
+        path: '/photos/:id',
+        component: PhotoDetail,
         props: true
     },
     {
