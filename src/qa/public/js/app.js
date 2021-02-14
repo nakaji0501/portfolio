@@ -17228,6 +17228,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     isLogin: function isLogin() {
@@ -18494,7 +18501,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar[data-v-6dde423b] {\n  background: #738e99;\n  padding-bottom: 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px 8px 16px;\n}\n.navbar_title h1[data-v-6dde423b] {\n  font-size: 1.8rem;\n  color: #333;\n}\n.navbar_user-logged[data-v-6dde423b] {\n  cursor: default;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login[data-v-6dde423b] {\n  text-decoration: underline;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #333;\n}\n.tag[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-around;\n  flex-wrap: wrap;\n}\n.tag_postQuestion[data-v-6dde423b], .tag_operationDirective[data-v-6dde423b] {\n  color: #333;\n  background: #fff;\n  border: 1px solid #333;\n  border-radius: 8px;\n  padding: 4px;\n}\n.tag_search-area[data-v-6dde423b] {\n  transform: translateY(0.5rem);\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 24px;\n}\n.navbar_title h1[data-v-6dde423b] {\n    font-size: 2.5rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.2rem;\n}\n}\n@media screen and (min-width: 897px) {\n.navbar[data-v-6dde423b] {\n    padding: 0 80px 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 23px;\n}\n.navbar_title h1[data-v-6dde423b] {\n    font-size: 3rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.5rem;\n}\n}", ""]);
+exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar[data-v-6dde423b] {\n  background: #738e99;\n  padding-bottom: 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px 8px 16px;\n}\n.navbar_title h1[data-v-6dde423b] {\n  font-size: 1.8rem;\n  color: #333;\n}\n.navbar_user-logged[data-v-6dde423b] {\n  cursor: default;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login[data-v-6dde423b] {\n  text-decoration: underline;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #333;\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 24px;\n}\n.navbar_title h1[data-v-6dde423b] {\n    font-size: 2.5rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.2rem;\n}\n}\n@media screen and (min-width: 897px) {\n.navbar[data-v-6dde423b] {\n    padding: 0 80px 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 23px;\n}\n.navbar_title h1[data-v-6dde423b] {\n    font-size: 3rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.5rem;\n}\n}", ""]);
 
 // exports
 
@@ -18551,7 +18558,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".tag[data-v-8d320b02] {\n  display: flex;\n  justify-content: space-around;\n  flex-wrap: wrap;\n}\n.tag_postQuestion[data-v-8d320b02], .tag_operationDirective[data-v-8d320b02] {\n  color: #333;\n  background: #fff;\n  border: 1px solid #333;\n  border-radius: 8px;\n  padding: 4px;\n}\n.tag_search-area[data-v-8d320b02] {\n  transform: translateY(0.5rem);\n}", ""]);
+exports.push([module.i, ".tag[data-v-8d320b02] {\n  display: flex;\n  justify-content: space-around;\n  flex-wrap: wrap;\n}\n.tag_postQuestion[data-v-8d320b02], .tag_operationDirective[data-v-8d320b02], .tag_backTop[data-v-8d320b02] {\n  color: #333;\n  background: #fff;\n  border: 1px solid #333;\n  border-radius: 8px;\n  padding: 4px;\n}\n.tag_search-area[data-v-8d320b02] {\n  transform: translateY(0.5rem);\n}", ""]);
 
 // exports
 
@@ -21898,6 +21905,12 @@ var render = function() {
       staticClass: "tag"
     },
     [
+      this.$route.path !== "/"
+        ? _c("router-link", { attrs: { to: "/" } }, [
+            _c("p", { staticClass: "tag_backTop" }, [_vm._v("生産記録")])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
       this.$route.path !== "/questionForm"
         ? _c("router-link", { attrs: { to: "/questionForm" } }, [
             _c("p", { staticClass: "tag_postQuestion" }, [_vm._v("記録する")])

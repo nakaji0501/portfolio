@@ -89,22 +89,6 @@ export default {
         }
     }
 }
-.tag {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    &_postQuestion,
-    &_operationDirective {
-        color: #333;
-        background: #fff;
-        border: 1px solid #333;
-        border-radius: 8px;
-        padding: 4px;
-    }
-    &_search-area {
-        transform: translateY(0.5rem);
-    }
-}
 @media screen and (max-width: 480px) {
 
 }
