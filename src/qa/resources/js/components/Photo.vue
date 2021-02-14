@@ -29,3 +29,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.photo__image {
+  height: 100px;
+  width: 100px;
+}
+</style>

@@ -2,7 +2,7 @@
   <div class="photo-list">
     <div class="grid">
       <Photo
-        class="grid__item"
+        class="grid_item"
         v-for="photo in photos"
         :key="photo.id"
         :item="photo"
@@ -47,3 +47,13 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.photo-list {
+  width: 100%;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>
