@@ -1,7 +1,7 @@
 <template>
     <div class="postPhoto" v-show="value">
         <h3>写真を投稿</h3>
-        <form class="postPhoto_form">
+        <form class="postPhoto_form" @submit.prevent="submit">
             <input type="file" class="postPhoto_form-item" @change="onFileChange">
             <output class="postPhoto_form-output" v-if="preview">
             <img :src="preview" alt="">
@@ -24,6 +24,7 @@ export default {
     data() {
         return {
             preview: null,
+            photo: null,
         }
     },
     methods: {
@@ -45,11 +46,24 @@ export default {
             }
 
             reader.readAsDataURL(event.target.files[0])
+
+            this.photo = event.target.files[0]
         },
+
         reset() {
             this.preview = '',
+            this.photo = null,
             this.$el.querySelector('input[type="file"]').value = null
         },
+
+        async submit() {
+            const formData = new FormData()
+            formData.append('photo', this.photo)
+            const response = await axios.post('/api/photos', formData)
+
+            this.reset()
+            this.$emit('input', false)
+        }
     }
 }
 </script>
