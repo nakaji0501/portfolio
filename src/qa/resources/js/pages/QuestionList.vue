@@ -52,19 +52,22 @@
         />
     </div><!-- /pagination -->
 
-    <div class="questionPostButton">
-        <router-link
-        to="/questionForm"
-        >
-        <PostButton />
-        </router-link>
-    </div><!-- /questions-postButton -->
+    <div class="postButton">
 
-    <div class="photoForm">
-        <button class="button" @click="showPhotoForm = ! showPhotoForm">
-            写真を投稿する
-        </button>
-        <PhotoForm v-model="showPhotoForm" />
+        <div class="questionPostButton">
+            <router-link
+            to="/questionForm"
+            >
+            <PostButton />
+            </router-link>
+        </div><!-- /questions-postButton -->
+
+        <div class="photoPostButton">
+            <button class="button" @click="showPhotoForm = ! showPhotoForm">
+                写真保存
+            </button>
+            <PhotoForm v-model="showPhotoForm" />
+        </div>
     </div>
 
     <ConfirmModal class="confirmModal"
@@ -225,9 +228,25 @@ export default {
 .pagination {
     height: 140px;
 }
-.questionPostButton {
-    width: max-content;
-    margin: 0 auto;
+.postButton {
+    display: flex;
+    justify-content: space-around;
+    & .photoPostButton button {
+        font-size: 1.2rem;
+        display: inline-block;
+        padding: 0.3em 1em;
+        text-decoration: none;
+        color: #ad9f8a;
+        border: solid 2px #ad9f8a;
+        border-radius: 3px;
+        transition: .4s;
+        cursor: pointer;
+
+        &:hover {
+            background: #ad9f8a;
+            color: #fff;
+        }
+    }
 }
 @media screen and (max-width: 896px) and (min-width: 481px) {
 .questions {

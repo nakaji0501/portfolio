@@ -31,35 +31,17 @@
 
         </div><!-- /navbar_wrapper -->
 
-        <div class="tag"
-        v-show="isLogin"
-        >
-            <router-link
-            to="/questionForm"
-            v-if="this.$route.path !== '/questionForm'"
-            >
-            <p class="tag_postQuestion">記録する</p>
-            </router-link>
-
-            <router-link
-            to="/photoList"
-            v-if="this.$route.path !== '/photoList'"
-            >
-            <p class="tag_operationDirective">作業指示書</p>
-            </router-link>
-
-            <div class="tag_search"
-            v-if="this.$route.path === '/'"
-            >
-                <input type="text" class="tag_search-area">
-            </div>
-        </div><!-- /tag -->
+        <Tag />
 
     </nav><!-- /navbar -->
 </template>
 
 <script>
+import Tag from './Tag'
 export default {
+    components: {
+        Tag,
+    },
     computed: {
         isLogin() {
             return this.$store.getters['auth/check']

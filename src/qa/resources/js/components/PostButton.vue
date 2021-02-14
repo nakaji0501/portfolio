@@ -2,7 +2,7 @@
     <div class="postButton">
         <button class="button">
           <slot name="postQuestionButton">
-            投稿する
+            記録する
           </slot>
         </button>
     </div>
@@ -10,7 +10,7 @@
 
 <style lang="scss" scoped>
 .button {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
