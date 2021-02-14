@@ -1,6 +1,8 @@
 <template>
     <footer class="footer">
 
+        <Tag class="tag" />
+
         <div class="button">
 
             <button class="button-logout"
@@ -21,10 +23,13 @@
 </template>
 
 <script>
-import Navbar from './Navbar'
+import Tag from './Tag'
 import { mapState, mapGetters } from 'vuex'
 
 export default {
+    components: {
+        Tag,
+    },
     computed: {
         ...mapState({
             apiStatus: state => state.auth.apiStatus
@@ -48,6 +53,7 @@ export default {
 .footer {
     margin: 0 auto;
     background: #738e99;
+    padding-top: 24px;
 }
 .button {
     width: 50%;
