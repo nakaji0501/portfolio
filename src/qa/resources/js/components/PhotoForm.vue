@@ -2,10 +2,22 @@
     <div class="postPhoto" v-show="value">
         <h3>写真を投稿</h3>
         <form class="postPhoto_form" @submit.prevent="submit">
+
+            <div class="errors" v-if="errors">
+                <ul v-if="errors.photo">
+                    <li v-for="msg in errors.photo"
+                    :key="msg"
+                    >
+                    {{ msg }}
+                    </li>
+                </ul>
+            </div>
+
             <input type="file" class="postPhoto_form-item" @change="onFileChange">
-            <output class="postPhoto_form-output" v-if="preview">
+                <output class="postPhoto_form-output" v-if="preview">
             <img :src="preview" alt="">
             </output>
+
             <div class="postPhoto_form-button">
                 <button type="submit" class="button">POST</button>
             </div>
@@ -14,6 +26,8 @@
 </template>
 
 <script>
+import { CREATED, UNPROCESSABLE_ENTITY } from '../util'
+
 export default {
     props: {
         value: {
@@ -25,6 +39,7 @@ export default {
         return {
             preview: null,
             photo: null,
+            errors: null,
         }
     },
     methods: {
@@ -58,12 +73,24 @@ export default {
 
         async submit() {
             const formData = new FormData()
-            console.log(formData);
             formData.append('photo', this.photo)
             const response = await axios.post('/api/photos', formData)
             console.log(response)
+
+            if (response.status === UNPROCESSABLE_ENTITY) {
+                this.errors = response.data.errors
+                console.log(this.errors);
+                return false
+            }
+
             this.reset()
             this.$emit('input', false)
+
+            if (response.status !== CREATED) {
+                this.$store.commit('error/setCode', response.status)
+                return false
+            }
+
             this.$router.push(`/photos/${response.data.id}`)
         }
     }
