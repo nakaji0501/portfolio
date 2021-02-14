@@ -60,6 +60,13 @@
         </router-link>
     </div><!-- /questions-postButton -->
 
+    <div class="photoForm">
+        <button class="button" @click="showPhotoForm = ! showPhotoForm">
+            写真を投稿する
+        </button>
+        <PhotoForm v-model="showPhotoForm" />
+    </div>
+
     <ConfirmModal class="confirmModal"
     v-if="showModal"
     >
@@ -83,19 +90,21 @@ import { INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from '../util'
 import Pagination from '../components/Pagination'
 import PostButton from '../components/PostButton'
 import ConfirmModal from '../components/ConfirmModal'
+import PhotoForm from '../components/PhotoForm'
 
 export default {
     components: {
         PostButton,
         Pagination,
         ConfirmModal,
+        PhotoForm,
     },
     props: {
         page: {
             type: Number,
             required: false,
             default: 1
-        }
+        },
     },
     data() {
         return {
@@ -104,6 +113,7 @@ export default {
             lastPage: 0,
             showModal: false,
             deleteTargetID: null,
+            showPhotoForm: false,
         }
     },
     computed: {

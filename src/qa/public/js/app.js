@@ -17008,6 +17008,72 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PhotoForm.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PhotoForm.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    value: {
+      type: Boolean,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      preview: null
+    };
+  },
+  methods: {
+    onFileChange: function onFileChange(event) {
+      var _this = this;
+
+      if (event.target.files.length === 0) {
+        this.reset();
+        return false;
+      }
+
+      if (!event.target.files[0].type.match('image.*')) {
+        this.reset();
+        return false;
+      }
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this.preview = e.target.result;
+      };
+
+      reader.readAsDataURL(event.target.files[0]);
+    },
+    reset: function reset() {
+      this.preview = '', this.$el.querySelector('input[type="file"]').value = null;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Login.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Login.vue?vue&type=script&lang=js& ***!
@@ -17666,6 +17732,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Pagination__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Pagination */ "./resources/js/components/Pagination.vue");
 /* harmony import */ var _components_PostButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/PostButton */ "./resources/js/components/PostButton.vue");
 /* harmony import */ var _components_ConfirmModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ConfirmModal */ "./resources/js/components/ConfirmModal.vue");
+/* harmony import */ var _components_PhotoForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/PhotoForm */ "./resources/js/components/PhotoForm.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -17751,6 +17818,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -17759,7 +17834,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   components: {
     PostButton: _components_PostButton__WEBPACK_IMPORTED_MODULE_3__["default"],
     Pagination: _components_Pagination__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ConfirmModal: _components_ConfirmModal__WEBPACK_IMPORTED_MODULE_4__["default"]
+    ConfirmModal: _components_ConfirmModal__WEBPACK_IMPORTED_MODULE_4__["default"],
+    PhotoForm: _components_PhotoForm__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   props: {
     page: {
@@ -17774,7 +17850,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       currentPage: 0,
       lastPage: 0,
       showModal: false,
-      deleteTargetID: null
+      deleteTargetID: null,
+      showPhotoForm: false
     };
   },
   computed: {
@@ -21089,6 +21166,73 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PhotoForm.vue?vue&type=template&id=516c053b&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PhotoForm.vue?vue&type=template&id=516c053b& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.value,
+          expression: "value"
+        }
+      ],
+      staticClass: "postPhoto"
+    },
+    [
+      _c("h3", [_vm._v("写真を投稿")]),
+      _vm._v(" "),
+      _c("form", { staticClass: "postPhoto_form" }, [
+        _c("input", {
+          staticClass: "postPhoto_form-item",
+          attrs: { type: "file" },
+          on: { change: _vm.onFileChange }
+        }),
+        _vm._v(" "),
+        _vm.preview
+          ? _c("output", { staticClass: "postPhoto_form-output" }, [
+              _c("img", { attrs: { src: _vm.preview, alt: "" } })
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "postPhoto_form-button" }, [
+      _c("button", { staticClass: "button", attrs: { type: "submit" } }, [
+        _vm._v("POST")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostButton.vue?vue&type=template&id=4019179d&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostButton.vue?vue&type=template&id=4019179d&scoped=true& ***!
@@ -22042,6 +22186,36 @@ var render = function() {
             [_c("PostButton")],
             1
           )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "photoForm" },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "button",
+              on: {
+                click: function($event) {
+                  _vm.showPhotoForm = !_vm.showPhotoForm
+                }
+              }
+            },
+            [_vm._v("\n            写真を投稿する\n        ")]
+          ),
+          _vm._v(" "),
+          _c("PhotoForm", {
+            model: {
+              value: _vm.showPhotoForm,
+              callback: function($$v) {
+                _vm.showPhotoForm = $$v
+              },
+              expression: "showPhotoForm"
+            }
+          })
         ],
         1
       ),
@@ -39422,6 +39596,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pagination_vue_vue_type_template_id_d7acf176_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pagination_vue_vue_type_template_id_d7acf176_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PhotoForm.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/PhotoForm.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PhotoForm_vue_vue_type_template_id_516c053b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PhotoForm.vue?vue&type=template&id=516c053b& */ "./resources/js/components/PhotoForm.vue?vue&type=template&id=516c053b&");
+/* harmony import */ var _PhotoForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PhotoForm.vue?vue&type=script&lang=js& */ "./resources/js/components/PhotoForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PhotoForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PhotoForm_vue_vue_type_template_id_516c053b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PhotoForm_vue_vue_type_template_id_516c053b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PhotoForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/PhotoForm.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/PhotoForm.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PhotoForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PhotoForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PhotoForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PhotoForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/PhotoForm.vue?vue&type=template&id=516c053b&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/PhotoForm.vue?vue&type=template&id=516c053b& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PhotoForm_vue_vue_type_template_id_516c053b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PhotoForm.vue?vue&type=template&id=516c053b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PhotoForm.vue?vue&type=template&id=516c053b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PhotoForm_vue_vue_type_template_id_516c053b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PhotoForm_vue_vue_type_template_id_516c053b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
