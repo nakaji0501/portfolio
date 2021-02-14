@@ -21620,20 +21620,14 @@ var render = function() {
     "div",
     { staticClass: "photo" },
     [
-      _c("figure", { staticClass: "photo__wrapper" }, [
-        _c("img", {
-          staticClass: "photo__image",
-          attrs: { src: _vm.item.url, alt: "Photo by " + _vm.item.owner.name }
-        })
+      _c("router-link", { attrs: { to: "/photos/" + _vm.item.id } }, [
+        _c("figure", { staticClass: "photo__wrapper" }, [
+          _c("img", {
+            staticClass: "photo__image",
+            attrs: { src: _vm.item.url, alt: "Photo by " + _vm.item.owner.name }
+          })
+        ])
       ]),
-      _vm._v(" "),
-      _c("router-link", {
-        staticClass: "photo_overlay",
-        attrs: {
-          to: "/photos/" + _vm.item.id,
-          title: "view the photo by " + _vm.item.owner.name
-        }
-      }),
       _vm._v(" "),
       _c("div", { staticClass: "photo username" }, [
         _vm._v("\n      " + _vm._s(_vm.item.owner.name) + "\n  ")

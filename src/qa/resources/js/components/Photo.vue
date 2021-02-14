@@ -1,5 +1,9 @@
 <template>
   <div class="photo">
+
+    <router-link
+    :to="`/photos/${item.id}`"
+    >
     <figure class="photo__wrapper">
       <img
         class="photo__image"
@@ -7,12 +11,8 @@
         :alt="`Photo by ${item.owner.name}`"
       >
     </figure>
-    <router-link
-    class="photo_overlay"
-    :to="`/photos/${item.id}`"
-    :title="`view the photo by ${item.owner.name}`"
-    >
     </router-link>
+
     <div class="photo username">
         {{ item.owner.name}}
     </div>
