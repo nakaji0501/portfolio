@@ -1,6 +1,6 @@
 <template>
     <div class="postPhoto" v-show="value">
-        <h3>写真を投稿</h3>
+        <h3>投稿する写真を選んでください</h3>
         <form class="postPhoto_form" @submit.prevent="submit">
 
             <div class="errors" v-if="errors">
@@ -14,12 +14,12 @@
             </div>
 
             <input type="file" class="postPhoto_form-item" @change="onFileChange">
-                <output class="postPhoto_form-output" v-if="preview">
-            <img :src="preview" alt="">
+            <output class="postPhoto_form-output" v-if="preview">
+                <img :src="preview" alt="">
             </output>
 
             <div class="postPhoto_form-button">
-                <button type="submit" class="button">POST</button>
+                <button type="submit" class="button">送信</button>
             </div>
         </form>
     </div>
@@ -96,3 +96,23 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.postPhoto {
+    & h3 {
+        margin-bottom: 24px;
+    }
+    &_form {
+        &-item {
+            margin-bottom: 24px;
+        }
+        & button {
+            font-size: 1.2rem;
+        }
+    }
+}
+img {
+    width: 80%;
+    height: 300px;
+}
+</style>

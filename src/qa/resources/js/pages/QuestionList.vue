@@ -66,7 +66,9 @@
             <button class="button" @click="showPhotoForm = ! showPhotoForm">
                 写真保存
             </button>
-            <PhotoForm v-model="showPhotoForm" />
+            <PhotoForm class="photoForm"
+            v-model="showPhotoForm"
+            />
         </div>
     </div>
 
@@ -246,6 +248,26 @@ export default {
             background: #ad9f8a;
             color: #fff;
         }
+    }
+}
+.photoForm {
+    position: fixed;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 50;
+    &::before {
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        position: absolute;
+        z-index: -50;
+        transform: translateY(-10%);
     }
 }
 @media screen and (max-width: 896px) and (min-width: 481px) {
