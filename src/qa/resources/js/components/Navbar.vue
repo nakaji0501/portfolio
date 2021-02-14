@@ -6,9 +6,9 @@
             to="/"
             >
 
-                <div class="navbar_title-name">
-                    <h1>子育て掲示板</h1>
-                </div>
+            <div class="navbar_title-name">
+                <h1>生産管理アプリ</h1>
+            </div>
             </router-link>
 
             <div class="navbar_user"
@@ -18,13 +18,6 @@
                     <p><font-awesome-icon :icon="['fas', 'user']" /></p>
                     <p>{{ username }}</p>
                 </div>
-
-                <router-link
-                to="/questionForm"
-                v-if="this.$route.path !== '/questionForm'"
-                >
-                <p class="postQuestionButton">投稿する</p>
-                </router-link>
             </div>
 
             <router-link class="navbar_user-login content_flex"
@@ -38,9 +31,29 @@
 
         </div><!-- /navbar_wrapper -->
 
-        <div class="navbar_subText">
-            <p>子育てに悩んだら皆に質問してみよう</p>
-        </div><!-- /navbar_subText -->
+        <div class="tag"
+        v-show="isLogin"
+        >
+            <router-link
+            to="/questionForm"
+            v-if="this.$route.path !== '/questionForm'"
+            >
+            <p class="tag_postQuestion">記録する</p>
+            </router-link>
+
+            <router-link
+            to="/photoList"
+            v-if="this.$route.path !== '/photoList'"
+            >
+            <p class="tag_operationDirective">作業指示書</p>
+            </router-link>
+
+            <div class="tag_search"
+            v-if="this.$route.path === '/'"
+            >
+                <input type="text" class="tag_search-area">
+            </div>
+        </div><!-- /tag -->
 
     </nav><!-- /navbar -->
 </template>
@@ -72,9 +85,9 @@ export default {
     &_wrapper {
         display: flex;
         justify-content: space-between;
-        padding: 8px;
+        padding: 8px 8px 16px;
     }
-    &_title * {
+    &_title h1 {
         font-size: 1.8rem;
         color: #333;
     }
@@ -93,34 +106,21 @@ export default {
             }
         }
     }
-    &_subText {
-        padding-left: 8px;
-    }
 }
-.postQuestionButton {
-    text-align: center;
-    font-size: 1rem !important;
-    position: relative;
-    font-weight: bold;
-    padding: 0.25em 0;
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
-    &:before {
-        position: absolute;
-        content: '';
-        width: 4rem;
-        height: 4px;
-        top: 90%;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 3px;
-        background:#fff;
-        transition: .2s;
+.tag {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    &_postQuestion,
+    &_operationDirective {
+        color: #333;
+        background: #fff;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 4px;
     }
-    &:hover:before {
-        top: -webkit-calc(90% - 3px);
-        top: calc(90% - 3px);
+    &_search-area {
+        transform: translateY(0.5rem);
     }
 }
 @media screen and (max-width: 480px) {
@@ -132,7 +132,7 @@ export default {
     &_wrapper {
         padding: 24px;
     }
-    &_title * {
+    &_title h1 {
         font-size: 2.5rem;
         letter-spacing: 0.5rem;
     }
@@ -144,12 +144,6 @@ export default {
             }
         }
     }
-    &_subText {
-        & p {
-            padding-left: 16px;
-            font-size: 1.2rem;
-        }
-    }
 }
 }
 
@@ -159,7 +153,7 @@ export default {
     &_wrapper {
         padding: 23px;
     }
-    &_title * {
+    &_title h1 {
         font-size: 3rem;
         letter-spacing: 0.5rem;
     }
@@ -169,12 +163,6 @@ export default {
             & p {
                 font-size: 1.5rem;
             }
-        }
-    }
-    &_subText {
-        &  p {
-            padding-left: 20px;
-            font-size: 1.8rem;
         }
     }
 }

@@ -16943,6 +16943,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     isLogin: function isLogin() {
@@ -18445,7 +18458,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar[data-v-6dde423b] {\n  background: #738e99;\n  padding-bottom: 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px;\n}\n.navbar_title *[data-v-6dde423b] {\n  font-size: 1.8rem;\n  color: #333;\n}\n.navbar_user-logged[data-v-6dde423b] {\n  cursor: default;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login[data-v-6dde423b] {\n  text-decoration: underline;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #333;\n}\n.navbar_subText[data-v-6dde423b] {\n  padding-left: 8px;\n}\n.postQuestionButton[data-v-6dde423b] {\n  text-align: center;\n  font-size: 1rem !important;\n  position: relative;\n  font-weight: bold;\n  padding: 0.25em 0;\n  text-decoration: none;\n  color: #fff;\n  cursor: pointer;\n}\n.postQuestionButton[data-v-6dde423b]:before {\n  position: absolute;\n  content: \"\";\n  width: 4rem;\n  height: 4px;\n  top: 90%;\n  left: 50%;\n  transform: translateX(-50%);\n  border-radius: 3px;\n  background: #fff;\n  transition: 0.2s;\n}\n.postQuestionButton[data-v-6dde423b]:hover:before {\n  top: calc(90% - 3px);\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 24px;\n}\n.navbar_title *[data-v-6dde423b] {\n    font-size: 2.5rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.2rem;\n}\n.navbar_subText p[data-v-6dde423b] {\n    padding-left: 16px;\n    font-size: 1.2rem;\n}\n}\n@media screen and (min-width: 897px) {\n.navbar[data-v-6dde423b] {\n    padding: 0 80px 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 23px;\n}\n.navbar_title *[data-v-6dde423b] {\n    font-size: 3rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.5rem;\n}\n.navbar_subText p[data-v-6dde423b] {\n    padding-left: 20px;\n    font-size: 1.8rem;\n}\n}", ""]);
+exports.push([module.i, ".content_flex[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.navbar[data-v-6dde423b] {\n  background: #738e99;\n  padding-bottom: 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-between;\n  padding: 8px 8px 16px;\n}\n.navbar_title h1[data-v-6dde423b] {\n  font-size: 1.8rem;\n  color: #333;\n}\n.navbar_user-logged[data-v-6dde423b] {\n  cursor: default;\n}\n.navbar_user-logged p[data-v-6dde423b] {\n  font-size: 1.4rem;\n  margin-right: 8px;\n}\n.navbar_user-login[data-v-6dde423b] {\n  text-decoration: underline;\n}\n.navbar_user-login p[data-v-6dde423b] {\n  color: #333;\n}\n.tag[data-v-6dde423b] {\n  display: flex;\n  justify-content: space-around;\n  flex-wrap: wrap;\n}\n.tag_postQuestion[data-v-6dde423b], .tag_operationDirective[data-v-6dde423b] {\n  color: #333;\n  background: #fff;\n  border: 1px solid #333;\n  border-radius: 8px;\n  padding: 4px;\n}\n.tag_search-area[data-v-6dde423b] {\n  transform: translateY(0.5rem);\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 24px;\n}\n.navbar_title h1[data-v-6dde423b] {\n    font-size: 2.5rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.2rem;\n}\n}\n@media screen and (min-width: 897px) {\n.navbar[data-v-6dde423b] {\n    padding: 0 80px 16px;\n}\n.navbar_wrapper[data-v-6dde423b] {\n    padding: 23px;\n}\n.navbar_title h1[data-v-6dde423b] {\n    font-size: 3rem;\n    letter-spacing: 0.5rem;\n}\n.navbar_user-logged p[data-v-6dde423b], .navbar_user-login p[data-v-6dde423b] {\n    font-size: 1.5rem;\n}\n}", ""]);
 
 // exports
 
@@ -21465,7 +21478,7 @@ var render = function() {
           { staticClass: "navbar_title content_flex", attrs: { to: "/" } },
           [
             _c("div", { staticClass: "navbar_title-name" }, [
-              _c("h1", [_vm._v("子育て掲示板")])
+              _c("h1", [_vm._v("生産管理アプリ")])
             ])
           ]
         ),
@@ -21492,17 +21505,8 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("p", [_vm._v(_vm._s(_vm.username))])
-            ]),
-            _vm._v(" "),
-            this.$route.path !== "/questionForm"
-              ? _c("router-link", { attrs: { to: "/questionForm" } }, [
-                  _c("p", { staticClass: "postQuestionButton" }, [
-                    _vm._v("投稿する")
-                  ])
-                ])
-              : _vm._e()
-          ],
-          1
+            ])
+          ]
         ),
         _vm._v(" "),
         _c(
@@ -21531,19 +21535,48 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _vm._m(0)
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isLogin,
+            expression: "isLogin"
+          }
+        ],
+        staticClass: "tag"
+      },
+      [
+        this.$route.path !== "/questionForm"
+          ? _c("router-link", { attrs: { to: "/questionForm" } }, [
+              _c("p", { staticClass: "tag_postQuestion" }, [_vm._v("記録する")])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        this.$route.path !== "/photoList"
+          ? _c("router-link", { attrs: { to: "/photoList" } }, [
+              _c("p", { staticClass: "tag_operationDirective" }, [
+                _vm._v("作業指示書")
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        this.$route.path === "/"
+          ? _c("div", { staticClass: "tag_search" }, [
+              _c("input", {
+                staticClass: "tag_search-area",
+                attrs: { type: "text" }
+              })
+            ])
+          : _vm._e()
+      ],
+      1
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "navbar_subText" }, [
-      _c("p", [_vm._v("子育てに悩んだら皆に質問してみよう")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
