@@ -17,7 +17,7 @@ export default {
       type: String,
       required: true
     }
-  },”
+  },
   data () {
     return {
       photo: null

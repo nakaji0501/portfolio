@@ -17583,9 +17583,104 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/PhotoDetail.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/takumi/qa/src/qa/resources/js/pages/PhotoDetail.vue: Unexpected character '”' (20:4)\n\n\u001b[0m \u001b[90m 18 | \u001b[39m      required\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 19 | \u001b[39m    }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 | \u001b[39m  }\u001b[33m,\u001b[39m”\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 | \u001b[39m  data () {\u001b[0m\n\u001b[0m \u001b[90m 22 | \u001b[39m    \u001b[36mreturn\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 23 | \u001b[39m      photo\u001b[33m:\u001b[39m \u001b[36mnull\u001b[39m\u001b[0m\n    at Parser._raise (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:748:17)\n    at Parser.raiseWithData (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:741:17)\n    at Parser.raise (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:735:17)\n    at Parser.getTokenFromCode (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:8428:16)\n    at Parser.nextToken (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:7894:12)\n    at Parser.next (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:7819:10)\n    at Parser.eat (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:7824:12)\n    at Parser.expect (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9087:10)\n    at Parser.parseObjectLike (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10923:14)\n    at Parser.parseExprAtom (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10491:23)\n    at Parser.parseExprSubscripts (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10150:23)\n    at Parser.parseUpdate (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10130:21)\n    at Parser.parseMaybeUnary (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:10119:17)\n    at Parser.parseExprOps (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9989:23)\n    at Parser.parseMaybeConditional (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9963:23)\n    at Parser.parseMaybeAssign (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9926:21)\n    at /Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9893:39\n    at Parser.allowInAnd (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11541:16)\n    at Parser.parseMaybeAssignAllowIn (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:9893:17)\n    at Parser.parseExportDefaultExpression (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:12888:24)\n    at Parser.parseExport (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:12798:31)\n    at Parser.parseStatementContent (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11782:27)\n    at Parser.parseStatement (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11676:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:12258:25)\n    at Parser.parseBlockBody (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:12244:10)\n    at Parser.parseTopLevel (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:11607:10)\n    at Parser.parse (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:13418:10)\n    at parse (/Users/takumi/qa/src/qa/node_modules/@babel/parser/lib/index.js:13471:38)\n    at parser (/Users/takumi/qa/src/qa/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/takumi/qa/src/qa/node_modules/@babel/core/lib/transformation/normalize-file.js:99:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/takumi/qa/src/qa/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/Users/takumi/qa/src/qa/node_modules/@babel/core/lib/transform.js:27:41)\n    at transform.next (<anonymous>)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    id: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      photo: null
+    };
+  },
+  methods: {
+    fetchPhoto: function fetchPhoto() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/api/photos/".concat(_this.id));
+
+              case 2:
+                response = _context.sent;
+
+                if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
+                  _context.next = 6;
+                  break;
+                }
+
+                _this.$store.commit('error/setCode', response.status);
+
+                return _context.abrupt("return", false);
+
+              case 6:
+                _this.photo = response.data;
+
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  },
+  watch: {
+    $route: {
+      handler: function handler() {
+        var _this2 = this;
+
+        return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  _context2.next = 2;
+                  return _this2.fetchPhoto();
+
+                case 2:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2);
+        }))();
+      },
+      immediate: true
+    }
+  }
+});
 
 /***/ }),
 
