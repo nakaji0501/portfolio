@@ -52,25 +52,13 @@
         />
     </div><!-- /pagination -->
 
-    <div class="postButton">
-
-        <div class="questionPostButton">
-            <router-link
-            to="/questionForm"
-            >
-            <PostButton />
-            </router-link>
-        </div><!-- /questions-postButton -->
-
-        <div class="photoPostButton">
-            <button class="button" @click="showPhotoForm = ! showPhotoForm">
-                写真保存
-            </button>
-            <PhotoForm class="photoForm"
-            v-model="showPhotoForm"
-            />
-        </div>
-    </div>
+    <div class="questionPostButton">
+        <router-link
+        to="/questionForm"
+        >
+        <PostButton />
+        </router-link>
+    </div><!-- /questions-postButton -->
 
     <ConfirmModal class="confirmModal"
     v-if="showModal"
@@ -118,7 +106,6 @@ export default {
             lastPage: 0,
             showModal: false,
             deleteTargetID: null,
-            showPhotoForm: false,
         }
     },
     computed: {
@@ -248,26 +235,6 @@ export default {
             background: #ad9f8a;
             color: #fff;
         }
-    }
-}
-.photoForm {
-    position: fixed;
-    top: 10%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    z-index: 50;
-    &::before {
-        content: '';
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        position: absolute;
-        z-index: -50;
-        transform: translateY(-10%);
     }
 }
 @media screen and (max-width: 896px) and (min-width: 481px) {

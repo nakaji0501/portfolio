@@ -102,7 +102,7 @@ export default {
         },
         cancelPostPhoto() {
             this.reset()
-            this.$router.push('/PhotoList')
+            this.$emit('showPhotoForm', false)
         }
     }
 }
