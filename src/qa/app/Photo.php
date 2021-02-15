@@ -13,7 +13,7 @@ class Photo extends Model
 
     /** JSONに含める属性 */
     protected $visible = [
-        'id', 'owner', 'url',
+        'id', 'owner', 'url', 'created_at'
     ];
 
     /** JSONに含める属性 */

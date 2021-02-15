@@ -2,13 +2,9 @@
   <div v-if="photo" class="photo-detail">
     <figure class="photo-detail__pane photo-detail__image">
       <img :src="photo.url" alt="">
-      <figcaption>Posted by {{ photo.owner.name }}</figcaption>
+      <figcaption>投稿者： {{ photo.owner.name }}</figcaption>
+      <figcaption>投稿日： {{ photo.created_at }}</figcaption>
     </figure>
-    <div class="photo-detail__pane">
-      <button class="button button--like" title="Like photo">
-        <i class="icon ion-md-heart"></i>12
-      </button>
-    </div>
   </div>
 </template>
 
@@ -21,7 +17,7 @@ export default {
       type: String,
       required: true
     }
-  },
+  },”
   data () {
     return {
       photo: null
