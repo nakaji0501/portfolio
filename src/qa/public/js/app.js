@@ -17095,6 +17095,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -17187,6 +17194,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    cancelPostPhoto: function cancelPostPhoto() {
+      this.reset();
+      this.$router.push('/PhotoList');
     }
   }
 });
@@ -18541,7 +18552,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".postPhoto h3[data-v-516c053b] {\n  margin-bottom: 24px;\n}\n.postPhoto_form-item[data-v-516c053b] {\n  margin-bottom: 24px;\n}\n.postPhoto_form button[data-v-516c053b] {\n  font-size: 1.2rem;\n}\nimg[data-v-516c053b] {\n  width: 80%;\n  height: 300px;\n}", ""]);
+exports.push([module.i, ".postPhoto h3[data-v-516c053b] {\n  margin-bottom: 24px;\n}\n.postPhoto_form-item[data-v-516c053b] {\n  margin-bottom: 24px;\n}\n.postPhoto_form button[data-v-516c053b] {\n  font-size: 1.2rem;\n}\nimg[data-v-516c053b] {\n  width: 80%;\n  height: 300px;\n}\n.postPhoto_selectButton[data-v-516c053b] {\n  display: flex;\n  justify-content: space-around;\n}", ""]);
 
 // exports
 
@@ -21872,7 +21883,21 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm._m(0)
+          _c("div", { staticClass: "postPhoto_selectButton" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "postPhoto_form-button" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "button",
+                  attrs: { type: "submit" },
+                  on: { click: _vm.cancelPostPhoto }
+                },
+                [_vm._v("取り消し")]
+              )
+            ])
+          ])
         ]
       )
     ]

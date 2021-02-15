@@ -18,8 +18,15 @@
                 <img :src="preview" alt="">
             </output>
 
-            <div class="postPhoto_form-button">
-                <button type="submit" class="button">送信</button>
+            <div class="postPhoto_selectButton">
+                <div class="postPhoto_form-button">
+                    <button type="submit" class="button">送信</button>
+                </div>
+
+                <div class="postPhoto_form-button">
+                    <button type="submit" class="button"
+                    @click="cancelPostPhoto">取り消し</button>
+                </div>
             </div>
         </form>
     </div>
@@ -92,6 +99,10 @@ export default {
             }
 
             this.$router.push(`/photos/${response.data.id}`)
+        },
+        cancelPostPhoto() {
+            this.reset()
+            this.$router.push('/PhotoList')
         }
     }
 }
@@ -114,5 +125,9 @@ export default {
 img {
     width: 80%;
     height: 300px;
+}
+.postPhoto_selectButton {
+    display: flex;
+    justify-content: space-around;
 }
 </style>
