@@ -17213,6 +17213,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_PhotoForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/PhotoForm */ "./resources/js/components/PhotoForm.vue");
 //
 //
 //
@@ -17246,7 +17247,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    PhotoForm: _components_PhotoForm__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    showPhotoForm: false
+  },
   computed: {
     isLogin: function isLogin() {
       return this.$store.getters['auth/check'];
@@ -18602,7 +18620,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".tag[data-v-8d320b02] {\n  display: flex;\n  justify-content: space-around;\n  flex-wrap: wrap;\n}\n.tag_postQuestion[data-v-8d320b02], .tag_operationDirective[data-v-8d320b02], .tag_backTop[data-v-8d320b02] {\n  color: #333;\n  background: #fff;\n  border: 1px solid #333;\n  border-radius: 8px;\n  padding: 4px;\n}\n.tag_search-area[data-v-8d320b02] {\n  transform: translateY(0.5rem);\n}", ""]);
+exports.push([module.i, ".tag[data-v-8d320b02] {\n  display: flex;\n  justify-content: space-around;\n  flex-wrap: wrap;\n}\n.tag_postQuestion[data-v-8d320b02], .tag_operationDirective[data-v-8d320b02], .tag_backTop[data-v-8d320b02], .tag_showPhotoForm[data-v-8d320b02] {\n  color: #333;\n  background: #fff;\n  border: 1px solid #333;\n  border-radius: 8px;\n  padding: 4px;\n}\n.tag_search-area[data-v-8d320b02] {\n  transform: translateY(0.5rem);\n}\n.photoPostButton[data-v-8d320b02] {\n  text-align: center;\n  margin: 40px 0;\n}\n.photoPostButton button[data-v-8d320b02] {\n  font-size: 1.2rem;\n  display: inline-block;\n  padding: 0.3em 1em;\n  text-decoration: none;\n  color: #ad9f8a;\n  border: solid 2px #ad9f8a;\n  border-radius: 3px;\n  transition: 0.4s;\n  cursor: pointer;\n}\n.photoPostButton button[data-v-8d320b02]:hover {\n  background: #ad9f8a;\n  color: #fff;\n}\n.photoForm[data-v-8d320b02] {\n  position: fixed;\n  top: 10%;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  z-index: 50;\n}\n.photoForm[data-v-8d320b02]::before {\n  content: \"\";\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: #fff;\n  position: absolute;\n  z-index: -50;\n  transform: translateY(-10%);\n}", ""]);
 
 // exports
 
@@ -22003,6 +22021,37 @@ var render = function() {
         ? _c("router-link", { attrs: { to: "/questionForm" } }, [
             _c("p", { staticClass: "tag_postQuestion" }, [_vm._v("記録する")])
           ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass: "tag_showPhotoForm",
+          on: {
+            click: function($event) {
+              _vm.showPhotoForm = !_vm.showPhotoForm
+            }
+          }
+        },
+        [_vm._v("\n        写真保存\n        ")]
+      ),
+      _vm._v(" "),
+      _vm.showPhotoForm
+        ? _c("PhotoForm", {
+            staticClass: "photoForm",
+            on: {
+              showPhotoForm: function($event) {
+                _vm.showPhotoForm = $event
+              }
+            },
+            model: {
+              value: _vm.showPhotoForm,
+              callback: function($$v) {
+                _vm.showPhotoForm = $$v
+              },
+              expression: "showPhotoForm"
+            }
+          })
         : _vm._e(),
       _vm._v(" "),
       this.$route.path !== "/photoList"
