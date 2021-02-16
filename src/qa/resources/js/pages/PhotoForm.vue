@@ -1,5 +1,5 @@
 <template>
-    <div class="postPhoto" v-show="value">
+    <div class="postPhoto">
         <h3>投稿する写真を選んでください</h3>
         <form class="postPhoto_form" @submit.prevent="submit">
 
@@ -18,15 +18,8 @@
                 <img :src="preview" alt="">
             </output>
 
-            <div class="postPhoto_selectButton">
-                <div class="postPhoto_form-button">
-                    <button type="submit" class="button">送信</button>
-                </div>
-
-                <div class="postPhoto_form-button">
-                    <button type="submit" class="button"
-                    @click="cancelPostPhoto">取り消し</button>
-                </div>
+            <div class="postPhoto_form-button">
+                <button type="submit" class="button">送信</button>
             </div>
         </form>
     </div>
@@ -36,12 +29,6 @@
 import { CREATED, UNPROCESSABLE_ENTITY } from '../util'
 
 export default {
-    props: {
-        value: {
-            type: Boolean,
-            required: true
-        }
-    },
     data() {
         return {
             preview: null,
@@ -100,16 +87,14 @@ export default {
 
             this.$router.push(`/photos/${response.data.id}`)
         },
-        cancelPostPhoto() {
-            this.reset()
-            this.$emit('showPhotoForm', false)
-        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
 .postPhoto {
+    margin: 64px 0 120px;
+    text-align: center;
     & h3 {
         margin-bottom: 24px;
     }
@@ -125,9 +110,5 @@ export default {
 img {
     width: 80%;
     height: 300px;
-}
-.postPhoto_selectButton {
-    display: flex;
-    justify-content: space-around;
 }
 </style>

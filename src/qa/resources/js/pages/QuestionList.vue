@@ -83,14 +83,12 @@ import { INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from '../util'
 import Pagination from '../components/Pagination'
 import PostButton from '../components/PostButton'
 import ConfirmModal from '../components/ConfirmModal'
-import PhotoForm from '../components/PhotoForm'
 
 export default {
     components: {
         PostButton,
         Pagination,
         ConfirmModal,
-        PhotoForm,
     },
     props: {
         page: {
