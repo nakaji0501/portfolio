@@ -10,7 +10,7 @@
     </router-link>
     </div>
 
-    <figure class="photo-detail__pane photo-detail__image">
+    <figure class="photo-detail_pane photo-detail__image">
       <img :src="photo.url" alt="">
       <figcaption>投稿者： {{ photo.owner.name }}</figcaption>
       <figcaption>投稿日： {{ photo.created_at }}</figcaption>
@@ -56,3 +56,27 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.backPage {
+  margin-left: 8px;
+  width: 4rem;
+  &_route {
+    display: flex;
+    & p {
+      cursor: pointer;
+      color: #333;
+    }
+  }
+}
+.photo-detail {
+  margin: 16px 0 24px;
+  &_pane {
+    text-align: center;
+  }
+  & img {
+    width: 90%;
+    margin: 24px 0 40px;
+  }
+}
+</style>
