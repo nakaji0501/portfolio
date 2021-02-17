@@ -17441,6 +17441,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -17674,15 +17684,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -22382,6 +22383,31 @@ var render = function() {
   return _vm.photo
     ? _c("div", { staticClass: "photo-detail" }, [
         _c(
+          "div",
+          { staticClass: "backPage" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "backPage_route", attrs: { to: "/PhotoList" } },
+              [
+                _c(
+                  "p",
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["fas", "arrow-left"] }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("p", [_vm._v("戻る")])
+              ]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
           "figure",
           { staticClass: "photo-detail__pane photo-detail__image" },
           [
@@ -22507,31 +22533,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "photo-list" }, [
-    _c(
-      "div",
-      { staticClass: "backPage" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "backPage_route", attrs: { to: "/PhotoList" } },
-          [
-            _c(
-              "p",
-              [
-                _c("font-awesome-icon", {
-                  attrs: { icon: ["fas", "arrow-left"] }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("p", [_vm._v("戻る")])
-          ]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "grid" },

@@ -1,5 +1,15 @@
 <template>
   <div v-if="photo" class="photo-detail">
+
+    <div class="backPage">
+    <router-link class="backPage_route"
+    to="/PhotoList"
+    >
+    <p><font-awesome-icon :icon="['fas', 'arrow-left']" /></p>
+    <p>戻る</p>
+    </router-link>
+    </div>
+
     <figure class="photo-detail__pane photo-detail__image">
       <img :src="photo.url" alt="">
       <figcaption>投稿者： {{ photo.owner.name }}</figcaption>
