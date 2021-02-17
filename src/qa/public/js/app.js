@@ -18614,7 +18614,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".backPage_route[data-v-401edab7] {\n  display: flex;\n}\n.photo-list[data-v-401edab7] {\n  width: 100%;\n}\n.grid[data-v-401edab7] {\n  display: flex;\n  flex-wrap: wrap;\n}", ""]);
+exports.push([module.i, ".backPage_route[data-v-401edab7] {\n  display: flex;\n}\n.backPage_route p[data-v-401edab7] {\n  cursor: pointer;\n  color: #333;\n}\n.photo-list[data-v-401edab7] {\n  width: 100%;\n  padding: 8px;\n}\n.grid[data-v-401edab7] {\n  display: flex;\n  flex-wrap: wrap;\n  flex-basis: 33%;\n  justify-content: space-evenly;\n  margin: 24px 0 40px;\n}\n.grid_item[data-v-401edab7] {\n  margin-bottom: 16px;\n}", ""]);
 
 // exports
 

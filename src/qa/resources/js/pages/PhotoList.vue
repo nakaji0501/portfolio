@@ -68,12 +68,23 @@ export default {
 <style lang="scss" scoped>
 .backPage_route {
   display: flex;
+  & p {
+    cursor: pointer;
+    color: #333;
+  }
 }
 .photo-list {
   width: 100%;
+  padding: 8px;
 }
 .grid {
   display: flex;
   flex-wrap: wrap;
+  flex-basis: 33%;
+  justify-content: space-evenly;
+  margin: 24px 0 40px;
+  &_item {
+    margin-bottom: 16px;
+  }
 }
 </style>
