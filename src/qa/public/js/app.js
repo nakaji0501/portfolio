@@ -17469,9 +17469,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 response = _context.sent;
+                console.log(response);
 
                 if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
-                  _context.next = 6;
+                  _context.next = 7;
                   break;
                 }
 
@@ -17479,10 +17480,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 return _context.abrupt("return", false);
 
-              case 6:
+              case 7:
                 _this.photo = response.data;
 
-              case 7:
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -17629,10 +17630,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 10:
                 _this2.reset();
 
-                _this2.$emit('input', false);
-
                 if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["CREATED"])) {
-                  _context.next = 15;
+                  _context.next = 14;
                   break;
                 }
 
@@ -17640,10 +17639,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 return _context.abrupt("return", false);
 
-              case 15:
+              case 14:
                 _this2.$router.push("/photos/".concat(response.data.id));
 
-              case 16:
+              case 15:
               case "end":
                 return _context.stop();
             }
@@ -17675,6 +17674,15 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -18606,7 +18614,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".photo-list[data-v-401edab7] {\n  width: 100%;\n}\n.grid[data-v-401edab7] {\n  display: flex;\n  flex-wrap: wrap;\n}", ""]);
+exports.push([module.i, ".backPage_route[data-v-401edab7] {\n  display: flex;\n}\n.photo-list[data-v-401edab7] {\n  width: 100%;\n}\n.grid[data-v-401edab7] {\n  display: flex;\n  flex-wrap: wrap;\n}", ""]);
 
 // exports
 
@@ -22499,6 +22507,31 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "photo-list" }, [
+    _c(
+      "div",
+      { staticClass: "backPage" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "backPage_route", attrs: { to: "/PhotoList" } },
+          [
+            _c(
+              "p",
+              [
+                _c("font-awesome-icon", {
+                  attrs: { icon: ["fas", "arrow-left"] }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("p", [_vm._v("戻る")])
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "grid" },

@@ -1,6 +1,15 @@
 <template>
   <div class="photo-list">
 
+    <div class="backPage">
+    <router-link class="backPage_route"
+    to="/PhotoList"
+    >
+    <p><font-awesome-icon :icon="['fas', 'arrow-left']" /></p>
+    <p>戻る</p>
+    </router-link>
+    </div>
+
     <div class="grid">
 
     <Photo
@@ -57,6 +66,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.backPage_route {
+  display: flex;
+}
 .photo-list {
   width: 100%;
 }
