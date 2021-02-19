@@ -1,7 +1,8 @@
 <template>
   <div class="photo-list">
 
-    <div class="grid">
+    <div class="grid"
+    v-if="photos.length">
 
     <Photo
     class="grid_item"
@@ -9,6 +10,11 @@
     :key="photo.id"
     :item="photo"
     />
+    </div>
+
+    <div
+    v-else>
+      <p>写真がありません。</p>
     </div>
 
   </div>

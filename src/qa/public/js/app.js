@@ -17700,6 +17700,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -22576,18 +22582,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "photo-list" }, [
-    _c(
-      "div",
-      { staticClass: "grid" },
-      _vm._l(_vm.photos, function(photo) {
-        return _c("Photo", {
-          key: photo.id,
-          staticClass: "grid_item",
-          attrs: { item: photo }
-        })
-      }),
-      1
-    )
+    _vm.photos.length
+      ? _c(
+          "div",
+          { staticClass: "grid" },
+          _vm._l(_vm.photos, function(photo) {
+            return _c("Photo", {
+              key: photo.id,
+              staticClass: "grid_item",
+              attrs: { item: photo }
+            })
+          }),
+          1
+        )
+      : _c("div", [_c("p", [_vm._v("写真がありません。")])])
   ])
 }
 var staticRenderFns = []
