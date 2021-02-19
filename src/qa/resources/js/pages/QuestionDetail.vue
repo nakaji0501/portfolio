@@ -2,6 +2,15 @@
     <div class="QuestionDetail">
         <div class="QuestionDetail_wrapper">
 
+            <div class="backPage">
+            <router-link class="backPage_route"
+            to="/"
+            >
+            <p><font-awesome-icon :icon="['fas', 'arrow-left']" /></p>
+            <p>戻る</p>
+            </router-link>
+            </div>
+
             <div class="QuestionDetail_id">
                 <label for="id">No.</label>
                 <input type="text" readonly id='id'
@@ -122,6 +131,18 @@ export default {
 
 
 <style lang="scss" scoped>
+.backPage {
+  margin-left: 4px;
+  width: 4rem;
+  margin-bottom: 16px;
+  &_route {
+    display: flex;
+    & p {
+      cursor: pointer;
+      color: #333;
+    }
+  }
+}
 input,
 textarea {
     border: none;
