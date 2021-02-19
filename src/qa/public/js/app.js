@@ -16811,8 +16811,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Tag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tag */ "./resources/js/components/Tag.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -16847,19 +16846,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    Tag: _Tag__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
     apiStatus: function apiStatus(state) {
       return state.auth.apiStatus;
     }
-  })), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+  })), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     isLogin: 'auth/check'
   })),
   methods: {
@@ -21566,55 +21559,48 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "footer",
-    { staticClass: "footer" },
-    [
-      _c("Tag", { staticClass: "tag" }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "button" },
-        [
-          _c(
-            "button",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.isLogin,
-                  expression: "isLogin"
-                }
-              ],
-              staticClass: "button-logout",
-              on: { click: _vm.logout }
-            },
-            [_vm._v("\n        Logout\n        ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: !_vm.isLogin,
-                  expression: "! isLogin"
-                }
-              ],
-              staticClass: "button-login",
-              attrs: { to: "/login" }
-            },
-            [_vm._v("\n        ログイン / 会員登録\n        ")]
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
+  return _c("footer", { staticClass: "footer" }, [
+    _c(
+      "div",
+      { staticClass: "button" },
+      [
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.isLogin,
+                expression: "isLogin"
+              }
+            ],
+            staticClass: "button-logout",
+            on: { click: _vm.logout }
+          },
+          [_vm._v("\n        Logout\n        ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.isLogin,
+                expression: "! isLogin"
+              }
+            ],
+            staticClass: "button-login",
+            attrs: { to: "/login" }
+          },
+          [_vm._v("\n        ログイン / 会員登録\n        ")]
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

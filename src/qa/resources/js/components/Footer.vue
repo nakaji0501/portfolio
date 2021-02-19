@@ -1,8 +1,6 @@
 <template>
     <footer class="footer">
 
-        <Tag class="tag" />
-
         <div class="button">
 
             <button class="button-logout"
@@ -23,13 +21,9 @@
 </template>
 
 <script>
-import Tag from './Tag'
 import { mapState, mapGetters } from 'vuex'
 
 export default {
-    components: {
-        Tag,
-    },
     computed: {
         ...mapState({
             apiStatus: state => state.auth.apiStatus
