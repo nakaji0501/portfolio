@@ -17087,11 +17087,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     isLogin: function isLogin() {
@@ -21928,15 +21923,6 @@ var render = function() {
             _c("p", { staticClass: "tag_operationDirective" }, [
               _vm._v("作業指示書")
             ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      this.$route.path === "/"
-        ? _c("div", { staticClass: "tag_search" }, [
-            _c("input", {
-              staticClass: "tag_search-area",
-              attrs: { type: "text" }
-            })
           ])
         : _vm._e()
     ],

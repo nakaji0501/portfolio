@@ -30,11 +30,6 @@
             <p class="tag_operationDirective">作業指示書</p>
             </router-link>
 
-            <div class="tag_search"
-            v-if="this.$route.path === '/'"
-            >
-                <input type="text" class="tag_search-area">
-            </div>
         </div><!-- /tag -->
 </template>
 
