@@ -84,7 +84,7 @@ export default {
                 return false
             }
 
-            this.$router.push(`/photos/${response.data.id}`)
+            this.$router.push(`/photoList`)
         },
     }
 }

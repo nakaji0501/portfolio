@@ -17638,7 +17638,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("return", false);
 
               case 14:
-                _this2.$router.push("/photos/".concat(response.data.id));
+                _this2.$router.push("/photoList");
 
               case 15:
               case "end":
