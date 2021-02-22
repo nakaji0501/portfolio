@@ -5,8 +5,11 @@
         <div class="questions_view-switch"
         v-if="questions.length"
         >
+
+            <input v-model="keyword" placeholder="Search...">
+
             <div class="questions_list"
-            v-for="question in questions"
+            v-for="question in filteredQuestions"
             :key="question.id"
             >
                 <div class="questions_item"
@@ -104,6 +107,7 @@ export default {
             lastPage: 0,
             showModal: false,
             deleteTargetID: null,
+            keyword: '',
         }
     },
     computed: {
@@ -113,6 +117,9 @@ export default {
         userId() {
             return this.$store.getters['auth/userId']
         },
+        filteredQuestions() {
+            return this.filterQuestions();
+        }
     },
     methods: {
         async fetchQuestions() {
@@ -157,6 +164,17 @@ export default {
             this.showModal = false;
             this.targetID = null;
         },
+        filterQuestions() {
+            const filtered = [];
+            console.log(filtered);
+            for (const i in this.questions) {
+                const question = this.questions[i];
+                if (question.title.indexOf(this.keyword) !== -1) {
+                    filtered.push(question);
+                }
+            }
+            return filtered
+        }
     },
     watch: {
         $route: {

@@ -18224,6 +18224,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 
@@ -18247,7 +18250,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       currentPage: 0,
       lastPage: 0,
       showModal: false,
-      deleteTargetID: null
+      deleteTargetID: null,
+      keyword: ''
     };
   },
   computed: {
@@ -18256,6 +18260,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     userId: function userId() {
       return this.$store.getters['auth/userId'];
+    },
+    filteredQuestions: function filteredQuestions() {
+      return this.filterQuestions();
     }
   },
   methods: {
@@ -18367,6 +18374,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     closeModal: function closeModal() {
       this.showModal = false;
       this.targetID = null;
+    },
+    filterQuestions: function filterQuestions() {
+      var filtered = [];
+      console.log(filtered);
+
+      for (var i in this.questions) {
+        var question = this.questions[i];
+
+        if (question.title.indexOf(this.keyword) !== -1) {
+          filtered.push(question);
+        }
+      }
+
+      return filtered;
     }
   },
   watch: {
@@ -22950,94 +22971,117 @@ var render = function() {
           ? _c(
               "div",
               { staticClass: "questions_view-switch" },
-              _vm._l(_vm.questions, function(question) {
-                return _c(
-                  "div",
-                  { key: question.id, staticClass: "questions_list" },
-                  [
-                    _c("div", { staticClass: "questions_item" }, [
-                      _c(
-                        "h3",
-                        {
-                          staticClass: "title",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.moveDetailPage(question.id)
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.keyword,
+                      expression: "keyword"
+                    }
+                  ],
+                  attrs: { placeholder: "Search..." },
+                  domProps: { value: _vm.keyword },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.keyword = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm._l(_vm.filteredQuestions, function(question) {
+                  return _c(
+                    "div",
+                    { key: question.id, staticClass: "questions_list" },
+                    [
+                      _c("div", { staticClass: "questions_item" }, [
+                        _c(
+                          "h3",
+                          {
+                            staticClass: "title",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.moveDetailPage(question.id)
+                              }
                             }
-                          }
-                        },
-                        [
-                          _vm._v("\n                    題名："),
-                          _c("span", [_vm._v(_vm._s(question.title))])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          staticClass: "mainText",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.moveDetailPage(question.id)
+                          },
+                          [
+                            _vm._v("\n                    題名："),
+                            _c("span", [_vm._v(_vm._s(question.title))])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass: "mainText",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.moveDetailPage(question.id)
+                              }
                             }
-                          }
-                        },
-                        [
-                          _vm._v("\n                    本文："),
-                          _c("span", [_vm._v(_vm._s(question.message))])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "fs-08" }, [
-                        _vm._v("投稿者：" + _vm._s(question.user.name))
+                          },
+                          [
+                            _vm._v("\n                    本文："),
+                            _c("span", [_vm._v(_vm._s(question.message))])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "fs-08" }, [
+                          _vm._v("投稿者：" + _vm._s(question.user.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "fs-08" }, [
+                          _vm._v("投稿日：" + _vm._s(question.created_at))
+                        ])
                       ]),
                       _vm._v(" "),
-                      _c("p", { staticClass: "fs-08" }, [
-                        _vm._v("投稿日：" + _vm._s(question.created_at))
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.isLogin,
-                            expression: "isLogin"
-                          }
-                        ],
-                        staticClass: "questions_delete"
-                      },
-                      [
-                        question.user.id == _vm.userId
-                          ? _c(
-                              "button",
-                              {
-                                staticClass: "button",
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.deleteConfirm(question.id)
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.isLogin,
+                              expression: "isLogin"
+                            }
+                          ],
+                          staticClass: "questions_delete"
+                        },
+                        [
+                          question.user.id == _vm.userId
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "button",
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.deleteConfirm(question.id)
+                                    }
                                   }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                    削除\n                    "
-                                )
-                              ]
-                            )
-                          : _vm._e()
-                      ]
-                    )
-                  ]
-                )
-              }),
-              0
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    削除\n                    "
+                                  )
+                                ]
+                              )
+                            : _vm._e()
+                        ]
+                      )
+                    ]
+                  )
+                })
+              ],
+              2
             )
           : _c("div", { staticClass: "questions_view-switch" }, [
               _c("p", [_vm._v("投稿がありません。")])
