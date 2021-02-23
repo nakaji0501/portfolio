@@ -17566,26 +17566,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       preview: null,
       photo: null,
-      errors: null,
-      uploadFile: ""
+      errors: null
     };
   },
   methods: {
-    selectedFile: function selectedFile(e) {
+    onFileChange: function onFileChange(event) {
       var _this = this;
 
-      e.preventDefault();
-      this.uploadFile = e.target.files[0];
-      console.log(this.uploadFile);
+      event.preventDefault();
+
+      if (event.target.files.length === 0) {
+        this.reset();
+        return false;
+      }
+
+      if (!event.target.files[0].type.match('image.*')) {
+        this.reset();
+        return false;
+      }
+
       var reader = new FileReader();
 
       reader.onload = function (e) {
@@ -17602,23 +17607,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var config, formData, response;
+        var formData, config, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                formData = new FormData();
+                console.log(formData);
+
+                if (_this2.photo !== "") {
+                  formData.append('photo', _this2.photo);
+                  console.log(_this2.photo);
+                }
+
                 config = {
                   headers: {
                     "content-type": "multipart/form-data"
                   }
                 };
-                formData = new FormData();
-
-                if (_this2.uploadFile !== "") {
-                  formData.append("img", _this2.uploadFile);
-                }
-
-                formData.append('photo', _this2.photo);
                 _context.next = 6;
                 return axios.post('/api/photos', formData, config);
 
@@ -22544,13 +22550,9 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _c("input", {
-          attrs: {
-            type: "file",
-            accept: ".jpg, .jpeg, .gif, .png",
-            name: "img",
-            id: "imgSelectForm"
-          },
-          on: { change: _vm.selectedFile }
+          staticClass: "postPhoto_form-item",
+          attrs: { type: "file", name: "file" },
+          on: { change: _vm.onFileChange }
         }),
         _vm._v(" "),
         _vm.preview
