@@ -13,7 +13,13 @@
                 </ul>
             </div>
 
-            <input type="file" class="postPhoto_form-item" @change="onFileChange">
+        <input
+          type="file"
+          accept=".jpg, .jpeg, .gif, .png"
+          name="img"
+          @change="selectedFile"
+          id="imgSelectForm"
+        />
             <output class="postPhoto_form-output" v-if="preview">
                 <img :src="preview" alt="">
             </output>
@@ -34,19 +40,14 @@ export default {
             preview: null,
             photo: null,
             errors: null,
+            uploadFile: "",
         }
     },
     methods: {
-        onFileChange(event) {
-            if (event.target.files.length === 0) {
-                this.reset()
-                return false
-            }
-
-            if (! event.target.files[0].type.match('image.*')) {
-                this.reset()
-                return false
-            }
+        selectedFile(e) {
+            e.preventDefault();
+            this.uploadFile = e.target.files[0];
+            console.log(this.uploadFile);
 
             const reader = new FileReader()
 
@@ -66,9 +67,16 @@ export default {
         },
 
         async submit() {
+            const config = { headers: { "content-type": "multipart/form-data" } };
+
             const formData = new FormData()
+
+            if (this.uploadFile !== "") {
+                formData.append("img", this.uploadFile);
+            }
+
             formData.append('photo', this.photo)
-            const response = await axios.post('/api/photos', formData)
+            const response = await axios.post('/api/photos', formData, config)
             console.log(response)
 
             if (response.status === UNPROCESSABLE_ENTITY) {

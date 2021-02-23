@@ -17563,29 +17563,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       preview: null,
       photo: null,
-      errors: null
+      errors: null,
+      uploadFile: ""
     };
   },
   methods: {
-    onFileChange: function onFileChange(event) {
+    selectedFile: function selectedFile(e) {
       var _this = this;
 
-      if (event.target.files.length === 0) {
-        this.reset();
-        return false;
-      }
-
-      if (!event.target.files[0].type.match('image.*')) {
-        this.reset();
-        return false;
-      }
-
+      e.preventDefault();
+      this.uploadFile = e.target.files[0];
+      console.log(this.uploadFile);
       var reader = new FileReader();
 
       reader.onload = function (e) {
@@ -17602,22 +17602,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var formData, response;
+        var config, formData, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                config = {
+                  headers: {
+                    "content-type": "multipart/form-data"
+                  }
+                };
                 formData = new FormData();
-                formData.append('photo', _this2.photo);
-                _context.next = 4;
-                return axios.post('/api/photos', formData);
 
-              case 4:
+                if (_this2.uploadFile !== "") {
+                  formData.append("img", _this2.uploadFile);
+                }
+
+                formData.append('photo', _this2.photo);
+                _context.next = 6;
+                return axios.post('/api/photos', formData, config);
+
+              case 6:
                 response = _context.sent;
                 console.log(response);
 
                 if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"])) {
-                  _context.next = 10;
+                  _context.next = 12;
                   break;
                 }
 
@@ -17625,11 +17635,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 console.log(_this2.errors);
                 return _context.abrupt("return", false);
 
-              case 10:
+              case 12:
                 _this2.reset();
 
                 if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["CREATED"])) {
-                  _context.next = 14;
+                  _context.next = 16;
                   break;
                 }
 
@@ -17637,10 +17647,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 return _context.abrupt("return", false);
 
-              case 14:
+              case 16:
                 _this2.$router.push("/photoList");
 
-              case 15:
+              case 17:
               case "end":
                 return _context.stop();
             }
@@ -22534,9 +22544,13 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _c("input", {
-          staticClass: "postPhoto_form-item",
-          attrs: { type: "file" },
-          on: { change: _vm.onFileChange }
+          attrs: {
+            type: "file",
+            accept: ".jpg, .jpeg, .gif, .png",
+            name: "img",
+            id: "imgSelectForm"
+          },
+          on: { change: _vm.selectedFile }
         }),
         _vm._v(" "),
         _vm.preview
