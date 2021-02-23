@@ -27,7 +27,7 @@ class QuestionController extends Controller
     public function index()
     {
         $questions = Question::with(['user'])
-            ->orderBy('CREATED_AT', 'desc')->paginate(5);
+            ->orderBy('CREATED_AT', 'desc')->paginate(100);
 
         return $questions;
     }
