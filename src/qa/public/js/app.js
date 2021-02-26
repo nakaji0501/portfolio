@@ -17531,6 +17531,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -17573,14 +17574,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   data: function data() {
     return {
       preview: null,
       photo: null,
       errors: null,
-      photoTitle: ''
+      photoTitle: '',
+      posting: false,
+      postPhotoErrors: null
     };
   },
   methods: {
@@ -17620,6 +17646,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _this2.posting = true;
                 formData = new FormData();
                 console.log(formData);
 
@@ -17635,29 +17662,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     "content-type": "multipart/form-data"
                   }
                 };
-                _context.next = 6;
+                _context.next = 7;
                 return axios.post('/api/photos', formData, config, {
                   photo_title: _this2.photoTitle
+                })["catch"](function (err) {
+                  return err.response || err;
                 });
 
-              case 6:
+              case 7:
                 response = _context.sent;
                 console.log(response);
+                _this2.posting = false;
 
                 if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"])) {
-                  _context.next = 12;
+                  _context.next = 14;
                   break;
                 }
 
-                _this2.errors = response.data.errors;
-                console.log(_this2.errors);
+                _this2.postPhotoErrors = response.data.errors;
+                console.log(_this2.postPhotoErrors);
                 return _context.abrupt("return", false);
 
-              case 12:
+              case 14:
                 _this2.reset();
 
                 if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["CREATED"])) {
-                  _context.next = 16;
+                  _context.next = 18;
                   break;
                 }
 
@@ -17665,10 +17695,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 return _context.abrupt("return", false);
 
-              case 16:
-                _this2.$router.push("/photoList");
+              case 18:
+                _this2.postPhotoErrors = null, _this2.$router.push("/photoList");
 
-              case 17:
+              case 19:
               case "end":
                 return _context.stop();
             }
@@ -18686,7 +18716,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".postPhoto[data-v-0c25b3dd] {\n  margin: 64px 0 120px;\n  text-align: center;\n}\n.postPhoto h3[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form[data-v-0c25b3dd] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.postPhoto_form-titleText[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form-item[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form button[data-v-0c25b3dd] {\n  font-size: 1.2rem;\n}\nimg[data-v-0c25b3dd] {\n  width: 80%;\n  height: 300px;\n}", ""]);
+exports.push([module.i, ".postPhoto[data-v-0c25b3dd] {\n  margin: 64px 0 120px;\n  text-align: center;\n}\n.postPhoto h3[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form[data-v-0c25b3dd] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.postPhoto_form-titleText[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form-item[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form button[data-v-0c25b3dd] {\n  font-size: 1.2rem;\n}\nimg[data-v-0c25b3dd] {\n  width: 80%;\n  height: 300px;\n}\n.errors ul li[data-v-0c25b3dd] {\n  font-size: 1.2rem;\n  color: red;\n}", ""]);
 
 // exports
 
@@ -22552,82 +22582,130 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "postPhoto" }, [
-    _c("h3", [_vm._v("投稿する写真を選んでください")]),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        staticClass: "postPhoto_form",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.submit($event)
-          }
-        }
-      },
-      [
-        _vm.errors
-          ? _c("div", { staticClass: "errors" }, [
-              _vm.errors.photo
-                ? _c(
-                    "ul",
-                    _vm._l(_vm.errors.photo, function(msg) {
-                      return _c("li", { key: msg }, [
-                        _vm._v(
-                          "\n                " +
-                            _vm._s(msg) +
-                            "\n                "
-                        )
-                      ])
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c("p", { staticClass: "postPhoto_form-titleText" }, [
-          _vm._v("\n            タイトル：\n            "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.photoTitle,
-                expression: "photoTitle"
-              }
-            ],
-            staticClass: "postPhoto_form-titleInput",
-            attrs: { type: "text" },
-            domProps: { value: _vm.photoTitle },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.photoTitle = $event.target.value
-              }
+  return _c(
+    "div",
+    { staticClass: "postPhoto" },
+    [
+      _c(
+        "Loader",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.posting,
+              expression: "posting"
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "postPhoto_form-item",
-          attrs: { type: "file", name: "file" },
-          on: { change: _vm.onFileChange }
-        }),
-        _vm._v(" "),
-        _vm.preview
-          ? _c("output", { staticClass: "postPhoto_form-output" }, [
-              _c("img", { attrs: { src: _vm.preview, alt: "" } })
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm._m(0)
-      ]
-    )
-  ])
+          ],
+          staticClass: "loader"
+        },
+        [
+          _c("template", { slot: "loadingText" }, [
+            _vm._v(
+              "\n            写真を投稿中です。しばらくお待ちください。\n        "
+            )
+          ])
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("h3", [_vm._v("投稿する写真を選んでください")]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "postPhoto_form",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submit($event)
+            }
+          }
+        },
+        [
+          _vm.postPhotoErrors
+            ? _c("div", { staticClass: "errors" }, [
+                _vm.postPhotoErrors.photo_title
+                  ? _c(
+                      "ul",
+                      _vm._l(_vm.postPhotoErrors.photo_title, function(msg) {
+                        return _c("li", { key: msg }, [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(msg) +
+                              "\n                "
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  : _vm._e()
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("p", { staticClass: "postPhoto_form-titleText" }, [
+            _vm._v("\n            タイトル：\n            "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.photoTitle,
+                  expression: "photoTitle"
+                }
+              ],
+              staticClass: "postPhoto_form-titleInput",
+              attrs: { type: "text" },
+              domProps: { value: _vm.photoTitle },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.photoTitle = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm.postPhotoErrors
+            ? _c("div", { staticClass: "errors" }, [
+                _vm.postPhotoErrors.photo
+                  ? _c(
+                      "ul",
+                      _vm._l(_vm.postPhotoErrors.photo, function(msg) {
+                        return _c("li", { key: msg }, [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(msg) +
+                              "\n                "
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  : _vm._e()
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "postPhoto_form-item",
+            attrs: { type: "file", name: "file" },
+            on: { change: _vm.onFileChange }
+          }),
+          _vm._v(" "),
+          _vm.preview
+            ? _c("output", { staticClass: "postPhoto_form-output" }, [
+                _c("img", { attrs: { src: _vm.preview, alt: "" } })
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

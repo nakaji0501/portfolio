@@ -28,4 +28,17 @@ class StorePhoto extends FormRequest
             'photo' => 'required|file|mimes:jpg,jpeg,png,gif'
         ];
     }
+
+    /**
+     * 定義済みバリデーションルールのエラーメッセージ取得
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'photo_title.required' => 'タイトルを入力してください。',
+            'photo.required' => 'ファイルの形式を確認してください。(jpg, jpeg, png, gifが利用できます)',
+        ];
+    }
 }

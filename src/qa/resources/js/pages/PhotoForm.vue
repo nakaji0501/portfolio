@@ -1,11 +1,20 @@
 <template>
     <div class="postPhoto">
+
+        <Loader class="loader"
+        v-show="posting"
+        >
+            <template slot="loadingText">
+                写真を投稿中です。しばらくお待ちください。
+            </template>
+        </Loader>
+
         <h3>投稿する写真を選んでください</h3>
         <form class="postPhoto_form" @submit.prevent="submit">
 
-            <div class="errors" v-if="errors">
-                <ul v-if="errors.photo">
-                    <li v-for="msg in errors.photo"
+            <div class="errors" v-if="postPhotoErrors">
+                <ul v-if="postPhotoErrors.photo_title">
+                    <li v-for="msg in postPhotoErrors.photo_title"
                     :key="msg"
                     >
                     {{ msg }}
@@ -18,6 +27,16 @@
                 <input type="text" class="postPhoto_form-titleInput"
                 v-model="photoTitle">
             </p>
+
+            <div class="errors" v-if="postPhotoErrors">
+                <ul v-if="postPhotoErrors.photo">
+                    <li v-for="msg in postPhotoErrors.photo"
+                    :key="msg"
+                    >
+                    {{ msg }}
+                    </li>
+                </ul>
+            </div>
 
             <input type="file" class="postPhoto_form-item"
             @change="onFileChange"
@@ -36,14 +55,20 @@
 
 <script>
 import { CREATED, UNPROCESSABLE_ENTITY } from '../util'
+import Loader from '../components/Loader'
 
 export default {
+    components: {
+        Loader,
+    },
     data() {
         return {
             preview: null,
             photo: null,
             errors: null,
             photoTitle: '',
+            posting: false,
+            postPhotoErrors: null,
         }
     },
     methods: {
@@ -78,6 +103,7 @@ export default {
         },
 
         async submit() {
+            this.posting = true
 
             const formData = new FormData()
             console.log(formData);
@@ -92,11 +118,14 @@ export default {
             const response = await axios.post('/api/photos', formData, config, {
                 photo_title: this.photoTitle
             })
+            .catch(err => err.response || err);
             console.log(response)
 
+            this.posting = false
+
             if (response.status === UNPROCESSABLE_ENTITY) {
-                this.errors = response.data.errors
-                console.log(this.errors);
+                this.postPhotoErrors = response.data.errors
+                console.log(this.postPhotoErrors);
                 return false
             }
 
@@ -106,6 +135,8 @@ export default {
                 this.$store.commit('error/setCode', response.status)
                 return false
             }
+
+            this.postPhotoErrors = null,
 
             this.$router.push(`/photoList`)
         },
@@ -138,5 +169,11 @@ export default {
 img {
     width: 80%;
     height: 300px;
+}
+.errors {
+    & ul li {
+        font-size: 1.2rem;
+        color: red;
+    }
 }
 </style>
