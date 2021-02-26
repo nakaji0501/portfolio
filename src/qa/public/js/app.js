@@ -17884,7 +17884,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -18648,7 +18647,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".photoTitle[data-v-c17cd6ac] {\n  font-size: 1.4rem;\n}\n.backPage[data-v-c17cd6ac] {\n  margin-left: 8px;\n  width: 4rem;\n}\n.backPage_route[data-v-c17cd6ac] {\n  display: flex;\n}\n.backPage_route p[data-v-c17cd6ac] {\n  cursor: pointer;\n  color: #333;\n}\n.photo-detail[data-v-c17cd6ac] {\n  margin: 16px 0 24px;\n}\n.photo-detail_pane[data-v-c17cd6ac] {\n  text-align: center;\n}\n.photo-detail img[data-v-c17cd6ac] {\n  width: 90%;\n  margin: 24px 0 40px;\n}\nfigcaption[data-v-c17cd6ac] {\n  margin-bottom: 8px;\n}\nfigcaption[data-v-c17cd6ac]:last-child {\n  margin-bottom: 0;\n}", ""]);
+exports.push([module.i, ".photoTitle[data-v-c17cd6ac] {\n  font-size: 1.4rem;\n}\n.backPage[data-v-c17cd6ac] {\n  margin-left: 8px;\n  width: 4rem;\n}\n.backPage_route[data-v-c17cd6ac] {\n  display: flex;\n}\n.backPage_route p[data-v-c17cd6ac] {\n  cursor: pointer;\n  color: #333;\n}\n.photo-detail[data-v-c17cd6ac] {\n  background: #eeeae4;\n  padding: 16px 0 24px;\n}\n.photo-detail_pane[data-v-c17cd6ac] {\n  text-align: center;\n}\n.photo-detail img[data-v-c17cd6ac] {\n  width: 90%;\n  margin: 24px 0 40px;\n}\nfigcaption[data-v-c17cd6ac] {\n  margin-bottom: 12px;\n}\nfigcaption[data-v-c17cd6ac]:last-child {\n  margin-bottom: 0;\n}", ""]);
 
 // exports
 
@@ -18705,7 +18704,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".backPage[data-v-2a21ebc0] {\n  margin-left: 4px;\n  width: 4rem;\n  margin-bottom: 16px;\n}\n.backPage_route[data-v-2a21ebc0] {\n  display: flex;\n}\n.backPage_route p[data-v-2a21ebc0] {\n  cursor: pointer;\n  color: #333;\n}\ninput[data-v-2a21ebc0],\ntextarea[data-v-2a21ebc0] {\n  border: none;\n  background: transparent;\n}\ninput[data-v-2a21ebc0]:focus,\ntextarea[data-v-2a21ebc0]:focus {\n  outline: none;\n}\n.textarea[data-v-2a21ebc0] {\n  margin: 2rem auto;\n  border-top: 10px solid whitesmoke;\n  border-bottom: 10px solid whitesmoke;\n  background: #fff;\n  text-align: center;\n  resize: none;\n}\n.textarea_body[data-v-2a21ebc0] {\n  width: 90%;\n  font-size: 1.2rem;\n  line-height: 2rem;\n  margin: 0;\n  padding: 16px 0;\n}\n.QuestionDetail[data-v-2a21ebc0] {\n  background: #eeeae4;\n  padding: 32px 8px;\n}\n.QuestionDetail_title[data-v-2a21ebc0] {\n  margin: 16px 0;\n}\n.QuestionDetail_title input[data-v-2a21ebc0] {\n  font-size: 1.5rem;\n  width: 100%;\n  color: #6e5e46;\n  font-weight: bold;\n}\n.QuestionDetail_data[data-v-2a21ebc0] {\n  display: flex;\n  justify-content: space-between;\n  margin-right: 16px;\n}\n.QuestionDetail_text[data-v-2a21ebc0] {\n  margin-top: 16px;\n}\n.commentList[data-v-2a21ebc0],\n.commentForm[data-v-2a21ebc0] {\n  margin: 0 8px;\n}\n.commentForm-switch[data-v-2a21ebc0] {\n  text-align: center;\n}\n.border[data-v-2a21ebc0] {\n  border-top: 1px dashed #8c8b8b;\n  border-bottom: 1px dashed #ffffff;\n  margin: 64px 0;\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.QuestionDetail[data-v-2a21ebc0] {\n    width: 100% !important;\n    padding: 24px 10%;\n}\n}\n@media screen and (min-width: 897px) {\n.QuestionDetail[data-v-2a21ebc0] {\n    width: 100% !important;\n    padding: 32px 15%;\n}\n}", ""]);
+exports.push([module.i, ".backPage[data-v-2a21ebc0] {\n  margin-left: 4px;\n  width: 4rem;\n  margin-bottom: 16px;\n}\n.backPage_route[data-v-2a21ebc0] {\n  display: flex;\n}\n.backPage_route p[data-v-2a21ebc0] {\n  cursor: pointer;\n  color: #333;\n}\ninput[data-v-2a21ebc0],\ntextarea[data-v-2a21ebc0] {\n  border: none;\n  background: transparent;\n}\ninput[data-v-2a21ebc0]:focus,\ntextarea[data-v-2a21ebc0]:focus {\n  outline: none;\n}\n.textarea[data-v-2a21ebc0] {\n  margin: 2rem auto;\n  border-top: 10px solid whitesmoke;\n  border-bottom: 10px solid whitesmoke;\n  background: #fff;\n  text-align: center;\n  resize: none;\n}\n.textarea_body[data-v-2a21ebc0] {\n  width: 90%;\n  font-size: 1.2rem;\n  line-height: 2rem;\n  margin: 0;\n  padding: 16px 0;\n}\n.QuestionDetail[data-v-2a21ebc0] {\n  background: #eeeae4;\n  padding: 32px 8px;\n}\n.QuestionDetail_title[data-v-2a21ebc0] {\n  margin: 16px 0;\n}\n.QuestionDetail_title p[data-v-2a21ebc0] {\n  font-size: 1.5rem;\n  width: 100%;\n  color: #6e5e46;\n  font-weight: bold;\n}\n.QuestionDetail_data[data-v-2a21ebc0] {\n  display: flex;\n  justify-content: space-between;\n  margin-right: 16px;\n}\n.QuestionDetail_text[data-v-2a21ebc0] {\n  margin-top: 16px;\n}\n.commentList[data-v-2a21ebc0],\n.commentForm[data-v-2a21ebc0] {\n  margin: 0 8px;\n}\n.commentForm-switch[data-v-2a21ebc0] {\n  text-align: center;\n}\n.border[data-v-2a21ebc0] {\n  border-top: 1px dashed #8c8b8b;\n  border-bottom: 1px dashed #ffffff;\n  margin: 64px 0;\n}\n@media screen and (max-width: 896px) and (min-width: 481px) {\n.QuestionDetail[data-v-2a21ebc0] {\n    width: 100% !important;\n    padding: 24px 10%;\n}\n}\n@media screen and (min-width: 897px) {\n.QuestionDetail[data-v-2a21ebc0] {\n    width: 100% !important;\n    padding: 32px 15%;\n}\n}", ""]);
 
 // exports
 
@@ -22735,26 +22734,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "QuestionDetail_title" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.question.title,
-              expression: "question.title"
-            }
-          ],
-          attrs: { type: "text", readonly: "", id: "title" },
-          domProps: { value: _vm.question.title },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.question, "title", $event.target.value)
-            }
-          }
-        })
+        _c("p", [_vm._v(_vm._s(_vm.question.title))])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "QuestionDetail_data" }, [

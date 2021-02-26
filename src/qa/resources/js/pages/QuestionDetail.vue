@@ -18,8 +18,7 @@
             </div>
 
             <div class="QuestionDetail_title">
-                <input type="text" readonly id='title'
-                v-model="question.title">
+               <p>{{ question.title }}</p>
             </div>
 
             <div class="QuestionDetail_data">
@@ -171,7 +170,7 @@ textarea {
     padding: 32px 8px;
     &_title {
         margin: 16px 0;
-        & input {
+        & p {
             font-size: 1.5rem;
             width: 100%;
             color: #6e5e46;

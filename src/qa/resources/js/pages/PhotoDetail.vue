@@ -74,7 +74,8 @@ export default {
   }
 }
 .photo-detail {
-  margin: 16px 0 24px;
+  background: #eeeae4;
+  padding: 16px 0 24px;
   &_pane {
     text-align: center;
   }
@@ -84,7 +85,7 @@ export default {
   }
 }
 figcaption {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   &:last-child {
     margin-bottom: 0;
   }
