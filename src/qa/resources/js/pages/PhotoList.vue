@@ -1,12 +1,14 @@
 <template>
   <div class="photo-list">
 
+    <input v-model="keyword" placeholder="Search...">
+
     <div class="grid"
     v-if="photos.length">
 
     <Photo
     class="grid_item"
-    v-for="photo in photos"
+    v-for="photo in filteredPhotos"
     :key="photo.id"
     :item="photo"
     />
@@ -31,12 +33,16 @@ export default {
   data () {
     return {
       photos: [],
+      keyword: '',
     }
   },
   computed: {
     isLogin() {
         return this.$store.getters['auth/check']
     },
+    filteredPhotos() {
+        return this.filterPhotos();
+    }
   },
   methods: {
       async fetchPhotos() {
@@ -49,6 +55,17 @@ export default {
           }
 
           this.photos = response.data.data
+      },
+      filterPhotos() {
+        const filtered = [];
+        console.log(filtered);
+        for (const i in this.photos) {
+            const photo = this.photos[i];
+            if (photo.photo_title.indexOf(this.keyword) !== -1) {
+                filtered.push(photo);
+            }
+        }
+        return filtered
       }
   },
   watch: {

@@ -17722,6 +17722,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17730,12 +17732,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      photos: []
+      photos: [],
+      keyword: ''
     };
   },
   computed: {
     isLogin: function isLogin() {
       return this.$store.getters['auth/check'];
+    },
+    filteredPhotos: function filteredPhotos() {
+      return this.filterPhotos();
     }
   },
   methods: {
@@ -17774,6 +17780,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    filterPhotos: function filterPhotos() {
+      var filtered = [];
+      console.log(filtered);
+
+      for (var i in this.photos) {
+        var photo = this.photos[i];
+
+        if (photo.photo_title.indexOf(this.keyword) !== -1) {
+          filtered.push(photo);
+        }
+      }
+
+      return filtered;
     }
   },
   watch: {
@@ -22643,11 +22663,32 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "photo-list" }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.keyword,
+          expression: "keyword"
+        }
+      ],
+      attrs: { placeholder: "Search..." },
+      domProps: { value: _vm.keyword },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.keyword = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
     _vm.photos.length
       ? _c(
           "div",
           { staticClass: "grid" },
-          _vm._l(_vm.photos, function(photo) {
+          _vm._l(_vm.filteredPhotos, function(photo) {
             return _c("Photo", {
               key: photo.id,
               staticClass: "grid_item",
