@@ -8,14 +8,13 @@
       <img
         class="photo__image"
         :src="item.url"
-        :alt="`Photo by ${item.owner.name}`"
+        :alt="`Photo by ${item.photo_title}`"
       >
     </figure>
     </router-link>
 
-    <div class="photo username">
+    <div class="photoTitle">
         {{ item.photo_title }}
-        {{ item.owner.name}}
     </div>
   </div>
 </template>
@@ -34,6 +33,10 @@ export default {
 <style scoped>
 .photo__image {
   height: 100px;
+  width: 100px;
+}
+.photoTitle {
+  margin-top: 8px;
   width: 100px;
 }
 </style>

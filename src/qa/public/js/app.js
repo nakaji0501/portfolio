@@ -17032,7 +17032,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     item: {
@@ -17420,6 +17419,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -18648,7 +18648,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".backPage[data-v-c17cd6ac] {\n  margin-left: 8px;\n  width: 4rem;\n}\n.backPage_route[data-v-c17cd6ac] {\n  display: flex;\n}\n.backPage_route p[data-v-c17cd6ac] {\n  cursor: pointer;\n  color: #333;\n}\n.photo-detail[data-v-c17cd6ac] {\n  margin: 16px 0 24px;\n}\n.photo-detail_pane[data-v-c17cd6ac] {\n  text-align: center;\n}\n.photo-detail img[data-v-c17cd6ac] {\n  width: 90%;\n  margin: 24px 0 40px;\n}", ""]);
+exports.push([module.i, ".photoTitle[data-v-c17cd6ac] {\n  font-size: 1.4rem;\n}\n.backPage[data-v-c17cd6ac] {\n  margin-left: 8px;\n  width: 4rem;\n}\n.backPage_route[data-v-c17cd6ac] {\n  display: flex;\n}\n.backPage_route p[data-v-c17cd6ac] {\n  cursor: pointer;\n  color: #333;\n}\n.photo-detail[data-v-c17cd6ac] {\n  margin: 16px 0 24px;\n}\n.photo-detail_pane[data-v-c17cd6ac] {\n  text-align: center;\n}\n.photo-detail img[data-v-c17cd6ac] {\n  width: 90%;\n  margin: 24px 0 40px;\n}\nfigcaption[data-v-c17cd6ac] {\n  margin-bottom: 8px;\n}\nfigcaption[data-v-c17cd6ac]:last-child {\n  margin-bottom: 0;\n}", ""]);
 
 // exports
 
@@ -18838,7 +18838,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.photo__image[data-v-c0696452] {\n  height: 100px;\n  width: 100px;\n}\n", ""]);
+exports.push([module.i, "\n.photo__image[data-v-c0696452] {\n  height: 100px;\n  width: 100px;\n}\n.photoTitle[data-v-c0696452] {\n  margin-top: 8px;\n  width: 100px;\n}\n", ""]);
 
 // exports
 
@@ -21870,19 +21870,16 @@ var render = function() {
         _c("figure", { staticClass: "photo__wrapper" }, [
           _c("img", {
             staticClass: "photo__image",
-            attrs: { src: _vm.item.url, alt: "Photo by " + _vm.item.owner.name }
+            attrs: {
+              src: _vm.item.url,
+              alt: "Photo by " + _vm.item.photo_title
+            }
           })
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "photo username" }, [
-        _vm._v(
-          "\n      " +
-            _vm._s(_vm.item.photo_title) +
-            "\n      " +
-            _vm._s(_vm.item.owner.name) +
-            "\n  "
-        )
+      _c("div", { staticClass: "photoTitle" }, [
+        _vm._v("\n      " + _vm._s(_vm.item.photo_title) + "\n  ")
       ])
     ],
     1
@@ -22500,6 +22497,10 @@ var render = function() {
         _vm._v(" "),
         _c("figure", { staticClass: "photo-detail_pane photo-detail__image" }, [
           _c("img", { attrs: { src: _vm.photo.url, alt: "" } }),
+          _vm._v(" "),
+          _c("figcaption", { staticClass: "photoTitle" }, [
+            _vm._v(" " + _vm._s(_vm.photo.photo_title))
+          ]),
           _vm._v(" "),
           _c("figcaption", [
             _vm._v("投稿者： " + _vm._s(_vm.photo.owner.name))

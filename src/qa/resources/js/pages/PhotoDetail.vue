@@ -12,6 +12,7 @@
 
     <figure class="photo-detail_pane photo-detail__image">
       <img :src="photo.url" alt="">
+      <figcaption class="photoTitle"> {{ photo.photo_title }}</figcaption>
       <figcaption>投稿者： {{ photo.owner.name }}</figcaption>
       <figcaption>投稿日： {{ photo.created_at }}</figcaption>
     </figure>
@@ -58,6 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.photoTitle {
+  font-size: 1.4rem;
+}
 .backPage {
   margin-left: 8px;
   width: 4rem;
@@ -77,6 +81,12 @@ export default {
   & img {
     width: 90%;
     margin: 24px 0 40px;
+  }
+}
+figcaption {
+  margin-bottom: 8px;
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 </style>
