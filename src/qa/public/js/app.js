@@ -17032,6 +17032,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     item: {
@@ -17566,13 +17567,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       preview: null,
       photo: null,
-      errors: null
+      errors: null,
+      photoTitle: ''
     };
   },
   methods: {
@@ -17601,7 +17609,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.photo = event.target.files[0];
     },
     reset: function reset() {
-      this.preview = '', this.photo = null, this.$el.querySelector('input[type="file"]').value = null;
+      this.preview = '', this.photo = null, this.photoTitle, this.$el.querySelector('input[type="file"]').value = null;
     },
     submit: function submit() {
       var _this2 = this;
@@ -17617,7 +17625,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 if (_this2.photo !== "") {
                   formData.append('photo', _this2.photo);
+                  formData.append('photo_title', _this2.photoTitle);
                   console.log(_this2.photo);
+                  console.log(_this2.photoTitle);
                 }
 
                 config = {
@@ -17626,7 +17636,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 };
                 _context.next = 6;
-                return axios.post('/api/photos', formData, config);
+                return axios.post('/api/photos', formData, config, {
+                  photo_title: _this2.photoTitle
+                });
 
               case 6:
                 response = _context.sent;
@@ -18655,7 +18667,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".postPhoto[data-v-0c25b3dd] {\n  margin: 64px 0 120px;\n  text-align: center;\n}\n.postPhoto h3[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form-item[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form button[data-v-0c25b3dd] {\n  font-size: 1.2rem;\n}\nimg[data-v-0c25b3dd] {\n  width: 80%;\n  height: 300px;\n}", ""]);
+exports.push([module.i, ".postPhoto[data-v-0c25b3dd] {\n  margin: 64px 0 120px;\n  text-align: center;\n}\n.postPhoto h3[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form[data-v-0c25b3dd] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.postPhoto_form-titleText[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form-item[data-v-0c25b3dd] {\n  margin-bottom: 24px;\n}\n.postPhoto_form button[data-v-0c25b3dd] {\n  font-size: 1.2rem;\n}\nimg[data-v-0c25b3dd] {\n  width: 80%;\n  height: 300px;\n}", ""]);
 
 // exports
 
@@ -21864,7 +21876,13 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "photo username" }, [
-        _vm._v("\n      " + _vm._s(_vm.item.owner.name) + "\n  ")
+        _vm._v(
+          "\n      " +
+            _vm._s(_vm.item.photo_title) +
+            "\n      " +
+            _vm._s(_vm.item.owner.name) +
+            "\n  "
+        )
       ])
     ],
     1
@@ -22548,6 +22566,31 @@ var render = function() {
                 : _vm._e()
             ])
           : _vm._e(),
+        _vm._v(" "),
+        _c("p", { staticClass: "postPhoto_form-titleText" }, [
+          _vm._v("\n            タイトル：\n            "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.photoTitle,
+                expression: "photoTitle"
+              }
+            ],
+            staticClass: "postPhoto_form-titleInput",
+            attrs: { type: "text" },
+            domProps: { value: _vm.photoTitle },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.photoTitle = $event.target.value
+              }
+            }
+          })
+        ]),
         _vm._v(" "),
         _c("input", {
           staticClass: "postPhoto_form-item",

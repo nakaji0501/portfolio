@@ -40,6 +40,9 @@ class PhotoController extends Controller
 
         $photo = new Photo();
 
+        $photo->photo_title = $request->photo_title;
+        // photos()->save($photoTitle);
+
         // インスタンス生成時に割り振られたランダムなID値と
         // 本来の拡張子を組み合わせてファイル名とする
         $photo->filename = $photo->id . '.' . $extension;
@@ -55,6 +58,7 @@ class PhotoController extends Controller
 
         try {
             Auth::user()->photos()->save($photo);
+            // Auth::user()->photos()->save($photo_title);
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollBack();

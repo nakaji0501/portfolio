@@ -14,6 +14,7 @@
     </router-link>
 
     <div class="photo username">
+        {{ item.photo_title }}
         {{ item.owner.name}}
     </div>
   </div>

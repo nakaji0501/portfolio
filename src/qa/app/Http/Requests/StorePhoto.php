@@ -24,6 +24,7 @@ class StorePhoto extends FormRequest
     public function rules()
     {
         return [
+            'photo_title' => 'required',
             'photo' => 'required|file|mimes:jpg,jpeg,png,gif'
         ];
     }

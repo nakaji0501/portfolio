@@ -16,6 +16,7 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->unsignedBigInteger('user_id');
+            $table->string('photo_title', 250);
             $table->string('filename');
             $table->timestamps();
 

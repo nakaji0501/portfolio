@@ -13,6 +13,12 @@
                 </ul>
             </div>
 
+            <p class="postPhoto_form-titleText">
+                タイトル：
+                <input type="text" class="postPhoto_form-titleInput"
+                v-model="photoTitle">
+            </p>
+
             <input type="file" class="postPhoto_form-item"
             @change="onFileChange"
             name="file"
@@ -37,6 +43,7 @@ export default {
             preview: null,
             photo: null,
             errors: null,
+            photoTitle: '',
         }
     },
     methods: {
@@ -66,6 +73,7 @@ export default {
         reset() {
             this.preview = '',
             this.photo = null,
+            this.photoTitle,
             this.$el.querySelector('input[type="file"]').value = null
         },
 
@@ -75,11 +83,15 @@ export default {
             console.log(formData);
             if (this.photo !== "") {
                 formData.append('photo', this.photo)
+                formData.append('photo_title', this.photoTitle)
                 console.log(this.photo);
+                console.log(this.photoTitle);
             }
             const config = { headers: { "content-type": "multipart/form-data" } };
 
-            const response = await axios.post('/api/photos', formData, config)
+            const response = await axios.post('/api/photos', formData, config, {
+                photo_title: this.photoTitle
+            })
             console.log(response)
 
             if (response.status === UNPROCESSABLE_ENTITY) {
@@ -109,6 +121,12 @@ export default {
         margin-bottom: 24px;
     }
     &_form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &-titleText {
+            margin-bottom: 24px;
+        }
         &-item {
             margin-bottom: 24px;
         }
