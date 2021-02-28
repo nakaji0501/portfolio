@@ -7,7 +7,7 @@
             >
 
             <div class="navbar_title-name">
-                <h1>生産管理アプリ</h1>
+                <h1>生産記録アプリ</h1>
             </div>
             </router-link>
 

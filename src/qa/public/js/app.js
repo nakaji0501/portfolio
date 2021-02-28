@@ -17087,6 +17087,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     isLogin: function isLogin() {
@@ -18222,7 +18223,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
 //
 //
 //
@@ -21772,7 +21772,7 @@ var render = function() {
             { staticClass: "navbar_title content_flex", attrs: { to: "/" } },
             [
               _c("div", { staticClass: "navbar_title-name" }, [
-                _c("h1", [_vm._v("生産管理アプリ")])
+                _c("h1", [_vm._v("生産記録アプリ")])
               ])
             ]
           ),
@@ -21989,17 +21989,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm.isLogin,
-          expression: "isLogin"
-        }
-      ],
-      staticClass: "tag"
-    },
+    { staticClass: "tag" },
     [
       this.$route.path !== "/"
         ? _c("router-link", { attrs: { to: "/" } }, [
@@ -22008,15 +21998,43 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       this.$route.path !== "/questionForm"
-        ? _c("router-link", { attrs: { to: "/questionForm" } }, [
-            _c("p", { staticClass: "tag_postQuestion" }, [_vm._v("記録する")])
-          ])
+        ? _c(
+            "router-link",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.isLogin,
+                  expression: "isLogin"
+                }
+              ],
+              attrs: { to: "/questionForm" }
+            },
+            [_c("p", { staticClass: "tag_postQuestion" }, [_vm._v("記録する")])]
+          )
         : _vm._e(),
       _vm._v(" "),
       this.$route.path !== "/PhotoForm"
-        ? _c("router-link", { attrs: { to: "/PhotoForm" } }, [
-            _c("p", { staticClass: "tag_showPhotoForm" }, [_vm._v("写真保存")])
-          ])
+        ? _c(
+            "router-link",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.isLogin,
+                  expression: "isLogin"
+                }
+              ],
+              attrs: { to: "/PhotoForm" }
+            },
+            [
+              _c("p", { staticClass: "tag_showPhotoForm" }, [
+                _vm._v("写真保存")
+              ])
+            ]
+          )
         : _vm._e(),
       _vm._v(" "),
       this.$route.path !== "/photoList"
@@ -23170,7 +23188,7 @@ var render = function() {
                             }
                           },
                           [
-                            _vm._v("\n                    題名："),
+                            _vm._v("\n                    型番："),
                             _c("span", [_vm._v(_vm._s(question.title))])
                           ]
                         ),
@@ -23191,10 +23209,6 @@ var render = function() {
                             _c("span", [_vm._v(_vm._s(question.message))])
                           ]
                         ),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "fs-08" }, [
-                          _vm._v("投稿者：" + _vm._s(question.user.name))
-                        ]),
                         _vm._v(" "),
                         _c("p", { staticClass: "fs-08" }, [
                           _vm._v("投稿日：" + _vm._s(question.created_at))

@@ -1,6 +1,5 @@
 <template>
     <div class="tag"
-        v-show="isLogin"
         >
             <router-link
             to="/"
@@ -11,6 +10,7 @@
 
             <router-link
             to="/questionForm"
+            v-show="isLogin"
             v-if="this.$route.path !== '/questionForm'"
             >
                 <p class="tag_postQuestion">記録する</p>
@@ -18,6 +18,7 @@
 
             <router-link
             to="/PhotoForm"
+            v-show="isLogin"
             v-if="this.$route.path !== '/PhotoForm'"
             >
                 <p class="tag_showPhotoForm">写真保存</p>

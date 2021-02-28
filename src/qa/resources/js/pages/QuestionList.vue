@@ -17,14 +17,13 @@
                     <h3 class="title"
                     @click.prevent="moveDetailPage(question.id)"
                     >
-                    題名：<span>{{ question.title }}</span>
+                    型番：<span>{{ question.title }}</span>
                     </h3>
                     <p class="mainText"
                     @click.prevent="moveDetailPage(question.id)"
                     >
                     本文：<span>{{ question.message }}</span>
                     </p>
-                    <p class="fs-08">投稿者：{{ question.user.name }}</p>
                     <p class="fs-08">投稿日：{{ question.created_at }}</p>
                 </div>
 
