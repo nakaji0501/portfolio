@@ -17,29 +17,29 @@
       <figcaption>投稿日： {{ photo.created_at }}</figcaption>
     </figure>
 
-<div class="photos_delete"
-                v-show="isLogin"
-                >
-    <button class="button"
-    v-if="photo.owner.id == userId"
-    @click.prevent="deleteConfirm(photo.id)"
+    <div class="photos_delete"
+    v-show="isLogin"
     >
-    削除
-    </button>
-</div>
+      <button class="button"
+      v-if="photo.owner.id == userId"
+      @click.prevent="deleteConfirm(photo.id)"
+      >
+      削除
+      </button>
+    </div>
 
     <ConfirmModal class="confirmModal"
     v-if="showModal"
     >
-        <template slot="confirmText">
-            <p>本当に削除しますか？</p>
-        </template>
-        <template slot="selectAction">
-            <button @click="closeModal()">キャンセル</button>
-        </template>
-        <template slot="selectAction">
-            <button @click="deletePhoto(deleteTargetID)">削除する</button>
-        </template>
+      <template slot="confirmText">
+          <p>本当に削除しますか？</p>
+      </template>
+      <template slot="selectAction">
+          <button @click="closeModal()">キャンセル</button>
+      </template>
+      <template slot="selectAction">
+          <button @click="deletePhoto(deleteTargetID)">削除する</button>
+      </template>
     </ConfirmModal>
 
   </div>
@@ -51,7 +51,7 @@ import ConfirmModal from '../components/ConfirmModal'
 
 export default {
   components: {
-        ConfirmModal,
+    ConfirmModal,
   },
   props: {
     id: {
@@ -62,18 +62,18 @@ export default {
   data () {
     return {
       photo: null,
-                  showModal: false,
-            deleteTargetID: null,
+      showModal: false,
+      deleteTargetID: null,
     }
   },
-      computed: {
-        isLogin() {
-            return this.$store.getters['auth/check']
-        },
-        userId() {
-            return this.$store.getters['auth/userId']
-        },
+  computed: {
+    isLogin() {
+        return this.$store.getters['auth/check']
     },
+    userId() {
+        return this.$store.getters['auth/userId']
+    },
+  },
   methods: {
     async fetchPhoto () {
       const response = await axios.get(`/api/photos/${this.id}`)
@@ -86,30 +86,29 @@ export default {
 
       this.photo = response.data
     },
-            async deletePhoto(targetID) {
-            const response = await axios.delete('/api/photos/' + targetID)
-            .catch(function(err) {
-                return err.response || err;
-            });
-            console.log(response);
+    async deletePhoto(targetID) {
+    const response = await axios.delete('/api/photos/' + targetID)
+    .catch(function(err) {
+        return err.response || err;
+    });
 
-            if (response.status === NOT_FOUND) {
-                this.$router.push("/404");
-            } else if (response.status === INTERNAL_SERVER_ERROR) {
-                this.$router.push("/500");
-            }
+    if (response.status === NOT_FOUND) {
+        this.$router.push("/404");
+    } else if (response.status === INTERNAL_SERVER_ERROR) {
+        this.$router.push("/500");
+    }
 
-            this.closeModal();
-            this.$router.push('/PhotoList')
-        },
-         deleteConfirm(targetID) {
-            this.showModal = true;
-            this.deleteTargetID = targetID;
-        },
-        closeModal() {
-            this.showModal = false;
-            this.targetID = null;
-        },
+    this.closeModal();
+    this.$router.push('/PhotoList')
+    },
+      deleteConfirm(targetID) {
+        this.showModal = true;
+        this.deleteTargetID = targetID;
+    },
+    closeModal() {
+        this.showModal = false;
+        this.targetID = null;
+    },
   },
   watch: {
     $route: {
@@ -153,5 +152,9 @@ figcaption {
   &:last-child {
     margin-bottom: 0;
   }
+}
+.photos_delete {
+  text-align: center;
+  margin: 16px 0 0;
 }
 </style>

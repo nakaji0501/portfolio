@@ -17548,7 +17548,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 response = _context2.sent;
-                console.log(response);
 
                 if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["NOT_FOUND"]) {
                   _this2.$router.push("/404");
@@ -17560,7 +17559,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this2.$router.push('/PhotoList');
 
-              case 7:
+              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -18782,7 +18781,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".photoTitle[data-v-c17cd6ac] {\n  font-size: 1.4rem;\n}\n.backPage[data-v-c17cd6ac] {\n  margin-left: 8px;\n  width: 4rem;\n}\n.backPage_route[data-v-c17cd6ac] {\n  display: flex;\n}\n.backPage_route p[data-v-c17cd6ac] {\n  cursor: pointer;\n  color: #333;\n}\n.photo-detail[data-v-c17cd6ac] {\n  background: #eeeae4;\n  padding: 16px 0 24px;\n}\n.photo-detail_pane[data-v-c17cd6ac] {\n  text-align: center;\n}\n.photo-detail img[data-v-c17cd6ac] {\n  width: 90%;\n  margin: 24px 0 40px;\n}\nfigcaption[data-v-c17cd6ac] {\n  margin-bottom: 12px;\n}\nfigcaption[data-v-c17cd6ac]:last-child {\n  margin-bottom: 0;\n}", ""]);
+exports.push([module.i, ".photoTitle[data-v-c17cd6ac] {\n  font-size: 1.4rem;\n}\n.backPage[data-v-c17cd6ac] {\n  margin-left: 8px;\n  width: 4rem;\n}\n.backPage_route[data-v-c17cd6ac] {\n  display: flex;\n}\n.backPage_route p[data-v-c17cd6ac] {\n  cursor: pointer;\n  color: #333;\n}\n.photo-detail[data-v-c17cd6ac] {\n  background: #eeeae4;\n  padding: 16px 0 24px;\n}\n.photo-detail_pane[data-v-c17cd6ac] {\n  text-align: center;\n}\n.photo-detail img[data-v-c17cd6ac] {\n  width: 90%;\n  margin: 24px 0 40px;\n}\nfigcaption[data-v-c17cd6ac] {\n  margin-bottom: 12px;\n}\nfigcaption[data-v-c17cd6ac]:last-child {\n  margin-bottom: 0;\n}\n.photos_delete[data-v-c17cd6ac] {\n  text-align: center;\n  margin: 16px 0 0;\n}", ""]);
 
 // exports
 
