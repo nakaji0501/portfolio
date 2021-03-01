@@ -83,4 +83,16 @@ class PhotoController extends Controller
 
         return $photo ?? abort(404);
     }
+
+    /**
+     * 投稿と紐づく返信を削除
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $photo = Photo::findOrFail($id);
+        $photo->delete();
+
+        return response($photo, 204);
+    }
 }

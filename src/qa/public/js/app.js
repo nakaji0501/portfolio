@@ -17414,6 +17414,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _components_ConfirmModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ConfirmModal */ "./resources/js/components/ConfirmModal.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -17441,8 +17442,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ConfirmModal: _components_ConfirmModal__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   props: {
     id: {
       type: String,
@@ -17451,8 +17482,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      photo: null
+      photo: null,
+      showModal: false,
+      deleteTargetID: null
     };
+  },
+  computed: {
+    isLogin: function isLogin() {
+      return this.$store.getters['auth/check'];
+    },
+    userId: function userId() {
+      return this.$store.getters['auth/userId'];
+    }
   },
   methods: {
     fetchPhoto: function fetchPhoto() {
@@ -17490,27 +17531,71 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    deletePhoto: function deletePhoto(targetID) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios["delete"]('/api/photos/' + targetID)["catch"](function (err) {
+                  return err.response || err;
+                });
+
+              case 2:
+                response = _context2.sent;
+                console.log(response);
+
+                if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["NOT_FOUND"]) {
+                  _this2.$router.push("/404");
+                } else if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["INTERNAL_SERVER_ERROR"]) {
+                  _this2.$router.push("/500");
+                }
+
+                _this2.closeModal();
+
+                _this2.$router.push('/PhotoList');
+
+              case 7:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    deleteConfirm: function deleteConfirm(targetID) {
+      this.showModal = true;
+      this.deleteTargetID = targetID;
+    },
+    closeModal: function closeModal() {
+      this.showModal = false;
+      this.targetID = null;
     }
   },
   watch: {
     $route: {
       handler: function handler() {
-        var _this2 = this;
+        var _this3 = this;
 
-        return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
             while (1) {
-              switch (_context2.prev = _context2.next) {
+              switch (_context3.prev = _context3.next) {
                 case 0:
-                  _context2.next = 2;
-                  return _this2.fetchPhoto();
+                  _context3.next = 2;
+                  return _this3.fetchPhoto();
 
                 case 2:
                 case "end":
-                  return _context2.stop();
+                  return _context3.stop();
               }
             }
-          }, _callee2);
+          }, _callee3);
         }))();
       },
       immediate: true
@@ -22536,46 +22621,130 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.photo
-    ? _c("div", { staticClass: "photo-detail" }, [
-        _c(
-          "div",
-          { staticClass: "backPage" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "backPage_route", attrs: { to: "/PhotoList" } },
-              [
-                _c(
-                  "p",
-                  [
-                    _c("font-awesome-icon", {
-                      attrs: { icon: ["fas", "arrow-left"] }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("p", [_vm._v("戻る")])
-              ]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("figure", { staticClass: "photo-detail_pane photo-detail__image" }, [
-          _c("img", { attrs: { src: _vm.photo.url, alt: "" } }),
+    ? _c(
+        "div",
+        { staticClass: "photo-detail" },
+        [
+          _c(
+            "div",
+            { staticClass: "backPage" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "backPage_route", attrs: { to: "/PhotoList" } },
+                [
+                  _c(
+                    "p",
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "arrow-left"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("戻る")])
+                ]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("figcaption", { staticClass: "photoTitle" }, [
-            _vm._v(" " + _vm._s(_vm.photo.photo_title))
-          ]),
+          _c(
+            "figure",
+            { staticClass: "photo-detail_pane photo-detail__image" },
+            [
+              _c("img", { attrs: { src: _vm.photo.url, alt: "" } }),
+              _vm._v(" "),
+              _c("figcaption", { staticClass: "photoTitle" }, [
+                _vm._v(" " + _vm._s(_vm.photo.photo_title))
+              ]),
+              _vm._v(" "),
+              _c("figcaption", [
+                _vm._v("投稿者： " + _vm._s(_vm.photo.owner.name))
+              ]),
+              _vm._v(" "),
+              _c("figcaption", [
+                _vm._v("投稿日： " + _vm._s(_vm.photo.created_at))
+              ])
+            ]
+          ),
           _vm._v(" "),
-          _c("figcaption", [
-            _vm._v("投稿者： " + _vm._s(_vm.photo.owner.name))
-          ]),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.isLogin,
+                  expression: "isLogin"
+                }
+              ],
+              staticClass: "photos_delete"
+            },
+            [
+              _vm.photo.owner.id == _vm.userId
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "button",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.deleteConfirm(_vm.photo.id)
+                        }
+                      }
+                    },
+                    [_vm._v("\n    削除\n    ")]
+                  )
+                : _vm._e()
+            ]
+          ),
           _vm._v(" "),
-          _c("figcaption", [_vm._v("投稿日： " + _vm._s(_vm.photo.created_at))])
-        ])
-      ])
+          _vm.showModal
+            ? _c(
+                "ConfirmModal",
+                { staticClass: "confirmModal" },
+                [
+                  _c("template", { slot: "confirmText" }, [
+                    _c("p", [_vm._v("本当に削除しますか？")])
+                  ]),
+                  _vm._v(" "),
+                  _c("template", { slot: "selectAction" }, [
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.closeModal()
+                          }
+                        }
+                      },
+                      [_vm._v("キャンセル")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("template", { slot: "selectAction" }, [
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.deletePhoto(_vm.deleteTargetID)
+                          }
+                        }
+                      },
+                      [_vm._v("削除する")]
+                    )
+                  ])
+                ],
+                2
+              )
+            : _vm._e()
+        ],
+        1
+      )
     : _vm._e()
 }
 var staticRenderFns = []

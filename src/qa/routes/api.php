@@ -41,16 +41,12 @@ Route::get('/user', fn() => Auth::user())->name('user');
 //////////QuestionController//////////
 // 質問一覧
 Route::get('/questions', 'QuestionController@index')->name('question.index');
-
 // 質問登録
 Route::post('/questions', 'QuestionController@create')->name('question.create');
-
 // 質問詳細取得
 Route::get('/questions/{id}', 'QuestionController@detaile')->name('question.detaile');
-
 // 質問削除
 Route::delete('/questions/{id}', 'QuestionController@delete')->name('question.delete');
-
 
 //////////CommentController//////////
 /// コメント投稿
@@ -65,3 +61,5 @@ Route::post('/photos', 'PhotoController@create')->name('photo.create');
 Route::get('/photos', 'PhotoController@index')->name('photo.index');
 // 写真詳細
 Route::get('/photos/{id}', 'PhotoController@show')->name('photo.show');
+// 写真削除
+Route::delete('/photos/{id}', 'PhotoController@delete')->name('photo.delete');

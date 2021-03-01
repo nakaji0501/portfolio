@@ -16,13 +16,43 @@
       <figcaption>投稿者： {{ photo.owner.name }}</figcaption>
       <figcaption>投稿日： {{ photo.created_at }}</figcaption>
     </figure>
+
+<div class="photos_delete"
+                v-show="isLogin"
+                >
+    <button class="button"
+    v-if="photo.owner.id == userId"
+    @click.prevent="deleteConfirm(photo.id)"
+    >
+    削除
+    </button>
+</div>
+
+    <ConfirmModal class="confirmModal"
+    v-if="showModal"
+    >
+        <template slot="confirmText">
+            <p>本当に削除しますか？</p>
+        </template>
+        <template slot="selectAction">
+            <button @click="closeModal()">キャンセル</button>
+        </template>
+        <template slot="selectAction">
+            <button @click="deletePhoto(deleteTargetID)">削除する</button>
+        </template>
+    </ConfirmModal>
+
   </div>
 </template>
 
 <script>
-import { OK } from '../util'
+import { OK, NOT_FOUND, INTERNAL_SERVER_ERROR } from '../util'
+import ConfirmModal from '../components/ConfirmModal'
 
 export default {
+  components: {
+        ConfirmModal,
+  },
   props: {
     id: {
       type: String,
@@ -31,9 +61,19 @@ export default {
   },
   data () {
     return {
-      photo: null
+      photo: null,
+                  showModal: false,
+            deleteTargetID: null,
     }
   },
+      computed: {
+        isLogin() {
+            return this.$store.getters['auth/check']
+        },
+        userId() {
+            return this.$store.getters['auth/userId']
+        },
+    },
   methods: {
     async fetchPhoto () {
       const response = await axios.get(`/api/photos/${this.id}`)
@@ -45,7 +85,31 @@ export default {
       }
 
       this.photo = response.data
-    }
+    },
+            async deletePhoto(targetID) {
+            const response = await axios.delete('/api/photos/' + targetID)
+            .catch(function(err) {
+                return err.response || err;
+            });
+            console.log(response);
+
+            if (response.status === NOT_FOUND) {
+                this.$router.push("/404");
+            } else if (response.status === INTERNAL_SERVER_ERROR) {
+                this.$router.push("/500");
+            }
+
+            this.closeModal();
+            this.$router.push('/PhotoList')
+        },
+         deleteConfirm(targetID) {
+            this.showModal = true;
+            this.deleteTargetID = targetID;
+        },
+        closeModal() {
+            this.showModal = false;
+            this.targetID = null;
+        },
   },
   watch: {
     $route: {
